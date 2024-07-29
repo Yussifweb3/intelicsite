@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Enrollment Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 20px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 1000px;
+        }
+
+        .form-container h2 {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333;
+        }
+
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            flex: 1 1 45%;
+            margin: 10px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .form-group.captcha {
+            align-items: center;
+            flex: 1 1 100%;
+        }
+
+        .form-group input[type="submit"] {
+            background-color: #2979FF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+        }
+
+        .form-group input[type="submit"]:hover {
+            background-color: #004d99;
+        }
+
+        .form-group.captcha input {
+            flex: 1;
+            margin-left: 0;
+        }
+
+        .form-group .captcha-code {
+            flex: 1;
+            margin-left: 0;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .form-group .generate-captcha {
+            background-color: #2979FF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            margin-left: 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .form-group .generate-captcha:hover {
+            background-color: #004d99;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Course Enrollment Form</h2>
+        <form onsubmit="return validateCaptcha()">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="middleName">Middle Name</label>
+                    <input type="text" id="middleName" name="middleName">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <input type="text" id="country" name="country" required>
+                </div>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" id="city" name="city" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="education">Education Level</label>
+                    <input type="text" id="education" name="education" required>
+                </div>
+                <div class="form-group">
+                    <label for="currentJob">Current Job</label>
+                    <input type="text" id="currentJob" name="currentJob" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="whyChoose">Why Choosing This Course</label>
+                    <textarea id="whyChoose" name="whyChoose" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="expectations">What You Expect From The Course</label>
+                    <textarea id="expectations" name="expectations" rows="3" required></textarea>
+                </div>
+            </div>
+            <div class="form-row form-group captcha">
+                <label for="captchaInput">CAPTCHA:</label>
+                <span id="captchaCode" class="captcha-code"></span>
+                <input type="text" id="captchaInput" name="captchaInput" required>
+                <button type="button" class="generate-captcha" onclick="generateCaptcha()">Generate New Code</button>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Study Now">
+                <a href="databse.html">database</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function generateCaptcha() {
+            var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            var captchaCode = '';
+            for (var i = 0; i < 5; i++) {
+                captchaCode += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            document.getElementById('captchaCode').innerText = captchaCode;
+        }
+
+        function validateCaptcha() {
+            var captchaInput = document.getElementById('captchaInput').value;
+            var captchaCode = document.getElementById('captchaCode').innerText;
+            if (captchaInput !== captchaCode) {
+                alert('CAPTCHA incorrect. Please try again.');
+                generateCaptcha();
+                return false;
+            }
+            // Redirect to the learning dashboard page
+            window.location.href = 'learningDashboard.html';
+            return false;
+        }
+
+        // Generate the initial CAPTCHA code when the page loads
+        window.onload = function() {
+            generateCaptcha();
+        }
+    </script>
+</body>
+</html>

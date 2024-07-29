@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Progress</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #4CAF50;
+            color: white;
+        }
+        .header h1 {
+            margin: 0;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+        .progress-bar {
+            width: 100%;
+            background-color: #f3f3f3;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        .progress-bar div {
+            height: 24px;
+            background-color: #4CAF50;
+            width: 50%; /* Update with dynamic progress */
+            text-align: center;
+            color: white;
+            line-height: 24px;
+            border-radius: 5px 0 0 5px;
+        }
+        .recent-activities, .upcoming-deadlines {
+            list-style: none;
+            padding: 0;
+        }
+        .recent-activities li, .upcoming-deadlines li {
+            background-color: #e7f4e4;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #4CAF50;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Student Progress</h1>
+        </div>
+
+        <div class="section">
+            <h2>Course Progress</h2>
+            <div class="progress-bar">
+                <div style="width: 75%;">75%</div> <!-- Dynamic progress -->
+            </div>
+            <div class="progress-bar">
+                <div style="width: 40%;">40%</div> <!-- Dynamic progress -->
+            </div>
+            <div class="progress-bar">
+                <div style="width: 90%;">90%</div> <!-- Dynamic progress -->
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Recent Activities</h2>
+            <ul class="recent-activities">
+                <li>Completed Chapter 3 in Math</li>
+                <li>Submitted assignment for Science</li>
+                <li>Attended live class for History</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Upcoming Deadlines</h2>
+            <ul class="upcoming-deadlines">
+                <li>Math assignment due on July 30</li>
+                <li>Science project due on August 5</li>
+                <li>History exam on August 10</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Online School. All rights reserved.</p>
+    </div>
+</body>
+</html>

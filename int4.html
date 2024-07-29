@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academica - Your Online University</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e9ecef;
+            color: #333;
+        }
+
+        header {
+            background-color: #343a40;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #495057;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            position: relative;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px 15px;
+            display: block;
+        }
+
+        nav ul li:hover > ul {
+            display: block;
+        }
+
+        nav ul ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #495057;
+            padding: 0;
+            list-style: none;
+            z-index: 1000;
+        }
+
+        nav ul ul li {
+            width: 200px;
+            margin: 0;
+        }
+
+        nav ul ul li a {
+            padding: 10px;
+        }
+
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 400px;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            position: absolute;
+            animation: slide 20s infinite;
+        }
+
+        @keyframes slide {
+            0% { left: 100%; }
+            25% { left: 0; }
+            50% { left: 0; }
+            75% { left: -100%; }
+            100% { left: -100%; }
+        }
+
+        .content {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .content h1 {
+            font-size: 40px;
+            color: #212529;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 18px;
+            color: #495057;
+            margin: 0;
+        }
+
+        .programs-section {
+            background-color: #ffffff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .programs-section h2 {
+            font-size: 36px;
+            color: #212529;
+            margin-bottom: 40px;
+        }
+
+        .programs-section .programs {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .programs-section .program {
+            background-color: #f8f9fa;
+            margin: 20px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            min-width: 280px;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .programs-section .program:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .programs-section .program h3 {
+            color: #007bff;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .programs-section .program p {
+            color: #495057;
+            font-size: 16px;
+        }
+
+        .testimonial-section {
+            background-color: #007bff;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .testimonial-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .testimonials {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .testimonial {
+            background-color: #ffffff;
+            color: #333;
+            margin: 20px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            min-width: 280px;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .testimonial p {
+            font-size: 16px;
+            color: #495057;
+        }
+
+        .testimonial h3 {
+            font-size: 22px;
+            color: #007bff;
+            margin-top: 10px;
+        }
+
+        .video-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .video-section video {
+            width: 90%;
+            max-width: 800px;
+            border-radius: 8px;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+
+        footer ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        footer ul li a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Academica - Your Online University</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="academica.html">Home</a></li>
+            <li><a href="#">Curriculum</a>
+                <ul>
+                    <li><a href="subjects.html">Nacca</a></li>
+                    <li><a href="gcishome.html">Gcis</a></li>
+                    <li><a href="subjects1.html">Ib</a></li>
+                    <li><a href="subjects2.html">Edexcel</a></li>
+                    <li><a href="subjects4.html">IPC</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Departments</a>
+                <ul>
+                    <li><a href="#">Science and Mathematics</a></li>
+                    <li><a href="#">Technology and Innovation</a></li>
+                    <li><a href="#">Robotics</a></li>
+                    <li><a href="#">IT</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Offices</a>
+                <ul>
+                    <li><a href="#">Admission</a></li>
+                    <li><a href="#">Academic</a></li>
+                    <li><a href="#">Finance</a></li>
+                    <li><a href="#">Student Affairs</a></li>
+                    <li><a href="#">SRC</a></li>
+                    <li><a href="#">General</a></li>
+                    <li><a href="#">Examination</a></li>
+                    <li><a href="#">IT</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Communities</a>
+                <ul>
+                    <li><a href="#">Gaming</a></li>
+                    <li><a href="#">Hackathons</a></li>
+                    <li><a href="#">Coding</a></li>
+                    <li><a href="#">Religious</a>
+                        <ul>
+                            <li><a href="#">Islamic</a></li>
+                            <li><a href="#">Christianity</a></li>
+                            <li><a href="#">Others</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Socialization</a></li>
+                    <li><a href="#">Visual Art</a></li>
+                    <li><a href="#">Sports</a></li>
+                    <li><a href="#">Entertainment</a></li>
+                </ul>
+            </li>
+            <li><a href="register.html" class="edit">Apply Online</a></li>
+        </ul>
+    </nav>
+    <div class="carousel">
+        <img src="https://via.placeholder.com/1200x400?text=Welcome+to+Academica" alt="Slide 1">
+        <img src="https://via.placeholder.com/1200x400?text=Join+Our+Programs" alt="Slide 2">
+        <img src="https://via.placeholder.com/1200x400?text=Free+Admissions+Open+Now" alt="Slide 3">
+    </div>
+    <div class="content">
+        <h1>Welcome to Academica</h1>
+        <p>We offer top-notch educational programs tailored to your needs. Explore our wide range of courses and join our vibrant academic community.</p>
+    </div>
+    <div class="programs-section">
+        <h2>Our Programs</h2>
+        <div class="programs">
+            <div class="program">
+                <h3>Program 1</h3>
+                <p>Description of Program 1.</p>
+            </div>
+            <div class="program">
+                <h3>Program 2</h3>
+                <p>Description of Program 2.</p>
+            </div>
+            <div class="program">
+                <h3>Program 3</h3>
+                <p>Description of Program 3.</p>
+            </div>
+        </div>
+    </div>
+    <div class="testimonial-section">
+        <h2>What Our Students Say</h2>
+        <div class="testimonials">
+            <div class="testimonial">
+                <p>"Academica has been a game-changer for my education. The courses are comprehensive and engaging."</p>
+                <h3>Student 1</h3>
+            </div>
+            <div class="testimonial">
+                <p>"The flexibility of online learning at Academica allowed me to balance my studies with work."</p>
+                <h3>Student 2</h3>
+            </div>
+            <div class="testimonial">
+                <p>"Great platform with excellent resources. I’ve learned so much and met amazing people."</p>
+                <h3>Student 3</h3>
+            </div>
+        </div>
+    </div>
+    <div class="video-section">
+        <h2>Introduction to Academica</h2>
+        <video controls>
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <footer>
+        <p>&copy; 2024 Academica. All rights reserved.</p>
+        <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </footer>
+</body>
+</html>

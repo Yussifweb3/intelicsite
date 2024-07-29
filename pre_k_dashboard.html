@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Pre-K Online School</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e6f9ff;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background-color: #0077cc;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin: 0 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #ffcc00;
+        }
+        nav .logo {
+            font-size: 28px;
+            color: white;
+            font-weight: bold;
+        }
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0077cc;
+            padding: 10px 20px;
+            color: white;
+        }
+        .dashboard-header .user-info {
+            display: flex;
+            align-items: center;
+        }
+        .dashboard-header .user-info img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .dashboard-header .user-info .username {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .dashboard-header .logout-button {
+            background-color: #ffcc00;
+            color: #0077cc;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .dashboard-header .logout-button:hover {
+            background-color: #e6b800;
+            color: white;
+        }
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        .dashboard-container h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #0077cc;
+        }
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background-color: #f9f9f9;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        .card:hover img {
+            transform: scale(1.05);
+        }
+        .card h3 {
+            margin: 15px 0 10px;
+            color: #333;
+        }
+        .card p {
+            color: #666;
+        }
+        .card button {
+            background-color: #0077cc;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .card button:hover {
+            background-color: #005fa3;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        footer {
+            background-color: #0077cc;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Pre-K Online School</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="signup.html">Sign Up</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="liveclasses.html">Live Classes</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="assignments.html">Assignments</a></li>
+            <li><a href="exams.html">Exams</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="dashboard-header">
+        <div class="user-info">
+            <img id="profilePic" src="IMAGES/defaultProfilePic.jpg" alt="User Avatar">
+            <span class="username" id="username">John Doe</span>
+        </div>
+        <button class="logout-button" onclick="logout()">Logout</button>
+    </div>
+
+    <div class="dashboard-container">
+        <h2>Dashboard</h2>
+        <div class="dashboard-grid">
+            <div class="card">
+                <img src="IMAGES/lc1.jpg" alt="Live Classes">
+                <h3>Live Classes</h3>
+                <p>Join live sessions with your teachers and classmates.</p>
+                <button onclick="window.location.href='liveclasses.html'">Go to Live Classes</button>
+            </div>
+            <div class="card">
+                <img src="IMAGES/r1.jpg" alt="Resources">
+                <h3>Resources</h3>
+                <p>Access learning materials and tutorials.</p>
+                <button onclick="window.location.href='pre_k_resource.html'">Go to Resources</button>
+            </div>
+            <div class="card">
+                <img src="IMAGES/e2.jpg" alt="Assignments">
+                <h3>Assignments</h3>
+                <p>Submit and view your assignments.</p>
+                <button onclick="window.location.href='pre_k_assessment.html'">Go to Assignments</button>
+            </div>
+            <div class="card">
+                <img src="IMAGES/lc5.jpg" alt="Exams">
+                <h3>Exams</h3>
+                <p>Take your exams online.</p>
+                <button onclick="window.location.href='exams.html'">Go to Exams</button>
+            </div>
+            <div class="card">
+                <img src="IMAGES/pr2.jpg" alt="Progress">
+                <h3>Progress</h3>
+                <p>Track your learning progress.</p>
+                <button onclick="window.location.href='progress.html'">Go to Progress</button>
+            </div>
+            <div class="card">
+                <img src="IMAGES/pro1.jpg" alt="Profile">
+                <h3>Profile</h3>
+                <p>Manage your profile and settings.</p>
+                <button onclick="window.location.href='profile.html'">Go to Profile</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Pre-K Online School. All rights reserved.</p>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"></script>
+    <script>
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_PROJECT_ID.appspot.com",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        const auth = firebase.auth();
+        const firestore = firebase.firestore();
+
+        // Check user authentication status
+        auth.onAuthStateChanged(user => {
+            if (user) {
+                document.getElementById('username').textContent = user.displayName || 'User';
+                document.getElementById('profilePic').src = user.photoURL || 'IMAGES/defaultProfilePic.jpg';
+            } else {
+                window.location.href = 'login.html';
+            }
+        });
+
+        function logout() {
+            auth.signOut().then(() => {
+                window.location.href = 'login.html';
+            }).catch(error => {
+                console.error('Logout Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>

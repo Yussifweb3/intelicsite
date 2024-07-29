@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socialization Bingo</title>
+   <style>body {
+    font-family: Arial, sans-serif;
+    background-color: #e3f2fd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.bingo-container {
+    text-align: center;
+}
+
+.bingo-card {
+    display: grid;
+    grid-template-columns: repeat(5, 100px);
+    grid-template-rows: repeat(5, 100px);
+    gap: 5px;
+    justify-content: center;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.bingo-card div {
+    background-color: #ffab00;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    height: 100px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.bingo-card div:hover {
+    background-color: #e68900;
+}
+
+button {
+    background-color: #004d40;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #003d33;
+}
+</style>
+</head>
+<body>
+    <div class="bingo-container">
+        <h1>Socialization Bingo</h1>
+        <div class="bingo-card">
+            <!-- Bingo Card Content Here -->
+        </div>
+        <button id="printButton">Print Bingo Card</button>
+    </div>
+    <script>const tasks = [
+        'Say hello to a classmate', 'Ask someone about their favorite hobby',
+        'Share something you like', 'Help someone with a task', 'Compliment a friend',
+        'Play a game with a friend', 'Talk about your favorite book', 'Share a joke',
+        'Describe your favorite animal', 'Tell a story'
+    ];
+    
+    function createBingoCard() {
+        const card = document.querySelector('.bingo-card');
+        card.innerHTML = '';
+        tasks.forEach((task) => {
+            const cell = document.createElement('div');
+            cell.textContent = task;
+            card.appendChild(cell);
+        });
+    }
+    
+    document.getElementById('printButton').addEventListener('click', () => {
+        window.print();
+    });
+    
+    createBingoCard();
+    </script>
+</body>
+</html>

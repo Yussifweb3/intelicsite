@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notes Page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+    }
+    nav {
+      background-color: #00796b;
+      padding: 10px;
+      color: white;
+      text-align: center;
+    }
+    nav h1 {
+      margin: 0;
+    }
+    .container {
+      padding: 20px;
+    }
+    .note {
+      background-color: white;
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .note:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    .note-title {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+    .note-content {
+      font-size: 1em;
+      line-height: 1.6;
+    }
+    footer {
+      background-color: #00796b;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <h1>Student Notes</h1>
+</nav>
+
+<div class="container" id="notes-container">
+  <!-- Notes will be dynamically inserted here by JavaScript -->
+</div>
+
+<footer>
+  <p>&copy; 2024 Education Website. All rights reserved.</p>
+</footer>
+
+<script>
+  // Example notes data
+  const notes = [
+    {
+      title: 'Introduction to Biology',
+      content: 'Biology is the study of living organisms, divided into many specialized fields that cover their morphology, physiology, anatomy, behavior, origin, and distribution.'
+    },
+    {
+      title: 'Basic Concepts of Chemistry',
+      content: 'Chemistry is the scientific discipline involved with elements and compounds composed of atoms, molecules, and ions.'
+    },
+    {
+      title: 'Fundamentals of Physics',
+      content: 'Physics is the natural science that studies matter, its motion and behavior through space and time, and the related entities of energy and force.'
+    }
+    // Add more notes as needed
+  ];
+
+  // Function to render notes
+  function renderNotes() {
+    const container = document.getElementById('notes-container');
+    notes.forEach(note => {
+      const noteElement = document.createElement('div');
+      noteElement.className = 'note';
+      noteElement.innerHTML = `
+        <div class="note-title">${note.title}</div>
+        <div class="note-content">${note.content}</div>
+      `;
+      container.appendChild(noteElement);
+    });
+  }
+
+  // Call the function to render notes when the page loads
+  document.addEventListener('DOMContentLoaded', renderNotes);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f8ff;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    nav {
+      background-color: #008080;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .container {
+      flex: 1;
+      padding: 20px;
+    }
+    .quiz-card {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      margin-bottom: 20px;
+      display: none;
+    }
+    .quiz-title {
+      font-size: 2em;
+      color: #008080;
+      margin-bottom: 10px;
+    }
+    .quiz-description {
+      font-size: 1.2em;
+      margin-bottom: 15px;
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    .options {
+      list-style-type: none;
+      padding: 0;
+    }
+    .options li {
+      background: #20b2aa;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .options li:hover {
+      background: #008080;
+    }
+    .submit-btn {
+      background: #008080;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      font-size: 1em;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+      display: none;
+    }
+    .submit-btn.active {
+      display: inline-block;
+    }
+    .timer {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+      color: #ff4500;
+    }
+    .result {
+      font-size: 1.2em;
+      margin-top: 20px;
+    }
+    footer {
+      background-color: #008080;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<nav>Online Quiz for Students</nav>
+
+<div class="container">
+  <div class="quiz-card" id="quizCard">
+    <div class="quiz-title">Quiz</div>
+    <div class="quiz-description">Answer the following questions:</div>
+    <div class="timer" id="timer">Time Left: <span id="time">00:00</span></div>
+    <div id="questionsContainer"></div>
+    <button class="submit-btn" id="submitBtn">Submit Answers</button>
+    <div class="result" id="result"></div>
+  </div>
+  <div class="quiz-unavailable" id="quizUnavailable">
+    <h2>The quiz is not available at the moment. Please try again later.</h2>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2024 Online Student Quizzes. All rights reserved.</p>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const quizCard = document.getElementById('quizCard');
+    const quizUnavailable = document.getElementById('quizUnavailable');
+    const quizStatus = localStorage.getItem('quizStatus');
+    
+    if (quizStatus === 'started') {
+      quizCard.style.display = 'block';
+      quizUnavailable.style.display = 'none';
+      loadQuestions();
+      startQuiz();
+    } else {
+      quizCard.style.display = 'none';
+      quizUnavailable.style.display = 'block';
+    }
+  });
+
+  const loadQuestions = () => {
+    const questionsContainer = document.getElementById('questionsContainer');
+    const questions = JSON.parse(localStorage.getItem('questions')) || [];
+    
+    questions.forEach((questionData, index) => {
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('question');
+      questionDiv.id = `question${index + 1}`;
+      
+      const questionText = document.createElement('p');
+      questionText.textContent = questionData.question;
+      questionDiv.appendChild(questionText);
+      
+      const optionsList = document.createElement('ul');
+      optionsList.classList.add('options');
+      
+      questionData.options.forEach((option, i) => {
+        const optionItem = document.createElement('li');
+        optionItem.textContent = option;
+        optionItem.dataset.questionIndex = index;
+        optionItem.dataset.optionIndex = i + 1;
+        optionItem.addEventListener('click', selectOption);
+        optionsList.appendChild(optionItem);
+      });
+      
+      questionDiv.appendChild(optionsList);
+      questionsContainer.appendChild(questionDiv);
+    });
+    
+    document.getElementById('submitBtn').classList.add('active');
+  };
+
+  const selectOption = (e) => {
+    const options = e.target.parentNode.querySelectorAll('li');
+    options.forEach(option => option.classList.remove('selected'));
+    e.target.classList.add('selected');
+  };
+
+  const startQuiz = () => {
+    const timerElement = document.getElementById('time');
+    let timeLeft = 300; // 5 minutes
+
+    const timer = setInterval(() => {
+      if (timeLeft <= 0) {
+        clearInterval(timer);
+        submitQuiz();
+      } else {
+        timeLeft--;
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
+        timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+      }
+    }, 1000);
+  };
+
+  const submitQuiz = () => {
+    const questions = JSON.parse(localStorage.getItem('questions')) || [];
+    let score = 0;
+    
+    questions.forEach((questionData, index) => {
+      const selectedOption = document.querySelector(`#question${index + 1} .selected`);
+      if (selectedOption && selectedOption.dataset.optionIndex == questionData.correctOption) {
+        score++;
+      }
+    });
+
+    const totalQuestions = questions.length;
+    const resultElement = document.getElementById('result');
+    resultElement.textContent = `You scored ${score} out of ${totalQuestions}.`;
+
+    const endTime = new Date().toLocaleTimeString();
+    const timeElement = document.createElement('p');
+    timeElement.textContent = `You finished at ${endTime}.`;
+    resultElement.appendChild(timeElement);
+  };
+
+  document.getElementById('submitBtn').addEventListener('click', submitQuiz);
+</script>
+
+</body>
+</html>

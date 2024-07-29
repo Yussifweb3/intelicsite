@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-bar {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            background-color: white;
+            padding: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .profile-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .profile-picture {
+            border-radius: 50%;
+            margin-right: 1rem;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+        .profile-info {
+            flex-grow: 1;
+        }
+        .profile-info h1 {
+            margin: 0;
+        }
+        .profile-info p {
+            color: gray;
+        }
+        .section {
+            margin-bottom: 2rem;
+        }
+        .section h2 {
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .courses-list {
+            list-style: none;
+            padding: 0;
+        }
+        .courses-list li {
+            background-color: #e8f5e9;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-bar">
+        <h1>Student Profile</h1>
+    </div>
+    <div class="container">
+        <div class="profile-header">
+            <img src="profile-picture.jpg" alt="Profile Picture" class="profile-picture">
+            <div class="profile-info">
+                <h1>John Doe</h1>
+                <p>Email: johndoe@example.com</p>
+                <p>Student ID: 12345678</p>
+            </div>
+        </div>
+        <div class="section">
+            <h2>Personal Information</h2>
+            <p><strong>Date of Birth:</strong> January 1, 2000</p>
+            <p><strong>Address:</strong> 123 Main St, Anytown, USA</p>
+            <p><strong>Phone Number:</strong> (123) 456-7890</p>
+        </div>
+        <div class="section">
+            <h2>Academic Information</h2>
+            <p><strong>Major:</strong> Computer Science</p>
+            <p><strong>Year:</strong> Sophomore</p>
+            <p><strong>GPA:</strong> 3.8</p>
+        </div>
+        <div class="section">
+            <h2>Enrolled Courses</h2>
+            <ul class="courses-list">
+                <li>Introduction to Computer Science</li>
+                <li>Data Structures and Algorithms</li>
+                <li>Web Development</li>
+                <li>Database Management Systems</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exams - Pre-K Online School</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background-color: #8fbc8f;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+        nav .logo {
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+        }
+        .content-container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .content-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .exam-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .exam-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .exam-item img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        .exam-item div {
+            flex: 1;
+            margin-left: 20px;
+        }
+        footer {
+            background-color: #8fbc8f;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Pre-K Online School</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="signup.html">Sign Up</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="liveclasses.html">Live Classes</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="assignments.html">Assignments</a></li>
+            <li><a href="exams.html">Exams</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="content-container">
+        <h2>Exams</h2>
+        <div class="exam-item">
+            <img src="https://via.placeholder.com/50" alt="Math Exam">
+            <div>
+                <h3>Math Exam</h3>
+                <p>Test your knowledge on basic math concepts.</p>
+            </div>
+            <a href="math_exam.html">Start Exam</a>
+        </div>
+        <div class="exam-item">
+            <img src="https://via.placeholder.com/50" alt="Reading Exam">
+            <div>
+                <h3>Reading Exam</h3>
+                <p>Evaluate your understanding of reading materials.</p>
+            </div>
+            <a href="reading_exam.html">Start Exam</a>
+        </div>
+        <div class="exam-item">
+            <img src="https://via.placeholder.com/50" alt="Art Exam">
+            <div>
+                <h3>Art Exam</h3>
+                <p>Show your creativity with our art exam.</p>
+            </div>
+            <a href="art_exam.html">Start Exam</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Pre-K Online School. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript functionality can be added here if needed
+    </script>
+</body>
+</html>

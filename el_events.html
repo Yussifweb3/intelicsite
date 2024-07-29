@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - Early Learning School</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #f5f5dc;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        nav {
+            background-color: #ff8c00;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+        .events-container {
+            padding: 80px 20px;
+        }
+        .event-card {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .event-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .event-card h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        .event-card p {
+            margin-bottom: 10px;
+        }
+        .event-card .date {
+            font-weight: bold;
+            color: #ff4500;
+        }
+        footer {
+            background-color: #ff8c00;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">EL School</div>
+        <ul>
+            <li><a href="el_home.html">Home</a></li>
+            <li><a href="el_programs.html">Programs</a></li>
+            <li><a href="el_gallery.html">Gallery</a></li>
+            <li><a href="el_events.html">Events</a></li>
+            <li><a href="el_staff.html">Staff</a></li>
+            <li><a href="el_login.html">Login</a></li>
+            <li><a href="el_signup.html">Signup</a></li>
+            <li><a href="el_contact.html">Contact</a></li>
+            <li><a href="el_resources.html">Resources</a></li>
+        </ul>
+    </nav>
+
+    <div class="events-container">
+        <div class="event-card">
+            <h3>Annual Science Fair</h3>
+            <p>Join us for our annual science fair where students showcase their science projects and experiments.</p>
+            <p class="date">Date: September 15, 2024</p>
+        </div>
+        <div class="event-card">
+            <h3>Family Fun Day</h3>
+            <p>Bring your family for a day of fun activities, games, and food at our school.</p>
+            <p class="date">Date: October 10, 2024</p>
+        </div>
+        <div class="event-card">
+            <h3>Holiday Concert</h3>
+            <p>Enjoy performances by our talented students at our annual holiday concert.</p>
+            <p class="date">Date: December 20, 2024</p>
+        </div>
+        <div class="event-card">
+            <h3>Spring Art Show</h3>
+            <p>Come and see the beautiful art creations made by our students during the spring art show.</p>
+            <p class="date">Date: April 5, 2025</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Early Learning School. All rights reserved.</p>
+    </footer>
+</body>
+</html>

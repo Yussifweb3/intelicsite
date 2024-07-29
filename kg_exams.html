@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exams - KG Online School</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fbe9e7;
+            color: #333;
+        }
+        .container {
+            display: flex;
+        }
+        .sidebar {
+            width: 260px;
+            background-color: #f06292;
+            color: white;
+            padding: 20px;
+            position: fixed;
+            height: 100%;
+            box-shadow: 4px 0 8px rgba(0, 0, 0, 0.2);
+        }
+        .sidebar .logo {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .sidebar .nav-links a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        .sidebar .nav-links a:hover {
+            background-color: #ec407a;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .main-content {
+            margin-left: 260px;
+            padding: 30px;
+            width: calc(100% - 260px);
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .exams-list {
+            display: flex;
+            flex-direction: column;
+        }
+        .exam-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .exam-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        .exam-card h3 {
+            margin: 0;
+            font-size: 22px;
+        }
+        .exam-card p {
+            color: #555;
+        }
+        .exam-card .exam-date {
+            font-size: 18px;
+            color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">KG Online School</div>
+            <ul class="nav-links">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="assignments.html">Assignments</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="liveclasses.html">Live Classes</a></li>
+                <li><a href="exams.html">Exams</a></li>
+                <li><a href="logout.html">Logout</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <h1>Exams</h1>
+            <div class="exams-list">
+                <div class="exam-card">
+                    <h3>Math Exam</h3>
+                    <p>Complete the math exam covering all topics studied.</p>
+                    <p class="exam-date">Date: August 15, 2024</p>
+                </div>
+                <div class="exam-card">
+                    <h3>Science Quiz</h3>
+                    <p>Short quiz on recent science lessons.</p>
+                    <p class="exam-date">Date: August 18, 2024</p>
+                </div>
+                <div class="exam-card">
+                    <h3>Reading Test</h3>
+                    <p>Test your reading comprehension with this assignment.</p>
+                    <p class="exam-date">Date: August 20, 2024</p>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

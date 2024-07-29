@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academica Preschool</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #6f42c1, #e83e8c);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            background-color: #ffffff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            position: relative;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px;
+            display: block;
+            transition: color 0.3s, background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #fff;
+            background-color: #6f42c1;
+            border-radius: 5px;
+        }
+
+        nav ul ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #ffffff;
+            padding: 0;
+            list-style: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul ul li {
+            width: 200px;
+            margin: 0;
+        }
+
+        nav ul ul li a {
+            padding: 10px;
+            color: #333;
+        }
+
+        nav ul li:hover > ul {
+            display: block;
+        }
+
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 400px;
+            margin-top: 20px;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            position: absolute;
+            animation: slide 15s infinite;
+        }
+
+        @keyframes slide {
+            0% { left: 100%; }
+            20% { left: 0; }
+            40% { left: 0; }
+            60% { left: -100%; }
+            100% { left: -100%; }
+        }
+
+        .content {
+            padding: 40px 20px;
+            text-align: center;
+            background-color: #ffffff;
+        }
+
+        .content h1 {
+            font-size: 3rem;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .content p {
+            font-size: 18px;
+            color: #666;
+            margin: 20px 0;
+        }
+
+        .programs-section {
+            background-color: #ffffff;
+            padding: 50px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .programs-section h2 {
+            font-size: 2.5rem;
+            color: #6f42c1;
+            margin-bottom: 20px;
+        }
+
+        .programs-section .programs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .programs-section .program {
+            background-color: #f8f9fa;
+            margin: 20px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            min-width: 250px;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .programs-section .program:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .programs-section .program h3 {
+            color: #6f42c1;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .programs-section .program p {
+            color: #333;
+            font-size: 16px;
+        }
+
+        .testimonial-section {
+            background-color: #6f42c1;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .testimonial-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .testimonials {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .testimonial {
+            background-color: #ffffff;
+            color: #333;
+            margin: 20px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            min-width: 250px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .testimonial:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .testimonial p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .testimonial h3 {
+            font-size: 1.25rem;
+            color: #6f42c1;
+            margin-top: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        footer ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+
+        footer ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        footer ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer ul li a:hover {
+            text-decoration: underline;
+        }
+        .appbutton{
+            background-color: rgb(236, 68, 160);
+            color: white;
+            right: -520%;
+            border-radius:2cap;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Academica Preschool</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="academica.html">Home</a></li>
+            <li><a href="#">Admissions</a>
+                <ul>
+                    <li><a href="pre-k.html">Pre-K</a></li>
+                    <li><a href="kg_index.html">KG</a></li>
+                    <li><a href="el_home.html">Early Learning</a></li>
+                </ul>
+            </li>
+            <li><a href="#"></a>
+               
+            </li>
+            <li><a href="#">Communities</a>
+                <ul>
+                    <li><a href="pre_school_gaming.html">Gaming</a></li>
+                    <li><a href="pre_schoolhackatons.html">Hackathons</a></li>
+                    <li><a href="pre_school_coding.html">Coding</a></li>
+                    <li><a href="pre_school_religious.html">Religious</a>
+                        <ul>
+                            <li><a href="#">Islamic</a></li>
+                            <li><a href="#">Christianity</a></li>
+                            <li><a href="#">Others</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Socialization</a></li>
+                    <li><a href="#">Sports</a></li>
+                    <li><a href="#">Entertainment</a></li>
+                </ul>
+            </li>
+            <!--li><a href="#">About</a></li-->
+            <div>
+            <li class="appbutton"><a href="pre-school-form.html">Apply Now</a></li>
+            </div>
+        </ul>
+    </nav>
+    <div class="carousel">
+        <img src="IMAGES/qq2.jpg" alt="Carousel Image 1">
+        <img src="IMAGES/qq3.jpg" alt="Carousel Image 2">
+        <img src="IMAGES/ww2.jpg" alt="Carousel Image 3">
+    </div>
+    <div class="content">
+        <h1>Welcome to Academica Preschool!</h1>
+        <p>Our preschool offers a nurturing and stimulating environment where young children can thrive and grow.</p>
+    </div>
+    <div class="programs-section">
+        <h2>Our Programs</h2>
+        <div class="programs">
+            <div class="program">
+                <h3>Pre-K Program</h3>
+                <p>Our Pre-K program is designed to introduce young children to the world of learning through fun and engaging activities.</p>
+            </div>
+            <div class="program">
+                <h3>Kindergarten</h3>
+                <p>Kindergarten at Academica focuses on building foundational skills in literacy, math, and social development.</p>
+            </div>
+            <div class="program">
+                <h3>Early Learning</h3>
+                <p>Our Early Learning program provides a broad range of activities to promote cognitive, social, and emotional growth.</p>
+            </div>
+        </div>
+    </div>
+    <div class="testimonial-section">
+        <h2>What Parents Say</h2>
+        <div class="testimonials">
+            <div class="testimonial">
+                <p>"Academica Preschool has been an amazing experience for our child. The teachers are incredibly caring and the environment is so welcoming."</p>
+                <h3>Jane Doe</h3>
+            </div>
+            <div class="testimonial">
+                <p>"We love how Academica focuses on both learning and play. Our child is excited to go to school every day!"</p>
+                <h3>John Smith</h3>
+            </div>
+            <div class="testimonial">
+                <p>"A wonderful preschool that truly cares about each child. The programs are well-structured and engaging."</p>
+                <h3>Emily Davis</h3>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Academica Preschool | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+</body>
+</html>

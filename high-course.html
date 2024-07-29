@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High School Courses</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f9f9f9;
+            color: #333;
+        }
+
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #f6d365;
+        }
+
+        .container {
+            margin-top: 80px;
+            padding: 2rem;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        .course-section {
+            margin-bottom: 2rem;
+        }
+
+        .course-section h2 {
+            font-size: 2rem;
+            color: #f6d365;
+            border-bottom: 2px solid #fda085;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .course-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+            padding: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .course-card h3 {
+            margin-top: 0;
+            color: #fda085;
+        }
+
+        .course-card p {
+            color: #666;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 4rem;
+        }
+
+        footer ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+            padding: 0;
+        }
+
+        footer ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        footer ul li a:hover {
+            color: #f6d365;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">High School Name</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="admissions.html">Admissions</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>High School Courses</h1>
+
+        <div class="course-section">
+            <h2>Mathematics</h2>
+            <div class="course-card">
+                <h3>Algebra</h3>
+                <p>Explore the fundamentals of algebra, including equations, inequalities, and graphing. Develop problem-solving skills through practical applications and interactive exercises.</p>
+            </div>
+            <div class="course-card">
+                <h3>Geometry</h3>
+                <p>Study the properties and applications of geometric shapes and theorems. Learn about angles, circles, triangles, and proofs through engaging activities and visual aids.</p>
+            </div>
+            <div class="course-card">
+                <h3>Calculus</h3>
+                <p>Delve into the world of calculus, covering limits, derivatives, and integrals. Apply calculus concepts to real-world problems and develop a strong mathematical foundation.</p>
+            </div>
+        </div>
+
+        <div class="course-section">
+            <h2>Science</h2>
+            <div class="course-card">
+                <h3>Biology</h3>
+                <p>Discover the complexities of living organisms, from cell biology to ecosystems. Engage in hands-on experiments and explore the principles of genetics, evolution, and ecology.</p>
+            </div>
+            <div class="course-card">
+                <h3>Chemistry</h3>
+                <p>Learn about chemical reactions, the periodic table, and molecular structures. Participate in lab work to understand chemical properties and processes in a practical setting.</p>
+            </div>
+            <div class="course-card">
+                <h3>Physics</h3>
+                <p>Explore the principles of physics, including mechanics, electromagnetism, and thermodynamics. Use experiments and simulations to understand physical phenomena and their applications.</p>
+            </div>
+        </div>
+
+        <div class="course-section">
+            <h2>Humanities</h2>
+            <div class="course-card">
+                <h3>History</h3>
+                <p>Examine historical events, cultures, and civilizations. Analyze primary sources and develop an understanding of how past events shape the present and future.</p>
+            </div>
+            <div class="course-card">
+                <h3>Literature</h3>
+                <p>Read and analyze literary works from various genres and periods. Discuss themes, characters, and writing styles to enhance your critical thinking and interpretive skills.</p>
+            </div>
+            <div class="course-card">
+                <h3>Philosophy</h3>
+                <p>Explore fundamental questions about existence, knowledge, and ethics. Engage with classical and contemporary philosophical texts to develop your reasoning and analytical abilities.</p>
+            </div>
+        </div>
+
+        <div class="course-section">
+            <h2>Languages</h2>
+            <div class="course-card">
+                <h3>English</h3>
+                <p>Improve your proficiency in English through reading, writing, and speaking exercises. Study grammar, vocabulary, and composition to enhance your communication skills.</p>
+            </div>
+            <div class="course-card">
+                <h3>Spanish</h3>
+                <p>Learn the basics of Spanish, including grammar, vocabulary, and pronunciation. Practice speaking and listening through interactive activities and cultural immersion.</p>
+            </div>
+            <div class="course-card">
+                <h3>French</h3>
+                <p>Gain a foundation in French language skills, including speaking, reading, and writing. Explore French culture and literature to deepen your understanding of the language.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+        <p>&copy; 2024 High School Name. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

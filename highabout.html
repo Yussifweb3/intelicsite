@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+            overflow-x: hidden;
+            color: #333;
+        }
+
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ff9a9e;
+        }
+
+        .container {
+            margin-top: 80px;
+            padding: 2rem;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 3rem;
+            color: #333;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .content p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .team {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .team-member {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            max-width: 300px;
+            text-align: center;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .team-member img {
+            width: 100%;
+            border-bottom: 1px solid #eee;
+        }
+
+        .team-member h3 {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .team-member p {
+            font-size: 1rem;
+            color: #666;
+            padding: 0 1rem;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 4rem;
+        }
+
+        footer ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+            padding: 0;
+        }
+
+        footer ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        footer ul li a:hover {
+            color: #ff9a9e;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">University Name</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="admissions.html">Admissions</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="signup.html">Sign Up</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>About Us</h1>
+        <div class="content">
+            <p>Welcome to our university. We are committed to providing excellent education and fostering research that drives innovation. Our mission is to empower students to achieve their full potential and become leaders in their chosen fields.</p>
+            <p>We offer a diverse range of programs and courses designed to cater to your academic and career goals. Our faculty is composed of experienced and dedicated professionals who are passionate about teaching and mentoring students.</p>
+        </div>
+
+        <h2>Meet Our Team</h2>
+        <div class="team">
+            <div class="team-member">
+                <img src="https://via.placeholder.com/300x300" alt="Team Member">
+                <h3>John Doe</h3>
+                <p>President</p>
+            </div>
+            <div class="team-member">
+                <img src="https://via.placeholder.com/300x300" alt="Team Member">
+                <h3>Jane Smith</h3>
+                <p>Vice President</p>
+            </div>
+            <div class="team-member">
+                <img src="https://via.placeholder.com/300x300" alt="Team Member">
+                <h3>Michael Brown</h3>
+                <p>Dean of Students</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/300x300" alt="Team Member">
+                    <h3>Emily White</h3>
+                    <p>Director of Admissions</p>
+                </div>
+            </div>
+        </div>
+    
+        <footer>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="admissions.html">Admissions</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <p>&copy; 2024 University Name. All rights reserved.</p>
+        </footer>
+    </body>
+    
+    </html>
+    

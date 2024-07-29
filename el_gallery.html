@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Early Learning School</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #e6f7ff;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        nav {
+            background-color: #ff8c00;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+        .gallery-container {
+            padding: 80px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .gallery-item img {
+            width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        .gallery-item .caption {
+            position: absolute;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            font-size: 16px;
+        }
+        footer {
+            background-color: #ff8c00;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">EL School</div>
+        <ul>
+            <li><a href="el_home.html">Home</a></li>
+            <li><a href="el_programs.html">Programs</a></li>
+            <li><a href="el_gallery.html">Gallery</a></li>
+            <li><a href="el_events.html">Events</a></li>
+            <li><a href="el_staff.html">Staff</a></li>
+            <li><a href="el_login.html">Login</a></li>
+            <li><a href="el_signup.html">Signup</a></li>
+            <li><a href="el_contact.html">Contact</a></li>
+            <li><a href="el_resources.html">Resources</a></li>
+        </ul>
+    </nav>
+
+    <div class="gallery-container">
+        <div class="gallery-item">
+            <img src="IMAGES/A1.jpg" alt="Gallery Image 1">
+            <div class="caption">Classroom Activities</div>
+        </div>
+        <div class="gallery-item">
+            <img src="IMAGES/ww2.jpg" alt="Gallery Image 2">
+            <div class="caption">Outdoor Play</div>
+        </div>
+        <div class="gallery-item">
+            <img src="IMAGES/ww1.jpg" alt="Gallery Image 3">
+            <div class="caption">Science Experiments</div>
+        </div>
+        <div class="gallery-item">
+            <img src="IMAGES/ww2.jpg" alt="Gallery Image 4">
+            <div class="caption">Arts and Crafts</div>
+        </div>
+        <div class="gallery-item">
+            <img src="IMAGES/ww3.jpg" alt="Gallery Image 5">
+            <div class="caption">Music and Dance</div>
+        </div>
+        <div class="gallery-item">
+            <img src="IMAGES/W2.jpg" alt="Gallery Image 6">
+            <div class="caption">Field Trips</div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Early Learning School. All rights reserved.</p>
+    </footer>
+</body>
+</html>

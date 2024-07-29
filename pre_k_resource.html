@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resources Page</title>
+  <style>
+    body {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+    .container {
+      display: flex;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .section {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+    }
+    .left-section {
+      background-color: #fff3e0;
+    }
+    .middle-section {
+      background-color: #e3f2fd;
+    }
+    .right-section {
+      background-color: #e8f5e9;
+    }
+    .book, .topic, .video {
+      margin-bottom: 20px;
+      padding: 15px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .book:hover, .topic:hover, .video:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    .book img, .video img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+    .book-name, .topic-name, .video-name {
+      font-size: 1.2em;
+      margin: 10px 0;
+    }
+    .description {
+      margin: 10px 0;
+    }
+    .button {
+      padding: 10px 15px;
+      color: white;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      cursor: pointer;
+    }
+    .button:hover {
+      background-color: #0056b3;
+    }
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      .section {
+        height: 33.33vh;
+      }
+    }
+}
+    .button {
+      padding: 10px 15px;
+      color: white;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      cursor: pointer;
+    }
+    .button:hover {
+      background-color: #0056b3;
+    }
+    .navbar {
+      width: 100%;
+      background-color: #007bff;
+      overflow: hidden;
+    }
+    .navbar a {
+      float: left;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+    .navbar a:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+<!-- Navigation Bar -->
+<div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="books.html">Books</a>
+    <a href="topics.html">Topics</a>
+    <a href="videos.html">Videos</a>
+    <a href="contact.html">Contact</a>
+  </div>
+<div class="container">
+  <!-- Left Section: Books -->
+  <div class="section left-section">
+    <div class="book">
+      <img src="IMAGES/bc3.jpg" alt="Book 1 Cover">
+      <div class="book-name">Book Title 1</div>
+      <div class="description">Description of Book 1</div>
+      <a href="book.html" class="button">Read Me</a>
+    </div>
+    <div class="book">
+      <img src="IMAGES/qq2.jpg" alt="Book 2 Cover">
+      <div class="book-name">Book Title 2</div>
+      <div class="description">Description of Book 2</div>
+      <a href="book.html" class="button">Read Me</a>
+    </div>
+    <div class="book">
+        <img src="IMAGES/bc3.jpg" alt="Book 1 Cover">
+        <div class="book-name">Book Title 1</div>
+        <div class="description">Description of Book 1</div>
+        <a href="book.html" class="button">Read Me</a>
+      </div>
+      <div class="book">
+        <img src="IMAGES/qq2.jpg" alt="Book 2 Cover">
+        <div class="book-name">Book Title 2</div>
+        <div class="description">Description of Book 2</div>
+        <a href="book.html" class="button">Read Me</a>
+      </div><div class="book">
+        <img src="IMAGES/bc3.jpg" alt="Book 1 Cover">
+        <div class="book-name">Book Title 1</div>
+        <div class="description">Description of Book 1</div>
+        <a href="book.html" class="button">Read Me</a>
+      </div>
+      <div class="book">
+        <img src="IMAGES/qq2.jpg" alt="Book 2 Cover">
+        <div class="book-name">Book Title 2</div>
+        <div class="description">Description of Book 2</div>
+        <a href="book.html" class="button">Read Me</a>
+      </div><div class="book">
+        <img src="IMAGES/bc3.jpg" alt="Book 1 Cover">
+        <div class="book-name">Book Title 1</div>
+        <div class="description">Description of Book 1</div>
+        <a href="book.html" class="button">Read Me</a>
+      </div>
+      <div class="book">
+        <img src="IMAGES/qq2.jpg" alt="Book 2 Cover">
+        <div class="book-name">Book Title 2</div>
+        <div class="description">Description of Book 2</div>
+        <a href="book.html" class="button">Read Me</a>
+      </div><div class="book">
+        <img src="IMAGES/bc3.jpg" alt="Book 1 Cover">
+        <div class="book-name">Book Title 1</div>
+        <div class="description">Description of Book 1</div>
+        <a href="book.html" class="button">Read Me</a>
+      </div>
+      <div class="book">
+        <img src="IMAGES/qq2.jpg" alt="Book 2 Cover">
+        <div class="book-name">Book Title 2</div>
+        <div class="description">Description of Book 2</div>
+        <a href="book.html" class="button">Read Me</a>
+      </div>
+    <!-- Add more books as needed -->
+  </div>
+
+  <!-- Middle Section: Topics and Notes -->
+  <div class="section middle-section">
+    <div class="topic" onclick="showSubtopics('topic1')">
+      <div class="topic-name">Topic 1</div>
+      <div id="topic1" class="subtopics" style="display: none;">
+        <div class="subtopic">
+          <a href="pre_k_note.html">Subtopic 1.1</a>
+        </div>
+        <div class="subtopic">
+          <a href="pre_k_note.html">Subtopic 1.2</a>
+        </div>
+        <!-- Add more subtopics as needed -->
+      </div>
+    </div>
+    <div class="topic" onclick="showSubtopics('topic2')">
+      <div class="topic-name">Topic 2</div>
+      <div id="topic2" class="subtopics" style="display: none;">
+        <div class="subtopic">
+          <a href="pre_k_note.html">Subtopic 2.1</a>
+        </div>
+        <div class="subtopic">
+          <a href="pre_k_note.html">Subtopic 2.2</a>
+        </div>
+        <!-- Add more subtopics as needed -->
+      </div>
+      
+    </div>
+    <div class="topic" onclick="showSubtopics('topic1')">
+        <div class="topic-name">Topic 1</div>
+        <div id="topic1" class="subtopics" style="display: none;">
+          <div class="subtopic">
+            <a href="pre_k_note.html">Subtopic 1.1</a>
+          </div>
+          <div class="subtopic">
+            <a href="pre_k_note.html">Subtopic 1.2</a>
+          </div>
+          <!-- Add more subtopics as needed -->
+        </div>
+      </div>
+      <div class="topic" onclick="showSubtopics('topic2')">
+        <div class="topic-name">Topic 2</div>
+        <div id="topic2" class="subtopics" style="display: none;">
+          <div class="subtopic">
+            <a href="pre_k_note.html">Subtopic 2.1</a>
+          </div>
+          <div class="subtopic">
+            <a href="pre_k_note.html">Subtopic 2.2</a>
+          </div>
+          <!-- Add more subtopics as needed -->
+        </div>
+        
+      </div>
+      <div class="topic" onclick="showSubtopics('topic1')">
+        <div class="topic-name">Topic 1</div>
+        <div id="topic1" class="subtopics" style="display: none;">
+          <div class="subtopic">
+            <a href="pre_k_note.html">Subtopic 1.1</a>
+          </div>
+          <div class="subtopic">
+            <a href="pre_k_note.html">Subtopic 1.2</a>
+          </div>
+          <!-- Add more subtopics as needed -->
+        </div>
+      </div>
+      <div class="topic" onclick="showSubtopics('topic2')">
+        <div class="topic-name">Topic 2</div>
+        <div id="topic2" class="subtopics" style="display: none;">
+          <div class="subtopic">
+            <a href="pre_k_note.html">Subtopic 2.1</a>
+          </div>
+          <div class="subtopic">
+            <a href="pre_k_note.html">Subtopic 2.2</a>
+          </div>
+          <!-- Add more subtopics as needed -->
+        </div>
+        
+      </div>
+      <div class="topic" onclick="showSubtopics('topic1')">
+        <div class="topic-name">Topic 1</div>
+        <div id="topic1" class="subtopics" style="display: none;">
+          <div class="subtopic">
+            <a href="pre_k_note.html">Subtopic 1.1</a>
+          </div>
+          <div class="subtopic">
+            <a href="pre_k_note.html">Subtopic 1.2</a>
+          </div>
+          <!-- Add more subtopics as needed -->
+        </div>
+      </div>
+      <div class="topic" onclick="showSubtopics('topic2')">
+        <div class="topic-name">Topic 2</div>
+        <div id="topic2" class="subtopics" style="display: none;">
+          <div class="subtopic">
+            <a href="pre_k_note.html">Subtopic 2.1</a>
+          </div>
+          <div class="subtopic">
+            <a href="pre_k_note.html">Subtopic 2.2</a>
+          </div>
+          <!-- Add more subtopics as needed -->
+        </div>
+        
+      </div>
+      <div class="topic" onclick="showSubtopics('topic1')">
+        <div class="topic-name">Topic 1</div>
+        <div id="topic1" class="subtopics" style="display: none;">
+          <div class="subtopic">
+            <a href="pre_k_note.html">Subtopic 1.1</a>
+          </div>
+          <div class="subtopic">
+            <a href="pre_k_note.html">Subtopic 1.2</a>
+          </div>
+          <!-- Add more subtopics as needed -->
+        </div>
+      </div>
+      <div class="topic" onclick="showSubtopics('topic2')">
+        <div class="topic-name">Topic 2</div>
+        <div id="topic2" class="subtopics" style="display: none;">
+          <div class="subtopic">
+            <a href="pre_k_note.html">Subtopic 2.1</a>
+          </div>
+          <div class="subtopic">
+            <a href="pre_k_note.html">Subtopic 2.2</a>
+          </div>
+          <!-- Add more subtopics as needed -->
+        </div>
+        
+      </div>
+    <!-- Add more topics as needed -->
+  </div>
+
+  <!-- Right Section: Videos -->
+  <div class="section right-section">
+    <div class="video">
+      <img src="IMAGES/sc1.jpg" alt="Video 1 Thumbnail">
+      <div class="video-name">Video Title 1</div>
+      <div class="description">Description of Video 1</div>
+      <a href="pre_k_video.html" class="button">Watch Me</a>
+    </div>
+    <div class="video">
+      <img src="IMAGES/se.jpg" alt="Video 2 Thumbnail">
+      <div class="video-name">Video Title 2</div>
+      <div class="description">Description of Video 2</div>
+      <a href="pre_k_video.html" class="button">Watch Me</a>
+    </div>
+    <!-- Add more videos as needed -->
+  </div>
+</div>
+
+<script>
+  function showSubtopics(topicId) {
+    const subtopics = document.getElementById(topicId);
+    if (subtopics.style.display === "none") {
+      subtopics.style.display = "block";
+    } else {
+      subtopics.style.display = "none";
+    }
+  }
+</script>
+
+</body>
+</html>

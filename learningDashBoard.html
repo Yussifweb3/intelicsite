@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Platform</title>
+    <link rel="stylesheet" href="learningDashBoard.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <input type="text" id="ai-search-bar" placeholder="Ask SURFERY AI..." onclick="openAISearch()">
+        </header>
+        <div class="content">
+            <nav id="sidebar">
+                <button id="toggle-sidebar">☰</button>
+                <ul>
+                    <li><a href="#" onclick="loadTopic('topic1')">Topic 1</a></li>
+                    <li><a href="#" onclick="loadTopic('topic2')">Topic 2</a></li>
+                    <li><a href="#" onclick="loadTopic('topic3')">Topic 3</a></li>
+                </ul>
+            </nav>
+            <main id="main-content">
+                <div id="topic-text">Select a topic to learn about Artificial Intelligence (AI) refers to the simulation of human intelligence in machines that are programmed to think and learn like humans. It encompasses a broad range of technologies and applications where machines perform tasks that typically require human intelligence, such as visual perception, speech recognition, decision-making, and language translation.
+
+                    ### Key Components of AI:
+                    
+                    1. **Machine Learning (ML)**:
+                       - ML is a subset of AI that allows systems to learn from data and improve their performance over time without being explicitly programmed.
+                       - Algorithms are trained on large datasets to recognize patterns and make predictions or decisions based on new data.
+                    
+                    2. **Deep Learning**:
+                       - A specialized form of ML inspired by the structure and function of the human brain's neural networks.
+                       - Deep learning algorithms use multiple layers of artificial neural networks to learn hierarchical representations of data.
+                    
+                    3. **Natural Language Processing (NLP)**:
+                       - NLP enables computers to understand, interpret, and generate human language.
+                       - Applications include language translation, sentiment analysis, chatbots, and speech recognition.
+                    
+                    4. **Computer Vision**:
+                       - Computer vision enables machines to interpret and understand visual information from the world.
+                       - Applications range from image and video recognition to autonomous driving and medical image analysis.
+                    
+                    5. **Robotics**:
+                       - AI plays a crucial role in robotics by enabling robots to perceive their environment, make decisions, and interact with humans.
+                       - Used in manufacturing, healthcare, space exploration, and domestic tasks.
+                    
+                    ### Applications of AI:
+                    
+                    - **Healthcare**: Diagnosis assistance, personalized treatment plans, drug discovery.
+                    - **Finance**: Fraud detection, algorithmic trading, customer service.
+                    - **Transportation**: Autonomous vehicles, traffic management systems.
+                    - **Education**: Personalized learning platforms, intelligent tutoring systems.
+                    - **Entertainment**: Content recommendation, gaming AI opponents.
+                    - **Retail**: Predictive analytics, supply chain optimization, customer service chatbots.
+                    
+                    ### Ethical and Social Implications:
+                    
+                    - **Ethical Concerns**: Bias in AI algorithms, job displacement, privacy issues (data security and surveillance).
+                    - **Social Impact**: Redefining work and education, socioeconomic inequality, transparency and accountability in AI decision-making.
+                    
+                    ### Future Directions:
+                    
+                    - **Explainable AI**: Developing AI systems that can explain their decisions and actions.
+                    - **AI Ethics**: Establishing guidelines and regulations to ensure responsible AI development and deployment.
+                    - **AI and Sustainability**: Using AI to address global challenges like climate change, resource management, and healthcare access.
+                    
+                    In summary, AI represents a transformative technology with vast potential to enhance various aspects of human life and industry. Understanding its capabilities, limitations, and ethical considerations is crucial as we continue to integrate AI into our society and daily lives..</div>
+            </main>
+            <aside id="video-section">
+                <video id="topic-video" controls>
+                    <source src="VIDEOS/Cryptopia   Web 3.0   Future of the Internet   Bitcoin Documentary   Blockchain.mp4.52d1-129f-7c0e-64c3.part" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <button id="next-video">Next Video</button>
+                <textarea id="notes" placeholder="Write notes here..."></textarea>
+            </aside>
+            
+        </div>
+
+        <div id="ai-search" class="hidden">
+            <div id="ai-search-header">
+                <button onclick="closeAISearch()">Close</button>
+                <h2>SURFERY</h2>
+                <button id="language-select" onclick="toggleLanguageMenu()">Language</button>
+                <div id="language-menu" class="hidden">
+                    <button onclick="setLanguage('en')">English</button>
+                    <button onclick="setLanguage('es')">Spanish</button>
+                    <button onclick="setLanguage('fr')">French</button>
+                    <button onclick="setLanguage('de')">German</button>
+                </div>
+            </div>
+            <div id="ai-search-content">
+                <div id="ai-search-results"></div>
+                <div id="ai-search-input-container">
+                    <input type="text" id="ai-search-input" placeholder="Ask SURFERY...">
+                    <button onclick="searchSURFERY()">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="learningDashBoard.js"></script>
+</body>
+</html>

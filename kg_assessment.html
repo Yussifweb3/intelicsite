@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessments - KG Online School</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #333;
+        }
+        .container {
+            display: flex;
+        }
+        .sidebar {
+            width: 260px;
+            background-color: #7e57c2;
+            color: white;
+            padding: 20px;
+            position: fixed;
+            height: 100%;
+            box-shadow: 4px 0 8px rgba(0, 0, 0, 0.3);
+        }
+        .sidebar .logo {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .sidebar .nav-links a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        .sidebar .nav-links a:hover {
+            background-color: #5c2c91;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+        .main-content {
+            margin-left: 260px;
+            padding: 30px;
+            width: calc(100% - 260px);
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .page-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #7e57c2;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .page-header h1 {
+            font-size: 32px;
+            color: #7e57c2;
+            margin: 0;
+        }
+        .filter-container {
+            display: flex;
+            gap: 10px;
+        }
+        .filter-container select,
+        .filter-container input[type="text"] {
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section h2 {
+            font-size: 28px;
+            color: #5c2c91;
+            border-bottom: 2px solid #7e57c2;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .assessment-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .assessment-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        .assessment-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background-color: #7e57c2;
+            border-bottom: 3px solid #5c2c91;
+        }
+        .assessment-card h3 {
+            margin: 0;
+            font-size: 22px;
+            color: #7e57c2;
+        }
+        .assessment-card p {
+            margin: 10px 0;
+            color: #555;
+        }
+        .due-date {
+            font-weight: bold;
+            color: #d32f2f;
+        }
+        .submit-button {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #ffffff;
+            background-color: #7e57c2;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+        .submit-button:hover {
+            background-color: #5c2c91;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">KG Online School</div>
+            <ul class="nav-links">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="assignments.html">Assignments</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="liveclasses.html">Live Classes</a></li>
+                <li><a href="exams.html">Exams</a></li>
+                <li><a href="logout.html">Logout</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <div class="page-header">
+                <h1>Assessments</h1>
+            </div>
+
+            <div class="section">
+                <h2>CAT (Continuous Assessment Test)</h2>
+                <div class="assessment-card">
+                    <h3>Reading Comprehension</h3>
+                    <p>Read the short story and answer the questions.</p>
+                    <p class="due-date">Due Date: 2024-08-15</p>
+                    <a href="#" class="submit-button">Submit Assignment</a>
+                </div>
+                <div class="assessment-card">
+                    <h3>Math Patterns</h3>
+                    <p>Identify and extend the number patterns.</p>
+                    <p class="due-date">Due Date: 2024-08-18</p>
+                    <a href="#" class="submit-button">Submit Assignment</a>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>HAT (Homework Assignment Test)</h2>
+                <div class="assessment-card">
+                    <h3>Storytelling</h3>
+                    <p>Write a short story about your favorite animal.</p>
+                    <p class="due-date">Due Date: 2024-08-22</p>
+                    <a href="#" class="submit-button">Submit Assignment</a>
+                </div>
+                <div class="assessment-card">
+                    <h3>Drawing Shapes</h3>
+                    <p>Draw and color various shapes.</p>
+                    <p class="due-date">Due Date: 2024-08-25</p>
+                    <a href="#" class="submit-button">Submit Assignment</a>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Quizzes</h2>
+                <div class="assessment-card">
+                    <h3>Color Recognition Quiz</h3>
+                    <p>Answer questions about different colors.</p>
+                    <p class="due-date">Due Date: 2024-08-20</p>
+                    <a href="#" class="submit-button">Start Quiz</a>
+                </div>
+                <div class="assessment-card">
+                    <h3>Shape Identification Quiz</h3>
+                    <p>Identify and name various shapes.</p>
+                    <p class="due-date">Due Date: 2024-08-28</p>
+                    <a href="#" class="submit-button">Start Quiz</a>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Exams</h2>
+                <div class="assessment-card">
+                    <h3>Basic Math Exam</h3>
+                    <p>Solve basic math problems.</p>
+                    <p class="due-date">Due Date: 2024-08-30</p>
+                    <a href="#" class="submit-button">Take Exam</a>
+                </div>
+                <div class="assessment-card">
+                    <h3>Language Skills Exam</h3>
+                    <p>Complete language skills exercises.</p>
+                    <p class="due-date">Due Date: 2024-09-05</p>
+                    <a href="#" class="submit-button">Take Exam</a>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

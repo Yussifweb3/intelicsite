@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Company Name</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        header {
+            background-color: #2979FF;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #004d99;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        nav ul li:first-child {
+            margin-right: auto;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            background-color: #2979FF;
+        }
+
+        .video-section {
+            width: 100%;
+            height: 400px; /* Adjust height as needed */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .video-container {
+            width: 500%;
+            display: flex;
+           
+        }
+
+        .video-container video {
+            width: 20%; /* Adjusted for 5 videos */
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .section {
+            padding: 40px 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .card {
+            display: inline-block;
+            width: 30%;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Increased shadow for floating effect */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Added box-shadow transition */
+            background-color: #ffffff;
+        }
+
+        .card:hover {
+            transform: translateY(-15px); /* Increased floating effect */
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+        }
+
+        .card h3 {
+            font-size: 1.5em;
+            color: #2979FF;
+            margin-bottom: 10px;
+        }
+
+        .card .carousel {
+            width: 100%;
+            height: 200px; /* Adjust height as needed */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card .carousel .carousel-images {
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+
+        .card .carousel img {
+            width: 100%;
+            height: auto;
+        }
+
+        .card-text {
+            margin-top: 10px;
+        }
+
+        .card-button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #2979FF;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .card-button:hover {
+            background-color: #004d99;
+        }
+
+        footer {
+            background-color: #004d99;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: auto;
+        }
+
+        .help-box {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #2979FF;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .help-box:hover {
+            background-color: #004d99;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="intely.html">Home</a></li>
+                <li><a href="academica.html">Academica</a></li>
+                <li><a href="library.html">E-Library</a></li>
+                <li><a href="research.html">Research</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="video-section">
+        <div class="video-container">
+            
+            <video autoplay muted loop>
+                <source src="VIDEOS/TOP8.mp4" type="video/mp4">
+            </video>
+            <video autoplay muted loop>
+                <source src="VIDEOS/TOP8.mp4" type="video/mp4">
+            </video>
+        </div>
+    </section>
+
+    <!-- Section 1 -->
+    <section class="section">
+        <div class="card">
+            <h3>Artificial Intelligence</h3>
+            <div class="carousel">
+                <div class="carousel-images">
+                    <img src="IMAGES/AA1.jpg" alt="Card Image 1">
+                    <img src="IMAGES/AA2.jpg" alt="Card Image 1">
+                    <img src="IMAGES/AA3.jpg" alt="Card Image 1">
+                </div>
+            </div>
+            <div class="card-text">
+                <p>Learn the fundamentals and advanced topics of AI, including machine learning, neural networks, and deep learning.</p>
+                <a href="login.html" class="card-button">Enroll Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Web Development</h3>
+            <div class="carousel">
+                <div class="carousel-images">
+                    <img src="IMAGES/ww1.jpg" alt="Card Image 2">
+                    <img src="IMAGES/ww2.jpg" alt="Card Image 2">
+                    <img src="IMAGES/ww3.jpg" alt="Card Image 2">
+                </div>
+            </div>
+            <div class="card-text">
+                <p>Master HTML, CSS, JavaScript, and modern frameworks like React, Angular, and Vue to build responsive websites.</p>
+                <a href="login.html" class="card-button">Enroll Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Data Science</h3>
+            <div class="carousel">
+                <div class="carousel-images">
+                    <img src="IMAGES/dd1.jpg" alt="Card Image 3">
+                    <img src="IMAGES/dd2.jpg" alt="Card Image 3">
+                    <img src="IMAGES/dd3.jpg" alt="Card Image 3">
+                </div>
+            </div>
+            <div class="card-text">
+                <p>Gain skills in data analysis, visualization, and manipulation using tools like Python, R, and SQL.</p>
+                <a href="login.html" class="card-button">Enroll Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2 -->
+    <section class="section">
+        <div class="card">
+            <h3>Cybersecurity</h3>
+            <div class="carousel">
+                <div class="carousel-images">
+                    <img src="IMAGES/cc1.jpg" alt="Card Image 4">
+                    <img src="IMAGES/cc2.jpg" alt="Card Image 4">
+                    <img src="IMAGES/cc3.jpg" alt="Card Image 4">
+                </div>
+            </div>
+            <div class="card-text">
+                <p>Learn how to protect systems and networks from cyber threats, and understand the principles of ethical hacking.</p>
+                <a href="login.html" class="card-button">Enroll Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Cloud Computing</h3>
+            <div class="carousel">
+                <div class="carousel-images">
+                    <img src="IMAGES/ccc1.jpg" alt="Card Image 5">
+                    <img src="IMAGES/ccc2.jpg" alt="Card Image 5">
+                    <img src="IMAGES/ccc3.jpg" alt="Card Image 5">
+                </div>
+            </div>
+            <div class="card-text">
+                <p>Understand cloud services, architecture, and how to deploy scalable applications.</p>
+                <a href="login.html" class="card-button">Enroll Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Blockchain</h3>
+            <div class="carousel">
+                <div class="carousel-images">
+                    <img src="IMAGES/bc1.jpg" alt="Card Image 6">
+                    <img src="IMAGES/bc2.jpg" alt="Card Image 6">
+                    <img src="IMAGES/bc3.jpg" alt="Card Image 6">
+                </div>
+            </div>
+            <div class="card-text">
+                <p>Dive into blockchain technology, understand cryptocurrency, smart contracts, and decentralized applications.</p>
+                <a href="login.html" class="card-button">Enroll Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3 -->
+    <section class="section">
+        <div class="card">
+            <h3>Mobile App Development</h3>
+            <div class="carousel">
+                <div class="carousel-images">
+                    <img src="IMAGES/ma1.jpg" alt="Card Image 7">
+                    <img src="IMAGES/ma2.jpg" alt="Card Image 7">
+                    <img src="IMAGES/ma3.jpg" alt="Card Image 7">
+                </div>
+            </div>
+            <div class="card-text">
+                <p>Learn how to develop mobile applications for iOS and Android using Swift, Kotlin, and cross-platform frameworks.</p>
+                <a href="login.html" class="card-button">Enroll Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Game Development</h3>
+            <div class="carousel">
+                <div class="carousel-images">
+                    <img src="IMAGES/g1.jpg" alt="Card Image 8">
+                    <img src="IMAGES/g2.jpg" alt="Card Image 8">
+                    <img src="IMAGES/g3.jpg" alt="Card Image 8">
+                </div>
+            </div>
+            <div class="card-text">
+                <p>Explore game design, development, and programming using Unity, Unreal Engine, and other game development tools.</p>
+                <a href="login.html" class="card-button">Enroll Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Internet of Things (IoT)</h3>
+            <div class="carousel">
+                <div class="carousel-images">
+                    <img src="IMAGES/i1.jpg" alt="Card Image 9">
+                    <img src="IMAGES/i2.jpg" alt="Card Image 9">
+                    <img src="IMAGES/i3.jpg" alt="Card Image 9">
+                </div>
+            </div>
+            <div class="card-text">
+                <p>Learn about IoT architecture, sensors, and devices, and how to build connected systems and applications.</p>
+                <a href="login.html" class="card-button">Enroll Now</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2024 Your Company Name. All rights reserved.
+    </footer>
+
+    <div class="help-box" onclick="showHelpMessage()">Need Help?</div>
+
+    <script>
+        let videoIndex = 0;
+        const videos = document.querySelectorAll('.video-container video');
+        const videoContainer = document.querySelector('.video-container');
+        const videoCount = videos.length;
+
+        setInterval(() => {
+            videoIndex = (videoIndex + 1) % videoCount;
+            videoContainer.style.transform = `translateX(-${videoIndex * 20}%)`;
+        }, 5000); // Change slide every 5 seconds
+
+        document.querySelectorAll('.carousel').forEach(carousel => {
+            let carouselIndex = 0;
+            const images = carousel.querySelector('.carousel-images');
+            const imageCount = images.children.length;
+
+            setInterval(() => {
+                carouselIndex = (carouselIndex + 1) % imageCount;
+                images.style.transform = `translateX(-${carouselIndex * 100}%)`;
+            }, 3000); // Change slide every 3 seconds
+        });
+
+        function showHelpMessage() {
+            alert('Contact us at support@yourcompany.com for assistance.');
+        }
+    </script>
+</body>
+</html>

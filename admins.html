@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Intely Institute of Technology</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .navbar {
+            background-color: #004d99;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar .logo {
+            font-size: 24px;
+        }
+        .navbar .nav-links {
+            display: flex;
+            align-items: center;
+        }
+        .navbar .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+        .sidebar {
+            background-color: #333;
+            color: #fff;
+            width: 250px;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            overflow-y: auto;
+            padding-top: 60px; /* Adjust based on navbar height */
+        }
+        .sidebar .logo {
+            font-size: 24px;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .sidebar .nav-item {
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .sidebar .nav-item:hover {
+            background-color: #004d99;
+        }
+        .sidebar .nav-item a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .content {
+            margin-left: 250px; /* Adjust based on sidebar width */
+            padding: 20px;
+        }
+        .content h2 {
+            margin-top: 0;
+        }
+        .card {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .card h3 {
+            margin-top: 0;
+        }
+        .card p {
+            margin-bottom: 10px;
+        }
+        .footer {
+            background-color: #004d99;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">Admin Dashboard</div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Users</a>
+            <a href="#">Courses</a>
+            <a href="#">Settings</a>
+            <a href="#">Logout</a>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <div class="logo">Intely Institute</div>
+        <div class="nav-item">
+            <a href="#">Dashboard</a>
+        </div>
+        <div class="nav-item">
+            <a href="#">Manage Users</a>
+        </div>
+        <div class="nav-item">
+            <a href="#">Manage Courses</a>
+        </div>
+        <div class="nav-item">
+            <a href="#">Settings</a>
+        </div>
+    </div>
+
+    <div class="content">
+        <h2>Dashboard</h2>
+        <div class="card">
+            <h3>Statistics</h3>
+            <p>Total Users: 1000</p>
+            <p>Total Courses: 50</p>
+            <p>Active Users: 800</p>
+        </div>
+        <div class="card">
+            <h3>Recent Activities</h3>
+            <p>User John Doe enrolled in course "Web Development".</p>
+            <p>User Jane Smith updated profile information.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Intely Institute of Technology. All rights reserved.</p>
+    </div>
+</body>
+</html>

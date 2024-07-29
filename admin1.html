@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Intely University</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #333;
+        }
+
+        header {
+            background: #003366;
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .section {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            background: #fff;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            color: #003366;
+        }
+
+        input[type="file"] {
+            display: block;
+            margin: 10px 0;
+        }
+
+        button {
+            background: #003366;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #002244;
+        }
+
+        .assignment-list {
+            margin-top: 20px;
+        }
+
+        .assignment-item {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .assignment-item button {
+            background: #e74c3c;
+        }
+
+        .assignment-item button:hover {
+            background: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Admin Dashboard - Intely University</h1>
+    </header>
+
+    <div class="container">
+        <!-- Video Upload Section -->
+        <div class="section">
+            <h2>Upload Videos</h2>
+            <input type="file" id="video-upload" multiple>
+            <button onclick="uploadVideos()">Upload Videos</button>
+        </div>
+
+        <!-- Document Upload Section -->
+        <div class="section">
+            <h2>Upload Documents</h2>
+            <input type="file" id="document-upload" multiple>
+            <button onclick="uploadDocuments()">Upload Documents</button>
+        </div>
+
+        <!-- Assignment Management Section -->
+        <div class="section">
+            <h2>Assignment Submissions</h2>
+            <div class="assignment-list" id="assignment-list">
+                <!-- Submitted assignments will appear here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Handle video upload
+        function uploadVideos() {
+            const videoInput = document.getElementById('video-upload');
+            const files = videoInput.files;
+            // Handle video upload logic here
+            console.log('Videos uploaded:', files);
+            alert('Videos uploaded successfully.');
+        }
+
+        // Handle document upload
+        function uploadDocuments() {
+            const documentInput = document.getElementById('document-upload');
+            const files = documentInput.files;
+            // Handle document upload logic here
+            console.log('Documents uploaded:', files);
+            alert('Documents uploaded successfully.');
+        }
+
+        // Function to simulate loading assignments (for demo purposes)
+        function loadAssignments() {
+            const assignments = [
+                { id: 1, text: 'Assignment 1: Research Paper' },
+                { id: 2, text: 'Assignment 2: Group Project' }
+                // Add more assignments as needed
+            ];
+
+            const assignmentList = document.getElementById('assignment-list');
+            assignmentList.innerHTML = ''; // Clear the list before loading new data
+
+            assignments.forEach(assignment => {
+                const assignmentItem = document.createElement('div');
+                assignmentItem.className = 'assignment-item';
+                assignmentItem.innerHTML = `
+                    <p>${assignment.text}</p>
+                    <button onclick="deleteAssignment(${assignment.id})">Delete</button>
+                `;
+                assignmentList.appendChild(assignmentItem);
+            });
+        }
+
+        // Function to delete an assignment (for demo purposes)
+        function deleteAssignment(id) {
+            // Handle assignment deletion logic here
+            alert('Assignment deleted successfully.');
+        }
+
+        // Load assignments when the page loads
+        window.onload = loadAssignments;
+    </script>
+</body>
+</html>

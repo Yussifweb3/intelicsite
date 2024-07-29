@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Dashboard - Intely University</title>
+    <style>
+        /* Basic styles for responsiveness and layout */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #333;
+        }
+
+        header {
+            background: #003366; /* Intely University blue */
+            color: #fff;
+            padding: 15px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        nav h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffcc00; /* Accent color */
+        }
+
+        section {
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 8px;
+            margin: 20px auto;
+            max-width: 1200px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .course-list, .tutorial-list, #saved-notes {
+            margin-top: 10px;
+        }
+
+        .semester {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .semester:hover {
+            background-color: #f0f4f8;
+        }
+
+        .course-list {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .course-item {
+            background: #ffffff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .course-item:hover {
+            background-color: #e0e0e0;
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            margin-top: 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: #003366; /* Intely University blue */
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background: #002244; /* Darker shade */
+        }
+
+        footer {
+            background: #003366; /* Intely University blue */
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 -4px 6px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul li {
+                margin-left: 0;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <h1>Intely University</h1>
+                <ul>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#tutorials">Tutorials</a></li>
+                    <li><a href="#classes">Live Classes</a></li>
+                    <li><a href="#notes">Notes</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section id="courses">
+        <div class="container">
+            <h2>Semester Courses</h2>
+            <div id="semesters">
+                <!-- Semesters will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <section id="tutorials">
+        <div class="container">
+            <h2>Course Tutorials</h2>
+            <div class="tutorial-list">
+                <!-- Tutorials will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <section id="classes">
+        <div class="container">
+            <h2>Live Online Classes</h2>
+            <button id="join-zoom" onclick="joinZoom()">Join Class</button>
+        </div>
+    </section>
+
+    <section id="notes">
+        <div class="container">
+            <h2>Your Notes</h2>
+            <textarea id="note-input" placeholder="Write your notes here..."></textarea>
+            <button onclick="saveNote()">Save Note</button>
+            <div id="saved-notes">
+                <!-- Saved notes will be displayed here -->
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Intely University. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Function to join Zoom meeting
+        function joinZoom() {
+            // Placeholder Zoom link
+            const zoomLink = "https://zoom.us/j/yourmeetingid"; 
+            window.open(zoomLink, '_blank');
+        }
+
+        // Save note function
+        function saveNote() {
+            const noteInput = document.getElementById('note-input');
+            const savedNotes = document.getElementById('saved-notes');
+
+            if (noteInput.value.trim()) {
+                const note = document.createElement('div');
+                note.className = 'note';
+                note.textContent = noteInput.value;
+                savedNotes.appendChild(note);
+                noteInput.value = ''; // Clear the input field
+            } else {
+                alert('Please write something before saving.');
+            }
+        }
+
+        // Load semester and course data (placeholder)
+        window.onload = function() {
+            const semesters = [
+                'Semester 1', 'Semester 2', 'Semester 3', 'Semester 4',
+                'Semester 5', 'Semester 6', 'Semester 7', 'Semester 8'
+            ];
+
+            const courses = [
+                'Math 101', 'Science 101', 'History 101', 'English 101', 
+                'Physics 101', 'Biology 101', 'Chemistry 101', 'Economics 101', 
+                'Political Science 101', 'Geography 101'
+            ];
+
+            const semesterContainer = document.getElementById('semesters');
+
+            semesters.forEach((semester, index) => {
+                const semesterDiv = document.createElement('div');
+                semesterDiv.className = 'semester';
+                semesterDiv.textContent = semester;
+                semesterDiv.onclick = () => toggleCourses(index);
+
+                const courseListDiv = document.createElement('div');
+                courseListDiv.className = 'course-list';
+                courseListDiv.id = `courses-semester-${index}`;
+
+                courses.forEach(course => {
+                    const courseItem = document.createElement('div');
+                    courseItem.className = 'course-item';
+                    courseItem.textContent = course;
+                    courseItem.onclick = () => window.location.href = 'studying.html';
+                    courseListDiv.appendChild(courseItem);
+                });
+
+                semesterDiv.appendChild(courseListDiv);
+                semesterContainer.appendChild(semesterDiv);
+            });
+        };
+
+        // Toggle course list visibility
+        function toggleCourses(index) {
+            const courseList = document.getElementById(`courses-semester-${index}`);
+            if (courseList.style.display === 'block') {
+                courseList.style.display = 'none';
+            } else {
+                courseList.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

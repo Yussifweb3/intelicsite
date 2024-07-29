@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Exams for Preschool Students</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', sans-serif;
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    nav {
+      background: #ff6f61;
+      padding: 10px 20px;
+      text-align: center;
+      color: white;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    .container {
+      flex: 1;
+      padding: 20px;
+    }
+    .exam-card {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      margin-bottom: 20px;
+      padding: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .exam-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+    }
+    .exam-title {
+      font-size: 2em;
+      color: #ff6f61;
+      margin-bottom: 10px;
+    }
+    .exam-description {
+      font-size: 1.2em;
+      margin-bottom: 15px;
+    }
+    .start-btn {
+      background: #ff6f61;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      font-size: 1em;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .start-btn:hover {
+      background: #ff8a80;
+    }
+    footer {
+      background: #ff6f61;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+    .question {
+      display: none;
+    }
+    .question.active {
+      display: block;
+    }
+    .options {
+      list-style-type: none;
+      padding: 0;
+    }
+    .options li {
+      background: #ff8a80;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .options li:hover {
+      background: #ff6f61;
+    }
+    .submit-btn {
+      background: #ff6f61;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      font-size: 1em;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+      display: none;
+    }
+    .submit-btn.active {
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+<nav>Online Exams for Preschool Students</nav>
+
+<div class="container">
+  <div class="exam-card" id="examCard">
+    <div class="exam-title">Colors and Shapes</div>
+    <div class="exam-description">Identify the colors and shapes in the following questions.</div>
+    <button class="start-btn" id="startBtn">Start Exam</button>
+    <div class="question" id="question1">
+      <p>What color is the sky?</p>
+      <ul class="options">
+        <li data-answer="incorrect">Green</li>
+        <li data-answer="incorrect">Red</li>
+        <li data-answer="correct">Blue</li>
+        <li data-answer="incorrect">Yellow</li>
+      </ul>
+    </div>
+    <div class="question" id="question2">
+      <p>What shape is a ball?</p>
+      <ul class="options">
+        <li data-answer="incorrect">Square</li>
+        <li data-answer="incorrect">Triangle</li>
+        <li data-answer="correct">Circle</li>
+        <li data-answer="incorrect">Rectangle</li>
+      </ul>
+    </div>
+    <div class="question" id="question3">
+      <p>What color is a banana?</p>
+      <ul class="options">
+        <li data-answer="correct">Yellow</li>
+        <li data-answer="incorrect">Blue</li>
+        <li data-answer="incorrect">Purple</li>
+        <li data-answer="incorrect">Pink</li>
+      </ul>
+    </div>
+    <button class="submit-btn" id="submitBtn">Submit Answers</button>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2024 Online Preschool Exams. All rights reserved.</p>
+</footer>
+
+<script>
+  document.getElementById('startBtn').addEventListener('click', startExam);
+  const questions = document.querySelectorAll('.question');
+  const submitBtn = document.getElementById('submitBtn');
+  let currentQuestionIndex = 0;
+  let correctAnswers = 0;
+
+  function startExam() {
+    document.getElementById('startBtn').style.display = 'none';
+    showQuestion(currentQuestionIndex);
+  }
+
+  function showQuestion(index) {
+    questions[index].classList.add('active');
+    const options = questions[index].querySelectorAll('.options li');
+    options.forEach(option => {
+      option.addEventListener('click', () => {
+        if (option.dataset.answer === 'correct') {
+          correctAnswers++;
+        }
+        questions[index].classList.remove('active');
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questions.length) {
+          showQuestion(currentQuestionIndex);
+        } else {
+          submitBtn.classList.add('active');
+        }
+      });
+    });
+  }
+
+  submitBtn.addEventListener('click', () => {
+    alert(`You got ${correctAnswers} out of ${questions.length} correct!`);
+    window.location.reload();
+  });
+</script>
+
+</body>
+</html>

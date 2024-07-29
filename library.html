@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Library</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #004d99;
+            padding: 10px 20px;
+            position: relative;
+            z-index: 1000;
+        }
+        .navbar .logo {
+            font-size: 24px;
+            color: #fff;
+        }
+        .navbar .nav-links {
+            display: flex;
+            align-items: center;
+        }
+        .navbar .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 16px;
+        }
+        .navbar .search-container {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+        }
+        .navbar .search-container input[type="text"] {
+            padding: 5px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+        }
+        .navbar .search-container button {
+            padding: 5px 10px;
+            margin-left: 5px;
+            background-color: #2979FF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .navbar .search-container button:hover {
+            background-color: #0056b3;
+        }
+        .hero {
+            background: url('https://via.placeholder.com/1920x500') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        .hero h1 {
+            font-size: 50px;
+            margin: 0;
+        }
+        .hero p {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+        .content {
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            flex: 1;
+        }
+        .card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            margin: 10px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .card:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: translateY(-15px);
+        }
+        .card img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .card h3 {
+            margin-top: 0;
+        }
+        .card p {
+            margin-bottom: 10px;
+        }
+        .card .explore-button {
+            background-color: #2979FF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .card .explore-button:hover {
+            background-color: #0056b3;
+        }
+        .footer {
+            background-color: #004d99;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            width: 100%;
+            position: relative;
+        }
+        .slider {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 300px;
+            margin-top: -10px;
+        }
+        .slider-content {
+            display: flex;
+            animation: slide 15s infinite linear;
+        }
+        .slider img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        .marquee {
+            width: 100%;
+            background-color: #f4f4f4;
+            padding: 10px 0;
+            overflow: hidden;
+        }
+        .marquee p {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 15s linear infinite;
+        }
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">E-Library</div>
+        <div class="nav-links">
+            <a href="intely.html">Home</a>
+            <a href="#">About</a>
+            <a href="#">Resources</a>
+            <a href="#">Contact</a>
+            <div class="search-container">
+                <input type="text" id="librarySearch" placeholder="Search library...">
+                <button onclick="librarySearch()">Search</button>
+            </div>
+        </div>
+        <div class="search-container">
+            <input type="text" id="webSearch" placeholder="Web search...">
+            <button onclick="webSearch()">Search</button>
+        </div>
+    </nav>
+
+    <div class="slider">
+        <div class="slider-content">
+            <img src="IMAGES/re5.jpg" alt="Slide 1">
+            <img src="IMAGES/re2.jpg" alt="Slide 2">
+            <img src="IMAGES/re1.jpg" alt="Slide 3">
+            <img src="IMAGES/re6.jpg" alt="Slide 1">
+            <img src="IMAGES/re3.jpg" alt="Slide 2">
+            <img src="IMAGES/re4.jpg" alt="Slide 3">
+            <!-- Add more images for additional slides -->
+        </div>
+    </div>
+
+    <div class="marquee">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+    </div>
+
+    <div class="hero">
+        <h1>Welcome to E-Library</h1>
+        <p>Your portal to knowledge in technology, science, economics, politics, environment, and more.</p>
+    </div>
+
+    <div class="content">
+        <!-- Cards for 21 different subject areas -->
+        <div class="card" onclick="window.location.href='work.html'">
+            <img src="IMAGES/AA1.jpg" alt="Artificial Intelligence">
+            <h3>Artificial Intelligence</h3>
+            <p>Explore the latest advancements and research in AI technology.</p>
+            <a href="work.html" class="explore-button">Explore</a>
+        </div>
+        <div class="card" onclick="window.location.href='work.html'">
+            <img src="IMAGES/dd1.jpg" alt="Data Science">
+            <h3>Data Science</h3>
+            <p>Dive into data analysis, visualization, and machine learning.</p>
+            <a href="work.html" class="explore-button">Explore</a>
+        </div>
+        <div class="card" onclick="window.location.href='work.html'">
+            <img src="IMAGES/cc2.jpg" alt="Cybersecurity">
+            <h3>Cybersecurity</h3>
+            <p>Learn about protecting data and systems from cyber threats.</p>
+            <a href="work.html" class="explore-button">Explore</a>
+        </div>
+        <div class="card" onclick="window.location.href='work.html'">
+            <img src="IMAGES/bc3.jpg" alt="Blockchain Technology">
+            <h3>Blockchain Technology</h3>
+            <p>Understand the fundamentals and applications of blockchain.</p>
+            <a href="work.html" class="explore-button">Explore</a>
+        </div>
+        <div class="card" onclick="window.location.href='work.html'">
+            <img src="IMAGES/i1.jpg" alt="Internet of Things (IoT)">
+            <h3>Internet of Things (IoT)</h3>
+            <p>Explore the connectivity of devices and smart technology.</p>
+            <a href="work.html" class="explore-button">Explore</a>
+        </div>
+        <div class="card" onclick="window.location.href='work.html'">
+            <img src="IMAGES/qq1.jpg" alt="Quantum Computing">
+            <h3>Quantum Computing</h3>
+            <p>Discover the future of computing with quantum mechanics.</p>
+            <a href="work.html" class="explore-button">Explore</a>
+        </div>
+        <div class="card" onclick="window.location.href='work.html'">
+            <img src="IMAGES/vr.jpg" alt="Virtual Reality (VR)">
+            <h3>Virtual Reality (VR)</h3>
+            <p>Immerse yourself in virtual worlds and simulations.</p>
+            <a href="work.html" class="explore-button">Explore</a>
+        </div>
+        <div class="card" onclick="window.location.href='work.html'">
+            <img src="IMAGES/ar.jpg" alt="Augmented Reality (AR)">
+            <h3>Augmented Reality (AR)</h3>
+            <p>Explore the integration of digital content with the real world.</p>
+            <a href="work.html" class="explore-button">Explore</a>
+        </div>
+        <div class="card" onclick="window.location.href='work.html'">
+            <img src="IMAGES/rr1.jpg" alt="Robotics">
+            <h3>Robotics</h3>
+            <p>Study the design and use of robots in various applications.</p>
+            <a href="work.html" class="explore-button">Explore</a>
+        </div>
+        <div class="card" onclick="window.location.href='work.html'">
+            <img src="IMAGES/ml.jpg" alt="Machine Learning">
+            <h3>Machine Learning</h3>
+            <p>Understand algorithms and techniques for learning from data.</p>
+            <a href="work.html" class="explore-button">Explore</a>
+        </div>
+        <div class="card" onclick="window.location.href='work.html'">
+            <img src="IMAGES/bd.jpg" alt="Big Data">
+            <h3>Big Data</h3>
+            <p>Analyze large datasets to uncover insights and trends.</p>
+            <a href="work.html" class="explore-button">Explore</a>
+        </div>
+        <div class="card" onclick="window.location.href='work.html'">
+            <img src="IMAGES/cv.jpg" alt="Computer Vision">
+            <h3>Computer Vision</h3>
+            <p>Learn about how computers interpret visual information.</p>
+            <a href="work.html" class="explore-button">Explore</a>
+        </div>
+        <div class="card" onclick="window.location.href='work.html'">
+            <img src="IMAGES/nlp.jpg" alt="Natural Language Processing">
+            <h3>Natural Language Processing</h3>
+            <p>Explore the interaction between computers and human language.</p>
+            <a href="work.html" class="explore-button">Explore</a>
+        </div>
+        <div class="card" onclick="window.location.href='work.html'">
+            <img src="IMAGES/es.jpg" alt="Embedded Systems">
+            <h3>Embedded Systems</h3>
+            <p>Study systems integrated into other devices for specific functions.</p>
+            <a href="work.html" class="explore-button">Explore</a>
+        </div>
+        <div class="card" onclick="window.location.href='work.html'">
+            <img src="IMAGES/sd.jpg" alt="Software Engineering">
+            <h3>Software Engineering</h3>
+            <p>Learn about designing and developing software applications.</p>
+            <a href="work.html" class="explore-button">Explore</a>
+        </div>
+        <div class="card" onclick="window.location.href='work.html'">
+            <img src="IMAGES/he.jpg" alt="Hardware Engineering">
+            <h3>Hardware Engineering</h3>
+            <p>Understand the design and construction of physical computer systems.</p>
+            <a href="work.html" class="explore-button">Explore</a>
+        </div>
+        <div class="card" onclick="window.location.href='work.html'">
+            <img src="IMAGES/nw.jpg" alt="Networking">
+            <h3>Networking</h3>
+            <p>Explore the principles and practices of computer networks.</p>
+            <a href="work.html" class="explore-button">Explore</a>
+        </div>
+        <div class="card" onclick="window.location.href='work.html'">
+            <img src="IMAGES/db.jpg" alt="Database Management">
+            <h3>Database Management</h3>
+            <p>Study how to manage and organize data effectively.</p>
+            <a href="work.html" class="explore-button">Explore</a>
+        </div>
+        <div class="card" onclick="window.location.href='work.html'">
+            <img src="IMAGES/ww1.jpg" alt="Web Development">
+            <h3>Web Development</h3>
+            <p>Learn about building and maintaining websites.</p>
+            <a href="work.html" class="explore-button">Explore</a>
+        </div>
+        <div class="card" onclick="window.location.href='work.html'">
+            <img src="IMAGES/g1.jpg" alt="Game Development">
+            <h3>Game Development</h3>
+            <p>Understand the process of creating interactive video games.</p>
+            <a href="work.html" class="explore-button">Explore</a>
+        </div>
+        <div class="card" onclick="window.location.href='work.html'">
+            <img src="IMAGES/ma1.jpg" alt="Mobile App Development">
+            <h3>Mobile App Development</h3>
+            <p>Explore the creation of applications for mobile devices.</p>
+            <a href="work.html" class="explore-button">Explore</a>
+        </div>
+        <div class="card" onclick="window.location.href='work.html'">
+            <img src="IMAGES/hc.jpg" alt="Human-Computer Interaction">
+            <h3>Human-Computer Interaction</h3>
+            <p>Study how people interact with computers and design user interfaces.</p>
+            <a href="work.html" class="explore-button">Explore</a>
+        </div>
+        <div class="card" onclick="window.location.href='work.html'">
+            <img src="IMAGES/sa.jpg "alt="Systems Analysis and Design">
+            <h3>Systems Analysis and Design</h3>
+            <p>Learn about the methods and tools for analyzing and designing systems.</p>
+            <a href="work.html" class="explore-button">Explore</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2024 E-Library. All rights reserved.
+    </div>
+</body>
+</html>

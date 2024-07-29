@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KG Online School Dashboard</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eaeaea;
+            color: #333;
+        }
+        .navbar {
+            background-color: #28a745;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .navbar h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .navbar nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .navbar nav a:hover {
+            color: #d4edda;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .card h2 {
+            margin-top: 0;
+            color: #28a745;
+            font-size: 22px;
+        }
+        .card p {
+            color: #555;
+        }
+        .card button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card button:hover {
+            background-color: #218838;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+        .gallery img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 80%;
+            width: 100%;
+        }
+        .modal-content img, .modal-content video {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .modal-close:hover {
+            background-color: #218838;
+        }
+        footer {
+            background-color: #28a745;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>KG Online School</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#media">Media Gallery</a>
+            <a href="#docs">Documents</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
+    <div class="container">
+        <div id="home" class="card">
+            <h2>Welcome to KG Online School</h2>
+            <p>Your one-stop platform for early childhood education. Explore media galleries, documents, and more!</p>
+            <button onclick="openModal('welcomeModal')">Learn More</button>
+        </div>
+
+        <div id="media" class="media-section">
+            <h2>Media Gallery</h2>
+            <div class="gallery">
+                <img src="https://via.placeholder.com/300" alt="Gallery Image 1" onclick="openModal('mediaModal', 'https://via.placeholder.com/300')">
+                <img src="https://via.placeholder.com/300" alt="Gallery Image 2" onclick="openModal('mediaModal', 'https://via.placeholder.com/300')">
+                <img src="https://via.placeholder.com/300" alt="Gallery Image 3" onclick="openModal('mediaModal', 'https://via.placeholder.com/300')">
+            </div>
+        </div>
+
+        <div id="docs" class="doc-section">
+            <h2>Documents</h2>
+            <div class="card">
+                <h3>Sample Document 1</h3>
+                <p>Description of document 1.</p>
+                <button onclick="downloadDoc('https://via.placeholder.com/300')">Download</button>
+            </div>
+            <div class="card">
+                <h3>Sample Document 2</h3>
+                <p>Description of document 2.</p>
+                <button onclick="downloadDoc('https://via.placeholder.com/300')">Download</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Media and Welcome -->
+    <div id="welcomeModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <h2>Welcome to KG Online School</h2>
+            <p>More details about the KG Online School and its features.</p>
+        </div>
+    </div>
+    
+    <div id="mediaModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <img id="modalImage" src="" alt="Media">
+        </div>
+    </div>
+
+    <script>
+        function openModal(modalId, imageUrl) {
+            const modal = document.getElementById(modalId);
+            if (imageUrl) {
+                document.getElementById('modalImage').src = imageUrl;
+            }
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                modal.style.display = 'none';
+            });
+        }
+
+        function downloadDoc(docUrl) {
+            window.open(docUrl, '_blank');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programs - KG School</title>
+    <style>
+        body {
+            font-family: 'Verdana', sans-serif;
+            background-color: #f1f8e9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        nav {
+            background-color: #ff6f61;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+        .programs-container {
+            padding: 80px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .program-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+            padding: 20px;
+            width: 300px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .program-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .program-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .program-card h3 {
+            margin: 10px 0;
+        }
+        footer {
+            background-color: #ff6f61;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">KG School</div>
+        <ul>
+            <li><a href="kg_home.html">Home</a></li>
+            <li><a href="kg_programs.html">Programs</a></li>
+            <li><a href="kg_gallery.html">Gallery</a></li>
+            <li><a href="kg_login.html">Login</a></li>
+            <li><a href="kg_contact.html">Contact</a></li>
+            <li><a href="kg_signup.html">Signup</a></li>
+        </ul>
+    </nav>
+
+    <div class="programs-container">
+        <div class="program-card">
+            <img src="https://via.placeholder.com/300x200?text=Reading+Skills" alt="Reading Skills">
+            <h3>Reading Skills</h3>
+            <p>Develop early reading skills with fun activities.</p>
+        </div>
+        <div class="program-card">
+            <img src="https://via.placeholder.com/300x200?text=Math+Games" alt="Math Games">
+            <h3>Math Games</h3>
+            <p>Interactive games to introduce basic math concepts.</p>
+        </div>
+        <div class="program-card">
+            <img src="https://via.placeholder.com/300x200?text=Art+Projects" alt="Art Projects">
+            <h3>Art Projects</h3>
+            <p>Creative projects to encourage artistic expression.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 KG School. All rights reserved.</p>
+    </footer>
+</body>
+</html>

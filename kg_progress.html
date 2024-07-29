@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress - KG Online School</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e3f2fd; /* Light blue background */
+            color: #333;
+        }
+        .container {
+            display: flex;
+        }
+        .sidebar {
+            width: 260px;
+            background-color: #1e88e5; /* Deep blue */
+            color: white;
+            padding: 20px;
+            position: fixed;
+            height: 100%;
+            box-shadow: 4px 0 8px rgba(0, 0, 0, 0.2);
+        }
+        .sidebar .logo {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #fff;
+        }
+        .sidebar .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sidebar .nav-links a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+        .sidebar .nav-links a:hover {
+            background-color: #0d47a1; /* Darker blue */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .main-content {
+            margin-left: 260px;
+            padding: 30px;
+            width: calc(100% - 260px);
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .progress-chart {
+            display: flex;
+            flex-direction: column;
+        }
+        .progress-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .progress-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        .progress-card h3 {
+            margin: 0;
+            font-size: 22px;
+            color: #1e88e5; /* Deep blue */
+            border-bottom: 2px solid #1e88e5;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        .chart {
+            width: 100%;
+            height: 150px;
+            background: #f1f8e9; /* Very light green */
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+        .chart-bar {
+            height: 100%;
+            background-color: #43a047; /* Green */
+            border-radius: 8px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: width 0.3s;
+        }
+        .chart-bar::after {
+            content: attr(data-progress) '%';
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+            color: #ffffff;
+            font-weight: bold;
+        }
+        .literacy {
+            background: linear-gradient(to right, #64b5f6, #1e88e5);
+        }
+        .numeracy {
+            background: linear-gradient(to right, #aed581, #43a047);
+        }
+        .creative-arts {
+            background: linear-gradient(to right, #ffab40, #ff9800);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">KG Online School</div>
+            <ul class="nav-links">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="assignments.html">Assignments</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="liveclasses.html">Live Classes</a></li>
+                <li><a href="exams.html">Exams</a></li>
+                <li><a href="logout.html">Logout</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <h1>Progress</h1>
+            <div class="progress-chart">
+                <div class="progress-card literacy">
+                    <h3>Literacy Progress</h3>
+                    <div class="chart">
+                        <div class="chart-bar" style="width: 60%;" data-progress="60"></div>
+                    </div>
+                </div>
+                <div class="progress-card numeracy">
+                    <h3>Numeracy Progress</h3>
+                    <div class="chart">
+                        <div class="chart-bar" style="width: 80%;" data-progress="80"></div>
+                    </div>
+                </div>
+                <div class="progress-card creative-arts">
+                    <h3>Creative Arts Progress</h3>
+                    <div class="chart">
+                        <div class="chart-bar" style="width: 70%;" data-progress="70"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Page - Quiz Control</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f8ff;
+      margin: 0;
+    }
+    .admin-container {
+      text-align: center;
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      margin-top: 20px;
+      width: 80%;
+    }
+    .admin-container h1 {
+      color: #008080;
+      margin-bottom: 20px;
+    }
+    .control-btn, .add-btn, .delete-btn {
+      background: #008080;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .control-btn:hover, .add-btn:hover, .delete-btn:hover {
+      background: #006666;
+    }
+    .question-form, .delete-form {
+      margin-bottom: 20px;
+    }
+    .question-form input, .question-form textarea, .delete-form input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="admin-container">
+    <h1>Quiz Control Panel</h1>
+    <div class="question-form">
+      <input type="text" id="question" placeholder="Enter question" />
+      <input type="text" id="option1" placeholder="Option 1" />
+      <input type="text" id="option2" placeholder="Option 2" />
+      <input type="text" id="option3" placeholder="Option 3" />
+      <input type="text" id="option4" placeholder="Option 4" />
+      <input type="text" id="correctOption" placeholder="Correct option number (1-4)" />
+      <button class="add-btn" onclick="addQuestion()">Add Question</button>
+    </div>
+    <button class="control-btn" onclick="startQuiz()">Start Quiz</button>
+    <button class="control-btn" onclick="stopQuiz()">Stop Quiz</button>
+    <div class="delete-form">
+      <input type="text" id="deleteIndex" placeholder="Enter question number to delete or 'all' to delete all" />
+      <button class="delete-btn" onclick="deleteQuestion()">Delete Question</button>
+    </div>
+  </div>
+
+  <script>
+    const startQuiz = () => {
+      localStorage.setItem('quizStatus', 'started');
+      alert('Quiz Started');
+    };
+
+    const stopQuiz = () => {
+      localStorage.setItem('quizStatus', 'stopped');
+      alert('Quiz Stopped');
+    };
+
+    const addQuestion = () => {
+      const question = document.getElementById('question').value;
+      const option1 = document.getElementById('option1').value;
+      const option2 = document.getElementById('option2').value;
+      const option3 = document.getElementById('option3').value;
+      const option4 = document.getElementById('option4').value;
+      const correctOption = document.getElementById('correctOption').value;
+
+      if (question && option1 && option2 && option3 && option4 && correctOption) {
+        const questions = JSON.parse(localStorage.getItem('questions')) || [];
+        questions.push({
+          question,
+          options: [option1, option2, option3, option4],
+          correctOption
+        });
+        localStorage.setItem('questions', JSON.stringify(questions));
+        alert('Question Added');
+        document.getElementById('question').value = '';
+        document.getElementById('option1').value = '';
+        document.getElementById('option2').value = '';
+        document.getElementById('option3').value = '';
+        document.getElementById('option4').value = '';
+        document.getElementById('correctOption').value = '';
+      } else {
+        alert('Please fill out all fields');
+      }
+    };
+
+    const deleteQuestion = () => {
+      const deleteIndex = document.getElementById('deleteIndex').value;
+      let questions = JSON.parse(localStorage.getItem('questions')) || [];
+
+      if (deleteIndex.toLowerCase() === 'all') {
+        localStorage.removeItem('questions');
+        alert('All questions have been deleted');
+      } else {
+        const index = parseInt(deleteIndex, 10) - 1;
+        if (index >= 0 && index < questions.length) {
+          questions.splice(index, 1);
+          localStorage.setItem('questions', JSON.stringify(questions));
+          alert(`Question ${deleteIndex} deleted`);
+        } else {
+          alert('Invalid question number');
+        }
+      }
+      document.getElementById('deleteIndex').value = '';
+    };
+  </script>
+</body>
+</html>

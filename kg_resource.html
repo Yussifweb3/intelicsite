@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - KG Online School</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3e5f5;
+            color: #333;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .sidebar {
+            width: 180px; /* Reduced width */
+            background-color: #ab47bc;
+            color: white;
+            padding: 10px; /* Reduced padding */
+            position: fixed;
+            height: 100%;
+            box-shadow: 4px 0 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-y: auto;
+            border-right: 2px solid #9c27b0;
+        }
+        .sidebar .logo {
+            font-size: 20px; /* Reduced font size */
+            font-weight: bold;
+            margin-bottom: 15px; /* Adjusted margin */
+            text-align: center;
+        }
+        .sidebar .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+        .sidebar .nav-links li {
+            margin: 8px 0; /* Reduced margin */
+        }
+        .sidebar .nav-links a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 8px; /* Reduced padding */
+            margin: 4px 0; /* Reduced margin */
+            border-radius: 6px; /* Reduced border radius */
+            transition: background-color 0.3s, box-shadow 0.3s;
+            text-align: center;
+            font-size: 14px; /* Reduced font size */
+        }
+        .sidebar .nav-links a:hover {
+            background-color: #9c27b0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .main-content {
+            margin-left: 180px; /* Adjusted to match new sidebar width */
+            width: calc(100% - 180px);
+            display: flex;
+            flex-direction: row;
+            overflow: hidden;
+        }
+        .section {
+            padding: 15px; /* Reduced padding */
+            border-radius: 8px;
+            overflow-y: auto;
+            height: calc(100vh - 30px); /* Adjusted height */
+        }
+        .books {
+            width: 30%;
+            background-color: #e1bee7;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-right: 10px;
+        }
+        .notes {
+            width: 40%;
+            background-color: #c5cae9;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-right: 10px;
+        }
+        .videos {
+            width: 30%;
+            background-color: #b3e5fc;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .resource-card, .note-card, .video-card {
+            background: #ffffff;
+            border-radius: 10px; /* Reduced border radius */
+            padding: 15px; /* Reduced padding */
+            margin: 10px; /* Adjusted margin */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .resource-card:hover, .note-card:hover, .video-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        .resource-card h3, .note-card h3, .video-card h3 {
+            margin: 0;
+            font-size: 16px; /* Reduced font size */
+        }
+        .resource-card p, .note-card p, .video-card p {
+            color: #555;
+        }
+        .resource-card .resource-link, .note-card .note-link, .video-card .video-link {
+            display: inline-block;
+            margin-top: 8px; /* Reduced margin */
+            padding: 8px; /* Reduced padding */
+            color: #ffffff;
+            background-color: #7b1fa2;
+            border-radius: 6px; /* Reduced border radius */
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+            font-size: 12px; /* Reduced font size */
+        }
+        .resource-card .resource-link:hover, .note-card .note-link:hover, .video-card .video-link:hover {
+            background-color: #6a1b9a;
+            transform: translateY(-2px);
+        }
+        .video-thumbnail {
+            width: 100%;
+            height: auto;
+            border-radius: 6px; /* Reduced border radius */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="logo">KG Online School</div>
+        <ul class="nav-links">
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="assignments.html">Assignments</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="liveclasses.html">Live Classes</a></li>
+            <li><a href="exams.html">Exams</a></li>
+            <li><a href="logout.html">Logout</a></li>
+        </ul>
+    </aside>
+
+    <div class="main-content">
+        <div class="section books">
+            <h2>Books</h2>
+            <div class="resource-card">
+                <h3>Interactive Alphabet Book</h3>
+                <p>A fun and engaging book for learning the alphabet.</p>
+                <a href="#" class="resource-link">View Book</a>
+            </div>
+            <div class="resource-card">
+                <h3>Shapes and Colors Worksheet</h3>
+                <p>Printable worksheets for practicing shapes and colors.</p>
+                <a href="#" class="resource-link">Download Worksheet</a>
+            </div>
+            <div class="resource-card">
+                <h3>Counting with Fun Games</h3>
+                <p>Interactive games to help with counting skills.</p>
+                <a href="#" class="resource-link">Play Game</a>
+            </div>
+        </div>
+
+        <div class="section notes">
+            <h2>Notes</h2>
+            <div class="note-card">
+                <h3>Math Notes</h3>
+                <p>Click to view notes on basic mathematics.</p>
+                <a href="#" class="note-link">View Notes</a>
+            </div>
+            <div class="note-card">
+                <h3>Science Notes</h3>
+                <p>Click to view notes on basic science topics.</p>
+                <a href="#" class="note-link">View Notes</a>
+            </div>
+            <div class="note-card">
+                <h3>Language Arts Notes</h3>
+                <p>Click to view notes on language arts.</p>
+                <a href="#" class="note-link">View Notes</a>
+            </div>
+        </div>
+
+        <div class="section videos">
+            <h2>Videos</h2>
+            <div class="video-card">
+                <img src="https://via.placeholder.com/300x180" alt="Video Thumbnail" class="video-thumbnail">
+                <h3>Intro to Shapes</h3>
+                <p>A brief introduction to shapes and their properties.</p>
+                <a href="#" class="video-link">Watch Video</a>
+            </div>
+            <div class="video-card">
+                <img src="https://via.placeholder.com/300x180" alt="Video Thumbnail" class="video-thumbnail">
+                <h3>Counting to Ten</h3>
+                <p>Learn to count from 1 to 10 with engaging visuals.</p>
+                <a href="#" class="video-link">Watch Video</a>
+            </div>
+            <div class="video-card">
+                <img src="https://via.placeholder.com/300x180" alt="Video Thumbnail" class="video-thumbnail">
+                <h3>Alphabet Song</h3>
+                <p>Singing along to the alphabet song for early learning.</p>
+                <a href="#" class="video-link">Watch Video</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

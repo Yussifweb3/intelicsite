@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming - Early Learning School</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f0f4f8;
+            overflow-x: hidden;
+        }
+        nav {
+            background-color: #004d40;
+            color: #fff;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        nav .logo {
+            font-size: 2rem;
+            color: #ffab00;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s, border-bottom 0.3s;
+        }
+        nav ul li a:hover {
+            color: #ffab00;
+            border-bottom: 2px solid #ffab00;
+        }
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://via.placeholder.com/1920x1080') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        .hero h1 {
+            font-size: 4rem;
+            margin: 0;
+            animation: fadeInUp 2s ease-out;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section {
+            margin-bottom: 60px;
+        }
+        .section h2 {
+            color: #004d40;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #ffab00;
+        }
+        .section h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 5px;
+            background-color: #ffab00;
+        }
+        .cards-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: calc(33.333% - 20px);
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        .card:hover img {
+            transform: scale(1.1);
+        }
+        .card .content {
+            padding: 15px;
+            text-align: center;
+        }
+        .card .content h3 {
+            margin: 10px 0;
+            color: #004d40;
+        }
+        .card .content p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ffab00;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .btn:hover {
+            background-color: #e68900;
+            transform: scale(1.05);
+        }
+        .news-ticker {
+            background: #004d40;
+            color: #ffab00;
+            padding: 10px;
+            overflow: hidden;
+            white-space: nowrap;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            margin-bottom: 60px;
+        }
+        .news-ticker p {
+            display: inline-block;
+            padding: 0 20px;
+            animation: scroll-left 15s linear infinite;
+        }
+        @keyframes scroll-left {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
+        }
+        footer {
+            background-color: #004d40;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .slider {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            margin-bottom: 60px;
+        }
+        .slider .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transition: opacity 1s ease;
+        }
+        .slider .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .slider .slide.active {
+            opacity: 1;
+        }
+        .slider .slide.inactive {
+            opacity: 0;
+        }
+        .hot-games {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            margin-bottom: 60px;
+        }
+        .hot-games h2 {
+            color: #004d40;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .hot-games-slider {
+            position: relative;
+            overflow: hidden;
+        }
+        .hot-games-slider .game-slide {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .hot-games-slider .game-card {
+            flex: 0 0 33.333%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .hot-games-slider .game-card img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .user-submissions {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .user-submissions h2 {
+            color: #004d40;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .submission-form {
+            margin-bottom: 20px;
+        }
+        .submission-form input, .submission-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .submission-form button {
+            background-color: #ffab00;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .submission-form button:hover {
+            background-color: #e68900;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">EL School</div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Games</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Submit Game</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <h1>Discover the Best Games</h1>
+    </div>
+
+    <div class="container">
+        <!-- Hot Games Slider Section -->
+        <div class="hot-games">
+            <h2>Hot Games</h2>
+            <div class="hot-games-slider">
+                <div class="game-slide">
+                    <div class="game-card">
+                        <img src="https://via.placeholder.com/400x250" alt="Hot Game 1">
+                    </div>
+                    <div class="game-card">
+                        <img src="https://via.placeholder.com/400x250" alt="Hot Game 2">
+                    </div>
+                    <div class="game-card">
+                        <img src="https://via.placeholder.com/400x250" alt="Hot Game 3">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trending Games Section -->
+        <div class="section">
+            <h2>Trending Games</h2>
+            <div class="cards-wrapper">
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x250" alt="Game 1">
+                    <div class="content">
+                        <h3>Epic Quest</h3>
+                        <p>Join the adventure in a fantasy world full of challenges.</p>
+                        <a href="#" class="btn">Play Now</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x250" alt="Game 2">
+                    <div class="content">
+                        <h3>Space Invaders</h3>
+                        <p>Defend the galaxy in this thrilling space shooter.</p>
+                        <a href="#" class="btn">Play Now</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x250" alt="Game 3">
+                    <div class="content">
+                        <h3>Puzzle Master</h3>
+                        <p>Challenge your mind with complex and engaging puzzles.</p>
+                        <a href="#" class="btn">Play Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Categories Section -->
+        <div class="section">
+            <h2>Game Categories</h2>
+            <div class="cards-wrapper">
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x250" alt="Category Action">
+                    <div class="content">
+                        <h3>Action</h3>
+                        <p>Get your adrenaline pumping with action-packed games.</p>
+                        <a href="#" class="btn">Explore</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x250" alt="Category Puzzle">
+                    <div class="content">
+                        <h3>Puzzle</h3>
+                        <p>Test your brain with challenging puzzles.</p>
+                        <a href="#" class="btn">Explore</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x250" alt="Category Adventure">
+                    <div class="content">
+                        <h3>Adventure</h3>
+                        <p>Embark on epic adventures and quests.</p>
+                        <a href="#" class="btn">Explore</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Submissions Section -->
+        <div class="user-submissions">
+            <h2>Submit Your Game</h2>
+            <div class="submission-form">
+                <input type="text" placeholder="Game Title" required>
+                <textarea placeholder="Game Description" rows="4" required></textarea>
+                <input type="url" placeholder="Game Image URL" required>
+                <input type="url" placeholder="Game Video URL">
+                <button type="submit">Submit Game</button>
+            </div>
+        </div>
+
+        <!-- Gaming News Section -->
+        <div class="section">
+            <h2>Gaming News</h2>
+            <div class="news-ticker">
+                <p>Latest update: New game release coming soon! | Exciting eSports tournaments announced | Major game developer acquisition | New gaming accessories launched |</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 EL School. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Slider functionality for hot games
+        const hotGamesSlider = document.querySelector('.hot-games-slider .game-slide');
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.hot-games-slider .game-card');
+        const slideCount = slides.length;
+
+        function moveToSlide(index) {
+            hotGamesSlider.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        function nextSlide() {
+            slideIndex = (slideIndex + 1) % slideCount;
+            moveToSlide(slideIndex);
+        }
+
+        setInterval(nextSlide, 3000); // Change slide every 3 seconds
+    </script>
+</body>
+</html>

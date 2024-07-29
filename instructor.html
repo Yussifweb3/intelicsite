@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructor Page - Intely University</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #333;
+        }
+
+        header {
+            background: #2979FF;
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding-top: 20px;
+        }
+
+        .info-card {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .info-card h2 {
+            margin: 0;
+        }
+
+        .info-card .time-date, .info-card .timer, .info-card .alarm {
+            margin-right: 15px;
+        }
+
+        .info-card input, .info-card button {
+            padding: 5px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        .info-card button {
+            background: #2979FF;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .info-card button:hover {
+            background: #1c54b2;
+        }
+
+        #video-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #video-player {
+            width: 100%;
+            max-width: 800px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .video-controls {
+            margin-top: 10px;
+        }
+
+        .video-controls button {
+            background: #2979FF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin: 0 5px;
+        }
+
+        .video-controls button:hover {
+            background: #1c54b2;
+        }
+
+        .file-upload, .chat-container, .assignment-container {
+            margin-top: 20px;
+        }
+
+        .file-upload input[type="file"] {
+            margin: 10px 0;
+        }
+
+        .chat-container {
+            margin-top: 20px;
+        }
+
+        .chat-messages {
+            border: 1px solid #ddd;
+            padding: 10px;
+            height: 200px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+            background: #ffffff;
+            border-radius: 4px;
+        }
+
+        .chat-messages div {
+            margin-bottom: 5px;
+        }
+
+        .chat-form {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        .chat-form input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .chat-form button {
+            background: #2979FF;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-left: 10px;
+        }
+
+        .chat-form button:hover {
+            background: #1c54b2;
+        }
+
+        .assignment-container {
+            margin-top: 20px;
+        }
+
+        .assignment-container textarea {
+            width: 100%;
+            height: 150px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        .assignment-container button {
+            background: #2979FF;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        .assignment-container button:hover {
+            background: #1c54b2;
+        }
+
+        .search-bar {
+            margin-top: 20px;
+        }
+
+        .search-bar input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        .delete-button {
+            background: #FF5722;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-left: 10px;
+        }
+
+        .delete-button:hover {
+            background: #e64a19;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Instructor Page - Intely University</h1>
+    </header>
+
+    <div class="container">
+        <!-- Timer and Alarm Section -->
+        <div class="info-card">
+            <div class="time-date">
+                <h2 id="time-date">Date: --/--/---- | Time: --:--:--</h2>
+            </div>
+            <div class="timer">
+                <h2>Timer</h2>
+                <div id="timer">00:00:00</div>
+                <button onclick="startTimer()">Start</button>
+                <button onclick="stopTimer()">Stop</button>
+                <button onclick="resetTimer()">Reset</button>
+            </div>
+            <div class="alarm">
+                <h2>Set Alarm</h2>
+                <input type="time" id="alarm-time">
+                <button onclick="setAlarm()">Set Alarm</button>
+            </div>
+        </div>
+
+        <!-- Video Upload Section -->
+        <div id="video-container">
+            <video id="video-player" controls>
+                <source id="video-source" src="VIDEOS/Artificial Intelligence   60 Minutes Full Episodes.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-controls">
+                <button id="upload-video">Upload Video</button>
+                <button id="delete-video" class="delete-button">Delete Video</button>
+            </div>
+        </div>
+
+        <!-- File Upload Section -->
+        <div class="file-upload">
+            <h2>Upload Documents</h2>
+            <input type="file" id="file-input" multiple>
+            <button id="upload-file">Upload</button>
+        </div>
+
+        <!-- Chat Section -->
+        <div class="chat-container">
+            <h2>Chat with Students</h2>
+            <div id="chat-messages" class="chat-messages"></div>
+            <form id="chat-form" class="chat-form">
+                <input type="text" id="chat-input" placeholder="Type your message here...">
+                <button type="button" onclick="sendMessage()">Send</button>
+            </form>
+        </div>
+
+        <!-- Assignment Upload Section -->
+        <div class="assignment-container">
+            <h2>Upload Assignment</h2>
+            <textarea id="assignment-input" placeholder="Write assignment details here..."></textarea>
+            <button id="upload-assignment">Upload Assignment</button>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" placeholder="Search ChatGPT" onclick="searchChatGPT()">
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+
+        // Video Upload Handling
+        document.getElementById('upload-video').addEventListener('click', () => {
+            const videoPlayer = document.getElementById('video-player');
+            const videoSource = document.getElementById('video-source');
+            // Handle video upload logic here
+            const videoFile = document.getElementById('video-file').files[0];
+            const formData = new FormData();
+            formData.append('video', videoFile);
+            fetch('/upload-video', {
+                method: 'POST',
+                body: formData
+            }).then(response => response.json()).then(data => {
+                videoSource.src = data.videoUrl;
+                videoPlayer.load();
+                socket.emit('video upload', data);
+            }).catch(error => console.error('Error:', error));
+        });
+
+        document.getElementById('delete-video').addEventListener('click', () => {
+            const videoPlayer = document.getElementById('video-player');
+            // Handle video deletion logic here
+            fetch('/delete-video', {
+                method: 'DELETE'
+            }).then(response => response.json()).then(() => {
+                videoPlayer.src = '';
+                alert('Video deleted');
+                socket.emit('video upload', { videoUrl: '' });
+            }).catch(error => console.error('Error:', error));
+        });
+
+        // File Upload Handling
+        document.getElementById('upload-file').addEventListener('click', () => {
+            const fileInput = document.getElementById('file-input');
+            const files = fileInput.files;
+            const fileData = new FormData();
+            Array.from(files).forEach(file => fileData.append('files', file));
+            fetch('/upload', {
+                method: 'POST',
+                body: fileData
+            }).then(response => response.json()).then(data => {
+                alert('Files uploaded');
+                socket.emit('file upload', data);
+            }).catch(error => console.error('Error:', error));
+        });
+
+        // Chat Functionality
+        const chatMessages = document.getElementById('chat-messages');
+        const chatInput = document.getElementById('chat-input');
+
+        function sendMessage() {
+            const message = chatInput.value;
+            if (message.trim()) {
+                socket.emit('chat message', { sender: 'Instructor', text: message });
+                chatInput.value = '';
+            }
+        }
+
+        socket.on('chat message', (msg) => {
+            const messageElement = document.createElement('div');
+            messageElement.textContent = `${msg.sender}: ${msg.text}`;
+            chatMessages.appendChild(messageElement);
+        });
+
+        // Assignment Upload Handling
+        document.getElementById('upload-assignment').addEventListener('click', () => {
+            const assignmentInput = document.getElementById('assignment-input').value;
+            if (assignmentInput.trim()) {
+                // Handle assignment upload logic here
+                alert('Assignment uploaded');
+                socket.emit('assignment upload', { content: assignmentInput });
+            }
+        });
+
+        // Timer Functions
+        let timer;
+        let time = 0;
+
+        function updateTimer() {
+            const timerDisplay = document.getElementById('timer');
+            const hours = Math.floor(time / 3600);
+            const minutes = Math.floor((time % 3600) / 60);
+            const seconds = time % 60;
+            timerDisplay.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        function startTimer() {
+            timer = setInterval(() => {
+                time++;
+                updateTimer();
+            }, 1000);
+        }
+
+        function stopTimer() {
+            clearInterval(timer);
+        }
+
+        function resetTimer() {
+            time = 0;
+            updateTimer();
+        }
+
+        function setAlarm() {
+            const alarmTime = document.getElementById('alarm-time').value;
+            alert('Alarm set for ' + alarmTime);
+        }
+
+        updateTimer();
+    </script>
+</body>
+</html>

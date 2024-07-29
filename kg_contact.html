@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - KG School</title>
+    <style>
+        body {
+            font-family: 'Verdana', sans-serif;
+            background-color: #e8f5e9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        nav {
+            background-color: #ff6f61;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+        .contact-container {
+            padding: 80px 20px;
+        }
+        .contact-container h2 {
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .contact-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .contact-form button:hover {
+            background-color: #e64a19;
+        }
+        footer {
+            background-color: #ff6f61;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">KG School</div>
+        <ul>
+            <li><a href="kg_home.html">Home</a></li>
+            <li><a href="kg_programs.html">Programs</a></li>
+            <li><a href="kg_gallery.html">Gallery</a></li>
+            <li><a href="kg_login.html">Login</a></li>
+            <li><a href="kg_contact.html">Contact</a></li>
+            <li><a href="kg_signup.html">Signup</a></li>
+        </ul>
+    </nav>
+
+    <div class="contact-container">
+        <h2>Contact Us</h2>
+        <div class="contact-form">
+            <input type="text" placeholder="Name">
+            <input type="email" placeholder="Email">
+            <textarea placeholder="Your Message" rows="5"></textarea>
+            <button>Send Message</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 KG School. All rights reserved.</p>
+    </footer>
+</body>
+</html>

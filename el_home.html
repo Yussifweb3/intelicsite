@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Early Learning School</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        nav {
+            background-color: #ff8c00;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+        .header {
+            margin-top: 60px;
+            text-align: center;
+            padding: 20px;
+        }
+        .header h1 {
+            font-size: 40px;
+            color: #ff4500;
+        }
+        .carousel {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+        .carousel img {
+            width: 100%;
+            border-radius: 15px;
+        }
+        .carousel-buttons {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .carousel-buttons button {
+            background-color: rgba(255, 255, 255, 0.5);
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50%;
+        }
+        .sections {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+        }
+        .section-card {
+            background-color: white;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .section-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .section-card h3 {
+            margin-bottom: 15px;
+        }
+        .section-card p {
+            margin-bottom: 10px;
+        }
+        .section-card a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff4500;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        footer {
+            background-color: #ff8c00;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">EL School</div>
+        <ul>
+            <li><a href="el_home.html">Home</a></li>
+            <li><a href="el_programs.html">Programs</a></li>
+            <li><a href="el_gallery.html">Gallery</a></li>
+            <li><a href="el_events.html">Events</a></li>
+            <li><a href="el_staff.html">Staff</a></li>
+            <li><a href="el_login.html">Login</a></li>
+            <li><a href="el_signup.html">Signup</a></li>
+            <li><a href="el_contact.html">Contact</a></li>
+            <li><a href="el_resources.html">Resources</a></li>
+        </ul>
+    </nav>
+
+    <header class="header">
+        <h1>Welcome to Early Learning School</h1>
+    </header>
+
+    <div class="carousel">
+        <img src="IMAGES/seww" alt="Learning Image 1">
+        <img src="IMAGES/mm1ww.jpg" alt="Learning Image 2" style="display:none;">
+        <img src="IMAGES/wwww.jpg" alt="Learning Image 3" style="display:none;">
+        <div class="carousel-buttons">
+            <button onclick="prevSlide()">❮</button>
+            <button onclick="nextSlide()">❯</button>
+        </div>
+    </div>
+
+    <div class="sections">
+        <div class="section-card">
+            <h3>Explore Programs</h3>
+            <p>Discover the wide range of programs we offer to enhance your child's learning experience.</p>
+            <a href="el_programs.html">Learn More</a>
+        </div>
+        <div class="section-card">
+            <h3>View Gallery</h3>
+            <p>Take a look at our gallery to see the exciting activities our students are engaged in.</p>
+            <a href="el_gallery.html">View Gallery</a>
+        </div>
+        <div class="section-card">
+            <h3>Upcoming Events</h3>
+            <p>Stay updated with the latest events happening at our school.</p>
+            <a href="el_events.html">See Events</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Early Learning School. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let slides = document.querySelectorAll('.carousel img');
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = 'none';
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+            slides[slideIndex - 1].style.display = 'block';
+            setTimeout(showSlides, 2000); // Change image every 2 seconds
+        }
+
+        function nextSlide() {
+            slideIndex++;
+            showSlides();
+        }
+
+        function prevSlide() {
+            slideIndex--;
+            showSlides();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High School Name - Home</title>
+    <style>
+        /* General Reset */
+        body, h1, h2, p, a, button {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #0056b3; /* Main color */
+            color: #fff;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #003d79; /* Accent color */
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        header .logo img {
+            height: 60px;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        header .search-login {
+            display: flex;
+            align-items: center;
+        }
+
+        header .search-login input {
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        header .search-login button {
+            background-color: #00c851; /* Accent color */
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            margin-left: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        header .search-login button:hover {
+            background-color: #007e33;
+        }
+
+        /* Main Banner Styles */
+        .main-banner {
+            background: url('hero-image.jpg') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 150px 20px 100px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .main-banner h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+
+        .main-banner p {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            background-color: #00c851;
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.2em;
+            margin: 10px;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background-color: #007e33;
+        }
+
+        /* About Us Section */
+        .about {
+            background-color: #f4f4f4;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .features .feature {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .features .feature h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .features .feature p {
+            font-size: 1.1em;
+        }
+
+        /* Programs Offered Section */
+        .programs {
+            background-color: #f9f9f9;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .programs h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .programs .program {
+            margin: 20px 0;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .programs .program h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .programs .program p {
+            font-size: 1.1em;
+        }
+
+        /* News Section */
+        .news {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .news h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .news-item {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .news-item h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .news-item p {
+            font-size: 1.1em;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: #f4f4f4;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .testimonials h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .testimonial {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .testimonial blockquote {
+            margin: 0;
+            font-style: italic;
+        }
+
+        .testimonial cite {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        /* Call to Action Section */
+        .call-to-action {
+            background-color: #00c851;
+            color: #fff;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .call-to-action h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .call-to-action p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .call-to-action a {
+            background-color: #007e33;
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        .call-to-action a:hover {
+            background-color: #004d1a;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #003d79;
+            color: #fff;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        footer .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        footer .footer-left {
+            margin-bottom: 20px;
+        }
+
+        footer .footer-left p {
+            font-size: 1em;
+        }
+
+        footer .footer-right a {
+            color: #00c851;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer .footer-right a:hover {
+            text-decoration: underline;
+        }
+
+        .social-media {
+            margin-top: 20px;
+        }
+
+        .social-media .social-icon {
+            margin: 0 10px;
+        }
+
+        .social-media img {
+            height: 40px;
+        }
+
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007e33;
+            color: #fff;
+            padding: 15px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .scroll-to-top:hover {
+            background-color: #004d1a;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="logo">
+            <img src="logo.png" alt="High School Name Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="search-login">
+            <input type="text" placeholder="Search...">
+            <button>Login</button>
+        </div>
+    </div>
+</header>
+
+<div class="main-banner">
+    <h1>Welcome to High School Name</h1>
+    <p>Empowering Students for a Brighter Future</p>
+    <a href="#apply" class="cta-button">Apply Now</a>
+</div>
+
+<section id="about" class="about">
+    <h2>About Us</h2>
+    <p>High School Name is dedicated to providing an exceptional education experience. Our mission is to foster academic excellence, personal growth, and lifelong learning. We offer a variety of programs designed to prepare students for college, careers, and beyond.</p>
+</section>
+
+<section id="features" class="features">
+    <h2>Why Choose Us?</h2>
+    <div class="feature">
+        <h3>Experienced Faculty</h3>
+        <p>Our faculty members are highly qualified and experienced in their respective fields, committed to nurturing each student's potential.</p>
+    </div>
+    <div class="feature">
+        <h3>Innovative Curriculum</h3>
+        <p>We offer a dynamic and comprehensive curriculum that includes cutting-edge technologies and practical experiences to enhance learning.</p>
+    </div>
+    <div class="feature">
+        <h3>State-of-the-Art Facilities</h3>
+        <p>Our school is equipped with modern facilities, including science labs, computer labs, and creative spaces for a well-rounded education.</p>
+    </div>
+</section>
+
+<section id="programs" class="programs">
+    <h2>Programs Offered</h2>
+    <div class="program">
+        <h3>Science and Technology</h3>
+        <p>Explore the wonders of science and technology through engaging courses and hands-on experiments.</p>
+    </div>
+    <div class="program">
+        <h3>Arts and Humanities</h3>
+        <p>Dive into the world of arts and humanities, including literature, history, and fine arts.</p>
+    </div>
+    <div class="program">
+        <h3>Business and Economics</h3>
+        <p>Gain insights into business practices, economics, and entrepreneurship with our specialized programs.</p>
+    </div>
+</section>
+
+<section id="news" class="news">
+    <h2>Latest News</h2>
+    <div class="news-item">
+        <h3>New STEM Lab Opening Soon</h3>
+        <p>We're excited to announce the opening of our new STEM lab, designed to provide students with advanced tools and resources for scientific exploration.</p>
+    </div>
+    <div class="news-item">
+        <h3>Annual Science Fair Highlights</h3>
+        <p>Our annual science fair showcased impressive projects from students across all grades. Congratulations to the winners!</p>
+    </div>
+    <div class="news-item">
+        <h3>Parent-Teacher Conferences Scheduled</h3>
+        <p>Parent-teacher conferences will be held next month. Please check the school calendar for dates and times.</p>
+    </div>
+</section>
+
+<section id="testimonials" class="testimonials">
+    <h2>What Our Students and Parents Say</h2>
+    <div class="testimonial">
+        <blockquote>
+            "The education my child receives at High School Name has been exceptional. The teachers are supportive, and the programs are engaging."
+        </blockquote>
+        <cite>- Jane Doe, Parent</cite>
+    </div>
+    <div class="testimonial">
+        <blockquote>
+            "I love the variety of subjects offered and the opportunity to explore my interests. The school environment is nurturing and motivating."
+        </blockquote>
+        <cite>- John Smith, Student</cite>
+    </div>
+</section>
+
+<section id="apply" class="call-to-action">
+    <h2>Ready to Join Us?</h2>
+    <p>Apply today to become part of our vibrant school community and start your journey towards success!</p>
+    <a href="#contact" class="cta-button">Contact Us</a>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-left">
+            <p>&copy; 2024 High School Name. All rights reserved.</p>
+        </div>
+        <div class="footer-right">
+            <a href="#about">About</a>
+            <a href="#features">Features</a>
+            <a href="#programs">Programs</a>
+            <a href="#news">News</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="social-media">
+            <a href="#" class="social-icon"><img src="facebook-icon.png" alt="Facebook"></a>
+            <a href="#" class="social-icon"><img src="twitter-icon.png" alt="Twitter"></a>
+            <a href="#" class="social-icon"><img src="instagram-icon.png" alt="Instagram"></a>
+        </div>
+    </div>
+</footer>
+
+<div class="scroll-to-top" onclick="scrollToTop()">↑</div>
+
+<script>
+    window.onscroll = function() {
+        var scrollButton = document.querySelector('.scroll-to-top');
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            scrollButton.style.display = "block";
+        } else {
+            scrollButton.style.display = "none";
+        }
+    };
+
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>

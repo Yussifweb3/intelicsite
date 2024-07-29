@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entertainments - Early Learning School</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f0f4f8;
+            overflow-x: hidden;
+        }
+        nav {
+            background-color: #004d40;
+            color: #fff;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        nav .logo {
+            font-size: 2rem;
+            color: #ffab00;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s, border-bottom 0.3s;
+        }
+        nav ul li a:hover {
+            color: #ffab00;
+            border-bottom: 2px solid #ffab00;
+        }
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://via.placeholder.com/1920x1080') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        .hero h1 {
+            font-size: 4rem;
+            margin: 0;
+            animation: fadeInUp 2s ease-out;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section {
+            margin-bottom: 60px;
+        }
+        .section h2 {
+            color: #004d40;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #ffab00;
+        }
+        .section h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 5px;
+            background-color: #ffab00;
+        }
+        .cards-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: calc(33.333% - 20px);
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        .card:hover img {
+            transform: scale(1.1);
+        }
+        .card .content {
+            padding: 15px;
+            text-align: center;
+        }
+        .card .content h3 {
+            margin: 10px 0;
+            color: #004d40;
+        }
+        .card .content p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ffab00;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .btn:hover {
+            background-color: #e68900;
+            transform: scale(1.05);
+        }
+        .slider-section {
+            margin-bottom: 60px;
+        }
+        .slider {
+            display: flex;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .slide {
+            min-width: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        .slide-content {
+            text-align: center;
+            padding: 20px;
+        }
+        .slide-content p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .slide-content h3 {
+            margin: 10px 0;
+            color: #004d40;
+        }
+        .slider-buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .slider-buttons button {
+            background: #ffab00;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .slider-buttons button:hover {
+            background: #e68900;
+        }
+        footer {
+            background-color: #004d40;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Early Learning School</div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Programs</a></li>
+            <li><a href="#">Hackathons</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="hero">
+        <h1>Entertainments at Early Learning School</h1>
+    </div>
+    <div class="container">
+        <section class="section highlight-section">
+            <h2>Entertainment Activities</h2>
+            <p>Our school offers a wide range of entertainment activities to keep our students engaged and happy. From music and dance to art and sports, there is something for everyone!</p>
+        </section>
+        <section class="section slider-section">
+            <h2>Featured Entertainment Events</h2>
+            <div class="slider">
+                <div class="slide">
+                    <img src="https://via.placeholder.com/800x300" alt="Event 1">
+                    <div class="slide-content">
+                        <p>"Our annual talent show was a spectacular display of student talent and creativity."</p>
+                        <h3>Talent Show</h3>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://via.placeholder.com/800x300" alt="Event 2">
+                    <div class="slide-content">
+                        <p>"The school carnival is always a hit with fun games, delicious food, and great performances."</p>
+                        <h3>School Carnival</h3>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://via.placeholder.com/800x300" alt="Event 3">
+                    <div class="slide-content">
+                        <p>"Our students shone brightly in the inter-school sports meet, bringing home several trophies."</p>
+                        <h3>Sports Meet</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-buttons">
+                <button onclick="prevSlide()">Previous</button>
+                <button onclick="nextSlide()">Next</button>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 Early Learning School. All rights reserved.</p>
+    </footer>
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.transform = `translateX(${100 * (i - index)}%)`;
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function
