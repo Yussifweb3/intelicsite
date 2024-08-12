@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - World Class Design</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc); /* Gradient background */
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9); /* Slight transparency for a modern look */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .contact-details {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 40px;
+        }
+
+        .contact-info {
+            flex-basis: 30%;
+            text-align: center;
+        }
+
+        .contact-info i {
+            font-size: 2em;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #2980b9;
+        }
+
+        .contact-info p {
+            font-size: 1em;
+            color: #555;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            color: #333;
+            background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent input fields */
+        }
+
+        textarea {
+            height: 150px;
+            resize: none;
+        }
+
+        .btn-submit {
+            background-color: #3498db;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: #2980b9;
+            transform: scale(1.05); /* Slight scale on hover */
+        }
+
+        .contact-info i, .btn-submit {
+            transition: transform 0.3s ease;
+        }
+
+        .contact-info i:hover {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contact-container">
+        <h1>Contact Us</h1>
+        <div class="contact-details">
+            <div class="contact-info">
+                <i class="fas fa-phone-alt"></i>
+                <h3>Phone</h3>
+                <p>+233 53 722 5177</p>
+            </div>
+            <div class="contact-info">
+                <i class="fas fa-envelope"></i>
+                <h3>Email</h3>
+                <p>contact@yourcompany.com</p>
+            </div>
+            <div class="contact-info">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Location</h3>
+                <p>123 Business St., City, Country</p>
+            </div>
+        </div>
+        <div class="contact-form">
+            <form action="submit_form.php" method="POST">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('.btn-submit').addEventListener('click', function() {
+            this.classList.add('clicked');
+            setTimeout(() => {
+                this.classList.remove('clicked');
+            }, 300);
+        });
+    </script>
+</body>
+
+</html>

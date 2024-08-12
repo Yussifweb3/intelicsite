@@ -99,7 +99,7 @@
             const card = event.target;
             if (firstCard && secondCard) return;
         
-            card.style.backgroundImage = `url('images/${card.dataset.image}.jpg')`;
+            card.style.backgroundImage = `url('${card.dataset.image}.jpg')`;
             if (!firstCard) {
                 firstCard = card;
             } else {

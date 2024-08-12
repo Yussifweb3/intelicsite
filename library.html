@@ -1,222 +1,462 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Library</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f4f4f4;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+    <link rel="stylesheet" href="styles.css">
+    <style>body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f4f4f4;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #004d99;
+        padding: 5px 20px;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+    }
+    
+    .navbar .logo {
+        font-size: 24px;
+        color: #fff;
+    }
+    
+    .navbar .nav-links {
+        display: flex;
+        align-items: center;
+    }
+    
+    .navbar .nav-links a {
+        color: #fff;
+        text-decoration: none;
+        margin-left: 20px;
+        font-size: 16px;
+    }
+    
+    .navbar .search-container {
+        display: flex;
+        align-items: center;
+        margin-left: 20px;
+    }
+    
+    .navbar .search-container input[type="text"] {
+        padding: 5px;
+        font-size: 16px;
+        border: none;
+        border-radius: 4px;
+    }
+    
+    .navbar .search-container button {
+        padding: 5px 10px;
+        margin-left: 5px;
+        background-color: #2979FF;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+    
+    .navbar .search-container button:hover {
+        background-color: #0056b3;
+    }
+    
+    .slider {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: 300px;
+        margin-top: 60px; /* Adjusted for fixed navbar */
+    }
+    
+    .slider-content {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        animation: fade 24s infinite;
+    }
+    
+    .slide {
+        min-width: 100%;
+        height: 100%;
+        position: relative;
+    }
+    /* Existing CSS styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #004d99;
+    padding: 5px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    color: #fff;
+}
+
+.navbar .nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 16px;
+}
+
+.navbar .search-container {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.navbar .search-container input[type="text"] {
+    padding: 5px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+}
+
+.navbar .search-container button {
+    padding: 5px 10px;
+    margin-left: 5px;
+    background-color: #2979FF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.navbar .search-container button:hover {
+    background-color: #0056b3;
+}
+
+.slider {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 300px;
+    margin-top: 60px; /* Adjusted for fixed navbar */
+}
+
+.slider-content {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    animation: fade 24s infinite;
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+@keyframes fade {
+    0%, 20%, 100% { opacity: 0; }
+    10%, 30% { opacity: 1; }
+}
+
+.intro {
+    padding: 20px;
+    background: url('IMAGES/intro-bg.jpg') no-repeat center center;
+    background-size: cover;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+    z-index: 1;
+    color: #fff;
+}
+
+.intro::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Dark overlay for better text visibility */
+    z-index: -1;
+    animation: slide 30s linear infinite;
+}
+
+@keyframes slide {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 0; }
+}
+
+.intro h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.intro p {
+    font-size: 18px;
+    color: #ddd;
+}
+
+.content {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transform: translateY(-15px);
+}
+
+.card img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+.card p {
+    margin-bottom: 10px;
+}
+
+.card .explore-button {
+    background-color: #2979FF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.card .explore-button:hover {
+    background-color: #0056b3;
+}
+
+.footer {
+    background-color: #004d99;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    width: 100%;
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .navbar .nav-links {
+        margin-top: 10px;
+        flex-direction: column;
+        width: 100%;
+    }
+    .navbar .nav-links a {
+        margin: 10px 0;
+    }
+    .navbar .search-container {
+        margin-top: 10px;
+    }
+}
+
+    .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+    }
+    
+    @keyframes fade {
+        0%, 20%, 100% { opacity: 0; }
+        10%, 30% { opacity: 1; }
+    }
+    
+    .intro {
+        padding: 20px;
+        background-color: #fff;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .intro h2 {
+        font-size: 36px;
+        margin-bottom: 10px;
+    }
+    
+    .intro p {
+        font-size: 18px;
+        color: #555;
+    }
+    
+    .content {
+        padding: 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+    }
+    
+    .card {
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        text-align: center;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+    
+    .card:hover {
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        transform: translateY(-15px);
+    }
+    
+    .card img {
+        max-width: 100%;
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
+    
+    .card h3 {
+        margin-top: 0;
+    }
+    
+    .card p {
+        margin-bottom: 10px;
+    }
+    
+    .card .explore-button {
+        background-color: #2979FF;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    
+    .card .explore-button:hover {
+        background-color: #0056b3;
+    }
+    
+    .footer {
+        background-color: #004d99;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+        margin-top: 20px;
+        width: 100%;
+        position: relative;
+    }
+    
+    @media (max-width: 768px) {
         .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #004d99;
-            padding: 10px 20px;
-            position: relative;
-            z-index: 1000;
-        }
-        .navbar .logo {
-            font-size: 24px;
-            color: #fff;
+            flex-direction: column;
+            align-items: flex-start;
         }
         .navbar .nav-links {
-            display: flex;
-            align-items: center;
+            margin-top: 10px;
+            flex-direction: column;
+            width: 100%;
         }
         .navbar .nav-links a {
-            color: #fff;
-            text-decoration: none;
-            margin-left: 20px;
-            font-size: 16px;
-        }
-        .navbar .search-container {
-            display: flex;
-            align-items: center;
-            margin-left: 20px;
-        }
-        .navbar .search-container input[type="text"] {
-            padding: 5px;
-            font-size: 16px;
-            border: none;
-            border-radius: 4px;
-        }
-        .navbar .search-container button {
-            padding: 5px 10px;
-            margin-left: 5px;
-            background-color: #2979FF;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-        .navbar .search-container button:hover {
-            background-color: #0056b3;
-        }
-        .hero {
-            background: url('https://via.placeholder.com/1920x500') no-repeat center center/cover;
-            color: #fff;
-            text-align: center;
-            padding: 100px 20px;
-        }
-        .hero h1 {
-            font-size: 50px;
-            margin: 0;
-        }
-        .hero p {
-            font-size: 24px;
             margin: 10px 0;
         }
-        .content {
-            padding: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            flex: 1;
+        .navbar .search-container {
+            margin-top: 10px;
         }
-        .card {
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            margin: 10px;
-            padding: 20px;
-            width: 300px;
-            text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        .card:hover {
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            transform: translateY(-15px);
-        }
-        .card img {
-            max-width: 100%;
-            border-radius: 8px;
-            margin-bottom: 10px;
-        }
-        .card h3 {
-            margin-top: 0;
-        }
-        .card p {
-            margin-bottom: 10px;
-        }
-        .card .explore-button {
-            background-color: #2979FF;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .card .explore-button:hover {
-            background-color: #0056b3;
-        }
-        .footer {
-            background-color: #004d99;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            margin-top: 20px;
-            width: 100%;
-            position: relative;
-        }
-        .slider {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            height: 300px;
-            margin-top: -10px;
-        }
-        .slider-content {
-            display: flex;
-            animation: slide 15s infinite linear;
-        }
-        .slider img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        @keyframes slide {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-        .marquee {
-            width: 100%;
-            background-color: #f4f4f4;
-            padding: 10px 0;
-            overflow: hidden;
-        }
-        .marquee p {
-            display: inline-block;
-            white-space: nowrap;
-            animation: marquee 15s linear infinite;
-        }
-        @keyframes marquee {
-            0% {
-                transform: translateX(100%);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
-        }
+    }
     </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="logo">E-Library</div>
         <div class="nav-links">
-            <a href="intely.html">Home</a>
-            <a href="#">About</a>
-            <a href="#">Resources</a>
-            <a href="#">Contact</a>
-            <div class="search-container">
-                <input type="text" id="librarySearch" placeholder="Search library...">
-                <button onclick="librarySearch()">Search</button>
-            </div>
+            <a href="index.html">Home</a>
+            
+        </div>
+        <div class="search-container">
+            <input type="text" id="librarySearch" placeholder="Search library...">
+            <button onclick="librarySearch()">Search</button>
         </div>
         <div class="search-container">
             <input type="text" id="webSearch" placeholder="Web search...">
             <button onclick="webSearch()">Search</button>
         </div>
     </nav>
-
     <div class="slider">
         <div class="slider-content">
-            <img src="IMAGES/re5.jpg" alt="Slide 1">
-            <img src="IMAGES/re2.jpg" alt="Slide 2">
-            <img src="IMAGES/re1.jpg" alt="Slide 3">
-            <img src="IMAGES/re6.jpg" alt="Slide 1">
-            <img src="IMAGES/re3.jpg" alt="Slide 2">
-            <img src="IMAGES/re4.jpg" alt="Slide 3">
-            <!-- Add more images for additional slides -->
+            <div class="slide"><img src="IMAGES/re5.jpg" alt="Slide 1"></div>
+            <div class="slide"><img src="IMAGES/re2.jpg" alt="Slide 2"></div>
+            <div class="slide"><img src="IMAGES/re1.jpg" alt="Slide 3"></div>
+            <div class="slide"><img src="IMAGES/re6.jpg" alt="Slide 4"></div>
+            <div class="slide"><img src="IMAGES/re3.jpg" alt="Slide 5"></div>
+            <div class="slide"><img src="IMAGES/re4.jpg" alt="Slide 6"></div>
         </div>
     </div>
 
-    <div class="marquee">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+    <div class="intro">
+        <h2>Discover Our Collection</h2>
+        <p>Explore a wide range of books and resources across various subjects. Our e-library provides access to the latest and most relevant materials to enhance your learning experience.</p>
     </div>
 
-    <div class="hero">
-        <h1>Welcome to E-Library</h1>
-        <p>Your portal to knowledge in technology, science, economics, politics, environment, and more.</p>
-    </div>
-
+    
     <div class="content">
         <!-- Cards for 21 different subject areas -->
         <div class="card" onclick="window.location.href='work.html'">
-            <img src="IMAGES/AA1.jpg" alt="Artificial Intelligence">
+            <img src="AA1.jpg" alt="Artificial Intelligence">
             <h3>Artificial Intelligence</h3>
             <p>Explore the latest advancements and research in AI technology.</p>
             <a href="work.html" class="explore-button">Explore</a>
@@ -353,10 +593,40 @@
             <p>Learn about the methods and tools for analyzing and designing systems.</p>
             <a href="work.html" class="explore-button">Explore</a>
         </div>
+        <div class="card" onclick="window.location.href='work.html'">
+            <img src="IMAGES/sa.jpg "alt="Systems Analysis and Design">
+            <h3>Systems Analysis and Design</h3>
+            <p>Learn about the methods and tools for analyzing and designing systems.</p>
+            <a href="work.html" class="explore-button">Explore</a>
+        </div>
     </div>
 
     <div class="footer">
-        &copy; 2024 E-Library. All rights reserved.
+        &copy; 2024 Intelic Institute of Technology All rights reserved.
     </div>
+
+    <script>
+        function librarySearch() {
+            const query = document.getElementById('librarySearch').value;
+            window.location.href = `searchResults.html?query=${encodeURIComponent(query)}`;
+        }
+
+        function webSearch() {
+            const query = document.getElementById('webSearch').value;
+            window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, '_blank');
+        }
+    </script>
+
+<script>
+    function librarySearch() {
+        const query = document.getElementById('librarySearch').value;
+        window.location.href = `searchResults.html?query=${encodeURIComponent(query)}`;
+    }
+
+    function webSearch() {
+        const query = document.getElementById('webSearch').value;
+        window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, '_blank');
+    }
+</script>
 </body>
 </html>

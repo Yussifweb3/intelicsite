@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Intely Institute of Technology</title>
+    <title>About Us - Intelic Institute of Technology</title>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,7 +15,7 @@
             color: #333;
         }
         .navbar {
-            background-color: #004d99;
+            background: linear-gradient(135deg, #3498db, #2ecc71);  background: linear-gradient(135deg, #6f42c1, #e83e8c,#3498db);
             color: #fff;
             padding: 10px 20px;
             display: flex;
@@ -69,6 +71,10 @@
             color: #333;
             text-decoration: none;
             font-size: 20px;
+            margin-right: 15px;
+        }
+        .social-media a:hover {
+            color: #3498db;
         }
         .support-options {
             margin-top: 20px;
@@ -83,9 +89,14 @@
         }
         .support-options ul li {
             margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .support-options ul li i {
+            margin-right: 10px;
+            color: #004d99;
         }
         .footer {
-            background-color: #004d99;
+            background-color: #6f42c1;
             color: #fff;
             text-align: center;
             padding: 10px 0;
@@ -99,9 +110,8 @@
     <div class="navbar">
         <div class="logo">About Us</div>
         <div class="nav-links">
-            <a href="intely.html">Home</a>
-            <a href="courses.html">Courses</a>
-           
+            <a href="index.html"><i class="fas fa-home"></i>Home</a>
+            <a href="courses.html"><i class="fas fa-book-open"></i>Courses</a>
         </div>
     </div>
 
@@ -123,25 +133,25 @@
         <div class="about-section">
             <h2>Connect With Us</h2>
             <div class="social-media">
-                <a href="#" target="_blank">Facebook</a>
-                <a href="#" target="_blank">Twitter</a>
-                <a href="#" target="_blank">LinkedIn</a>
-                <a href="#" target="_blank">Instagram</a>
+                <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
 
         <div class="about-section support-options">
             <h2>Support Options</h2>
             <ul>
-                <li><strong>Email:</strong> support@intelyinstitute.com</li>
-                <li><strong>Phone:</strong> +1234567890</li>
-                <li><strong>Address:</strong> 123 Tech Street, Cityville, Country</li>
+                <li><i class="fas fa-envelope"></i><strong>Email:</strong> support@intelyinstitute.com</li>
+                <li><i class="fas fa-phone-alt"></i><strong>Phone:</strong> +1234567890</li>
+                <li><i class="fas fa-map-marker-alt"></i><strong>Address:</strong> 123 Tech Street, Cityville, Country</li>
             </ul>
         </div>
     </div>
 
     <div class="footer">
-        <p>&copy; 2024 Intely Institute of Technology. All rights reserved.</p>
+        <p>&copy; 2024 Intelic Institute of Technology. All rights reserved.</p>
     </div>
 </body>
 </html>
