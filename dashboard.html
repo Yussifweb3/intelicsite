@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(120deg, #f6f9fc 0%, #e9eff4 100%);
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #2979FF;
+            padding: 10px;
+            color: white;
+            text-align: center;
+        }
+        .navbar h1 {
+            margin: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .card h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #2979FF;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            text-align: center;
+            font-size: 16px;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .btn:hover {
+            background-color: #004d99;
+        }
+        .btn-secondary {
+            background-color: #f44336;
+            text-decoration: none;
+        }
+        .btn-secondary:hover {
+            background-color: #c62828;
+        }
+        .assignments {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .assignment {
+            background: white;
+            padding: 10px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-right: 15px;
+            margin-bottom: 15px;
+            width: calc(33.333% - 15px);
+            box-sizing: border-box;
+        }
+        .assignment h3 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>Student Dashboard</h1>
+    </div>
+    <div class="container">
+        <div class="card">
+            <h2>Welcome, <span id="studentName"></span></h2>
+            <p>Your Program: <span id="studentProgram"></span></p>
+            <a href="signin.html" class="btn btn-secondary">Logout</a>
+        </div>
+        <div class="card">
+            <h2>Your Courses</h2>
+            <div id="coursesList"></div>
+        </div>
+        <div class="card">
+            <h2>Assignments</h2>
+            <div class="assignments" id="assignmentsList"></div>
+        </div>
+    </div>
+    <script type="module">
+        import { getAuth, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js';
+        import { getFirestore, doc, getDoc, collection, getDocs } from 'https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js';
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js';
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDhQsqpvy6-cpGm_d1J8qdo9H4EkmQn9AI",
+            authDomain: "intelic.firebaseapp.com",
+            projectId: "intelic",
+            storageBucket: "intelic.appspot.com",
+            messagingSenderId: "812703180714",
+            appId: "1:812703180714:web:f0b3a084dc75d5bcbc2dd3",
+            measurementId: "G-7VTYFTZTMW"
+        };
+
+        initializeApp(firebaseConfig);
+        const auth = getAuth();
+        const db = getFirestore();
+
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                const userDoc = await getDoc(doc(db, 'Users', user.uid));
+                const userData = userDoc.data();
+                document.getElementById('studentName').textContent = `${userData.firstName} ${userData.lastName}`;
+                document.getElementById('studentProgram').textContent = userData.education;
+
+                // Fetch courses
+                const coursesRef = collection(db, 'Courses');
+                const coursesSnapshot = await getDocs(coursesRef);
+                const coursesList = document.getElementById('coursesList');
+                coursesSnapshot.forEach((doc) => {
+                    const courseData = doc.data();
+                    const courseDiv = document.createElement('div');
+                    courseDiv.textContent = courseData.title;
+                    coursesList.appendChild(courseDiv);
+                });
+
+                // Fetch assignments
+                const assignmentsRef = collection(db, 'Assignments');
+                const assignmentsSnapshot = await getDocs(assignmentsRef);
+                const assignmentsList = document.getElementById('assignmentsList');
+                assignmentsSnapshot.forEach((doc) => {
+                    const assignmentData = doc.data();
+                    const assignmentDiv = document.createElement('div');
+                    assignmentDiv.className = 'assignment';
+                    assignmentDiv.innerHTML = `<h3>${assignmentData.title}</h3><p>${assignmentData.description}</p>`;
+                    assignmentsList.appendChild(assignmentDiv);
+                });
+            } else {
+                window.location.href = 'login.html';
+            }
+        });
+
+        document.querySelector('.btn-secondary').addEventListener('click', async () => {
+            await signOut(auth);
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+</html>

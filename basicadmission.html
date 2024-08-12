@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission - Intelic Basic Online School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: linear-gradient(to right, #004d99, #003366);
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #003366;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s;
+            border-radius: 5px;
+        }
+
+        .navbar a:hover {
+            background-color: #002244;
+        }
+
+        .navbar .fa {
+            margin-right: 8px;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .navbar-menu {
+            display: flex;
+        }
+
+        .navbar-menu.active {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .section {
+            padding: 60px 20px;
+            background-color: #ffffff;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.8em;
+            color: #003366;
+        }
+
+        .admission-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .admission-info p {
+            max-width: 800px;
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .admission-process {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .admission-process h3 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #003366;
+        }
+
+        .admission-process ol {
+            list-style-type: decimal;
+            padding-left: 20px;
+            text-align: left;
+        }
+
+        .admission-process ol li {
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .admission-process ol li i {
+            color: #003366;
+            margin-right: 8px;
+        }
+
+        .admission-process ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .admission-process ul li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .admission-process ul li i {
+            color: #003366;
+            margin-right: 10px;
+            font-size: 1.5em;
+        }
+
+        .contact-section {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-section h3 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #003366;
+        }
+
+        .contact-section p {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .contact-section a {
+            color: #004d99;
+            text-decoration: none;
+            font-weight: bold;
+            transition: text-decoration 0.3s;
+        }
+
+        .contact-section a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            position: relative;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            transition: text-decoration 0.3s;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .navbar-menu {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .section {
+                padding: 40px 15px;
+            }
+
+            .admission-process ol {
+                padding-left: 15px;
+            }
+
+            .contact-section {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Intelic Basic Online School</h1>
+    </header>
+
+    <div class="navbar">
+        <div class="logo">Intelic</div>
+        <div class="hamburger"><i class="fa fa-bars"></i></div>
+        <div class="navbar-menu">
+            <a href="basic.html"><i class="fa fa-home"></i> Home</a>
+            <a href="basicabout.html"><i class="fa fa-info-circle"></i> About Us</a>
+            <a href="basiccurricula.html"><i class="fa fa-book"></i> Curricula</a>
+            <a href="basicadmission.html"><i class="fa fa-user-plus"></i> Admissions</a>
+            <a href="basictestimonial.html"><i class="fa fa-comments"></i> Testimonials</a>
+            <a href="basicgallery.html"><i class="fa fa-images"></i> Gallery</a>
+            <a href="basicblog.html"><i class="fa fa-blog"></i> Blog</a>
+           
+            <a href="basictech.html "><i class="fa fa-handshake"></i> T-Tech</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Admission Process</h2>
+        <div class="admission-info">
+            <p>Welcome to Intelic Basic Online School, where quality education is accessible from the comfort of your home. Our admission process is designed to be simple and straightforward, ensuring that every student can start their learning journey with ease.</p>
+            <p>We accept students for the following programs:</p>
+            <ul>
+                
+                <li><i class="fa fa-child"></i> Primary School (Grades 1-6)</li>
+                <li><i class="fa fa-user-graduate"></i> Junior High School (Grades 7-9)</li>
+            </ul>
+        </div>
+
+        <div class="admission-process">
+            <h3>How to Apply</h3>
+            <ol>
+                <li>
+                    <i class="fa fa-pencil-alt"></i>
+                    <strong>Step 1: Complete the Online Application Form</strong><br>
+                    Fill out our <a href="application_form.html">online application form</a> with accurate information about your child and family.
+                </li>
+                <li>
+                    <i class="fa fa-file-alt"></i>
+                    <strong>Step 2: Submit Required Documents</strong><br>
+                    Upload the necessary documents, including birth certificate, previous school records, and any additional documents requested.
+                </li>
+                <li>
+                    <i class="fa fa-calendar-check"></i>
+                    <strong>Step 3: Schedule an Interview</strong><br>
+                    Once your application is reviewed, our admissions team will contact you to schedule an online interview with your child.
+                </li>
+                <li>
+                    <i class="fa fa-envelope"></i>
+                    <strong>Step 4: Receive Admission Decision</strong><br>
+                    After the interview, you will receive an email with the admission decision within 5-7 business days.
+                </li>
+                <li>
+                    <i class="fa fa-dollar-sign"></i>
+                    <strong>Step 5: Pay Tuition Fees</strong><br>
+                    If admitted, you will receive instructions on how to pay the tuition fees. Once payment is confirmed, your child will be officially enrolled.
+                </li>
+                <li>
+                    <i class="fa fa-laptop"></i>
+                    <strong>Step 6: Start Learning</strong><br>
+                    Your child will receive access to their online classes and resources. We look forward to supporting your child's educational journey!
+                </li>
+            </ol>
+        </div>
+
+        <div class="contact-section">
+            <h3>Need Help?</h3>
+            <p>If you have any questions about the admission process, please contact our admissions office:</p>
+            <p>Email: <a href="mailto:admissions@intelicbasicschool.com">admissions@intelicbasicschool.com</a></p>
+            <p>Phone: <a href="tel:+1234567890">+123 456 7890</a></p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Intelic Basic Online School. All rights reserved. | <a href="privacy.html">Privacy Policy</a></p>
+    </div>
+
+    <script>
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            document.querySelector('.navbar-menu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

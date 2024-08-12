@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding-top: 20px; /* Ensure form is not hidden */
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 20px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+        }
+        .form-container h2 {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333;
+        }
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+        .form-group {
+            flex: 1 1 45%;
+            margin: 10px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .form-group textarea {
+            resize: vertical;
+        }
+        .form-group input[type="submit"] {
+            background-color: #2979FF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #004d99;
+        }
+        .form-group .captcha-code {
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .form-group .generate-captcha {
+            background-color: #2979FF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            margin-left: 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .form-group .generate-captcha:hover {
+            background-color: #004d99;
+        }
+        .form-group a {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            color: #2979FF;
+            text-decoration: none;
+        }
+        .form-group a:hover {
+            text-decoration: underline;
+        }
+        .success-message {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 4px;
+            position: absolute;
+            top: -60px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div id="successMessage" class="success-message">Registration successful!</div>
+        <h2>Course Enrollment Form</h2>
+        <form id="registrationForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="middleName">Middle Name</label>
+                    <input type="text" id="middleName" name="middleName">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="dateOfBirth">Date of Birth</label>
+                    <input type="date" id="dateOfBirth" name="dateOfBirth" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" name="address" rows="3" required></textarea>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="course">Select Course</label>
+                    <select id="course" name="course" required>
+                        <option value="" disabled selected>Select a course</option>
+                        <option value="courseAI.html">Artificial Intelligence</option>
+                        <option value="courseBC.html">Blockchain</option>
+                        <option value="courseCC.html">Cloud Computing</option>
+                        <option value="courseCS.html">Cyber Security</option>
+                        <option value="courseDS.html">Data Science</option>
+                        <option value="courseGD.html">Game Development</option>
+                        <option value="courseIOT.html">Internet of Things</option>
+                        <option value="courseMA.html">Machine Learning</option>
+                        <option value="courseWD.html">Web Development</option>
+                        <!-- Add additional courses as needed -->
+                       
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="captcha">Enter Captcha</label>
+                    <input type="text" id="captcha" name="captcha" required>
+                    <div class="captcha-code" id="captchaCode">1234</div>
+                    <button type="button" class="generate-captcha" onclick="generateCaptcha()">Generate New Captcha</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Register">
+                <a href="courseSignin.html">Back to Login</a>
+            </div>
+        </form>
+    </div>
+    <script type="module">
+        import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js';
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js';
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDhQsqpvy6-cpGm_d1J8qdo9H4EkmQn9AI",
+            authDomain: "intelic.firebaseapp.com",
+            projectId: "intelic",
+            storageBucket: "intelic.appspot.com",
+            messagingSenderId: "812703180714",
+            appId: "1:812703180714:web:f0b3a084dc75d5bcbc2dd3",
+            measurementId: "G-7VTYFTZTMW"
+        };
+
+        initializeApp(firebaseConfig);
+        const auth = getAuth();
+
+        document.getElementById('registrationForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const course = document.getElementById('course').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                alert('Passwords do not match.');
+                return;
+            }
+
+            try {
+                await createUserWithEmailAndPassword(auth, email, password);
+                // Show success message
+                document.getElementById('successMessage').style.display = 'block';
+                setTimeout(() => {
+                    window.location.href = 'courseSignin.html'; // Redirect to the selected course page
+                }, 2000); // Delay redirection to allow success message display
+            } catch (error) {
+                let errorMessage = 'Registration failed. Please try again.';
+                if (error.code === 'auth/invalid-email') {
+                    errorMessage = 'Invalid email format.';
+                } else if (error.code === 'auth/email-already-in-use') {
+                    errorMessage = 'Email is already in use.';
+                } else if (error.code === 'auth/weak-password') {
+                    errorMessage = 'Password is too weak. Please use a stronger password.';
+                } else if (error.code === 'auth/network-request-failed') {
+                    errorMessage = 'Network error. Please check your internet connection.';
+                }
+                console.error('Error registering:', error);
+                alert(errorMessage);
+            }
+        });
+
+        function generateCaptcha() {
+            const captchaCode = document.getElementById('captchaCode');
+            captchaCode.textContent = Math.random().toString(36).substr(2, 4).toUpperCase();
+        }
+
+        // Initialize CAPTCHA on page load
+        window.onload = generateCaptcha;
+    </script>
+</body>
+</html>

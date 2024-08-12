@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Development Course</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Press Start 2P', cursive;
+            margin: 0;
+            padding: 0;
+            background: #1e1e1e;
+            color: #f4f4f4;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: #333;
+            color: #f4f4f4;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #f4f4f4;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffcc00;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('IMAGES/game-dev-hero.jpg') no-repeat center center/cover;
+            color: #f4f4f4;
+            padding: 120px 20px;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('IMAGES/game-dev-hero.jpg') no-repeat center center/cover;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            margin: 0;
+            font-weight: 700;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.8);
+        }
+
+        .hero p {
+            font-size: 26px;
+            margin-top: 15px;
+        }
+
+        .hero button {
+            background-color: #ffcc00;
+            color: #000;
+            border: none;
+            padding: 15px 30px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            margin-top: 25px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .hero button:hover {
+            background-color: #e6b800;
+            transform: scale(1.05);
+        }
+
+        /* Course Modules */
+        .modules {
+            padding: 60px 20px;
+            text-align: center;
+            background: #2c2c2c;
+        }
+
+        .modules h2 {
+            font-size: 36px;
+            color: #ffcc00;
+            margin-bottom: 20px;
+        }
+
+        .modules .module {
+            background: #444;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            margin: 20px;
+            display: inline-block;
+            width: calc(33% - 40px);
+            vertical-align: top;
+            text-align: center;
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+
+        .modules .module:hover {
+            box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+            transform: translateY(-5px);
+        }
+
+        .modules .module h3 {
+            font-size: 28px;
+            margin: 0;
+            color: #ffcc00;
+        }
+
+        .modules .module p {
+            font-size: 18px;
+            color: #ccc;
+            margin-top: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 -4px 8px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Game Dev Course</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+         
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <h1>Level Up Your Game Development Skills</h1>
+        <p>Learn how to create engaging games from scratch using industry-standard tools and techniques</p>
+        <a href="dashboardGD.html"><button>Join Now</button></a>
+    </div>
+
+    <div class="modules">
+        <h2>Course Modules</h2>
+        <div class="module">
+            <h3>Game Design Basics</h3>
+            <p>Understand the fundamentals of game design and development.</p>
+        </div>
+        <div class="module">
+            <h3>Unity Development</h3>
+            <p>Learn how to create games using the Unity game engine.</p>
+        </div>
+        <div class="module">
+            <h3>Advanced Programming</h3>
+            <p>Explore advanced programming techniques for game development.</p>
+        </div>
+        <div class="module">
+            <h3>Graphics and Animation</h3>
+            <p>Discover how to create stunning graphics and animations for games.</p>
+        </div>
+        <div class="module">
+            <h3>Game Testing and Debugging</h3>
+            <p>Learn best practices for testing and debugging games.</p>
+        </div>
+        <div class="module">
+            <h3>Publishing and Monetization</h3>
+            <p>Explore strategies for publishing and monetizing your games.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Game Development Course. All rights reserved.</p>
+    </footer>
+</body>
+</html>

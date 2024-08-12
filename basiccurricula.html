@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curricula - Intelic Online Basic School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: linear-gradient(to right, #004d99, #003366);
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #003366;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s;
+            border-radius: 5px;
+        }
+
+        .navbar a:hover {
+            background-color: #002244;
+        }
+
+        .navbar .fa {
+            margin-right: 8px;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .navbar-menu {
+            display: flex;
+        }
+
+        .navbar-menu.active {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 400px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+            background-image: url('IMAGES/bhh.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .hero-content p {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        /* Sections */
+        .section {
+            padding: 60px 20px;
+            background-color: #ffffff;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.8em;
+            color: #003366;
+        }
+
+        .subjects-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .subject-card {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+            width: 300px;
+            overflow: hidden;
+            transition: transform 0.3s, max-height 0.3s ease;
+            cursor: pointer;
+        }
+
+        .subject-card .card-header {
+            padding: 15px;
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .subject-card .card-header h3 {
+            margin: 0 10px;
+            font-size: 1.5em;
+        }
+
+        .subject-card .card-content {
+            padding: 15px;
+            display: none;
+        }
+
+        .subject-card.active .card-content {
+            display: block;
+        }
+
+        .subject-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .subject-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            position: relative;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            transition: text-decoration 0.3s;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .navbar-menu {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+
+            .subject-card {
+                width: 100%;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .slide-up {
+            transform: translateY(20px);
+            opacity: 0;
+            animation: slideUp 1s forwards;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Intelic Online Basic School</h1>
+    </header>
+
+    <div class="navbar">
+        <div class="logo">Intelic</div>
+        <div class="hamburger"><i class="fa fa-bars"></i></div>
+        <div class="navbar-menu">
+            <a href="basic.html"><i class="fa fa-home"></i> Home</a>
+            <a href="basicabout.html"><i class="fa fa-info-circle"></i> About Us</a>
+            <a href="basicsubject.html"><i class="fa fa-book"></i> Curricula
+            <a href="basicadmission.html"><i class="fa fa-user-plus"></i> Admissions</a>
+            <a href="basictestimonial.html"><i class="fa fa-comments"></i> Testimonials</a>
+            <a href="basicgallery.html"><i class="fa fa-images"></i> Gallery</a>
+            <a href="basicblog.html"><i class="fa fa-blog"></i> Blog</a>
+            <a href="basiccurricula.html"><i class="fa fa-book"></i> Curricula</a>
+            <a href="basictech.html"><i class="fa fa-handshake"></i> T-Tech</a>
+        </div>
+    </div>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Explore Our Curricula</h1>
+            <p>Offering the 5 major curricula in the world, including the NACCH Ghana Curriculum.</p>
+        </div>
+    </div>
+
+    <div class="section fade-in">
+        <h2>Our Curricula</h2>
+        <div class="subjects-container">
+            <div class="subject-card slide-up">
+                <div class="card-header">
+                    <i class="fa fa-globe"></i>
+                    <h3>International Baccalaureate (IB)</h3>
+                </div>
+                <div class="card-content">
+                    <img src="IMAGES/ib.jpg" alt="IB Curriculum">
+                    <p>The International Baccalaureate offers high-quality programs of international education to a worldwide community of schools. Here are the 10 subjects covered:</p>
+                    <ul>
+                        <li>Mathematics</li>
+                        <li>Sciences</li>
+                        <li>Languages</li>
+                        <li>Humanities</li>
+                        <li>Arts</li>
+                        <li>Technology</li>
+                        <li>Physical Education</li>
+                        <li>Business Studies</li>
+                        <li>Environmental Systems</li>
+                        <li>Global Politics</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="subject-card slide-up">
+                <div class="card-header">
+                    <i class="fa fa-map-marker-alt"></i>
+                    <h3>British Curriculum</h3>
+                </div>
+                <div class="card-content">
+                    <img src="IMAGES/br.jpg" alt="British Curriculum">
+                    <p>The British Curriculum is one of the most well-known and widely followed curricula across the world. Here are the 10 subjects covered:</p>
+                    <ul>
+                        <li>English Language</li>
+                        <li>Mathematics</li>
+                        <li>Science</li>
+                        <li>Geography</li>
+                        <li>History</li>
+                        <li>Art & Design</li>
+                        <li>Physical Education</li>
+                        <li>Religious Education</li>
+                        <li>Music</li>
+                        <li>ICT</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="subject-card slide-up">
+                <div class="card-header">
+                    <i class="fa fa-flag"></i>
+                    <h3>American Curriculum</h3>
+                </div>
+                <div class="card-content">
+                    <img src="IMAGES/am.jpg" alt="American Curriculum">
+                    <p>The American Curriculum emphasizes creativity, critical thinking, and technology. Here are the 10 subjects covered:</p>
+                    <ul>
+                        <li>English Language Arts</li>
+                        <li>Mathematics</li>
+                        <li>Science</li>
+                        <li>Social Studies</li>
+                        <li>Physical Education</li>
+                        <li>Health Education</li>
+                        <li>Technology</li>
+                        <li>Arts</li>
+                        <li>World Languages</li>
+                        <li>Economics</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="subject-card slide-up">
+                <div class="card-header">
+                    <i class="fa fa-school"></i>
+                    <h3>NACCH Ghana Curriculum</h3>
+                </div>
+                <div class="card-content">
+                    <img src="IMAGES/nacca.jpg" alt="NACCH Ghana Curriculum">
+                    <p>The NACCH Ghana Curriculum provides a comprehensive education tailored to the needs of students in Ghana. Here are the 10 subjects covered:</p>
+                    <ul>
+                        <li>English Language</li>
+                        <li>Mathematics</li>
+                        <li>Science</li>
+                        <li>Social Studies</li>
+                        <li>Creative Arts</li>
+                        <li>Physical Education</li>
+                        <li>Information Technology</li>
+                        <li>Religious & Moral Education</li>
+                        <li>French</li>
+                        <li>Ghanaian Language</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="subject-card slide-up">
+                <div class="card-header">
+                    <i class="fa fa-university"></i>
+                    <h3>Cambridge Curriculum</h3>
+                </div>
+                <div class="card-content">
+                    <img src="IMAGES/gcis.jpg" alt="Cambridge Curriculum">
+                    <p>The Cambridge Curriculum is recognized worldwide and emphasizes a balanced approach to education. Here are the 10 subjects covered:</p>
+                    <ul>
+                        <li>English</li>
+                        <li>Mathematics</li>
+                        <li>Biology</li>
+                        <li>Chemistry</li>
+                        <li>Physics</li>
+                        <li>Geography</li>
+                        <li>History</li>
+                        <li>Art & Design</li>
+                        <li>Physical Education</li>
+                        <li>Global Perspectives</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Intelic Online Basic School. All rights reserved. | <a href="privacy.html">Privacy Policy</a></p>
+    </div>
+
+    <script>
+        document.querySelectorAll('.subject-card').forEach(card => {
+            card.addEventListener('click', () => {
+                card.classList.toggle('active');
+            });
+        });
+
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            document.querySelector('.navbar-menu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

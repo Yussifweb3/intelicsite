@@ -1,208 +1,458 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
+    <title>About Us - Online High School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
     <style>
+        /* General Styles */
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
-            overflow-x: hidden;
             color: #333;
+            background-color: #f4f4f4;
         }
 
-        nav {
-            background-color: #333;
-            color: #fff;
-            padding: 1rem;
+        header {
+            background: linear-gradient(to right, #004d99, #003366);
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: fixed;
-            width: 100%;
+            background-color: #003366;
+            padding: 10px 20px;
+            position: sticky;
             top: 0;
             z-index: 1000;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        nav .logo {
-            font-size: 1.5rem;
+        .navbar .logo {
+            font-size: 1.8em;
             font-weight: bold;
+            letter-spacing: 1px;
         }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 1rem;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav ul li a {
+        .navbar a {
+            color: white;
             text-decoration: none;
-            color: #fff;
-            font-weight: bold;
-            transition: color 0.3s ease;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s;
+            border-radius: 5px;
         }
 
-        nav ul li a:hover {
-            color: #ff9a9e;
+        .navbar a:hover {
+            background-color: #002244;
+        }
+
+        .navbar .fa {
+            margin-right: 8px;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .navbar-menu {
+            display: flex;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 500px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+            background-image: url('IMAGES/abt.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .hero-content p {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .cta-buttons a {
+            margin: 15px;
+            padding: 15px 30px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-buttons a:hover {
+            background-color: #218838;
+            transform: translateY(-5px);
         }
 
         .container {
-            margin-top: 80px;
-            padding: 2rem;
+            padding: 40px;
+            max-width: 1200px;
+            margin: auto;
         }
 
-        h1 {
+        .section {
+            padding: 50px 0;
+            background-color: white;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section h2 {
             text-align: center;
-            margin-bottom: 2rem;
-            font-size: 3rem;
-            color: #333;
+            margin-bottom: 20px;
+            font-size: 2.8em;
+            color: #003366;
+            position: relative;
+            z-index: 1;
         }
 
-        .content {
+        .section h2::after {
+            content: "";
+            width: 60px;
+            height: 4px;
+            background-color: #28a745;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -10px;
+        }
+
+        .section-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .section-content p {
+            font-size: 1.2em;
+            text-align: center;
             max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
+            margin-bottom: 20px;
+            line-height: 1.6;
         }
 
-        .content p {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            margin-bottom: 1rem;
+        .section-content a {
+            padding: 15px 25px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .section-content a:hover {
+            background-color: #0056a6;
+        }
+
+        /* About Us Sections */
+        .mission {
+            background-color: #e9f7f5;
+        }
+        .values {
+    background-color: #f9f9f9;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.values h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.8em;
+    color: #003366;
+    position: relative;
+    z-index: 1;
+}
+
+.values .section-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.values .value {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.values .value:hover {
+    transform: translateY(-10px);
+}
+
+.values .value i {
+    font-size: 2.5em;
+    color: #004d99;
+    margin-bottom: 15px;
+}
+
+.values .value h4 {
+    font-size: 1.6em;
+    color: #004d99;
+    margin-bottom: 10px;
+}
+
+.values .value p {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 0;
+}
+
+        .values {
+            background-color: #fdf2e9;
+        }
+
+        .history {
+            background-color: #f1f3f6;
         }
 
         .team {
+            background-color: #e9ecef;
+        }
+
+        .team .team-member {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
+            align-items: center;
+            margin-bottom: 20px;
         }
 
-        .team-member {
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            max-width: 300px;
-            text-align: center;
+        .team .team-member img {
+            border-radius: 50%;
+            margin-right: 20px;
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .team-member:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .team-member img {
-            width: 100%;
-            border-bottom: 1px solid #eee;
-        }
-
-        .team-member h3 {
-            font-size: 1.5rem;
-            margin: 1rem 0;
-        }
-
-        .team-member p {
-            font-size: 1rem;
-            color: #666;
-            padding: 0 1rem;
-            margin-bottom: 1rem;
-        }
-
-        footer {
-            background: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1rem;
-            margin-top: 4rem;
-        }
-
-        footer ul {
-            list-style: none;
+        .team .team-member .member-info {
             display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin: 1rem 0;
-            padding: 0;
+            flex-direction: column;
         }
 
-        footer ul li a {
+        .team .team-member h4 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .team .team-member p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            position: relative;
+        }
+
+        .footer a {
+            color: white;
             text-decoration: none;
-            color: #fff;
-            font-weight: bold;
+            transition: text-decoration 0.3s;
         }
 
-        footer ul li a:hover {
-            color: #ff9a9e;
+        .footer a:hover {
+            text-decoration: underline;
         }
+
+        @media (max-width: 768px) {
+            .navbar-menu {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.8em;
+            }
+
+            .hero p {
+                font-size: 1.4em;
+            }
+
+            .section-content {
+                flex-direction: column;
+            }
+
+            .team .team-member {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .team .team-member img {
+                margin-bottom: 15px;
+            }
+        }
+        /* Mobile Menu Styles */
+@media (max-width: 768px) {
+    .navbar-menu {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: #003366;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 10px 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-menu.active {
+        display: flex;
+    }
+
+    .navbar-menu a {
+        width: 100%;
+        padding: 15px 20px;
+        text-align: left;
+        border-bottom: 1px solid #004d99;
+    }
+
+    .navbar-menu a:last-child {
+        border-bottom: none;
+    }
+}
+
     </style>
 </head>
-
 <body>
-    <nav>
-        <div class="logo">University Name</div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="courses.html">Courses</a></li>
-            <li><a href="admissions.html">Admissions</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="signup.html">Sign Up</a></li>
-        </ul>
-    </nav>
+    <header>
+        <h1>About Us</h1>
+    </header>
+
+    <div class="navbar">
+        <div class="logo">Intelic High School</div>
+        <div class="hamburger"><i class="fa fa-bars"></i></div>
+        <div class="navbar-menu">
+            <a href="highhome.html"><i class="fa fa-home"></i> Home</a>
+            <a href="highabout.html"><i class="fa fa-info-circle"></i> About Us</a>
+            <a href="highcourse.html"><i class="fa fa-book"></i> Courses</a>
+            <a href="highfaculty.html"><i class="fa fa-users"></i> Faculty</a>
+            <a href="hightestmonial.html"><i class="fa fa-comments"></i> Testimonials</a>
+            <a href="highcontact.html"><i class="fa fa-envelope"></i> Contact Us</a>
+        </div>
+    </div>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Intelic High School</h1>
+            <p>Empowering Students Through Quality Education</p>
+            <div class="cta-buttons">
+                <a href="#mission">Our Mission</a>
+                <a href="#corevalues">Core values</a>
+            </div>
+        </div>
+    </div>
 
     <div class="container">
-        <h1>About Us</h1>
-        <div class="content">
-            <p>Welcome to our university. We are committed to providing excellent education and fostering research that drives innovation. Our mission is to empower students to achieve their full potential and become leaders in their chosen fields.</p>
-            <p>We offer a diverse range of programs and courses designed to cater to your academic and career goals. Our faculty is composed of experienced and dedicated professionals who are passionate about teaching and mentoring students.</p>
+        <div id="mission" class="section mission">
+            <h2>Our Mission</h2>
+            <div class="section-content">
+                <p>Our mission is to empower students through accessible, flexible, and quality education that prepares them for the challenges of the modern world. We strive to cultivate a learning environment that fosters academic excellence, personal growth, and lifelong learning.</p>
+            </div>
         </div>
 
-        <h2>Meet Our Team</h2>
-        <div class="team">
-            <div class="team-member">
-                <img src="https://via.placeholder.com/300x300" alt="Team Member">
-                <h3>John Doe</h3>
-                <p>President</p>
+        <div id="corevalues" class="section values">
+            <h2>Our Values</h2>
+            <div class="section-content">
+                <p>We are committed to integrity, excellence, inclusivity, and innovation. Our core values drive us to provide a supportive learning environment where every student can thrive and achieve their full potential.</p>
             </div>
-            <div class="team-member">
-                <img src="https://via.placeholder.com/300x300" alt="Team Member">
-                <h3>Jane Smith</h3>
-                <p>Vice President</p>
+        </div>
+
+        <div id="history" class="section history">
+            <h2>Our History</h2>
+            <div class="section-content">
+                <p>Founded in 2024, Online High School emerged with the vision of making high-quality education accessible to students worldwide. Our journey began with a small team of dedicated educators and technology experts who envisioned a platform where learning knows no boundaries. Over the years, we have expanded our course offerings, enhanced our technology, and built a vibrant community of learners and educators.</p>
             </div>
-            <div class="team-member">
-                <img src="https://via.placeholder.com/300x300" alt="Team Member">
-                <h3>Michael Brown</h3>
-                <p>Dean of Students</p>
+        </div>
+        <div id="values" class="section values">
+            <h2>Our Core Values</h2>
+            <div class="section-content">
+                <div class="value">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h4>Excellence in Education</h4>
+                    <p>We strive to provide the highest quality education, fostering an environment where students can achieve their full potential.</p>
                 </div>
-                <div class="team-member">
-                    <img src="https://via.placeholder.com/300x300" alt="Team Member">
-                    <h3>Emily White</h3>
-                    <p>Director of Admissions</p>
+                <div class="value">
+                    <i class="fas fa-user-graduate"></i>
+                    <h4>Student-Centered Learning</h4>
+                    <p>Our approach focuses on the needs of our students, ensuring that each individual receives the support and attention they deserve.</p>
+                </div>
+                <div class="value">
+                    <i class="fas fa-lightbulb"></i>
+                    <h4>Innovation and Technology</h4>
+                    <p>We leverage the latest in technology to create dynamic and interactive learning experiences that are both engaging and effective.</p>
+                </div>
+                <div class="value">
+                    <i class="fas fa-users"></i>
+                    <h4>Community and Collaboration</h4>
+                    <p>We believe in the power of community and work to foster collaboration among students, teachers, and parents for a holistic educational experience.</p>
                 </div>
             </div>
         </div>
-    
-        <footer>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="courses.html">Courses</a></li>
-                <li><a href="admissions.html">Admissions</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <p>&copy; 2024 University Name. All rights reserved.</p>
-        </footer>
-    </body>
-    
-    </html>
-    
+        
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Intelic | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+    </div>
+
+    <script>
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.navbar-menu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

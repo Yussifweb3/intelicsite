@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockchain Bookshelves</title>
+    <meta name="description" content="Discover a diverse collection of Blockchain books in our e-library, covering fundamental to advanced topics in blockchain technology and cryptocurrencies.">
+    <meta name="keywords" content="Blockchain, cryptocurrencies, smart contracts, decentralized applications, e-library">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .header {
+            background-color: #6600cc;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+        }
+        .navbar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 200px;
+            background-color: #6600cc;
+            color: #fff;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+        }
+        .navbar .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        .navbar .nav-links a:hover {
+            text-decoration: underline;
+        }
+        .main-content {
+            margin-left: 220px;
+            padding: 20px;
+            flex: 1;
+        }
+        .shelf {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .shelf h2 {
+            margin-top: 0;
+        }
+        .shelf-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .shelf-card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            margin: 10px;
+            padding: 20px;
+            width: 220px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .shelf-card:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: translateY(-10px);
+        }
+        .shelf-card img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .shelf-card h3 {
+            margin-top: 0;
+        }
+        .shelf-card p {
+            margin-bottom: 10px;
+        }
+        .shelf-card .read-button {
+            background-color: #330099;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .shelf-card .read-button:hover {
+            background-color: #220077;
+        }
+        .footer {
+            background-color: #6600cc;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+            width: 100%;
+            position: relative;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .navbar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                box-shadow: none;
+            }
+            .navbar .nav-links a {
+                margin-bottom: 10px;
+            }
+            .main-content {
+                margin-left: 0;
+            }
+            .shelf-card {
+                width: calc(50% - 20px);
+                margin: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .shelf-card {
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Blockchain Bookshelves</div>
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="library.html">Home</a>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <!-- Shelf 1 -->
+        <div class="shelf">
+            <h2>Introduction to Blockchain</h2>
+            <div class="shelf-container">
+                <div class="shelf-card" onclick="window.location.href='book.html'">
+                    <img src="https://via.placeholder.com/150" alt="Blockchain Basics">
+                    <h3>Blockchain Basics</h3>
+                    <p>Understanding the fundamentals of blockchain technology.</p>
+                    <a href="book.html" class="read-button">Read Me</a>
+                </div>
+                <div class="shelf-card" onclick="window.location.href='book.html'">
+                    <img src="https://via.placeholder.com/150" alt="Mastering Bitcoin">
+                    <h3>Mastering Bitcoin</h3>
+                    <p>A deep dive into Bitcoin and the blockchain technology behind it.</p>
+                    <a href="book.html" class="read-button">Read Me</a>
+                </div>
+                <!-- Add more cards as needed -->
+            </div>
+        </div>
+
+        <!-- Shelf 2 -->
+        <div class="shelf">
+            <h2>Smart Contracts</h2>
+            <div class="shelf-container">
+                <div class="shelf-card" onclick="window.location.href='book.html'">
+                    <img src="https://via.placeholder.com/150" alt="Mastering Ethereum">
+                    <h3>Mastering Ethereum</h3>
+                    <p>A guide to Ethereum, smart contracts, and decentralized applications.</p>
+                    <a href="book.html" class="read-button">Read Me</a>
+                </div>
+                <div class="shelf-card" onclick="window.location.href='book.html'">
+                    <img src="https://via.placeholder.com/150" alt="Building Ethereum DApps">
+                    <h3>Building Ethereum DApps</h3>
+                    <p>Developing decentralized applications on the Ethereum blockchain.</p>
+                    <a href="book.html" class="read-button">Read Me</a>
+                </div>
+                <!-- Add more cards as needed -->
+            </div>
+        </div>
+
+        <!-- Shelf 3 -->
+        <div class="shelf">
+            <h2>Cryptocurrencies</h2>
+            <div class="shelf-container">
+                <div class="shelf-card" onclick="window.location.href='book.html'">
+                    <img src="https://via.placeholder.com/150" alt="Bitcoin and Cryptocurrency Technologies">
+                    <h3>Bitcoin and Cryptocurrency Technologies</h3>
+                    <p>Exploring the technology behind Bitcoin and other cryptocurrencies.</p>
+                    <a href="book.html" class="read-button">Read Me</a>
+                </div>
+                <div class="shelf-card" onclick="window.location.href='book.html'">
+                    <img src="https://via.placeholder.com/150" alt="The Basics of Bitcoins and Blockchains">
+                    <h3>The Basics of Bitcoins and Blockchains</h3>
+                    <p>Fundamental concepts and applications of cryptocurrencies and blockchains.</p>
+                    <a href="book.html" class="read-button">Read Me</a>
+                </div>
+                <!-- Add more cards as needed -->
+            </div>
+        </div>
+
+        <!-- Shelf 4 -->
+        <div class="shelf">
+            <h2>Advanced Topics</h2>
+            <div class="shelf-container">
+                <div class="shelf-card" onclick="window.location.href='book.html'">
+                    <img src="https://via.placeholder.com/150" alt="Blockchain Basics">
+                    <h3>Blockchain Basics</h3>
+                    <p>Understanding the fundamentals of blockchain technology.</p>
+                    <a href="book.html" class="read-button">Read Me</a>
+                </div>
+                <div class="shelf-card" onclick="window.location.href='book.html'">
+                    <img src="https://via.placeholder.com/150" alt="Mastering Bitcoin">
+                    <h3>Mastering Bitcoin</h3>
+                    <p>A deep dive into Bitcoin and the blockchain technology behind it.</p>
+                    <a href="book.html" class="read-button">Read Me</a>
+                </div>
+                <!-- Add more cards as needed -->
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        &copy; 2024 E-Library. All rights reserved.
+    </footer>
+</body>
+</html>

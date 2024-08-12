@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Intelic Basic Online School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: linear-gradient(to right, #004d99, #003366);
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #003366;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s;
+            border-radius: 5px;
+        }
+
+        .navbar a:hover {
+            background-color: #002244;
+        }
+
+        .navbar .fa {
+            margin-right: 8px;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .navbar-menu {
+            display: flex;
+        }
+
+        .navbar-menu.active {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .section {
+            padding: 60px 20px;
+            background-color: #ffffff;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.8em;
+            color: #003366;
+        }
+
+        .blog-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .blog-post {
+            background-color: #f4f4f4;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .blog-post:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 20px;
+        }
+
+        .blog-title {
+            font-size: 1.6em;
+            color: #003366;
+            margin-bottom: 10px;
+        }
+
+        .blog-excerpt {
+            font-size: 1em;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .read-more {
+            font-size: 1em;
+            color: #004d99;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .read-more:hover {
+            color: #002244;
+        }
+
+        .footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            position: relative;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            transition: text-decoration 0.3s;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .navbar-menu {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .section {
+                padding: 40px 15px;
+            }
+
+            .blog-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Intelic Basic Online School</h1>
+    </header>
+
+    <div class="navbar">
+        <div class="logo">Intelic</div>
+        <div class="hamburger"><i class="fa fa-bars"></i></div>
+        <div class="navbar-menu">
+            <a href="basic.html"><i class="fa fa-home"></i> Home</a>
+            <a href="basicabout.html"><i class="fa fa-info-circle"></i> About Us</a>
+            <a href="basiccurricula.html"><i class="fa fa-book"></i> Curricula</a>
+            <a href="basicadmission.html"><i class="fa fa-user-plus"></i> Admissions</a>
+            <a href="basictestimonial.html"><i class="fa fa-comments"></i> Testimonials</a>
+            <a href="basicgallery.html"><i class="fa fa-images"></i> Gallery</a>
+            <a href="basicblog.html"><i class="fa fa-blog"></i> Blog</a>
+           
+            <a href="basictech.html"><i class="fa fa-handshake"></i> T-Tech</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Our Blog</h2>
+        <div class="blog-container">
+            <div class="blog-post">
+                <div class="blog-image">
+                    <img src="IMAGES/ol3.jpg" alt="Blog Post 1">
+                </div>
+                <div class="blog-content">
+                    <h3 class="blog-title">How Online Learning is Revolutionizing Education</h3>
+                    <p class="blog-excerpt">Discover how online learning platforms are changing the way students learn and interact with educational content...</p>
+                    <a href="blog-post-1.html" class="read-more">Read More</a>
+                </div>
+            </div>
+            <div class="blog-post">
+                <div class="blog-image">
+                    <img src="IMAGES/ol4.jpg" alt="Blog Post 2">
+                </div>
+                <div class="blog-content">
+                    <h3 class="blog-title">5 Tips for Parents to Support Online Learning</h3>
+                    <p class="blog-excerpt">Learn how parents can create a supportive home environment to help their children succeed in online education...</p>
+                    <a href="blog-post-2.html" class="read-more">Read More</a>
+                </div>
+            </div>
+            <div class="blog-post">
+                <div class="blog-image">
+                    <img src="IMAGES/ol5.jpg" alt="Blog Post 3">
+                </div>
+                <div class="blog-content">
+                    <h3 class="blog-title">The Benefits of Early Learning Programs</h3>
+                    <p class="blog-excerpt">Explore the advantages of early learning programs and how they lay a strong foundation for lifelong education...</p>
+                    <a href="blog-post-3.html" class="read-more">Read More</a>
+                </div>
+            </div>
+            <div class="blog-post">
+                <div class="blog-image">
+                    <img src="IMAGES/ol6.jpg" alt="Blog Post 4">
+                </div>
+                <div class="blog-content">
+                    <h3 class="blog-title">Interactive Tools to Enhance Learning</h3>
+                    <p class="blog-excerpt">Discover interactive tools that can make learning more engaging and effective for students of all ages...</p>
+                    <a href="blog-post-4.html" class="read-more">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Intelic Basic Online School. All rights reserved. | <a href="privacy.html">Privacy Policy</a></p>
+    </div>
+
+    <script>
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            document.querySelector('.navbar-menu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

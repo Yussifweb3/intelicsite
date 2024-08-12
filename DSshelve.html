@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Science Bookshelves</title>
+    <meta name="description" content="Explore a wide range of Data Science books in our e-library covering various aspects of data analysis, statistics, and more.">
+    <meta name="keywords" content="Data Science, data analysis, statistics, machine learning, data visualization, online library">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .header {
+            background-color: #006400;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+        }
+        .navbar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 200px;
+            background-color: #006400;
+            color: #fff;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+        }
+        .navbar .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        .navbar .nav-links a:hover {
+            text-decoration: underline;
+        }
+        .main-content {
+            margin-left: 220px;
+            padding: 20px;
+            flex: 1;
+        }
+        .shelf {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .shelf h2 {
+            margin-top: 0;
+        }
+        .shelf-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .shelf-card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            margin: 10px;
+            padding: 20px;
+            width: 220px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .shelf-card:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: translateY(-10px);
+        }
+        .shelf-card img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .shelf-card h3 {
+            margin-top: 0;
+        }
+        .shelf-card p {
+            margin-bottom: 10px;
+        }
+        .shelf-card .read-button {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .shelf-card .read-button:hover {
+            background-color: #388E3C;
+        }
+        .footer {
+            background-color: #006400;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+            width: 100%;
+            position: relative;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .navbar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                box-shadow: none;
+            }
+            .navbar .nav-links a {
+                margin-bottom: 10px;
+            }
+            .main-content {
+                margin-left: 0;
+            }
+            .shelf-card {
+                width: calc(50% - 20px);
+                margin: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .shelf-card {
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Data Science Bookshelves</div>
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="library.html">Home</a>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <!-- Shelf 1 -->
+        <div class="shelf">
+            <h2>Introduction to Data Science</h2>
+            <div class="shelf-container">
+                <div class="shelf-card" onclick="window.location.href='book.html'">
+                    <img src="https://via.placeholder.com/150" alt="Data Science for Business">
+                    <h3>Data Science for Business</h3>
+                    <p>Using data science techniques to drive business decisions.</p>
+                    <a href="book.html" class="read-button">Read Me</a>
+                </div>
+                <div class="shelf-card" onclick="window.location.href='book.html'">
+                    <img src="https://via.placeholder.com/150" alt="Python for Data Analysis">
+                    <h3>Python for Data Analysis</h3>
+                    <p>A practical guide to data analysis with Python.</p>
+                    <a href="book.html" class="read-button">Read Me</a>
+                </div>
+                <!-- Add more cards as needed -->
+            </div>
+        </div>
+
+        <!-- Shelf 2 -->
+        <div class="shelf">
+            <h2>Statistical Methods</h2>
+            <div class="shelf-container">
+                <div class="shelf-card" onclick="window.location.href='book.html'">
+                    <img src="https://via.placeholder.com/150" alt="Statistics for Data Science">
+                    <h3>Statistics for Data Science</h3>
+                    <p>Understanding statistical methods for data analysis.</p>
+                    <a href="book.html" class="read-button">Read Me</a>
+                </div>
+                <div class="shelf-card" onclick="window.location.href='book.html'">
+                    <img src="https://via.placeholder.com/150" alt="Data Science from Scratch">
+                    <h3>Data Science from Scratch</h3>
+                    <p>Building data science projects from the ground up.</p>
+                    <a href="book.html" class="read-button">Read Me</a>
+                </div>
+                <!-- Add more cards as needed -->
+            </div>
+        </div>
+
+        <!-- Shelf 3 -->
+        <div class="shelf">
+            <h2>Data Visualization</h2>
+            <div class="shelf-container">
+                <div class="shelf-card" onclick="window.location.href='book.html'">
+                    <img src="https://via.placeholder.com/150" alt="Storytelling with Data">
+                    <h3>Storytelling with Data</h3>
+                    <p>Effective data visualization techniques for storytelling.</p>
+                    <a href="book.html" class="read-button">Read Me</a>
+                </div>
+                <div class="shelf-card" onclick="window.location.href='book.html'">
+                    <img src="https://via.placeholder.com/150" alt="Data Visualization with Python">
+                    <h3>Data Visualization with Python</h3>
+                    <p>Creating impactful visualizations using Python libraries.</p>
+                    <a href="book.html" class="read-button">Read Me</a>
+                </div>
+                <!-- Add more cards as needed -->
+            </div>
+        </div>
+
+        <!-- Shelf 4 -->
+        <div class="shelf">
+            <h2>Machine Learning</h2>
+            <div class="shelf-container">
+                <div class="shelf-card" onclick="window.location.href='book.html'">
+                    <img src="https://via.placeholder.com/150" alt="Hands-On Machine Learning with Scikit-Learn">
+                    <h3>Hands-On Machine Learning with Scikit-Learn</h3>
+                    <p>Practical approach to machine learning with Scikit-Learn.</p>
+                    <a href="book.html" class="read-button">Read Me</a>
+                </div>
+                <div class="shelf-card" onclick="window.location.href='book.html'">
+                    <img src="https://via.placeholder.com/150" alt="Machine Learning Yearning">
+                    <h3>Machine Learning Yearning</h3>
+                    <p>Guidance on structuring machine learning projects.</p>
+                    <a href="book.html" class="read-button">Read Me</a>
+                </div>
+                <!-- Add more cards as needed -->
+            </div>
+        </div>
+
+        <!-- Shelf 5 -->
+        <div class="shelf">
+            <h2>Advanced Topics</h2>
+            <div class="shelf-container">
+                <div class="shelf-card" onclick="window.location.href='book.html'">
+                    <img src="https://via.placeholder.com/150" alt="Deep Learning">
+                    <h3>Deep Learning</h3>
+                    <p>Exploring advanced techniques in deep learning.</p>
+                    <a href="book.html" class="read-button">Read Me</a>
+                </div>
+                <div class="shelf-card" onclick="window.location.href='book.html'">
+                    <img src="https://via.placeholder.com/150" alt="Big Data Analytics">
+                    <h3>Big Data Analytics</h3>
+                    <p>Techniques for analyzing large datasets.</p>
+                    <a href="book.html" class="read-button">Read Me</a>
+                </div>
+                <!-- Add more cards as needed -->
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        &copy; 2024 E-Library. All rights reserved.
+    </footer>
+</body>
+</html>

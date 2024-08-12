@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Courses Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #003366;
+            padding: 15px 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            flex-wrap: wrap;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ffcc00;
+        }
+
+        nav .logo {
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Dashboard Header */
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #003366;
+            padding: 20px;
+            color: white;
+        }
+
+        .dashboard-header .user-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .dashboard-header .user-info img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            background-color: #ffcc00;
+            color: #003366;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dashboard-header .username {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .dashboard-header .logout-button {
+            background-color: #ffcc00;
+            color: #003366;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .dashboard-header .logout-button:hover {
+            background-color: #e6b800;
+            color: white;
+        }
+
+        .notification-icon {
+            position: relative;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .notification-icon .badge {
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 3px 7px;
+            font-size: 12px;
+        }
+
+        .notification-list {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 40px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            width: 300px;
+            z-index: 1000;
+        }
+
+        .notification-list.active {
+            display: block;
+        }
+
+        .notification-list h4 {
+            background-color: #003366;
+            color: white;
+            padding: 10px;
+            margin: 0;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+
+        .notification-list ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 10px;
+        }
+
+        .notification-list ul li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 14px;
+        }
+
+        .notification-list ul li:last-child {
+            border-bottom: none;
+        }
+
+        /* Dashboard Container */
+        .dashboard-container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .dashboard-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #003366;
+        }
+
+        /* Dashboard Grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        /* Card Styles */
+        .card {
+            background-color: #f9f9f9;
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .card:hover img {
+            transform: scale(1.05);
+        }
+
+        .card h3 {
+            margin: 10px 0 5px;
+            color: #333;
+        }
+
+        .card p {
+            color: #666;
+        }
+
+        .card button {
+            background-color: #003366;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card button:hover {
+            background-color: #002244;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Web Development Dashboard</div>
+        <ul>
+            <li>
+                <div class="notification-icon" onclick="toggleNotifications()">
+                    <i class="fas fa-bell"></i>
+                    <div class="badge" id="notificationCount">3</div>
+                </div>
+                <div class="notification-list">
+                    <h4>Notifications</h4>
+                    <ul>
+                        <li>New AI module available for Big Data</li>
+                        <li>Grade updated for Data Analytics</li>
+                        <li>Upcoming quiz on Data Science techniques</li>
+                        
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="dashboard-header">
+        <div class="user-info">
+            <img id="profilePic" src="" alt="User Avatar">
+            <span class="username" id="username">Online</span>
+        </div>
+        <div>
+            <button class="logout-button" onclick="window.location.href='courseSignin.html'">Logout</button>
+        </div>
+        <div>
+            <button class="logout-button" onclick="window.location.href='index.html'">Home</button>
+        </div>
+    </div>
+
+    <div class="dashboard-container">
+        <h2>Dashboard</h2>
+       
+        <div class="dashboard-grid">
+            <div class="card">
+                <img src="IMAGES/rs8.jpg" alt="Resources">
+                <h3>Resources</h3>
+                <p>Access your study materials and resources.</p>
+                <button onclick="window.location.href='resourceWD.html'">Go to Resources</button>
+            </div>
+            <div class="card">
+                <img src="IMAGES/as8.jpg" alt="Assessment">
+                <h3>Assessment</h3>
+                <p>View and submit your assignments and quizzes.</p>
+                <button onclick="window.location.href='assessmentWD.html'">Go to Assessment</button>
+            </div>
+            <div class="card">
+                <img src="IMAGES/scc8.jpg" alt="Schedule a Class">
+                <h3>Schedule a Class</h3>
+                <p>Arrange a time for your next class or meeting.</p>
+                <button onclick="window.location.href='schedule.html'">Schedule Now</button>
+            </div>
+            <div class="card">
+                <img src="IMAGES/pc.jpg" alt="Profile">
+                <h3>Profile</h3>
+                <p>Update your personal information and settings.</p>
+                <button onclick="window.location.href='DashboardWD.html'">Go to Profile</button>
+            </div>
+            <div class="card">
+                <img src="IMAGES/cp3.jpg" alt="Complaint Portal">
+                <h3>Complaint Portal</h3>
+                <p>Submit your feedback or complaints.</p>
+                <button onclick="window.location.href='complaint.html'">Submit Complaint</button>
+            </div>
+        </div>
+    <footer>
+        <p>&copy; 2024Web DevelopmentDashboard. All rights reserved.</p>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <script>
+        // Firebase configuration
+       // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyDhQsqpvy6-cpGm_d1J8qdo9H4EkmQn9AI",
+  authDomain: "intelic.firebaseapp.com",
+  projectId: "intelic",
+  storageBucket: "intelic.appspot.com",
+  messagingSenderId: "812703180714",
+  appId: "1:812703180714:web:7c1a650afc57669fbc2dd3",
+  measurementId: "G-DXVV9XD45S"
+};
+
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = firebase.getAuth();
+
+        // Function to toggle notifications
+        function toggleNotifications() {
+            const notificationList = document.querySelector('.notification-list');
+            notificationList.classList.toggle('active');
+        }
+
+        // Function to display user info upon login
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                const email = user.email;
+                const firstName = user.displayName ? user.displayName.split(' ')[0] : email.split('@')[0];
+                const profilePic = document.getElementById('profilePic');
+                const username = document.getElementById('username');
+
+                username.textContent = firstName;
+                profilePic.textContent = firstName.charAt(0).toUpperCase();
+
+                // Add user email
+                const userEmail = document.createElement('span');
+                userEmail.style.fontSize = '14px';
+                userEmail.style.color = '#666';
+                userEmail.style.marginLeft = '10px';
+                userEmail.textContent = `(${email})`;
+                username.appendChild(userEmail);
+            } else {
+                // Redirect to login if not logged in
+                window.location.href = 'courseSignin.html';
+            }
+        });
+    </script>
+</body>
+</html>

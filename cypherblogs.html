@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cypher Blog - Blogs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        header {
+            background: #084b92;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #084b92;
+            padding: 10px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .navbar a:hover {
+            background-color: #212529;
+            color: #e0e0e0;
+        }
+        .content {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .blogs-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .blog-card {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: calc(33.333% - 20px);
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+        }
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        .blog-card i {
+            font-size: 3em;
+            color: #084b92;
+            margin-bottom: 15px;
+        }
+        .blog-card-content h3 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #343a40;
+        }
+        .blog-card-content p {
+            margin: 10px 0;
+            font-size: 1em;
+            color: #6c757d;
+        }
+        .blog-card-content a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .blog-card-content a:hover {
+            color: #0056b3;
+        }
+        footer {
+            background-color: #0056b3;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: relative;
+        }
+        footer a {
+            color: white;
+            text-decoration: none;
+            transition: text-decoration 0.3s;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cypher Blog</h1>
+    </header>
+
+    <div class="navbar">
+        <a href="index.html"><i class="fa fa-home"></i> Home</a>
+        <a href="cypherabout.html"><i class="fa fa-info-circle"></i> About Us</a>
+       
+        <a href="cyphercontact.html"><i class="fa fa-images"></i> Contact Us</a>
+        <a href="cypherblogs.html"><i class="fa fa-blog"></i> Blogs</a>
+        
+    </div>
+
+    <div class="content">
+        <h2>Our Latest Blogs</h2>
+        <div class="blogs-container">
+            <a href="https://www.forbes.com/sites/forbestechcouncil/2024/07/15/how-ai-is-transforming-businesses/" class="blog-card">
+                <i class="fas fa-robot"></i>
+                <div class="blog-card-content">
+                    <h3>How AI is Transforming Businesses</h3>
+                    <p>Artificial Intelligence (AI) is revolutionizing how businesses operate. Explore the ways AI is impacting various industries and driving innovation.</p>
+                    <a href="https://www.forbes.com/sites/forbestechcouncil/2024/07/15/how-ai-is-transforming-businesses/">Read More</a>
+                </div>
+            </a>
+            <a href="https://www.hbr.org/2024/06/the-future-of-remote-work" class="blog-card">
+                <i class="fas fa-laptop-house"></i>
+                <div class="blog-card-content">
+                    <h3>The Future of Remote Work</h3>
+                    <p>Remote work has become a staple in modern work culture. Discover insights into the future of remote work and what organizations need to consider.</p>
+                    <a href="https://www.hbr.org/2024/06/the-future-of-remote-work">Read More</a>
+                </div>
+            </a>
+            <a href="https://www.entrepreneur.com/starting-a-business/10-tips-for-successful-startups/442556" class="blog-card">
+                <i class="fas fa-lightbulb"></i>
+                <div class="blog-card-content">
+                    <h3>10 Tips for Successful Startups</h3>
+                    <p>Launching a startup can be challenging. Here are ten essential tips for entrepreneurs to navigate the early stages and set their business up for success.</p>
+                    <a href="https://www.entrepreneur.com/starting-a-business/10-tips-for-successful-startups/442556">Read More</a>
+                </div>
+            </a>
+            <a href="https://www.businessinsider.com/the-impact-of-blockchain-on-financial-services-2024-7" class="blog-card">
+                <i class="fas fa-lock"></i>
+                <div class="blog-card-content">
+                    <h3>The Impact of Blockchain on Financial Services</h3>
+                    <p>Blockchain technology is disrupting financial services. Learn about its potential to transform the industry and the benefits it offers.</p>
+                    <a href="https://www.businessinsider.com/the-impact-of-blockchain-on-financial-services-2024-7">Read More</a>
+                </div>
+            </a>
+            <a href="https://www.techcrunch.com/2024/08/05/latest-trends-in-digital-marketing/" class="blog-card">
+                <i class="fas fa-chart-line"></i>
+                <div class="blog-card-content">
+                    <h3>Latest Trends in Digital Marketing</h3>
+                    <p>Stay updated with the latest trends in digital marketing. This article covers emerging techniques and strategies to enhance your marketing efforts.</p>
+                    <a href="https://www.techcrunch.com/2024/08/05/latest-trends-in-digital-marketing/">Read More</a>
+                </div>
+            </a>
+            <a href="https://www.forbes.com/sites/forbesagencycouncil/2024/07/25/effective-ways-to-use-social-media-for-business/" class="blog-card">
+                <i class="fab fa-facebook-f"></i>
+                <div class="blog-card-content">
+                    <h3>Effective Ways to Use Social Media for Business</h3>
+                    <p>Social media is a powerful tool for businesses. Discover strategies to leverage social media platforms to engage with your audience and drive growth.</p>
+                    <a href="https://www.forbes.com/sites/forbesagencycouncil/2024/07/25/effective-ways-to-use-social-media-for-business/">Read More</a>
+                </div>
+            </a>
+            <a href="https://www.inc.com/magazine/202408/the-evolution-of-customer-service.html" class="blog-card">
+                <i class="fas fa-headset"></i>
+                <div class="blog-card-content">
+                    <h3>The Evolution of Customer Service</h3>
+                    <p>Customer service has evolved significantly. This article explores the changes in customer service and how businesses can adapt to meet modern expectations.</p>
+                    <a href="https://www.inc.com/magazine/202408/the-evolution-of-customer-service.html">Read More</a>
+                </div>
+            </a>
+            <a href="https://www.wired.com/story/tech-trends-2024/" class="blog-card">
+                <i class="fas fa-microchip"></i>
+                <div class="blog-card-content">
+                    <h3>Tech Trends for 2024</h3>
+                    <p>Explore the technological advancements expected in 2024. This article highlights emerging trends and innovations to watch out for.</p>
+                    <a href="https://www.wired.com/story/tech-trends-2024/">Read More</a>
+                </div>
+            </a>
+            <a href="https://www.theverge.com/2024/07/30/future-of-augmented-reality" class="blog-card">
+                <i class="fas fa-eye"></i>
+                <div class="blog-card-content">
+                    <h3>The Future of Augmented Reality</h3>
+                    <p>Augmented reality is transforming various industries. Discover the future of AR and its potential applications.</p>
+                    <a href="https://www.theverge.com/2024/07/30/future-of-augmented-reality">Read More</a>
+                </div>
+            </a>
+            <a href="https://www.cnn.com/2024/08/01/impact-of-5g-on-industries/" class="blog-card">
+                <i class="fas fa-signal"></i>
+                <div class="blog-card-content">
+                    <h3>Impact of 5G on Industries</h3>
+                    <p>5G technology is set to revolutionize various industries. This article examines the impact of 5G and its potential benefits.</p>
+                    <a href="https://www.cnn.com/2024/08/01/impact-of-5g-on-industries/">Read More</a>
+                </div>
+            </a>
+            <a href="https://www.bbc.com/news/technology-2024" class="blog-card">
+                <i class="fas fa-newspaper"></i>
+                <div class="blog-card-content">
+                    <h3>Technology News 2024</h3>
+                    <p>Stay updated with the latest technology news. This article covers key developments and trends shaping the tech world in 2024.</p>
+                    <a href="https://www.bbc.com/news/technology-2024">Read More</a>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Cypher Blog. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+</body>
+</html>

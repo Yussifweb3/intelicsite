@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Schedule Live Class</title>
+    <!-- Add Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js"></script>
+</head>
+<body>
+    <button id="schedule-class-btn">Schedule Live Class</button>
+    <div id="schedule-form" style="display: none;">
+        <form id="schedule-class-form">
+            <label for="class-topic">Topic:</label>
+            <input type="text" id="class-topic" name="topic" required>
+            <label for="class-date">Date:</label>
+            <input type="date" id="class-date" name="date" required>
+            <label for="class-time">Time:</label>
+            <input type="time" id="class-time" name="time" required>
+            <label for="class-participants">Participants (comma-separated emails):</label>
+            <input type="text" id="class-participants" name="participants" required>
+            <button type="submit">Schedule</button>
+        </form>
+    </div>
+
+    <script>
+        // Your web app's Firebase configuration
+        
+        const firebaseConfig = {
+            apiKey: "AIzaSyDhQsqpvy6-cpGm_d1J8qdo9H4EkmQn9AI",
+            authDomain: "intelic.firebaseapp.com",
+            projectId: "intelic",
+            storageBucket: "intelic.appspot.com",
+            messagingSenderId: "812703180714",
+            appId: "1:812703180714:web:f0b3a084dc75d5bcbc2dd3",
+            measurementId: "G-7VTYFTZTMW"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        document.getElementById('schedule-class-btn').addEventListener('click', () => {
+            document.getElementById('schedule-form').style.display = 'block';
+        });
+
+        document.getElementById('schedule-class-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const topic = document.getElementById('class-topic').value;
+            const date = document.getElementById('class-date').value;
+            const time = document.getElementById('class-time').value;
+            const participants = document.getElementById('class-participants').value;
+
+            async function scheduleZoomMeeting(topic, date, time) {
+                const response = await fetch('https://api.zoom.us/v2/users/me/meetings', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `xIHZZLSdQQ2qMpIc1XauIQ`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        topic: topic,
+                        start_time: `${date}T${time}:00Z`,
+                        duration: 60,
+                        type: 2,
+                        settings: {
+                            participant_video: true,
+                            host_video: true
+                        }
+                    })
+                });
+                const data = await response.json();
+                return data.join_url;
+            }
+
+            try {
+                const meetingLink = await scheduleZoomMeeting(topic, date, time);
+
+                await db.collection('classes').add({
+                    topic: topic,
+                    date: date,
+                    time: time,
+                    participants: participants,
+                    meetingLink: meetingLink
+                });
+
+                alert('Class scheduled successfully!');
+                document.getElementById('schedule-form').style.display = 'none';
+                document.getElementById('schedule-class-form').reset();
+            } catch (error) {
+                console.error('Error scheduling class:', error);
+                alert('Failed to schedule class. Please try again.');
+            }
+        });
+    </script>
+</body>
+</html>

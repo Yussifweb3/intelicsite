@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials - Online High School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: linear-gradient(to right, #004d99, #003366);
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #003366;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s;
+            border-radius: 5px;
+        }
+
+        .navbar a:hover {
+            background-color: #002244;
+        }
+
+        .navbar .fa {
+            margin-right: 8px;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .navbar-menu {
+            display: flex;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 400px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+            background-image: url('IMAGES/test4.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+        }
+
+        .hero-content p {
+            font-size: 1.4em;
+            margin-bottom: 20px;
+        }
+
+        .cta-buttons a {
+            margin: 15px;
+            padding: 15px 30px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-buttons a:hover {
+            background-color: #218838;
+            transform: translateY(-5px);
+        }
+
+        .container {
+            padding: 40px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section {
+            padding: 50px 0;
+            background-color: white;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.8em;
+            color: #003366;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section h2::after {
+            content: "";
+            width: 60px;
+            height: 4px;
+            background-color: #28a745;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -10px;
+        }
+
+        .testimonials-carousel {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding: 20px;
+        }
+
+        .testimonials-carousel .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .testimonial {
+            flex: 1 0 100%;
+            background: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 0 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .testimonial p {
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+        .testimonial .author {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .testimonial .role {
+            font-style: italic;
+            color: #666;
+        }
+
+        .carousel-controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .carousel-controls button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1.2em;
+        }
+
+        .carousel-controls button:hover {
+            background-color: #218838;
+        }
+
+        .user-testimonials {
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .user-testimonials h3 {
+            margin-top: 0;
+            font-size: 2em;
+            color: #003366;
+        }
+
+        .user-testimonials form {
+            margin-top: 20px;
+        }
+
+        .user-testimonials form input, .user-testimonials form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .user-testimonials form button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background-color 0.3s;
+        }
+
+        .user-testimonials form button:hover {
+            background-color: #218838;
+        }
+
+        .footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            position: relative;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            transition: text-decoration 0.3s;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Mobile Menu Styles */
+@media (max-width: 768px) {
+    .navbar-menu {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: #003366;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 10px 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-menu.active {
+        display: flex;
+    }
+
+    .navbar-menu a {
+        width: 100%;
+        padding: 15px 20px;
+        text-align: left;
+        border-bottom: 1px solid #004d99;
+    }
+
+    .navbar-menu a:last-child {
+        border-bottom: none;
+    }
+}
+
+
+        @media (max-width: 768px) {
+            .navbar-menu {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.2em;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+
+            .testimonial {
+                margin: 0 5px;
+            }
+
+            .user-testimonials form input, .user-testimonials form textarea {
+                font-size: 0.9em;
+            }
+
+            .user-testimonials form button {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Testimonials</h1>
+    </header>
+
+    <div class="navbar">
+        <div class="logo">Online High School</div>
+        <div class="hamburger"><i class="fa fa-bars"></i></div>
+        <div class="navbar-menu">
+            <a href="highhome.html"><i class="fa fa-home"></i> Home</a>
+            <a href="highabout.html"><i class="fa fa-info-circle"></i> About Us</a>
+            <a href="highcourse.html"><i class="fa fa-book"></i> Courses</a>
+            <a href="highfaculty.html"><i class="fa fa-users"></i> Faculty</a>
+            <a href="hightestmonial.html"><i class="fa fa-comments"></i> Testimonials</a>
+            <a href="highcontact.html"><i class="fa fa-envelope"></i> Contact Us</a>
+        </div>
+    </div>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1>What Our Students Say</h1>
+            <p>Hear directly from those who have experienced our high school education and how it has impacted their lives.</p>
+            <div class="cta-buttons">
+                <a href="#submit-testimonial">Submit Your Testimonial</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>Student Testimonials</h2>
+            <div class="testimonials-carousel">
+                <div class="slides">
+                    <div class="testimonial">
+                        <p>"This school has transformed my learning experience. The support from the teachers and the diverse range of courses offered are outstanding."</p>
+                        <div class="author">Jane Doe</div>
+                        <div class="role">Former Student</div>
+                    </div>
+                    <div class="testimonial">
+                        <p>"I couldn't have asked for a better online education. The flexibility and quality of the content were exactly what I needed."</p>
+                        <div class="author">John Smith</div>
+                        <div class="role">Current Student</div>
+                    </div>
+                    <div class="testimonial">
+                        <p>"The faculty here are dedicated and genuinely care about student success. The personalized attention made all the difference."</p>
+                        <div class="author">Alice Johnson</div>
+                        <div class="role">Graduate</div>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button id="prev-slide"><i class="fa fa-chevron-left"></i></button>
+                    <button id="next-slide"><i class="fa fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="user-testimonials" id="submit-testimonial">
+            <h3>Share Your Experience</h3>
+            <form action="#" method="post">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="testimonial" rows="5" placeholder="Your Testimonial" required></textarea>
+                <button type="submit">Submit Testimonial</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Online High School | <a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms of Service</a></p>
+    </div>
+
+    <script>
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.navbar-menu').classList.toggle('active');
+        });
+
+        const slides = document.querySelector('.testimonials-carousel .slides');
+        const slideCount = document.querySelectorAll('.testimonials-carousel .testimonial').length;
+        const prevSlideButton = document.getElementById('prev-slide');
+        const nextSlideButton = document.getElementById('next-slide');
+        let slideIndex = 0;
+
+        function updateSlidePosition() {
+            slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+        }
+
+        prevSlideButton.addEventListener('click', function() {
+            slideIndex = (slideIndex > 0) ? slideIndex - 1 : slideCount - 1;
+            updateSlidePosition();
+        });
+
+        nextSlideButton.addEventListener('click', function() {
+            slideIndex = (slideIndex < slideCount - 1) ? slideIndex + 1 : 0;
+            updateSlidePosition();
+        });
+    </script>
+</body>
+</html>

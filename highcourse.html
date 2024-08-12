@@ -4,204 +4,376 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Courses</title>
+    <title>Courses - Online High School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
     <style>
+        /* General Styles */
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
-            overflow-x: hidden;
             color: #333;
+            background-color: #f4f4f4;
         }
 
-        nav {
-            background-color: #333;
-            color: #fff;
-            padding: 1rem;
+        header {
+            background: linear-gradient(to right, #004d99, #003366);
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: fixed;
-            width: 100%;
+            background-color: #003366;
+            padding: 10px 20px;
+            position: sticky;
             top: 0;
             z-index: 1000;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        nav .logo {
-            font-size: 1.5rem;
+        .navbar .logo {
+            font-size: 1.8em;
             font-weight: bold;
+            letter-spacing: 1px;
         }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 1rem;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav ul li a {
+        .navbar a {
+            color: white;
             text-decoration: none;
-            color: #fff;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            color: #84fab0;
-        }
-
-        .container {
-            margin-top: 80px;
-            padding: 2rem;
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 2rem;
-            font-size: 3rem;
-            color: #333;
-        }
-
-        .courses {
+            padding: 10px 20px;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
+            align-items: center;
+            transition: background-color 0.3s;
+            border-radius: 5px;
         }
 
-        .course {
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            max-width: 300px;
+        .navbar a:hover {
+            background-color: #002244;
+        }
+
+        .navbar .fa {
+            margin-right: 8px;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .navbar-menu {
+            display: flex;
+        }
+
+        /* Courses Page Styles */
+        .courses-container {
+            padding: 40px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .courses-header {
             text-align: center;
+            margin-bottom: 40px;
         }
 
-        .course:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        .courses-header h2 {
+            font-size: 2.8em;
+            color: #003366;
         }
 
-        .course img {
-            width: 100%;
-            border-bottom: 1px solid #eee;
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
         }
 
-        .course h3 {
-            font-size: 1.5rem;
-            margin: 1rem 0;
+        .course-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s;
         }
 
-        .course p {
-            font-size: 1rem;
-            color: #666;
-            padding: 0 1rem;
-            margin-bottom: 1rem;
+        .course-card:hover {
+            transform: translateY(-5px);
         }
 
-        .course a {
-            display: inline-block;
-            margin-bottom: 1rem;
-            padding: 0.5rem 1rem;
-            background-color: #84fab0;
-            color: #fff;
+        .course-card i {
+            font-size: 3em;
+            color: #28a745;
+            margin-bottom: 15px;
+        }
+
+        .course-card h3 {
+            font-size: 1.8em;
+            color: #003366;
+            margin-bottom: 15px;
+        }
+
+        .course-card p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .course-card .view-subjects {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
             text-decoration: none;
             border-radius: 5px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s;
         }
 
-        .course a:hover {
-            background-color: #8fd3f4;
+        .course-card .view-subjects:hover {
+            background-color: #0056a6;
         }
 
-        footer {
-            background: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1rem;
-            margin-top: 4rem;
-        }
-
-        footer ul {
-            list-style: none;
-            display: flex;
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
             justify-content: center;
-            gap: 1rem;
-            margin: 1rem 0;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-header {
+            font-size: 1.6em;
+            color: #003366;
+            margin-bottom: 15px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 1.5em;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .modal ul {
+            list-style-type: none;
             padding: 0;
         }
 
-        footer ul li a {
-            text-decoration: none;
-            color: #fff;
-            font-weight: bold;
+        .modal ul li {
+            padding: 10px 0;
+            font-size: 1.2em;
+            border-bottom: 1px solid #ccc;
         }
 
-        footer ul li a:hover {
-            color: #84fab0;
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .navbar-menu {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .navbar-menu.active {
+            display: flex;
         }
     </style>
 </head>
 
 <body>
-    <nav>
-        <div class="logo">University Name</div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="courses.html">Courses</a></li>
-            <li><a href="admissions.html">Admissions</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="signup.html">Sign Up</a></li>
-        </ul>
-    </nav>
+    <header>
+        <h1>Intelic High School - Courses</h1>
+        <p>Empowering Students with Quality Education</p>
+    </header>
 
-    <div class="container">
-        <h1>Our Courses</h1>
-        <div class="courses">
-            <div class="course">
-                <img src="https://via.placeholder.com/300x200" alt="Course Image">
-                <h3>Course Title 1</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <a href="unicourse.html">Learn More</a>
+    <div class="navbar">
+        <div class="logo">Intelic High School</div>
+        <div class="hamburger"><i class="fa fa-bars"></i></div>
+        <div class="navbar-menu">
+            <a href="highhome.html"><i class="fa fa-home"></i> Home</a>
+            <a href="highabout.html"><i class="fa fa-info-circle"></i> About Us</a>
+            <a href="highcourse.html"><i class="fa fa-book"></i> Courses</a>
+            <a href="highfaculty.html"><i class="fa fa-users"></i> Faculty</a>
+            <a href="hightestmonial.html"><i class="fa fa-comments"></i> Testimonials</a>
+            <a href="highcontact.html"><i class="fa fa-envelope"></i> Contact Us</a>
+        </div>
+    </div>
+
+    <div class="courses-container">
+        <div class="courses-header">
+            <h2>Our Courses</h2>
+            <p>Explore our wide range of high school courses, designed to prepare students for future success.</p>
+        </div>
+
+        <div class="course-grid">
+            <!-- Course 1 -->
+            <div class="course-card">
+                <i class="fa fa-flask"></i>
+                <h3>General Science</h3>
+                <p>Dive deep into the world of science, covering subjects like Physics, Chemistry, Biology, and more.</p>
+                <a href="#" class="view-subjects" data-course="science">View Subjects</a>
             </div>
-            <div class="course">
-                <img src="https://via.placeholder.com/300x200" alt="Course Image">
-                <h3>Course Title 2</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <a href="unicourse.html">Learn More</a>
+
+            <!-- Course 2 -->
+            <div class="course-card">
+                <i class="fa fa-paint-brush"></i>
+                <h3>Visual Arts</h3>
+                <p>Unleash your creativity with subjects in painting, sculpture, graphic design, and more.</p>
+                <a href="#" class="view-subjects" data-course="arts">View Subjects</a>
             </div>
-            <div class="course">
-                <img src="https://via.placeholder.com/300x200" alt="Course Image">
-                <h3>Course Title 3</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <a href="#">Learn More</a>
+
+            <!-- Course 3 -->
+            <div class="course-card">
+                <i class="fa fa-briefcase"></i>
+                <h3>Business</h3>
+                <p>Learn about economics, accounting, management, and other business-related subjects.</p>
+                <a href="#" class="view-subjects" data-course="business">View Subjects</a>
             </div>
-            <div class="course">
-                <img src="https://via.placeholder.com/300x200" alt="Course Image">
-                <h3>Course Title 4</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <a href="#">Learn More</a>
+
+            <!-- Course 4 -->
+            <div class="course-card">
+                <i class="fa fa-cutlery"></i>
+                <h3>Home Science</h3>
+                <p>Explore subjects in nutrition, home management, family health, and more.</p>
+                <a href="#" class="view-subjects" data-course="home-science">View Subjects</a>
+            </div>
+
+            <!-- Course 5 -->
+            <div class="course-card">
+                <i class="fa fa-leaf"></i>
+                <h3>Agricultural Science</h3>
+                <p>Study the principles of agriculture, crop production, animal husbandry, and more.</p>
+                <a href="#" class="view-subjects" data-course="agriculture">View Subjects</a>
+            </div>
+
+            <!-- Course 6 -->
+            <div class="course-card">
+                <i class="fa fa-book"></i>
+                <h3>General Arts</h3>
+                <p>Engage in subjects like history, geography, literature, and other humanities.</p>
+                <a href="#" class="view-subjects" data-course="arts">View Subjects</a>
+            </div>
+
+            <!-- Additional Courses -->
+            <div class="course-card">
+                <i class="fa fa-computer"></i>
+                <h3>Information Technology</h3>
+                <p>Learn the basics and advanced topics in computer science, programming, and IT management.</p>
+                <a href="#" class="view-subjects" data-course="it">View Subjects</a>
+            </div>
+
+            <div class="course-card">
+                <i class="fa fa-building"></i>
+                <h3>Architecture</h3>
+                <p>Study the art and science of designing buildings and other physical structures.</p>
+                <a href="#" class="view-subjects" data-course="architecture">View Subjects</a>
+            </div>
+
+            <div class="course-card">
+                <i class="fa fa-gavel"></i>
+                <h3>Law</h3>
+                <p>Delve into legal studies, understanding the law, and its application in various fields.</p>
+                <a href="#" class="view-subjects" data-course="law">View Subjects</a>
+            </div>
+
+            <div class="course-card">
+                <i class="fa fa-heartbeat"></i>
+                <h3>Health Science</h3>
+                <p>Explore the medical field with subjects in anatomy, physiology, and health care.</p>
+                <a href="#" class="view-subjects" data-course="health-science">View Subjects</a>
             </div>
         </div>
     </div>
 
-    <footer>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="courses.html">Courses</a></li>
-            <li><a href="admissions.html">Admissions</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <p>&copy; 2024 University Name. All rights reserved.</p>
-    </footer>
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-header" id="modal-header"></div>
+            <ul id="subject-list"></ul>
+        </div>
+    </div>
+
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navbarMenu = document.querySelector('.navbar-menu');
+        hamburger.addEventListener('click', () => {
+            navbarMenu.classList.toggle('active');
+        });
+
+        // Modal functionality
+        const subjects = {
+            "science": ["Physics", "Chemistry", "Biology", "Mathematics", "Computer Science"],
+            "arts": ["Literature", "History", "Geography", "Philosophy", "Languages"],
+            "business": ["Economics", "Accounting", "Management", "Marketing", "Finance"],
+            "home-science": ["Nutrition", "Home Management", "Textiles", "Child Development", "Family Health"],
+            "agriculture": ["Crop Production", "Animal Husbandry", "Soil Science", "Agricultural Economics", "Horticulture"],
+            "it": ["Programming", "Data Structures", "Networking", "Cybersecurity", "Web Development"],
+            "architecture": ["Design Principles", "Building Materials", "Urban Planning", "Environmental Design", "Construction Management"],
+            "law": ["Constitutional Law", "Criminal Law", "Contract Law", "International Law", "Legal Ethics"],
+            "health-science": ["Anatomy", "Physiology", "Public Health", "Medical Terminology", "Healthcare Management"],
+        };
+
+        document.querySelectorAll('.view-subjects').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const course = button.getAttribute('data-course');
+                const modalHeader = document.getElementById('modal-header');
+                const subjectList = document.getElementById('subject-list');
+                modalHeader.textContent = button.previousElementSibling.textContent;
+                subjectList.innerHTML = '';
+                subjects[course].forEach(subject => {
+                    const li = document.createElement('li');
+                    li.textContent = subject;
+                    subjectList.appendChild(li);
+                });
+                document.getElementById('modal').style.display = 'flex';
+            });
+        });
+
+        document.querySelector('.modal-close').addEventListener('click', () => {
+            document.getElementById('modal').style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === document.getElementById('modal')) {
+                document.getElementById('modal').style.display = 'none';
+            }
+        });
+    </script>
 </body>
 
 </html>

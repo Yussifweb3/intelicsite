@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Assessment</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #e8f5e9;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Navigation Bar */
+    nav {
+      background-color: #004d40;
+      color: white;
+      padding: 15px 30px;
+      text-align: center;
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+    /* Main Container */
+    .container {
+      flex: 1;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    /* Assessment Card */
+    .assessment-card {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+      padding: 25px;
+      max-width: 700px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .assessment-title {
+      font-size: 2.5em;
+      color: #004d40;
+      margin-bottom: 20px;
+    }
+
+    .assessment-description {
+      font-size: 1.3em;
+      margin-bottom: 25px;
+      color: #4caf50;
+    }
+
+    .timer {
+      font-size: 1.6em;
+      margin-bottom: 30px;
+      color: #d32f2f;
+    }
+
+    .question {
+      margin-bottom: 25px;
+      text-align: left;
+    }
+
+    .question p {
+      font-size: 1.2em;
+      color: #263238;
+      margin-bottom: 12px;
+    }
+
+    .options {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .options li {
+      background: #004d40;
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .options li:hover {
+      background: #00332c;
+      transform: translateY(-3px);
+    }
+
+    .options li.selected {
+      background: #00332c;
+      transform: scale(1.05);
+    }
+
+    .submit-btn {
+      background: #004d40;
+      border: none;
+      color: white;
+      padding: 15px 30px;
+      font-size: 1.1em;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      display: none;
+    }
+
+    .submit-btn.active {
+      display: inline-block;
+    }
+
+    .submit-btn:hover {
+      background: #00332c;
+      transform: translateY(-3px);
+    }
+
+    .result {
+      font-size: 1.4em;
+      margin-top: 35px;
+      color: #263238;
+    }
+
+    /* Assessment Unavailable Message */
+    .assessment-unavailable {
+      font-size: 1.6em;
+      color: #263238;
+      text-align: center;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #004d40;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: auto;
+      font-size: 1em;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .assessment-card {
+        padding: 15px;
+      }
+      .assessment-title {
+        font-size: 2em;
+      }
+      .assessment-description {
+        font-size: 1.1em;
+      }
+      .timer {
+        font-size: 1.3em;
+      }
+      .options li {
+        padding: 12px;
+      }
+      .submit-btn {
+        padding: 12px 25px;
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav>AI Assessment</nav>
+
+<div class="container">
+  <div class="assessment-card" id="assessmentCard">
+    <div class="assessment-title">Artificial Intelligence Quiz</div>
+    <div class="assessment-description">Evaluate your knowledge on AI with these questions:</div>
+    <div class="timer" id="timer">Time Left: <span id="time">00:00</span></div>
+    <div id="questionsContainer"></div>
+    <button class="submit-btn" id="submitBtn">Submit Answers</button>
+    <div class="result" id="result"></div>
+  </div>
+  <div class="assessment-unavailable" id="assessmentUnavailable">
+    <h2>Sorry, the assessment is currently unavailable. Please check back later.</h2>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2024 AI Assessments. All rights reserved.</p>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const assessmentCard = document.getElementById('assessmentCard');
+    const assessmentUnavailable = document.getElementById('assessmentUnavailable');
+    const assessmentStatus = localStorage.getItem('assessmentStatus');
+
+    if (assessmentStatus === 'started') {
+      assessmentCard.style.display = 'block';
+      assessmentUnavailable.style.display = 'none';
+      loadQuestions();
+      startAssessment();
+    } else {
+      assessmentCard.style.display = 'none';
+      assessmentUnavailable.style.display = 'block';
+    }
+  });
+
+  const loadQuestions = () => {
+    const questionsContainer = document.getElementById('questionsContainer');
+    const questions = JSON.parse(localStorage.getItem('questions')) || [];
+
+    questions.forEach((questionData, index) => {
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('question');
+      questionDiv.id = `question${index + 1}`;
+
+      const questionText = document.createElement('p');
+      questionText.textContent = questionData.question;
+      questionDiv.appendChild(questionText);
+
+      const optionsList = document.createElement('ul');
+      optionsList.classList.add('options');
+
+      questionData.options.forEach((option, i) => {
+        const optionItem = document.createElement('li');
+        optionItem.textContent = option;
+        optionItem.dataset.questionIndex = index;
+        optionItem.dataset.optionIndex = i + 1;
+        optionItem.addEventListener('click', selectOption);
+        optionsList.appendChild(optionItem);
+      });
+
+      questionDiv.appendChild(optionsList);
+      questionsContainer.appendChild(questionDiv);
+    });
+
+    document.getElementById('submitBtn').classList.add('active');
+  };
+
+  const selectOption = (e) => {
+    const options = e.target.parentNode.querySelectorAll('li');
+    options.forEach(option => option.classList.remove('selected'));
+    e.target.classList.add('selected');
+  };
+
+  const startAssessment = () => {
+    const timerElement = document.getElementById('time');
+    let timeLeft = 300; // 5 minutes
+
+    const timer = setInterval(() => {
+      if (timeLeft <= 0) {
+        clearInterval(timer);
+        submitAssessment();
+      } else {
+        timeLeft--;
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
+        timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+      }
+    }, 1000);
+  };
+
+  const submitAssessment = () => {
+    const questions = JSON.parse(localStorage.getItem('questions')) || [];
+    let score = 0;
+
+    questions.forEach((questionData, index) => {
+      const selectedOption = document.querySelector(`#question${index + 1} .selected`);
+      if (selectedOption && selectedOption.dataset.optionIndex == questionData.correctOption) {
+        score++;
+      }
+    });
+
+    const totalQuestions = questions.length;
+    const resultElement = document.getElementById('result');
+    resultElement.textContent = `You scored ${score} out of ${totalQuestions}.`;
+
+    const endTime = new Date().toLocaleTimeString();
+    const timeElement = document.createElement('p');
+    timeElement.textContent = `You finished at ${endTime}.`;
+    resultElement.appendChild(timeElement);
+  };
+
+  document.getElementById('submitBtn').addEventListener('click', submitAssessment);
+</script>
+
+</body>
+</html>

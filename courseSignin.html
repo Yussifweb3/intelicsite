@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 20px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+        }
+        .form-container h2 {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .form-group input[type="submit"] {
+            background-color: #2979FF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+            padding: 15px;
+            font-size: 16px;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #004d99;
+        }
+        .form-group a {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            color: #2979FF;
+            text-decoration: none;
+        }
+        .form-group a:hover {
+            text-decoration: underline;
+        }
+        .error-message {
+            color: red;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Sign In</h2>
+        <form id="signInForm">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="course">Select Course</label>
+                <select id="course" name="course" required>
+                    <option value="" disabled selected>Select a course</option>
+                    <option value="courseAI.html">Artificial Intelligence</option>
+                        <option value="courseBC.html">Blockchain</option>
+                        <option value="courseCC.html">Cloud Computing</option>
+                      
+                        <option value="courseCS.html">Cyber Security</option>
+                        <option value="courseDS.html">Data Science</option>
+                        <option value="courseGD.html">Game Development</option>
+                        <option value="courseIOT.html">Internet of Things</option>
+                        <option value="courseMA.html">Machine Learning</option>
+                        <option value="courseWD.html">Web Development</option>
+                    
+                    <!-- Add additional courses as needed -->
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Sign In">
+                <a href="courseSignup.html">Register</a>
+            </div>
+        </form>
+    </div>
+    <script type="module">
+        import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js';
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js';
+
+        const firebaseConfig = {
+  apiKey: "AIzaSyDhQsqpvy6-cpGm_d1J8qdo9H4EkmQn9AI",
+  authDomain: "intelic.firebaseapp.com",
+  projectId: "intelic",
+  storageBucket: "intelic.appspot.com",
+  messagingSenderId: "812703180714",
+  appId: "1:812703180714:web:7c1a650afc57669fbc2dd3",
+  measurementId: "G-DXVV9XD45S"
+};
+
+        initializeApp(firebaseConfig);
+        const auth = getAuth();
+
+        document.getElementById('signInForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const selectedCourse = document.getElementById('course').value;
+
+            try {
+                await signInWithEmailAndPassword(auth, email, password);
+                // Check if selected course matches the registered course
+                const registeredCourse = localStorage.getItem('registeredCourse');
+                if (selectedCourse === registeredCourse) {
+                    // Redirect to the selected course page
+                    window.location.href = selectedCourse;
+                } else {
+                    alert('Course selected does not match the course you registered for.');
+                }
+            } catch (error) {
+                alert('Sign In failed: ' + error.message);
+            }
+        });
+    </script>
+</body>
+</html>

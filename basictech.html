@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevating Learning: Our Innovative Educational Approach</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+    <style>
+          body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
+            overflow-x: hidden;
+        }
+        header {
+            background: linear-gradient(to right, #004d99, #003366);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #003366;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .navbar .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s;
+            border-radius: 5px;
+        }
+        .navbar a:hover {
+            background-color: #002244;
+        }
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+        .navbar-menu {
+            display: flex;
+        }
+        .hero {
+            height: 80vh; /* Adjust height as needed */
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-image: url('your-hero-image.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            margin-bottom: 20px; /* Ensure there's space below the hero section */
+            overflow: hidden; /* Prevent overflow issues */
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 20px;
+        }
+        .hero-content h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            animation: fadeIn 2s;
+        }
+        .hero-content p {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            animation: fadeIn 2s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .section {
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            transition: transform 0.3s;
+        }
+        .section:hover {
+            transform: translateY(-5px);
+        }
+        .section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.8em;
+            color: #003366;
+            position: relative;
+            z-index: 1;
+        }
+        .section h2::after {
+            content: "";
+            width: 60px;
+            height: 4px;
+            background-color: #28a745;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -10px;
+        }
+        .card {
+            background: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .card i {
+            font-size: 3em;
+            color: #28a745;
+            margin-bottom: 15px;
+        }
+        .card h3 {
+            margin: 0;
+            font-size: 1.8em;
+            color: #003366;
+        }
+        .card p {
+            font-size: 1.1em;
+            color: #666;
+        }
+        .footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+        .footer a {
+            color: white;
+            text-decoration: none;
+            transition: text-decoration 0.3s;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .animate {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @media (max-width: 768px) {
+            .navbar-menu {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+            }
+            .hamburger {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">Intelics Online Basic School</div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="navbar-menu" id="navbar-menu">
+                <a href="basic.html"><i class="fa fa-home"></i> Home</a>
+                <a href="basicabout.html"><i class="fa fa-info-circle"></i> About Us</a>
+                <a href="basiccurricula.html"><i class="fa fa-book"></i> Curricula</a>
+                <a href="basicadmission.html"><i class="fa fa-user-plus"></i> Admissions</a>
+                <a href="basictestimonial.html"><i class="fa fa-comments"></i> Testimonials</a>
+                <a href="basicgallery.html"><i class="fa fa-images"></i> Gallery</a>
+                <a href="basicblog.html"><i class="fa fa-blog"></i> Blog</a>
+               
+                <a href="basictech.html"><i class="fa fa-handshake"></i> T-Tech</a>
+            </div>
+        </div>
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Welcome to Intelics Online Basic School</h1>
+                <p>Transforming Education with Technology</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="section" id="about">
+        <h2>Welcome to the Future of Education</h2>
+        <p>At Intelics, we are redefining traditional learning through cutting-edge technology and innovative teaching methods. Our mission is to provide a holistic and engaging educational experience that empowers students to excel in the digital age.</p>
+    </div>
+
+    <div class="section" id="technology">
+        <h2>Harnessing Technology for Enhanced Learning</h2>
+        <div class="card animate">
+            <i class="fas fa-laptop-code"></i>
+            <h3>Interactive Learning Tools</h3>
+            <p>Virtual classrooms, AI tutors, and interactive simulations bring subjects to life and foster an engaging learning environment.</p>
+        </div>
+        <div class="card animate">
+            <i class="fas fa-mobile-alt"></i>
+            <h3>Mobile Learning</h3>
+            <p>Access your coursework and resources on-the-go with our mobile-friendly platform, designed for learning anytime, anywhere.</p>
+        </div>
+        <div class="card animate">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <h3>Cloud-Based Resources</h3>
+            <p>Utilize our cloud-based library and resources for a seamless and comprehensive educational experience.</p>
+        </div>
+    </div>
+
+    <div class="section" id="learning-methods">
+        <h2>Dynamic and Engaging Learning Methods</h2>
+        <div class="card animate">
+            <i class="fas fa-gamepad"></i>
+            <h3>Gamification</h3>
+            <p>Incorporate game-like elements into the curriculum to make learning enjoyable and interactive.</p>
+        </div>
+        <div class="card animate">
+            <i class="fas fa-project-diagram"></i>
+            <h3>Project-Based Learning</h3>
+            <p>Engage in real-world projects that apply knowledge in practical scenarios, enhancing understanding and retention.</p>
+        </div>
+        <div class="card animate">
+            <i class="fas fa-users"></i>
+            <h3>Collaborative Learning</h3>
+            <p>Work together with peers on group projects and discussions to foster teamwork and collective problem-solving skills.</p>
+        </div>
+    </div>
+
+    <div class="section" id="personalized">
+        <h2>Tailored Learning Paths for Every Student</h2>
+        <div class="card animate">
+            <i class="fas fa-tachometer-alt"></i>
+            <h3>Adaptive Learning Technologies</h3>
+            <p>Personalize learning paths based on student performance and needs, ensuring each student receives a customized education experience.</p>
+        </div>
+        <div class="card animate">
+            <i class="fas fa-user-graduate"></i>
+            <h3>Individualized Attention</h3>
+            <p>Benefit from one-on-one support and tutoring to address specific academic needs and enhance learning outcomes.</p>
+        </div>
+        <div class="card animate">
+            <i class="fas fa-chart-line"></i>
+            <h3>Progress Monitoring</h3>
+            <p>Track progress with regular assessments and feedback to help students stay on track and achieve their academic goals.</p>
+        </div>
+    </div>
+
+    <div class="section" id="support">
+        <h2>Comprehensive Support and Motivation</h2>
+        <div class="card animate">
+            <i class="fas fa-headset"></i>
+            <h3>Dedicated Support Team</h3>
+            <p>Receive assistance from our academic advisors and technical support team to address any issues and ensure a smooth learning experience.</p>
+        </div>
+        <div class="card animate">
+            <i class="fas fa-trophy"></i>
+            <h3>Motivational Strategies</h3>
+            <p>Stay motivated with reward systems, progress tracking, and motivational workshops designed to inspire and encourage students.</p>
+        </div>
+        <div class="card animate">
+            <i class="fas fa-users-cog"></i>
+            <h3>Parental Involvement</h3>
+            <p>Access tools and resources for parents to actively support and monitor their children's educational journey.</p>
+        </div>
+    </div>
+
+    <div class="section" id="resources">
+        <h2>Rich Resources and Modern Facilities</h2>
+        <div class="card animate">
+            <i class="fas fa-book-open"></i>
+            <h3>Digital Library</h3>
+            <p>Explore a vast collection of e-books, journals, and educational resources available at your fingertips.</p>
+        </div>
+        <div class="card animate">
+            <i class="fas fa-tools"></i>
+            <h3>Learning Aids</h3>
+            <p>Utilize interactive whiteboards, educational apps, and online databases to enhance the learning experience.</p>
+        </div>
+        <div class="card animate">
+            <i class="fas fa-vial"></i>
+            <h3>Virtual Labs</h3>
+            <p>Engage in virtual experiments and simulations for practical, hands-on learning opportunities.</p>
+        </div>
+    </div>
+
+    <div class="section" id="success">
+        <h2>Celebrating Success Stories</h2>
+        <p>Read inspiring testimonials and success stories from students who have thrived in our online learning environment. See how our innovative approach has made a difference in their educational journey.</p>
+    </div>
+
+    <div class="section" id="future">
+        <h2>Looking Ahead: Our Vision for the Future</h2>
+        <p>Discover our plans for the future, including upcoming innovations, expansion plans, and community engagement initiatives. Learn how we continue to evolve and improve to meet the needs of our students.</p>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Intelics Online Basic School. All Rights Reserved.</p>
+        <p><a href="#home">Home</a> | <a href="#about">About Us</a> | <a href="#subjects">Subjects</a> | <a href="#contact">Contact</a></p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('.animate');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            });
+            elements.forEach(element => observer.observe(element));
+        });
+
+        function toggleMenu() {
+            const menu = document.getElementById('navbar-menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>

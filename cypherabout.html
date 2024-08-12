@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Cypher Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        header {
+            background: linear-gradient(135deg, #3498db, #2ecc71);  background: linear-gradient(135deg, #6f42c1, #e83e8c,#3498db);
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-color:    #003366;
+            padding: 10px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .navbar a:hover {
+            background-color: #212529;
+            color: #e0e0e0;
+        }
+        .content {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .content h2 {
+            font-size: 2.4em;
+            color: #343a40;
+            margin-bottom: 20px;
+        }
+        .content p {
+            line-height: 1.6;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 20px 0;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-body {
+            padding: 15px;
+        }
+        .card-title {
+            font-size: 1.5em;
+            margin: 0;
+            color: #343a40;
+        }
+        .card-text {
+            font-size: 1em;
+            color: #6c757d;
+        }
+        .card-icon {
+            font-size: 2em;
+            color: #007bff;
+            margin-right: 10px;
+        }
+        footer {
+            background-color: linear-gradient(135deg, #3498db, #2ecc71);  background: linear-gradient(135deg, #6f42c1, #e83e8c,#3498db);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: relative;
+        }
+        footer a {
+            color: white;
+            text-decoration: none;
+            transition: text-decoration 0.3s;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cypher Blog</h1>
+    </header>
+
+    <div class="navbar">
+        <a href="index.html"><i class="fa fa-home"></i> Home</a>
+        <a href="cypherabout.html"><i class="fa fa-info-circle"></i> About Us</a>
+        <a href="cypherblogs.html"><i class="fa fa-blog"></i> Blog</a>
+        <a href="cyphercontact.html"><i class="fa fa-envelope"></i> Contact</a>
+    </div>
+
+    <div class="content">
+        <h2>About Cypher Blog</h2>
+        <p>Welcome to Cypher Blog, where we dive deep into the world of technology, lifestyle, and trends. Our mission is to provide insightful and engaging content that keeps you informed and inspired.</p>
+        <p>At Cypher Blog, we believe in the power of knowledge and the importance of staying ahead in a rapidly changing world. Our team of passionate writers and tech enthusiasts work tirelessly to bring you the latest news, reviews, and articles on a variety of topics.</p>
+        <p>Whether you are looking for in-depth tech analyses, lifestyle tips, or just some fresh perspectives, Cypher Blog is your go-to source for all things interesting and relevant.</p>
+
+        <div class="card-container">
+            <div class="card">
+                <img src="https://via.placeholder.com/300x200" alt="Technology">
+                <div class="card-body">
+                    <h3 class="card-title"><i class="fa fa-cogs card-icon"></i> Technology</h3>
+                    <p class="card-text">Explore the latest trends and innovations in technology that are shaping our world.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/300x200" alt="Lifestyle">
+                <div class="card-body">
+                    <h3 class="card-title"><i class="fa fa-smile card-icon"></i> Lifestyle</h3>
+                    <p class="card-text">Discover tips and advice on living a fulfilling and balanced life.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/300x200" alt="Trends">
+                <div class="card-body">
+                    <h3 class="card-title"><i class="fa fa-trending-up card-icon"></i> Trends</h3>
+                    <p class="card-text">Stay updated with the latest trends in various fields that matter to you.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Cypher Blog | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+</body>
+</html>

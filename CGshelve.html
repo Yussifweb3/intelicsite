@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptography Bookshelves</title>
+    <meta name="description" content="Explore a range of books on cryptography, including theoretical and practical aspects of cryptographic techniques and their applications.">
+    <meta name="keywords" content="Cryptography, security, encryption, decryption, cryptographic techniques, e-library">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .header {
+            background-color: #cc0000;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+        }
+        .navbar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 200px;
+            background-color: #cc0000;
+            color: #fff;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+        }
+        .navbar .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        .navbar .nav-links a:hover {
+            text-decoration: underline;
+        }
+        .main-content {
+            margin-left: 220px;
+            padding: 20px;
+            flex: 1;
+        }
+        .shelf {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .shelf h2 {
+            margin-top: 0;
+        }
+        .shelf-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .shelf-card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            margin: 10px;
+            padding: 20px;
+            width: 220px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .shelf-card:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: translateY(-10px);
+        }
+        .shelf-card img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .shelf-card h3 {
+            margin-top: 0;
+        }
+        .shelf-card p {
+            margin-bottom: 10px;
+        }
+        .shelf-card .read-button {
+            background-color: #990000;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .shelf-card .read-button:hover {
+            background-color: #660000;
+        }
+        .footer {
+            background-color: #cc0000;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+            width: 100%;
+            position: relative;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .navbar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                box-shadow: none;
+            }
+            .navbar .nav-links a {
+                margin-bottom: 10px;
+            }
+            .main-content {
+                margin-left: 0;
+            }
+            .shelf-card {
+                width: calc(50% - 20px);
+                margin: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .shelf-card {
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Cryptography Bookshelves</div>
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="library.html">Home</a>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <!-- Shelf 1 -->
+        <div class="shelf">
+            <h2>Basic Cryptography</h2>
+            <div class="shelf-container">
+                <div class="shelf-card" onclick="window.location.href='book.html'">
+                    <img src="https://via.placeholder.com/150" alt="Introduction to Cryptography">
+                    <h3>Introduction to Cryptography</h3>
+                    <p>Fundamental principles of cryptography and encryption.</p>
+                    <a href="book.html" class="read-button">Read Me</a>
+                </div>
+                <div class="shelf-card" onclick="window.location.href='book.html'">
+                    <img src="https://via.placeholder.com/150" alt="Cryptographic Protocols">
+                    <h3>Cryptographic Protocols</h3>
+                    <p>Overview of various cryptographic protocols and their implementations.</p>
+                    <a href="book.html" class="read-button">Read Me</a>
+                </div>
+                <!-- Add more cards as needed -->
+            </div>
+        </div>
+
+        <!-- Shelf 2 -->
+        <div class="shelf">
+            <h2>Advanced Cryptography</h2>
+            <div class="shelf-container">
+                <div class="shelf-card" onclick="window.location.href='book.html'">
+                    <img src="https://via.placeholder.com/150" alt="Applied Cryptography">
+                    <h3>Applied Cryptography</h3>
+                    <p>In-depth analysis of applied cryptographic methods and tools.</p>
+                    <a href="book.html" class="read-button">Read Me</a>
+                </div>
+                <div class="shelf-card" onclick="window.location.href='book.html'">
+                    <img src="https://via.placeholder.com/150" alt="Cryptographic Systems">
+                    <h3>Cryptographic Systems</h3>
+                    <p>Comprehensive look into modern cryptographic systems.</p>
+                    <a href="book.html" class="read-button">Read Me</a>
+                </div>
+                <!-- Add more cards as needed -->
+            </div>
+        </div>
+
+        <!-- Shelf 3 -->
+        <div class="shelf">
+            <h2>Cryptography in Practice</h2>
+            <div class="shelf-container">
+                <div class="shelf-card" onclick="window.location.href='book.html'">
+                    <img src="https://via.placeholder.com/150" alt="Practical Cryptography">
+                    <h3>Practical Cryptography</h3>
+                    <p>Real-world applications and practical implementation of cryptographic techniques.</p>
+                    <a href="book.html" class="read-button">Read Me</a>
+                </div>
+                <div class="shelf-card" onclick="window.location.href='book.html'">
+                    <img src="https://via.placeholder.com/150" alt="Modern Cryptographic Techniques">
+                    <h3>Modern Cryptographic Techniques</h3>
+                    <p>Latest developments and techniques in cryptography.</p>
+                    <a href="book.html" class="read-button">Read Me</a>
+                </div>
+                <!-- Add more cards as needed -->
+            </div>
+        </div>
+
+        <!-- Shelf 4 -->
+        <div class="shelf">
+            <h2>Cryptographic Applications</h2>
+            <div class="shelf-container">
+                <div class="shelf-card" onclick="window.location.href='book.html'">
+                    <img src="https://via.placeholder.com/150" alt="Cryptography and Network Security">
+                    <h3>Cryptography and Network Security</h3>
+                    <p>Implementation and theory of cryptographic techniques in network security.</p>
+                    <a href="book.html" class="read-button">Read Me</a>
+                </div>
+                <div class="shelf-card" onclick="window.location.href='book.html'">
+                    <img src="https://via.placeholder.com/150" alt="Cryptography in Data Protection">
+                    <h3>Cryptography in Data Protection</h3>
+                    <p>Role of cryptography in protecting data integrity and confidentiality.</p>
+                    <a href="book.html" class="read-button">Read Me</a>
+                </div>
+                <!-- Add more cards as needed -->
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        &copy; 2024 E-Library. All rights reserved.
+    </footer>
+</body>
+</html>

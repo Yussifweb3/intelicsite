@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Security Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #1b1b1b;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #f39c12;
+        }
+
+        nav .logo {
+            font-size: 24px;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* Dashboard Header */
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #1b1b1b;
+            padding: 20px;
+            color: #fff;
+        }
+
+        .dashboard-header .user-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .dashboard-header .user-info img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            background-color: #f39c12;
+            color: #1b1b1b;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dashboard-header .username {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .dashboard-header .logout-button {
+            background-color: #f39c12;
+            color: #1b1b1b;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .dashboard-header .logout-button:hover {
+            background-color: #e67e22;
+            color: #fff;
+        }
+
+        /* Dashboard Container */
+        .dashboard-container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .dashboard-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #1b1b1b;
+        }
+
+        /* Dashboard Grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        /* Card Styles */
+        .card {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .card:hover img {
+            transform: scale(1.05);
+        }
+
+        .card h3 {
+            margin: 10px 0 5px;
+            color: #333;
+        }
+
+        .card p {
+            color: #666;
+        }
+
+        .card button {
+            background-color: #1b1b1b;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card button:hover {
+            background-color: #333;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1b1b1b;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Game Development Dashboard</div>
+        <ul>
+            <li>
+                <div class="notification-icon" onclick="toggleNotifications()">
+                    <i class="fas fa-bell"></i>
+                    <div class="badge" id="notificationCount">5</div>
+                </div>
+                <div class="notification-list">
+                    <h4>Notifications</h4>
+                    <ul>
+                        
+                        <li>Upcoming Workshop: 3D gaming</li>
+                        <li>Password Reset Reminder</li>
+                        <li>New Course: Advanced gaming development</li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="dashboard-header">
+        <div class="user-info">
+            <img id="profilePic" src="" alt="User Avatar">
+            <span class="username" id="username">Online</span>
+        </div>
+        <div>
+            <button class="logout-button" onclick="window.location.href='courseSignin.html'">Logout</button>
+        </div>
+        <div>
+            <button class="logout-button" onclick="window.location.href='index.html'">Home</button>
+        </div>
+    </div>
+
+    <div class="dashboard-container">
+        <h2>Dashboard</h2>
+       
+        <div class="dashboard-grid">
+            <div class="card">
+                <img src="IMAGES/rs3.jpg" alt="Resources">
+                <h3>Resources</h3>
+                <p>Access your study materials and security resources.</p>
+                <button onclick="window.location.href='resourceGD.html'">Go to Resources</button>
+            </div>
+            <div class="card">
+                <img src="IMAGES/as3.jpg" alt="Assessment">
+                <h3>Assessment</h3>
+                <p>View and submit your assignments and quizzes.</p>
+                <button onclick="window.location.href='assessmentGD.html'">Go to Assessment</button>
+            </div>
+            <div class="card">
+                <img src="IMAGES/scc3.jpg" alt="Schedule a Class">
+                <h3>Schedule a Class</h3>
+                <p>Arrange a time for your next class or meeting.</p>
+                <button onclick="window.location.href='schedule.html'">Schedule Now</button>
+            </div>
+            <div class="card">
+                <img src="IMAGES/pc.jpg" alt="Profile">
+                <h3>Profile</h3>
+                <p>Update your personal information and settings.</p>
+                <button onclick="window.location.href='DashboardPC.html'">Go to Profile</button>
+            </div>
+            <div class="card">
+                <img src="IMAGES/cp2.jpg" alt="Complaint Portal">
+                <h3>Complaint Portal</h3>
+                <p>Submit your feedback or complaints.</p>
+                <button onclick="window.location.href='complaint.html'">Submit Complaint</button>
+            </div>
+        </div>
+    <footer>
+        <p>&copy; 2024 Game Development Dashboard. All rights reserved.</p>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_AUTH_DOMAIN",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_STORAGE_BUCKET",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // Add your JavaScript here
+    </script>
+</body>
+</html>

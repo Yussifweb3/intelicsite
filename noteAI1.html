@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Course Dashboard</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Verdana', sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #1a202c;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #e2e8f0;
+        }
+
+        /* Dashboard Header */
+        .dashboard-header {
+            background-color: #1a202c;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .dashboard-header .user-info {
+            margin-bottom: 10px;
+        }
+
+        .dashboard-header .user-info img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .dashboard-header .username {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .dashboard-header .logout-button {
+            background-color: #2b6cb0;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dashboard-header .logout-button:hover {
+            background-color: #2b6cb0;
+        }
+
+        /* Dashboard Container */
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .dashboard-container h2 {
+            text-align: center;
+            color: #1a202c;
+        }
+
+        /* Dashboard Content */
+        .dashboard-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Section */
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section h3 {
+            color: #1a202c;
+            border-bottom: 2px solid #1a202c;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        .section p {
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        /* Card Styles */
+        .card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .card h4 {
+            color: #1a202c;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a202c;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">AI Course Dashboard</div>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="syllabus.html">Syllabus</a></li>
+            <li><a href="assignments.html">Assignments</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="dashboard-header">
+        <div class="user-info">
+            <img src="IMAGES/profile.jpg" alt="User Avatar">
+            <span class="username">Alex Morgan</span>
+        </div>
+        <button class="logout-button">Logout</button>
+    </div>
+
+    <div class="dashboard-container">
+        <h2>AI Course Dashboard</h2>
+        <div class="dashboard-content">
+            <div class="section">
+                <h3>Introduction</h3>
+                <p>Welcome to the AI Course Dashboard. Here you can explore course materials, assignments, projects, and resources to enhance your skills in artificial intelligence.</p>
+            </div>
+
+            <div class="section">
+                <h3>Syllabus</h3>
+                <div class="card">
+                    <h4>AI Fundamentals</h4>
+                    <p>Get started with the basics of AI, including key concepts, terminologies, and introductory techniques.</p>
+                </div>
+                <div class="card">
+                    <h4>Machine Learning</h4>
+                    <p>Explore machine learning algorithms, data preprocessing, and model evaluation methods.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>Assignments</h3>
+                <div class="card">
+                    <h4>AI Model Implementation</h4>
+                    <p>Implement a basic AI model and test it on sample datasets to understand the fundamentals of AI model development.</p>
+                </div>
+                <div class="card">
+                    <h4>Data Analysis Project</h4>
+                    <p>Analyze a dataset using machine learning techniques and present your findings in a comprehensive report.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>Projects</h3>
+                <div class="card">
+                    <h4>Predictive Analytics</h4>
+                    <p>Develop a predictive model to forecast trends and make data-driven decisions.</p>
+                </div>
+                <div class="card">
+                    <h4>AI Chatbot</h4>
+                    <p>Create an intelligent chatbot using natural language processing techniques and integrate it into a web application.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>Resources</h3>
+                <div class="card">
+                    <h4>AI Tools</h4>
+                    <p>Access and download essential AI tools and libraries for your projects.</p>
+                </div>
+                <div class="card">
+                    <h4>Research Papers</h4>
+                    <p>Read and review important research papers and articles related to artificial intelligence.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 AI Course Dashboard. All rights reserved.</p>
+    </footer>
+</body>
+</html>
