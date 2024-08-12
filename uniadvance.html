@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Courses</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background-color: #0056a6;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #0056a6;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+        }
+
+        .navbar a:hover {
+            background-color: #ffd700;
+            color: #0056a6;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin: 0;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section {
+            padding: 50px 0;
+            background-color: #fff;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+        }
+
+        .section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 30%;
+            margin: 20px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            margin: 15px 0;
+            font-size: 22px;
+        }
+
+        .card p {
+            padding: 0 15px 15px;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .card a {
+            display: block;
+            margin: 15px;
+            padding: 10px 20px;
+            background-color: #0056a6;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .card a:hover {
+            background-color: #ffd700;
+            color: #0056a6;
+        }
+
+        .footer {
+            background-color: #0056a6;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .video-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .video-section video {
+            width: 80%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefits {
+            list-style-type: none;
+            padding: 0;
+            margin: 0 auto;
+            max-width: 800px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            margin-bottom: 15px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-item i {
+            font-size: 24px;
+            color: #0056a6;
+            margin-right: 15px;
+        }
+
+        .benefit-item p {
+            font-size: 18px;
+            color: #666;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .navbar ul {
+                flex-direction: column;
+                display: none;
+                width: 100%;
+                background-color: #0056a6;
+            }
+
+            .navbar ul.active {
+                display: flex;
+            }
+
+            .navbar ul li {
+                text-align: center;
+                margin: 0;
+            }
+
+            .cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 80%;
+            }
+
+            .video-section video {
+                width: 100%;
+            }
+
+            .benefit-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .benefit-item i {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Professional Courses</h1>
+    </header>
+
+    <nav class="navbar">
+        <span class="hamburger"><i class="fas fa-bars"></i></span>
+        <ul>
+            <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#"><i class="fas fa-info-circle"></i> About Us</a></li>
+            <li><a href="#"><i class="fas fa-book"></i> Courses</a></li>
+            <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container"><section class="section" id="professional-courses">
+        <h2>Our Professional Courses</h2>
+        <div class="cards">
+            <div class="card">
+                <img src="aii.jpg" alt="AI Course">
+                <h3>Artificial Intelligence</h3>
+                <p>Explore the fundamentals of AI and machine learning to build intelligent systems.</p>
+                <a href="uniadai.html">Learn More</a>
+            </div>
+            <div class="card">
+                <img src="fin.jpg" alt="Fintech Course">
+                <h3>Financial Technology</h3>
+                <p>Understand the impact of technology on financial services and innovations in fintech.</p>
+                <a href="uniadft.html">Learn More</a>
+            </div>
+            <div class="card">
+                <img src="bl.jpg" alt="Blockchain Course">
+                <h3>Blockchain Technology</h3>
+                <p>Learn about blockchain architecture, cryptocurrencies, and decentralized applications.</p>
+                <a href="uniadbc.html">Learn More</a>
+            </div>
+            <div class="card">
+                <img src="we1.jpg" alt="Web 3.0 Course">
+                <h3>Web 3.0</h3>
+                <p>Discover the next generation of the web with decentralized technologies and applications.</p>
+                <a href="uniadweb3.html">Learn More</a>
+            </div>
+            <div class="card">
+                <img src="pm.jpg" alt="Project Management Course">
+                <h3>Professional Management</h3>
+                <p>Acquire skills to lead and manage projects effectively in various professional environments.</p>
+                <a href="uniadpro.html">Learn More</a>
+            </div>
+        </div>
+    </section>
+    
+
+        <section class="section" id="video">
+            <div class="video-section">
+                <h2>Watch Our Introduction Video</h2>
+                <video controls>
+                    <source src="https://youtu.be/EL2woThmPWM?si=3QhyP7PEU1gEuCcT" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+
+        <section class="section" id="benefits">
+            <h2>Why Choose Our Professional Courses?</h2>
+            <ul class="benefits">
+                <li class="benefit-item">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <p>Expert instructors with real-world experience.</p>
+                </li>
+                <li class="benefit-item">
+                    <i class="fas fa-certificate"></i>
+                    <p>Globally recognized certifications.</p>
+                </li>
+                <li class="benefit-item">
+                    <i class="fas fa-user-graduate"></i>
+                    <p>Flexible learning options tailored to your schedule.</p>
+                </li>
+                <li class="benefit-item">
+                    <i class="fas fa-briefcase"></i>
+                    <p>Career-focused programs designed for immediate impact.</p>
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Professional Courses. All rights reserved.</p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <script>
+        // Hamburger menu toggle
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            document.querySelector('.navbar ul').classList.toggle('active');
+        });
+
+        // Scroll reveal effect
+        const sections = document.querySelectorAll('.section');
+
+        const revealSections = () => {
+            const windowHeight = window.innerHeight;
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                if (sectionTop < windowHeight - 100) {
+                    section.classList.add('show');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealSections);
+        revealSections();
+    </script>
+</body>
+
+</html>
