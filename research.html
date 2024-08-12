@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Research Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background: linear-gradient(135deg, #4a148c, #00695c);
+            color: #ffffff;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid #26a69a;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s ease;
+        }
+
+        header.scrolled {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            display: inline;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: #ffffff;
+            color: #00695c;
+            transform: translateY(-3px);
+        }
+
+        .nav-links i {
+            margin-right: 0.5rem;
+        }
+
+        .search-bar {
+            margin-left: auto;
+        }
+
+        .search-bar input {
+            padding: 0.5rem;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background-color: rgba(0, 0, 0, 0.9);
+                position: absolute;
+                top: 70px;
+                right: 0;
+                width: 100%;
+                padding: 1rem;
+                text-align: center;
+            }
+
+            .nav-links li {
+                margin: 0.5rem 0;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+                color: #ffffff;
+            }
+        }
+/* Add these styles to your existing CSS */
+.research-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card i {
+    font-size: 3rem;
+    color: #00796b;
+    margin-bottom: 1rem;
+}
+
+.card-content h3 {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+}
+
+.publication-list, .event-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.publication, .event {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.publication i, .event i {
+    font-size: 2rem;
+    color: #00796b;
+    margin-bottom: 1rem;
+}
+
+.publication h3, .event h3 {
+    font-size: 1.3rem;
+    margin: 0.5rem 0;
+}
+
+.publication a, .event a {
+    color: #00796b;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 0.5rem;
+    transition: color 0.3s;
+}
+
+.publication a:hover, .event a:hover {
+    color: #004d40;
+}
+
+.card:hover, .publication:hover, .event:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            display: flex;
+        }
+
+        .hero-slider img {
+            min-width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .hero-slider img.active {
+            opacity: 1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .cta-button {
+            background-color: #ffffff;
+            color: #4a148c;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 1rem;
+            display: inline-block;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #00695c;
+            color: #ffffff;
+            transform: scale(1.05);
+        }
+
+        section {
+            padding: 4rem 2rem;
+            background-color: #ffffff;
+            margin-top: 5rem;
+            position: relative;
+        }
+
+        .about, .collaborations, .contact {
+            background-color: #e0f7fa;
+        }
+
+        .research, .publications, .events {
+            background-color: #e8f5e9;
+        }
+
+        .research-cards, .publication-list, .event-list {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .card, .publication, .event, .image-card {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            max-width: 300px;
+            flex: 1 1 300px;
+            margin: 0.5rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            transform: translateY(0);
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+        @media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+        color: #ffffff;
+    }
+}
+
+        .card:hover, .image-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .card i, .image-card i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #4a148c;
+        }
+
+        .publication, .event {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #4a148c;
+            color: #ffffff;
+            text-align: center;
+            padding: 1.5rem;
+            border-top: 3px solid #26a69a;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        footer:hover {
+            background-color: #00695c;
+        }
+
+        .footer-icons i {
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .footer-icons i:hover {
+            color: #26a69a;
+        }
+
+        .contact form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact input, .contact textarea, .contact button {
+            padding: 0.75rem;
+            border-radius: 5px;
+            border: 1px solid #cccccc;
+            font-size: 1rem;
+        }
+
+        .contact button {
+            background-color: #4a148c;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .contact button:hover {
+            background-color: #00695c;
+            transform: scale(1.02);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">Research</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+<li><a href="intely-about.html"><i class="fas fa-user"></i> About</a></li>
+
+<li><a href="publications.html"><i class="fas fa-book"></i> Publications</a></li>
+<li><a href="researchevent.html"><i class="fas fa-calendar-day"></i> Events</a></li>
+
+
+            </ul>
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+            </div>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div class="hero-slider">
+            <img src="IMAGES/res2.jpg" alt="Slide 1" class="active">
+            <img src="IMAGES/res3.jpg" alt="Slide 2">
+            <img src="IMAGES/res.jpg" alt="Slide 3">
+            <img src="IMAGES/res4.jpg" alt="Slide 4">
+            <img src="IMAGES/res1.jpg" alt="Slide 5">
+        </div>
+        <div class="hero-content">
+            <h1>Welcome to Our Research Institute</h1>
+            <p>Explore groundbreaking research and stay updated with our latest publications and events.</p>
+            <a href="#research" class="cta-button">Learn More</a>
+        </div>
+    </div>
+
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>We are a leading research institute dedicated to advancing knowledge and innovation.</p>
+    </section>
+
+    <section id="research" class="research">
+        <h2>Our Research</h2>
+        <div class="research-cards">
+            <div class="card">
+                <i class="fas fa-dna"></i>
+                <div class="card-content">
+                    <h3>Genomic Research</h3>
+                    <p>Exploring the human genome to understand genetic disorders and develop personalized medicine.</p>
+                </div>
+            </div>
+            <div class="card">
+                <i class="fas fa-atom"></i>
+                <div class="card-content">
+                    <h3>Nuclear Physics</h3>
+                    <p>Investigating the properties and behaviors of atomic nuclei to advance our understanding of nuclear energy.</p>
+                </div>
+            </div>
+            <div class="card">
+                <i class="fas fa-robot"></i>
+                <div class="card-content">
+                    <h3>Artificial Intelligence</h3>
+                    <p>Developing advanced AI algorithms and systems to enhance machine learning and automation technologies.</p>
+                </div>
+            </div>
+            <div class="card">
+                <i class="fas fa-leaf"></i>
+                <div class="card-content">
+                    <h3>Environmental Science</h3>
+                    <p>Studying ecosystems and environmental changes to promote sustainability and address climate change.</p>
+                </div>
+            </div>
+            <div class="card">
+                <i class="fas fa-palette"></i>
+                <div class="card-content">
+                    <h3>Art and Culture Research</h3>
+                    <p>Exploring cultural heritage and artistic expressions to preserve traditions and inspire future creativity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="publications" class="publications">
+        <h2>Publications</h2>
+        <div class="publication-list">
+            <div class="publication">
+                <i class="fas fa-book"></i>
+                <h3>Journal of Genomic Research</h3>
+                <p>In-depth articles and studies on recent advancements in genomic research and applications.</p>
+                <a href="#">Read More</a>
+            </div>
+            <div class="publication">
+                <i class="fas fa-book-reader"></i>
+                <h3>Advances in Nuclear Physics</h3>
+                <p>Research papers and reviews on the latest findings in nuclear physics and related technologies.</p>
+                <a href="#">Read More</a>
+            </div>
+            <div class="publication">
+                <i class="fas fa-clipboard-list"></i>
+                <h3>AI Research Review</h3>
+                <p>Comprehensive reviews and articles on artificial intelligence developments and trends.</p>
+                <a href="#">Read More</a>
+            </div>
+            <div class="publication">
+                <i class="fas fa-recycle"></i>
+                <h3>Environmental Science Bulletin</h3>
+                <p>Latest research and updates on environmental science and sustainability initiatives.</p>
+                <a href="#">Read More</a>
+            </div>
+            <div class="publication">
+                <i class="fas fa-theater-masks"></i>
+                <h3>Journal of Art and Culture</h3>
+                <p>Exploring the intersections of art, culture, and society through critical essays and studies.</p>
+                <a href="#">Read More</a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="events" class="events">
+        <h2>Events</h2>
+        <div class="event-list">
+            <div class="event">
+                <i class="fas fa-calendar-day"></i>
+                <h3>Genomics Conference 2024</h3>
+                <p>Join us for an international conference on genomic research with keynote speakers and workshops.</p>
+                <a href="#">Learn More</a>
+            </div>
+            <div class="event">
+                <i class="fas fa-calendar-week"></i>
+                <h3>AI & Machine Learning Summit</h3>
+                <p>A summit focusing on the latest advancements in AI and machine learning technologies.</p>
+                <a href="#">Learn More</a>
+            </div>
+            <div class="event">
+                <i class="fas fa-calendar-alt"></i>
+                <h3>Environmental Impact Symposium</h3>
+                <p>An event to discuss and address the challenges of climate change and environmental sustainability.</p>
+                <a href="#">Learn More</a>
+            </div>
+            <div class="event">
+                <i class="fas fa-calendar-day"></i>
+                <h3>Art & Culture Exhibition</h3>
+                <p>Exhibit showcasing diverse artistic and cultural works from around the world.</p>
+                <a href="#">Learn More</a>
+            </div>
+            <div class="event">
+                <i class="fas fa-calendar-week"></i>
+                <h3>Nuclear Science Workshop</h3>
+                <p>A workshop for professionals and students to explore the latest in nuclear physics and applications.</p>
+                <a href="#">Learn More</a>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <form>
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="Your Email">
+            <textarea placeholder="Your Message"></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Research Institute. All rights reserved.</p>
+        <div class="footer-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('show');
+            });
+
+            // Hero Slider Animation
+            const slides = document.querySelectorAll('.hero-slider img');
+            let currentSlide = 0;
+
+            function showNextSlide() {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
+
+            setInterval(showNextSlide, 3000);
+        });
+    </script>
+</body>
+
+</html>

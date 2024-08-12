@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockchain Resources</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .header {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .header .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .header .nav-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .header .nav-buttons a {
+            color: white;
+            text-decoration: none;
+            background-color: #3b82f6;
+            padding: 10px 15px;
+            border-radius: 6px;
+            transition: background-color 0.3s, transform 0.3s;
+            font-size: 14px;
+        }
+
+        .header .nav-buttons a:hover {
+            background-color: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: row;
+            padding: 15px;
+            flex-grow: 1;
+            overflow: hidden;
+        }
+
+        .section {
+            padding: 15px;
+            border-radius: 8px;
+            overflow-y: auto;
+            transition: flex 0.3s ease;
+        }
+
+        .books, .notes, .videos {
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-right: 10px;
+            flex-grow: 1;
+        }
+
+        .books {
+            background-color: #dbeafe;
+        }
+
+        .notes {
+            background-color: #e0f2fe;
+        }
+
+        .videos {
+            background-color: #e0f7fa;
+        }
+
+        .section.collapsed {
+            flex: 0 0 40px;
+            overflow: hidden;
+        }
+
+        .section.expanded {
+            flex: 1;
+        }
+
+        .section .section-header {
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+            background: #1e3a8a;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .section .section-header:hover {
+            background-color: #2563eb;
+        }
+
+        .section-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .resource-card, .note-card, .video-card {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .resource-card:hover, .note-card:hover, .video-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .resource-card h3, .note-card h3, .video-card h3 {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .resource-card p, .note-card p, .video-card p {
+            color: #555;
+        }
+
+        .resource-card .resource-link, .note-card .note-link, .video-card .video-link {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 8px;
+            color: #ffffff;
+            background-color: #1e40af;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+            font-size: 12px;
+        }
+
+        .resource-card .resource-link:hover, .note-card .note-link:hover, .video-card .video-link:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .expand-all-btn {
+            margin: 15px;
+            padding: 10px 20px;
+            background-color: #1e40af;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .expand-all-btn:hover {
+            background-color: #1d4ed8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .main-content {
+                flex-direction: column;
+            }
+            .section {
+                width: 100%;
+                margin: 0;
+                height: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .resource-card, .note-card, .video-card {
+                margin: 5px;
+                padding: 10px;
+            }
+            .resource-card h3, .note-card h3, .video-card h3 {
+                font-size: 14px;
+            }
+            .resource-card .resource-link, .note-card .note-link, .video-card .video-link {
+                font-size: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .resource-card, .note-card, .video-card {
+                margin: 3px;
+                padding: 8px;
+            }
+            .resource-card h3, .note-card h3, .video-card h3 {
+                font-size: 12px;
+            }
+            .resource-card .resource-link, .note-card .note-link, .video-card .video-link {
+                font-size: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Blockchain Course</div>
+        <div class="nav-buttons">
+            <a href="dashboardBC.html">Dashboard</a>
+            <a href="courseSignin.html">Logout</a>
+        </div>
+    </header>
+
+    <button class="expand-all-btn" onclick="expandAllSections()">Expand All Sections</button>
+
+    <div class="main-content">
+        <div class="section books expanded">
+            <div class="section-header" onclick="toggleSection(this)">Blockchain Books</div>
+            <div class="section-content">
+                <div class="resource-card">
+                    <h3>Introduction to Blockchain</h3>
+                    <p>A comprehensive guide to the fundamentals of blockchain technology.</p>
+                    <a href="#" class="resource-link">View Book</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Mastering Blockchain</h3>
+                    <p>Deep dive into blockchain concepts and applications.</p>
+                    <a href="#" class="resource-link">Download Book</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Decentralized Systems</h3>
+                    <p>Explore the principles of decentralized systems and blockchain networks.</p>
+                    <a href="#" class="resource-link">Access Book</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section notes expanded">
+            <div class="section-header" onclick="toggleSection(this)">Blockchain Notes</div>
+            <div class="section-content">
+                <div class="note-card">
+                    <h3>Blockchain Basics</h3>
+                    <p>Notes on the fundamental concepts of blockchain.</p>
+                    <a href="noteBlockchain1.html" class="note-link">View Notes</a>
+                </div>
+                <div class="note-card">
+                    <h3>Smart Contracts</h3>
+                    <p>Detailed notes on smart contracts and their implementation.</p>
+                    <a href="#" class="note-link">View Notes</a>
+                </div>
+                <div class="note-card">
+                    <h3>Cryptographic Principles</h3>
+                    <p>Understanding the cryptographic techniques used in blockchain.</p>
+                    <a href="#" class="note-link">Download Notes</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section videos expanded">
+            <div class="section-header" onclick="toggleSection(this)">Blockchain Videos</div>
+            <div class="section-content">
+                <div class="video-card">
+                    <img src="video-thumbnail.jpg" alt="How Blockchain Works" class="video-thumbnail">
+                    <h3>How Blockchain Works</h3>
+                    <p>An in-depth look at the workings of Blockchain technology.</p>
+                    <a href="#" class="video-link">Watch Video</a>
+                </div>
+                <div class="video-card">
+                    <img src="video-thumbnail.jpg" alt="Smart Contracts" class="video-thumbnail">
+                    <h3>Smart Contracts Explained</h3>
+                    <p>Understanding the concept of Smart Contracts in Blockchain.</p>
+                    <a href="#" class="video-link">Watch Video</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSection(header) {
+            const section = header.parentElement;
+            const isExpanded = section.classList.contains('expanded');
+
+            document.querySelectorAll('.section').forEach(sec => {
+                if (sec !== section) {
+                    sec.classList.remove('expanded');
+                    sec.classList.add('collapsed');
+                }
+            });
+
+            if (isExpanded) {
+                section.classList.remove('expanded');
+                section.classList.add('collapsed');
+            } else {
+                section.classList.remove('collapsed');
+                section.classList.add('expanded');
+            }
+        }
+
+        function expandAllSections() {
+            document.querySelectorAll('.section').forEach(sec => {
+                sec.classList.add('expanded');
+                sec.classList.remove('collapsed');
+            });
+        }
+    </script>
+</body>
+</html>

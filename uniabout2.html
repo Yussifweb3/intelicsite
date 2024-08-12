@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #0056a6;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            background-color: #0056a6;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            flex-wrap: wrap;
+        }
+
+        .navbar-links {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+
+        .navbar-links a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+            text-align: center;
+            width: 100%;
+        }
+
+        .navbar-links a:hover {
+            background-color: #ffd700;
+            color: #0056a6;
+        }
+
+        /* Hamburger Menu */
+        .hamburger-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+        }
+
+        /* Responsive Navbar */
+        @media (max-width: 768px) {
+            .navbar-links {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                position: absolute;
+                top: 50px; /* Adjust based on your header height */
+                left: 0;
+                width: 100%;
+                background-color: #0056a6;
+            }
+
+            .navbar-links.active {
+                display: flex;
+            }
+
+            .hamburger-menu {
+                display: block;
+            }
+
+            .navbar-links a {
+                padding: 15px;
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            height: 300px;
+            background-color: #0056a6;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            position: absolute;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section {
+            padding: 50px 0;
+            background-color: #fff;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .section:nth-child(even) {
+            background-color: #f0f8ff;
+        }
+
+        .section.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #0056a6;
+        }
+
+        .section p {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        .leadership, .facilities {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .card {
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 30%;
+            margin: 20px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            margin: 15px 0;
+            color: #0056a6;
+        }
+
+        .card p {
+            padding: 0 15px 15px;
+        }
+
+        .card a {
+            display: block;
+            margin: 15px;
+            padding: 10px 20px;
+            background-color: #0056a6;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .card a:hover {
+            background-color: #ffd700;
+            color: #0056a6;
+        }
+
+        footer {
+            background-color: #0056a6;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .leadership, .facilities {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>About Us</h1>
+    </header>
+
+    <div class="carousel">
+        <img src="IMAGES/uniab3.jpg" alt="Carousel 1" class="active">
+        <img src="IMAGES/uniab4.jpg" alt="Carousel 2">
+        <img src="IMAGES/uniab3.webp" alt="Carousel 3">
+    </div>
+
+    <nav class="navbar">
+        <div class="hamburger-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="navbar-links">
+            <a href="uni-index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="uniabout2.html"><i class="fas fa-info-circle"></i> About Us</a>
+            <a href="uniacademics.html"><i class="fas fa-book"></i> Academics</a>
+            <a href="uniadmission2.html"><i class="fas fa-pen"></i> Admissions</a>
+            <a href="unilife.html"><i class="fas fa-graduation-cap"></i> Campus Life</a>
+            <a href="uniresearch.html"><i class="fas fa-flask"></i> Research</a>
+            <a href="uni-news-events.html"><i class="fas fa-calendar-alt"></i> News & Events</a>
+            <a href="unicontact2.html"><i class="fas fa-envelope"></i> Contact Us</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="section">
+            <h2>Mission & Vision</h2>
+            <p>
+                Our mission is to provide high-quality education and foster a culture of innovation and research. We are committed to preparing our students to become responsible global citizens and leaders in their respective fields. Our vision is to be a world-class institution recognized for academic excellence, cutting-edge research, and community engagement.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>Our History</h2>
+            <p>
+                Founded in 2024, our university is a modern hub of academic excellence, innovation, and intellectual growth. In our short but dynamic history, we have rapidly expanded our academic programs, cutting-edge facilities, and pioneering research initiatives to meet the demands of an ever-evolving digital society. Our commitment to providing a forward-thinking education ensures that our students are equipped with the knowledge, skills, and experiences needed to excel in today's fast-paced world.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>Leadership Team</h2>
+            <div class="leadership">
+                <div class="card">
+                    <img src="IMAGES/dr1.jpg" alt="Leader 1">
+                    <h3>Dr. Umar Yahya</h3>
+                    <p>President</p>
+                   
+                </div>
+                <div class="card">
+                    <img src="IMAGES/dr2.jpg" alt="Leader 2">
+                    <h3>Dr. Abdulai Ubaid</h3>
+                    <p>Provost</p>
+                 
+                </div>
+                <div class="card">
+                    <img src="IMAGES/dr3.jpg" alt="Leader 3">
+                    <h3>Dr. Emily Johnson</h3>
+                    <p>Dean of Faculty</p>
+                
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Campus Facilities</h2>
+            <div class="facilities">
+                <div class="card">
+                    <img src="IMAGES/lib.jpg" alt="Facility 1">
+                    <h3> Online Library</h3>
+                    <p>Our library offers a vast collection of books, journals, and digital resources for research and study.</p>
+                    <a href="unilibrary.html">Explore</a>
+                </div>
+                <div class="card">
+                    <img src="IMAGES/lab.jpg" alt="Facility 2">
+                    <h3> Online Laboratories</h3>
+                    <p>State-of-the-art laboratories are available for scientific research and practical learning experiences.</p>
+                    <a href="unilab.html">Explore</a>
+                </div>
+                <div class="card">
+                    <img src="IMAGES/fc.jpg" alt="Facility 3">
+                    <h3> Online Fitness Center</h3>
+                    <p>Our fitness center provides students with the resources to maintain a healthy and active lifestyle.</p>
+                    <a href="unifitness.html">Explore</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Intelic. All rights reserved.</p>
+        <p>Follow us on 
+            <a href="#">Facebook</a>, 
+            <a href="#">Twitter</a>, 
+            <a href="#">Instagram</a>.
+        </p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Hamburger menu toggle
+            const hamburgerMenu = document.querySelector('.hamburger-menu');
+            const navbarLinks = document.querySelector('.navbar-links');
+            hamburgerMenu.addEventListener('click', function () {
+                navbarLinks.classList.toggle('active');
+            });
+
+            // Carousel functionality
+            let currentIndex = 0;
+            const images = document.querySelectorAll('.carousel img');
+            const totalImages = images.length;
+
+            function showNextImage() {
+                images[currentIndex].classList.remove('active');
+                currentIndex = (currentIndex + 1) % totalImages;
+                images[currentIndex].classList.add('active');
+            }
+
+            setInterval(showNextImage, 3000);
+
+            // Animate sections on scroll
+            const sections = document.querySelectorAll('.section');
+            function animateOnScroll() {
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const triggerPoint = window.innerHeight / 1.2;
+
+                    if (sectionTop < triggerPoint) {
+                        section.classList.add('animate');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // Trigger the animation on page load
+        });
+    </script>
+</body>
+</html>

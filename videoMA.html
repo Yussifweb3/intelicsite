@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile App Development Tutorials</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #e0f2f1, #b9fbc0);
+        }
+        header {
+            background: #26a69a;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 4px solid #00796b;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+            max-width: 360px;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .card iframe {
+            width: 100%;
+            height: 200px;
+            border: 0;
+        }
+        .card .description {
+            padding: 15px;
+            background-color: #e0f2f1;
+        }
+        .card .description h2 {
+            margin-top: 0;
+            font-size: 1.4em;
+            color: #26a69a;
+        }
+        .card .description p {
+            font-size: 0.9em;
+            color: #333;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 1.2em;
+            color: #fff;
+            background-color: #26a69a;
+            border: none;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background-color: #00796b;
+            transform: scale(1.05);
+        }
+        footer {
+            background-color: #26a69a;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            border-top: 4px solid #00796b;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mobile App Development Tutorials</h1>
+    </header>
+    <div class="container">
+        <div class="card">
+            <iframe src="https://www.youtube.com/embed/Fd5nAtGqGmQ" allowfullscreen></iframe>
+            <div class="description">
+                <h2>Introduction to React Native</h2>
+                <p>Start developing cross-platform apps using React Native, with a focus on setup and basic components.</p>
+            </div>
+        </div>
+        <div class="card">
+            <iframe src="https://www.youtube.com/embed/4bW5cYwT5tI" allowfullscreen></iframe>
+            <div class="description">
+                <h2>Building Android Apps with Kotlin</h2>
+                <p>Learn the fundamentals of Android app development using Kotlin, from setting up your environment to deploying your app.</p>
+            </div>
+        </div>
+        <div class="card">
+            <iframe src="https://www.youtube.com/embed/f7Exrsz9Q9A" allowfullscreen></iframe>
+            <div class="description">
+                <h2>iOS App Development with Swift</h2>
+                <p>An in-depth look at iOS app development using Swift, including UI design and integration with APIs.</p>
+            </div>
+        </div>
+        <a href="moreMobileAppCourses.html" class="btn">Explore More Mobile App Development Courses</a>
+    </div>
+    <footer>
+        <p>&copy; 2024 Mobile App Development Tutorials. All rights reserved.</p>
+    </footer>
+</body>
+</html>

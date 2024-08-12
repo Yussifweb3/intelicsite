@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Our Labs - Intely Institute of Technology</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #0056a6;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #0056a6;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+        }
+
+        .navbar a:hover {
+            background-color: #004494;
+            color: white;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin: 0;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section {
+            padding: 50px 0;
+            background-color: #fff;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            color: #0056a6;
+        }
+
+        .lab-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px; /* Added gap to ensure spacing between cards */
+        }
+
+        .lab-card {
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 30%; /* Ensures the cards take up 30% of the row */
+            margin: 20px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.2s;
+            padding: 20px;
+        }
+
+        .lab-card i {
+            font-size: 50px;
+            color: #0056a6;
+            margin-top: 20px;
+        }
+
+        .lab-card h3 {
+            margin: 15px 0;
+            font-size: 1.5em;
+            color: #0056a6;
+        }
+
+        .lab-card p {
+            padding: 0 15px 15px;
+        }
+
+        .lab-card button {
+            display: block;
+            margin: 15px auto;
+            padding: 10px 20px;
+            background-color: #0056a6;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .lab-card button:hover {
+            background-color: #004494;
+        }
+
+        .footer {
+            background-color: #0056a6;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .navbar ul {
+                flex-direction: column;
+                display: none;
+                width: 100%;
+                background-color: #0056a6;
+            }
+
+            .navbar ul.active {
+                display: flex;
+            }
+
+            .navbar ul li {
+                text-align: center;
+                margin: 0;
+            }
+
+            .lab-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .lab-card {
+                width: 80%;
+            }
+        }
+
+        /* Custom Alert Box Styles */
+        .custom-alert {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #28a745;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            font-weight: bold;
+            font-family: 'Arial Black', Gadget, sans-serif;
+            z-index: 1001;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        .custom-alert button {
+            background-color: white;
+            color: #28a745;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .custom-alert button:hover {
+            background-color: #d4d4d4;
+        }
+
+        .custom-alert-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Explore Our Labs</h1>
+        <p>Intely Institute of Technology - Pioneering the Future of Tech Education</p>
+    </header>
+
+    <nav class="navbar">
+        <span class="hamburger"><i class="fas fa-bars"></i></span>
+        <ul>
+            <li><a href="#" onclick="studentAlert()"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#" onclick="studentAlert()"><i class="fas fa-book"></i> Library</a></li>
+            <li><a href="#" onclick="studentAlert()"><i class="fas fa-laptop"></i> Labs</a></li>
+            <li><a href="#" onclick="studentAlert()"><i class="fas fa-dumbbell"></i> Fitness</a></li>
+            <li><a href="#" onclick="studentAlert()"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section class="section">
+            <h2>Enhance Your Learning with Our Advanced Labs</h2>
+            <div class="lab-cards">
+                <div class="lab-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>AI & Robotics Lab</h3>
+                    <p>Build and program cutting-edge robots and AI systems with industry-standard tools.</p>
+                    <button onclick="studentAlert()">Explore AI & Robotics</button>
+                </div>
+                <div class="lab-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Cybersecurity Lab</h3>
+                    <p>Gain hands-on experience in securing networks, systems, and data from cyber threats.</p>
+                    <button onclick="studentAlert()">Secure Your Future</button>
+                </div>
+                <div class="lab-card">
+                    <i class="fas fa-vr-cardboard"></i>
+                    <h3>Virtual Reality Lab</h3>
+                    <p>Immerse yourself in the world of VR and AR with our state-of-the-art facilities.</p>
+                    <button onclick="studentAlert()">Enter Virtual Worlds</button>
+                </div>
+                <div class="lab-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Software Engineering Lab</h3>
+                    <p>Develop high-quality software solutions using the latest development environments.</p>
+                    <button onclick="studentAlert()">Code the Future</button>
+                </div>
+                <div class="lab-card">
+                    <i class="fas fa-cloud"></i>
+                    <h3>Cloud Computing Lab</h3>
+                    <p>Master cloud technologies and services to drive digital transformation.</p>
+                    <button onclick="studentAlert()">Explore the Cloud</button>
+                </div>
+                <div class="lab-card">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>IoT Lab</h3>
+                    <p>Create and deploy smart devices and systems with our Internet of Things lab.</p>
+                    <button onclick="studentAlert()">Connect the Future</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Intely Institute of Technology. All rights reserved.</p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <!-- Custom Alert Box Script -->
+    <script>
+        function studentAlert() {
+            // Create the overlay
+            var overlay = document.createElement('div');
+            overlay.className = 'custom-alert-overlay';
+            document.body.appendChild(overlay);
+
+            // Create the alert box
+            var alertBox = document.createElement('div');
+            alertBox.className = 'custom-alert';
+            alertBox.innerHTML = `
+                <p>This feature is available only to registered students. <br> Please log in to access more features!</p>
+                <button onclick="closeAlert()">OK</button>
+            `;
+            document.body.appendChild(alertBox);
+
+            // Function to close the alert box
+            function closeAlert() {
+                document.body.removeChild(alertBox);
+                document.body.removeChild(overlay);
+            }
+        }
+    </script>
+</body>
+
+</html>

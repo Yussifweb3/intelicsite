@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Our Extensive Digital Library</title>
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #0056a6;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #0056a6;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+        }
+
+        .navbar a:hover {
+            background-color: #004494;
+            color: white;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin: 0;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section {
+            padding: 50px 0;
+            background-color: #fff;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            color: #0056a6;
+        }
+
+        .library-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .library-card {
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 30%;
+            margin: 20px;
+            overflow: hidden;
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.2s;
+        }
+
+        .library-card i {
+            font-size: 50px;
+            color: #0056a6;
+            margin-bottom: 20px;
+        }
+
+        .library-card h3 {
+            margin: 15px 0;
+            font-size: 1.5em;
+            color: #0056a6;
+        }
+
+        .library-card p {
+            padding: 0 15px 15px;
+        }
+
+        .footer {
+            background-color: #0056a6;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .navbar ul {
+                flex-direction: column;
+                display: none;
+                width: 100%;
+                background-color: #0056a6;
+            }
+
+            .navbar ul.active {
+                display: flex;
+            }
+
+            .navbar ul li {
+                text-align: center;
+                margin: 0;
+            }
+
+            .library-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .library-card {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Discover Our Extensive Digital Library</h1>
+    </header>
+
+    <nav class="navbar">
+        <span class="hamburger"><i class="material-icons">menu</i></span>
+        <ul>
+            <li><a href="#"><i class="material-icons">home</i> Home</a></li>
+            <li><a href="#"><i class="material-icons">book</i> Library</a></li>
+            <li><a href="#"><i class="material-icons">laptop</i> Labs</a></li>
+            <li><a href="#"><i class="material-icons">fitness_center</i> Fitness</a></li>
+            <li><a href="#"><i class="material-icons">email</i> Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section class="section">
+            <h2>Explore Our Vast Collection of Digital Resources</h2>
+            <div class="library-cards">
+                <div class="library-card">
+                    <i class="material-icons">book</i>
+                    <h3>Extensive Collection</h3>
+                    <p>Access a vast array of digital resources, including e-books, academic journals, research papers, and multimedia materials. Our library is designed to meet the needs of all students and researchers.</p>
+                </div>
+                <div class="library-card">
+                    <i class="material-icons">schedule</i>
+                    <h3>24/7 Access</h3>
+                    <p>Enjoy round-the-clock access to our resources from anywhere in the world. Study and research at your convenience, without any time constraints.</p>
+                </div>
+                <div class="library-card">
+                    <i class="material-icons">desktop_mac</i>
+                    <h3>User-Friendly Interface</h3>
+                    <p>Our intuitive and easy-to-navigate interface makes searching and accessing materials a breeze. Find what you need quickly and efficiently with our user-friendly design.</p>
+                </div>
+                <div class="library-card">
+                    <i class="material-icons">star</i>
+                    <h3>Personalized Recommendations</h3>
+                    <p>Get book and resource recommendations tailored to your interests and study history. Our personalized recommendations help you discover relevant materials easily.</p>
+                </div>
+                <div class="library-card">
+                    <i class="material-icons">headset_mic</i>
+                    <h3>Support Services</h3>
+                    <p>Take advantage of our virtual library support, including live chat with librarians, research assistance, and tutorials on using library resources effectively.</p>
+                </div>
+                <div class="library-card">
+                    <i class="material-icons">chat</i>
+                    <h3>Interactive Features</h3>
+                    <p>Engage with our interactive features such as digital reading groups, discussion forums, and citation tools to enhance your learning and research experience.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Our University. All rights reserved.</p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <script>
+        // Hamburger menu toggle
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            document.querySelector('.navbar ul').classList.toggle('active');
+        });
+
+        // Scroll reveal effect
+        const sections = document.querySelectorAll('.section');
+
+        const revealSections = () => {
+            const windowHeight = window.innerHeight;
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                if (sectionTop < windowHeight - 100) {
+                    section.classList.add('show');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealSections);
+        revealSections();
+    </script>
+</body>
+
+</html>

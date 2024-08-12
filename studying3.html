@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Study - Intely University</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #eaeaea;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 4px solid #3498db;
+        }
+
+        .container {
+            width: 85%;
+            margin: 20px auto;
+            max-width: 1200px;
+        }
+
+        .info-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .info-card h2 {
+            margin: 0;
+            font-size: 20px;
+            color: #2c3e50;
+        }
+
+        .info-card div {
+            margin-right: 20px;
+            font-size: 16px;
+        }
+
+        #video-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #video-player {
+            width: 100%;
+            max-width: 720px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .video-controls {
+            margin-top: 10px;
+        }
+
+        .video-controls button {
+            background: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+
+        .video-controls button:hover {
+            background: #2980b9;
+        }
+
+        .file-upload, .chat-container, .assignment-container {
+            margin-top: 20px;
+        }
+
+        .file-upload input[type="file"] {
+            margin: 10px 0;
+        }
+
+        .chat-container {
+            margin-top: 20px;
+        }
+
+        .chat-messages {
+            border: 1px solid #ddd;
+            padding: 15px;
+            height: 200px;
+            overflow-y: auto;
+            background: #fff;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .chat-form input[type="text"] {
+            width: calc(100% - 100px);
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .chat-form button {
+            background: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+
+        .chat-form button:hover {
+            background: #2980b9;
+        }
+
+        .assignment-container textarea {
+            width: 100%;
+            height: 150px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .assignment-container button {
+            background: #3498db;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .assignment-container button:hover {
+            background: #2980b9;
+        }
+
+        .search-bar input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Course Study - Intely University</h1>
+    </header>
+
+    <div class="container">
+        <!-- Info Card Section -->
+        <div class="info-card">
+            <div class="time-date">
+                <h2 id="time-date">Date: --/--/---- | Time: --:--:--</h2>
+            </div>
+            <div class="timer">
+                <h2>Timer</h2>
+                <div id="timer">00:00:00</div>
+                <button onclick="startTimer()">Start</button>
+                <button onclick="stopTimer()">Stop</button>
+                <button onclick="resetTimer()">Reset</button>
+            </div>
+            <div class="alarm">
+                <h2>Set Alarm</h2>
+                <input type="time" id="alarm-time">
+                <button onclick="setAlarm()">Set Alarm</button>
+            </div>
+        </div>
+
+        <!-- Video Player Section -->
+        <div id="video-container">
+            <video id="video-player" controls>
+                <source id="video-source" src="VIDEOS/Artificial Intelligence   60 Minutes Full Episodes.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-controls">
+                <button id="prev-video">Previous</button>
+                <button id="next-video">Next</button>
+            </div>
+        </div>
+
+        <!-- File Upload Section -->
+        <div class="file-upload">
+            <h2>Upload Documents</h2>
+            <input type="file" id="file-input" multiple>
+        </div>
+
+        <!-- Chat Section -->
+        <div class="chat-container">
+            <h2>Chat with Instructor</h2>
+            <div id="chat-messages" class="chat-messages">
+                <!-- Chat messages will be displayed here -->
+            </div>
+            <form id="chat-form" class="chat-form">
+                <input type="text" id="chat-input" placeholder="Type your message here...">
+                <button type="button" onclick="sendMessage()">Send</button>
+            </form>
+        </div>
+
+        <!-- Assignment Submission Section -->
+        <div class="assignment-container">
+            <h2>Submit Assignment</h2>
+            <textarea id="assignment-input" placeholder="Write your assignment here..."></textarea>
+            <button id="submit-assignment" onclick="submitAssignment()">Submit Assignment</button>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" placeholder="Search ChatGPT" onclick="searchChatGPT()">
+        </div>
+    </div>
+
+    <script>
+        // Video Player and Navigation
+        let currentVideoIndex = 0;
+        const videoSources = [
+            'video1.mp4', 'video2.mp4', 'video3.mp4', 'video4.mp4', 'video5.mp4',
+            'video6.mp4', 'video7.mp4', 'video8.mp4', 'video9.mp4', 'video10.mp4',
+            'video11.mp4', 'video12.mp4', 'video13.mp4', 'video14.mp4', 'video15.mp4',
+            'video16.mp4', 'video17.mp4', 'video18.mp4', 'video19.mp4', 'video20.mp4',
+            'video21.mp4', 'video22.mp4', 'video23.mp4', 'video24.mp4', 'video25.mp4',
+            'video26.mp4', 'video27.mp4', 'video28.mp4', 'video29.mp4', 'video30.mp4'
+        ];
+
+        function updateVideo() {
+            const videoPlayer = document.getElementById('video-player');
+            videoPlayer.src = videoSources[currentVideoIndex];
+        }
+
+        document.getElementById('next-video').addEventListener('click', () => {
+            if (currentVideoIndex < videoSources.length - 1) {
+                currentVideoIndex++;
+                updateVideo();
+            }
+        });
+
+        document.getElementById('prev-video').addEventListener('click', () => {
+            if (currentVideoIndex > 0) {
+                currentVideoIndex--;
+                updateVideo();
+            }
+        });
+
+        // File Upload Handling
+        document.getElementById('file-input').addEventListener('change', (event) => {
+            const files = event.target.files;
+            // Handle file upload
+        });
+
+        // Chat Functionality
+        function sendMessage() {
+            const messageInput = document.getElementById('chat-input').value.trim();
+            if (messageInput) {
+                const chatMessages = document.getElementById('chat-messages');
+                const newMessage = document.createElement('div');
+                newMessage.textContent = messageInput;
+                chatMessages.appendChild(newMessage);
+                document.getElementById('chat-input').value = ''; // Clear input
+            } else {
+                alert('Please type a message before sending.');
+            }
+        }
+
+        // Assignment Submission
+        function submitAssignment() {
+            const assignmentInput = document.getElementById('assignment-input').value.trim();
+            if (assignmentInput) {
+                alert('Assignment submitted successfully!');
+                document.getElementById('assignment-input').value = ''; // Clear input
+            } else {
+                alert('Please write your assignment before submitting.');
+            }
+        }
+
+        // Timer and Alarm Functionality
+        let timerInterval;
+        let alarmTime;
+
+        function updateTimeDate() {
+            const now = new Date();
+            const timeDateElement = document.getElementById('time-date');
+            const timeString = now.toLocaleTimeString();
+            const dateString = now.toLocaleDateString();
+            timeDateElement.textContent = `Date: ${dateString} | Time: ${timeString}`;
+        }
+
+        function startTimer() {
+            let seconds = 0;
+            timerInterval = setInterval(() => {
+                seconds++;
+                const hours = String(Math.floor(seconds / 3600)).padStart(2, '0');
+                const minutes = String(Math.floor((seconds % 3600) / 60)).padStart(2, '0');
+                const secs = String(seconds % 60).padStart(2, '0');
+                document.getElementById('timer').textContent = `${hours}:${minutes}:${secs}`;
+            }, 1000);
+        }
+
+        function stopTimer() {
+            clearInterval(timerInterval);
+        }
+
+        function resetTimer() {
+            clearInterval(timerInterval);
+            document.getElementById('timer').textContent = '00:00:00';
+        }
+
+        function setAlarm() {
+            const alarmInput = document.getElementById('alarm-time').value;
+            if (alarmInput) {
+                const now = new Date();
+                const [hours, minutes] = alarmInput.split(':').map(Number);
+                alarmTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hours, minutes, 0);
+                alert(`Alarm set for ${alarmTime.toLocaleTimeString()}`);
+                checkAlarm();
+            } else {
+                alert('Please set a valid alarm time.');
+            }
+        }
+
+        function checkAlarm() {
+            setInterval(() => {
+                const now = new Date();
+                if (now >= alarmTime) {
+                    alert('Alarm ringing!');
+                    // Play a sound or alert here
+                    clearInterval(alarmInterval);
+                }
+            }, 1000);
+        }
+
+        // Update time and date every second
+        setInterval(updateTimeDate, 1000);
+
+        // Initialize time and date
+        updateTimeDate();
+    </script>
+</body>
+</html>

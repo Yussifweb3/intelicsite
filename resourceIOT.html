@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IoT Resources</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .header {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .header .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .header .nav-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .header .nav-buttons a {
+            color: white;
+            text-decoration: none;
+            background-color: #3b82f6;
+            padding: 10px 15px;
+            border-radius: 6px;
+            transition: background-color 0.3s, transform 0.3s;
+            font-size: 14px;
+        }
+
+        .header .nav-buttons a:hover {
+            background-color: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: row;
+            padding: 15px;
+            overflow: hidden;
+            flex-grow: 1;
+        }
+
+        .section {
+            padding: 15px;
+            border-radius: 8px;
+            overflow-y: auto;
+            transition: height 0.3s, flex 0.3s;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+            height: calc(100vh - 80px); /* 100vh minus header height */
+            flex: 1;
+            position: relative;
+        }
+
+        .section.collapsed {
+            height: 0;
+            overflow: hidden;
+            flex: 0;
+        }
+
+        .section .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #1e3a8a;
+            position: relative;
+        }
+
+        .section .collapse-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #e53e3e;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .section .collapse-button:hover {
+            background-color: #c53030;
+            transform: translateY(-2px);
+        }
+
+        .section-content {
+            margin-top: 10px;
+        }
+
+        .resource-card, .note-card, .video-card {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .resource-card:hover, .note-card:hover, .video-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .resource-card h3, .note-card h3, .video-card h3 {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .resource-card p, .note-card p, .video-card p {
+            color: #555;
+        }
+
+        .resource-card .resource-link, .note-card .note-link, .video-card .video-link {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 8px;
+            color: #ffffff;
+            background-color: #1e40af;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+            font-size: 12px;
+        }
+
+        .resource-card .resource-link:hover, .note-card .note-link, .video-card .video-link:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .expand-all-button {
+            background-color: #1e40af;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s, transform 0.3s;
+            margin: 15px;
+            align-self: center;
+        }
+
+        .expand-all-button:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .main-content {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .resource-card, .note-card, .video-card {
+                margin: 5px;
+                padding: 10px;
+            }
+            .resource-card h3, .note-card h3, .video-card h3 {
+                font-size: 14px;
+            }
+            .resource-card .resource-link, .note-card .note-link, .video-card .video-link {
+                font-size: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .resource-card, .note-card, .video-card {
+                margin: 3px;
+                padding: 8px;
+            }
+            .resource-card h3, .note-card h3, .video-card h3 {
+                font-size: 12px;
+            }
+            .resource-card .resource-link, .note-card .note-link, .video-card .video-link {
+                font-size: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">IoT Resources</div>
+        <div class="nav-buttons">
+            <a href="dashboardIOT.html">Dashboard</a>
+            <a href="courseSignin.html">Logout</a>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <div class="section books">
+            <button class="collapse-button">Collapse</button>
+            <div class="section-title">IoT Books</div>
+            <div class="section-content">
+                <div class="resource-card">
+                    <h3>Introduction to IoT</h3>
+                    <p>A comprehensive guide to IoT fundamentals.</p>
+                    <a href="#" class="resource-link">View Book</a>
+                </div>
+                <div class="resource-card">
+                    <h3>IoT for Beginners</h3>
+                    <p>Starting with IoT, from basics to applications.</p>
+                    <a href="#" class="resource-link">Download Book</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section notes">
+            <button class="collapse-button">Collapse</button>
+            <div class="section-title">IoT Notes</div>
+            <div class="section-content">
+                <div class="note-card">
+                    <h3>IoT Basics</h3>
+                    <p>Notes on the fundamentals of IoT.</p>
+                    <a href="#" class="note-link">View Notes</a>
+                </div>
+                <div class="note-card">
+                    <h3>IoT Architecture</h3>
+                    <p>Notes on IoT system architecture and components.</p>
+                    <a href="#" class="note-link">View Notes</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section videos">
+            <button class="collapse-button">Collapse</button>
+            <div class="section-title">IoT Videos</div>
+            <div class="section-content">
+                <div class="video-card">
+                    <img src="video-thumbnail.jpg" alt="IoT Overview" class="video-thumbnail">
+                    <h3>Introduction to IoT</h3>
+                    <p>An overview of IoT technology.</p>
+                    <a href="#" class="video-link">Watch Video</a>
+                </div>
+                <div class="video-card">
+                    <img src="video-thumbnail.jpg" alt="IoT Applications" class="video-thumbnail">
+                    <h3>IoT Applications</h3>
+                    <p>Real-world applications of IoT.</p>
+                    <a href="#" class="video-link">Watch Video</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="expand-all-button">Expand All Sections</button>
+
+    <script>
+        function toggleSection(section) {
+            const content = section.querySelector('.section-content');
+            const isCollapsed = section.classList.contains('collapsed');
+            if (isCollapsed) {
+                section.classList.remove('collapsed');
+                content.style.maxHeight = content.scrollHeight + 'px'; // Expand to full height
+            } else {
+                section.classList.add('collapsed');
+                content.style.maxHeight = 0; // Collapse
+            }
+        }
+
+        function expandAllSections() {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('collapsed');
+                section.querySelector('.section-content').style.maxHeight = section.querySelector('.section-content').scrollHeight + 'px';
+            });
+        }
+
+        document.querySelectorAll('.collapse-button').forEach(button => {
+            button.addEventListener('click', function() {
+                toggleSection(this.closest('.section'));
+            });
+        });
+
+        document.querySelector('.expand-all-button').addEventListener('click', expandAllSections);
+    </script>
+</body>
+</html>

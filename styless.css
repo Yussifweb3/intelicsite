@@ -1,0 +1,114 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.form-container, .container {
+    background-color: #fff;
+    padding: 20px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 1000px;
+}
+
+.form-container h2, .container h1 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.form-row, .form-group {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    flex: 1 1 45%;
+    margin: 10px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group.captcha {
+    align-items: center;
+    flex: 1 1 100%;
+}
+
+.form-group input[type="submit"],
+.generate-captcha,
+#delete,
+#deleteAll,
+#print {
+    background-color: #2979FF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+
+.form-group input[type="submit"]:hover,
+.generate-captcha:hover,
+#delete:hover,
+#deleteAll:hover,
+#print:hover {
+    background-color: #004d99;
+}
+
+.form-group .captcha-code {
+    flex: 1;
+    margin-left: 0;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    background-color: #eee;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.form-group input[type="submit"],
+.form-group .generate-captcha {
+    width: 100%;
+}
+
+#databaseTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+#databaseTable th, #databaseTable td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+#databaseTable th {
+    background-color: #f8f9fa;
+}

@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Home Page</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+       /* General Styles */
+       body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #0056a6;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0056a6;
+    padding: 10px;
+}
+
+.navbar a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger i {
+    font-size: 24px;
+    color: white;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Media Query for smaller screens */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #333;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        text-align: left;
+        padding: 15px 20px;
+        border-bottom: 1px solid #444;
+        display: flex;
+        align-items: center;
+        gap: 10px;  /* Added spacing between icons and text */
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+
+
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+    background-color: #0056a6;
+}
+
+.carousel img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    position: absolute;
+    transition: opacity 1s ease-in-out;
+}
+
+.hero {
+    position: relative;
+    background: url('hero-image.jpg') no-repeat center center/cover;
+    height: 500px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin: 0;
+}
+
+.hero p {
+    font-size: 1.2em;
+}
+
+.hero .cta-buttons a {
+    margin: 10px;
+    padding: 15px 25px;
+    background-color: #ffd700;
+    color: #0056a6;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.hero .cta-buttons a:hover {
+    background-color: #333;
+    color: white;
+}
+
+.hero .cta-buttons img {
+    margin-top: 20px;
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Animation Styles */
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Apply animation to sections */
+.section {
+    opacity: 0;
+    transition: opacity 1s ease-out, transform 1s ease-out, background-color 1s ease-out;
+}
+
+.section.animate {
+    opacity: 1;
+}
+
+.section.fadeInUp {
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.section.slideIn {
+    animation: slideIn 1s ease-out forwards;
+}
+
+.section {
+    padding: 50px 0;
+    background-color: #fff;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+/* FontAwesome Icons */
+.fa {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900; /* Adjust this based on the weight you are using (e.g., 400 for regular, 900 for solid) */
+    transition: color 0.3s, transform 0.3s;
+}
+
+/* Icon Hover Effects */
+.card i {
+    font-size: 24px; /* Adjust size as needed */
+    color: #0056a6; /* Default icon color */
+    transition: color 0.3s, transform 0.3s;
+}
+
+.card:hover i {
+    color: #ffd700; /* Icon color on card hover */
+    transform: scale(1.1); /* Slightly scale up icon on hover */
+}
+
+/* Navbar Icons */
+.navbar i {
+    font-size: 18px; /* Adjust size as needed */
+    transition: color 0.3s;
+}
+
+.navbar a:hover i {
+    color: #ffd700; /* Icon color on hover */
+}
+
+/* Hero Section Icons */
+.hero {
+    position: relative;
+    background: url('hero-image.jpg') no-repeat center center/cover;
+    height: 500px;
+    color: #0056a6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px; /* Add some padding */
+    box-sizing: border-box; /* Ensure padding is included in the total width/height */
+}
+
+.hero img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    margin-top: 20px;
+    display: block;
+}
+
+
+.hero .cta-buttons i {
+    margin-right:0px;
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center; /* Center-align items horizontally */
+    justify-content: center; /* Center-align items vertically */
+}
+
+.hero .cta-buttons a {
+    margin: 10px;
+    padding: 15px 25px;
+    background-color: #ffd700;
+    color: #0056a6;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.hero .cta-buttons a:hover {
+    background-color: #333;
+    color: white;
+}
+
+.hero .cta-buttons img {
+    margin-top: 20px;
+    max-width: 100%;
+    height: auto;
+    display: block; /* Ensure image is displayed as a block element */
+    margin-left: auto; /* Center the image horizontally */
+    margin-right: auto; /* Center the image horizontally */
+}
+
+
+.hero .cta-buttons a:hover i {
+    color: #0056a6; /* Icon color on CTA button hover */
+}
+
+
+.card {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 30%;
+    margin: 20px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card h3 {
+    margin: 15px 0;
+}
+
+.card p {
+    padding: 0 15px 15px;
+}
+
+.card a {
+    display: block;
+    margin: 15px;
+    padding: 10px 20px;
+    background-color: #0056a6;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.card a:hover {
+    background-color: #ffd700;
+    color: #0056a6;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    background-color: #f4f4f4;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.footer {
+    background-color: #0056a6;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+    transition: text-decoration 0.3s;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.testimonials, .faculty, .stories {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.testimonial, .faculty-member, .story {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 30%;
+    margin: 20px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.testimonial img, .faculty-member img, .story img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.testimonial p, .faculty-member p, .story p {
+    padding: 15px;
+}
+
+.testimonial h3, .faculty-member h3, .story h3 {
+    margin: 15px 0;
+}
+
+.newsletter {
+    text-align: center;
+    padding: 20px;
+    background-color: #0056a6;
+    color: white;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.newsletter input[type="email"] {
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.newsletter button {
+    padding: 10px 20px;
+    background-color: #ffd700;
+    color: #0056a6;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.newsletter button:hover {
+    background-color: #333;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .cards, .testimonials, .faculty, .stories {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card, .testimonial, .faculty-member, .story {
+        width: 80%;
+    }
+}
+/* Container for buttons and image */
+.buttons-container {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center-align items horizontally */
+    justify-content: center; /* Center-align items vertically */
+    position: relative; /* Relative positioning for child elements */
+    padding: 20px; /* Adjust padding as needed */
+}
+
+/* Image styling */
+.buttons-container img {
+    width: 100%; /* Adjust width to fit container */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 600px; /* Set a max width if needed */
+    margin-bottom: 20px; /* Space between image and buttons */
+}
+
+/* Buttons styling */
+.buttons-container .btn {
+    background-color: #0056a6; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none; /* Remove default border */
+    padding: 10px 20px; /* Button padding */
+    margin: 5px; /* Space between buttons */
+    font-size: 16px; /* Button text size */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth background color change */
+}
+
+.buttons-container .btn:hover {
+    background-color: #003d7a; /* Darker color on hover */
+}
+
+</style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our University</h1>
+    </header>
+
+    <div class="carousel">
+        <img src="IMAGES/uniho.jpg" alt="Carousel 1" class="active">
+        <img src="IMAGES/uniho1.jpg" alt="Carousel 2">
+        <img src="IMAGES/uniho2.jpg" alt="Carousel 3">
+    </div>
+
+    <div class="navbar">
+        <div class="hamburger" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div id="nav-links" class="nav-links">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="uniabout2.html"><i class="fas fa-info-circle"></i> About Us</a>
+            <a href="uniacademics.html"><i class="fas fa-book"></i> Academics</a>
+            <a href="uniadmission2.html"><i class="fas fa-pen"></i> Admissions</a>
+            <a href="unilife.html"><i class="fas fa-graduation-cap"></i> Campus Life</a>
+            <a href="uniresearch.html"><i class="fas fa-flask"></i> Research</a>
+            <a href="uni-news-events.html"><i class="fas fa-calendar-alt"></i> News & Events</a>
+            <a href="unicontact2.html"><i class="fas fa-envelope"></i> Contact Us</a>
+        </div>
+    </div>
+    
+
+    <section class="hero">
+        <div>
+            <h1>Your Future Starts Here</h1>
+            <p>Join our community and make a difference.</p>
+            <div class="cta-buttons">
+                <a href="apply.html">Apply Now</a>
+                <a href="visit.html">Visit Campus</a>
+               
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <section class="section">
+            <h2>Featured Programs</h2>
+            <div class="cards">
+                <div class="card">
+                    <img src="IMAGES/ung.jpg" alt="Program 1">
+                    <h3>Undergraduate Programs</h3>
+                    <p>Explore our diverse range of undergraduate programs designed to shape your future.</p>
+                    <a href="uniundergraduate.html">Learn More</a>
+                </div>
+                <div class="card">
+                    <img src="IMAGES/gr1.jpg" alt="Program 2">
+                    <h3>Graduate Programs</h3>
+                    <p>Advance your career with our comprehensive graduate programs.</p>
+                    <a href="unigraduate.html">Learn More</a>
+                </div>
+                <div class="card">
+                    <img src="IMAGES/al.jpg" alt="Program 3">
+                    <h3>Professional Courses</h3>
+                    <p>Flexible advanced courses to fit your busy schedule and learning style.</p>
+                    <a href="advance.html">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Latest News</h2>
+            <div class="cards">
+                <div class="card">
+                    <img src="IMAGES/prg.jpg" alt="News 1">
+                    <h3>partmeship with leading universities</h3>
+                    <p>Our campus is growing! Discover our new state-of-the-art facilities.</p>
+                    <a href="unipartnership.html">Read More</a>
+                </div>
+                <div class="card">
+                    <img src="IMAGES/rh.jpg" alt="News 2">
+                    <h3>Research Highlights</h3>
+                    <p>Read about the latest research projects and breakthroughs from our faculty.</p>
+                    <a href="uniresearchh.html">Read More</a>
+                </div>
+                <div class="card">
+                    <img src="IMAGES/ac.jpg" alt="News 3">
+                    <h3>Student Achievements</h3>
+                    <p>Celebrate the accomplishments of our talented students.</p>
+                    <a href="uniacheivement.html">Read More</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Testimonials</h2>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <img src="IMAGES/ts4.jpg" alt="Testimonial 1">
+                    <h3>Jane Doe</h3>
+                    <p>"The best decision I ever made was to join this university. The faculty and resources are top-notch."</p>
+                </div>
+                <div class="testimonial">
+                    <img src="IMAGES/ts2.jpg" alt="Testimonial 2">
+                    <h3>John Smith</h3>
+                    <p>"I have grown so much academically and personally. The support here is incredible."</p>
+                </div>
+                <div class="testimonial">
+                    <img src="IMAGES/ts3.jpg" alt="Testimonial 3">
+                    <h3>Emily Johnson</h3>
+                    <p>"Amazing campus life and opportunities for growth. I love being a part of this community."</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Our Unique Features</h2>
+            <div class="stories">
+                <div class="story">
+                    <img src="IMAGES/fl.jpg" alt="Online Learning">
+                    <h3>Flexible Online Learning</h3>
+                    <p>Access cutting-edge technology courses from anywhere, anytime, with our flexible online learning platform.</p>
+                </div>
+                <div class="story">
+                    <img src="IMAGES/com.jpg" alt="Global Community">
+                    <h3>Global Community</h3>
+                    <p>Join a diverse community of learners and professionals from around the world, sharing knowledge and collaborating on projects.</p>
+                </div>
+                <div class="story">
+                    <img src="IMAGES/pt.jpg" alt="Industry Partnerships">
+                    <h3>Industry Partnerships</h3>
+                    <p>Benefit from our strong partnerships with leading tech companies, gaining insights and opportunities for real-world applications.</p>
+                </div>
+            </div>
+        </section>
+        
+
+        <section class="section">
+            <h2>Student Stories</h2>
+            <div class="stories">
+                <div class="story">
+                    <img src="IMAGES/st.jpg" alt="Story 1">
+                    <h3>Michael Lee</h3>
+                    <p>"My experience here has been transformative. I have gained so much knowledge and confidence."</p>
+                </div>
+                <div class="story">
+                    <img src="IMAGES/st1.jpg" alt="Story 2">
+                    <h3>Sarah Kim</h3>
+                    <p>"The diversity and inclusivity at this university have enriched my education and perspective."</p>
+                </div>
+                <div class="story">
+                    <img src="IMAGES/st2.jpg" alt="Story 3">
+                    <h3>David Martinez</h3>
+                    <p>"I have made lifelong friends and connections that will help me in my career."</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Stay updated with the latest news and events from our university.</p>
+            <form>
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Intelic. All rights reserved.</p>
+        <p><a href="unipravacy.html">Privacy Policy</a> | <a href="uniterms.html">Terms of Service</a></p>
+    </footer>
+
+    <script>
+      let currentImageIndex = 0;
+const images = document.querySelectorAll('.carousel img');
+images[currentImageIndex].style.opacity = 1;
+
+setInterval(() => {
+    images[currentImageIndex].style.opacity = 0;
+    currentImageIndex = (currentImageIndex + 1) % images.length;
+    images[currentImageIndex].style.opacity = 1;
+}, 3000);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('.section');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate', 'fadeInUp');
+            } else {
+                entry.target.classList.remove('animate', 'fadeInUp');
+            }
+        });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+});
+
+function toggleMenu() {
+    var navLinks = document.getElementById("nav-links");
+    if (navLinks.style.display === "block") {
+        navLinks.style.display = "none";
+    } else {
+        navLinks.style.display = "block";
+    }
+}
+
+
+
+    </script>
+</body>
+</html>

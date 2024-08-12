@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Library Bookshelves</title>
+    <meta name="description" content="Explore a wide range of AI-related books in our e-library covering various aspects of artificial intelligence including machine learning, deep learning, and more.">
+    <meta name="keywords" content="AI, artificial intelligence, machine learning, deep learning, neural networks, online library">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .header {
+            background-color: #004d99;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+        }
+        .navbar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 200px;
+            background-color: #004d99;
+            color: #fff;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+        }
+        .navbar .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        .navbar .nav-links a:hover {
+            text-decoration: underline;
+        }
+        .main-content {
+            margin-left: 220px;
+            padding: 20px;
+            flex: 1;
+        }
+        .shelf {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .shelf h2 {
+            margin-top: 0;
+        }
+        .shelf-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .shelf-card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            margin: 10px;
+            padding: 20px;
+            width: 220px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .shelf-card:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: translateY(-10px);
+        }
+        .shelf-card img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .shelf-card h3 {
+            margin-top: 0;
+        }
+        .shelf-card p {
+            margin-bottom: 10px;
+        }
+        .shelf-card .read-button {
+            background-color: #2979FF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .shelf-card .read-button:hover {
+            background-color: #0056b3;
+        }
+        .footer {
+            background-color: #004d99;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+            width: 100%;
+            position: relative;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .navbar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                box-shadow: none;
+            }
+            .navbar .nav-links a {
+                margin-bottom: 10px;
+            }
+            .main-content {
+                margin-left: 0;
+            }
+            .shelf-card {
+                width: calc(50% - 20px);
+                margin: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .shelf-card {
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">E-Library Bookshelves</div>
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="library.html">Home</a>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <!-- Shelf 1 -->
+        <div class="shelf">
+            <h2>Introduction to AI</h2>
+            <div class="shelf-container">
+                <div class="shelf-card" onclick="window.location.href='book.html'">
+                    <img src="https://via.placeholder.com/150" alt="Artificial Intelligence: A Modern Approach">
+                    <h3>Artificial Intelligence: A Modern Approach</h3>
+                    <p>A comprehensive introduction to AI concepts and techniques.</p>
+                    <a href="book.html" class="read-button">Read Me</a>
+                </div>
+                <div class="shelf-card" onclick="window.location.href='book.html'">
+                    <img src="https://via.placeholder.com/150" alt="Deep Learning">
+                    <h3>Deep Learning</h3>
+                    <p>Insights into deep learning techniques and applications.</p>
+                    <a href="book.html" class="read-button">Read Me</a>
+                </div>
+                <!-- Add more cards as needed -->
+            </div>
+        </div>
+
+        <!-- Shelf 2 -->
+        <div class="shelf">
+            <h2>Machine Learning</h2>
+            <div class="shelf-container">
+                <div class="shelf-card" onclick="window.location.href='book.html'">
+                    <img src="https://via.placeholder.com/150" alt="Pattern Recognition and Machine Learning">
+                    <h3>Pattern Recognition and Machine Learning</h3>
+                    <p>A detailed guide to pattern recognition and machine learning algorithms.</p>
+                    <a href="book.html" class="read-button">Read Me</a>
+                </div>
+                <div class="shelf-card" onclick="window.location.href='book.html'">
+                    <img src="https://via.placeholder.com/150" alt="Machine Learning Yearning">
+                    <h3>Machine Learning Yearning</h3>
+                    <p>Strategies for structuring machine learning projects effectively.</p>
+                    <a href="book.html" class="read-button">Read Me</a>
+                </div>
+                <!-- Add more cards as needed -->
+            </div>
+        </div>
+
+        <!-- Shelf 3 -->
+        <div class="shelf">
+            <h2>Neural Networks</h2>
+            <div class="shelf-container">
+                <div class="shelf-card" onclick="window.location.href='book.html'">
+                    <img src="https://via.placeholder.com/150" alt="Neural Networks and Deep Learning">
+                    <h3>Neural Networks and Deep Learning</h3>
+                    <p>An in-depth look at neural networks and their applications in deep learning.</p>
+                    <a href="book.html" class="read-button">Read Me</a>
+                </div>
+                <div class="shelf-card" onclick="window.location.href='book.html'">
+                    <img src="https://via.placeholder.com/150" alt="Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow">
+                    <h3>Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow</h3>
+                    <p>A practical guide to building machine learning models using popular libraries.</p>
+                    <a href="book.html" class="read-button">Read Me</a>
+                </div>
+                <!-- Add more cards as needed -->
+            </div>
+        </div>
+
+        <!-- Shelf 4 -->
+        <div class="shelf">
+            <h2>AI Ethics</h2>
+            <div class="shelf-container">
+                <div class="shelf-card" onclick="window.location.href='book.html'">
+                    <img src="https://via.placeholder.com/150" alt="Ethics of Artificial Intelligence and Robotics">
+                    <h3>Ethics of Artificial Intelligence and Robotics</h3>
+                    <p>Exploring the ethical implications of AI and robotics.</p>
+                    <a href="book.html" class="read-button">Read Me</a>
+                </div>
+                <div class="shelf-card" onclick="window.location.href='book.html'">
+                    <img src="https://via.placeholder.com/150" alt="AI Superpowers">
+                    <h3>AI Superpowers</h3>
+                    <p>Understanding the global impact of AI and the future of artificial intelligence.</p>
+                    <a href="book.html" class="read-button">Read Me</a>
+                </div>
+                <!-- Add more cards as needed -->
+            </div>
+        </div>
+
+        <!-- Shelf 5 -->
+        <div class="shelf">
+            <h2>AI Applications</h2>
+            <div class="shelf-container">
+                <div class="shelf-card" onclick="window.location.href='book.html'">
+                    <img src="https://via.placeholder.com/150" alt="AI for Everyone">
+                    <h3>AI for Everyone</h3>
+                    <p>An accessible introduction to AI applications in various industries.</p>
+                    <a href="book.html" class="read-button">Read Me</a>
+                </div>
+                <div class="shelf-card" onclick="window.location.href='book.html'">
+                    <img src="https://via.placeholder.com/150" alt="AI in Healthcare">
+                    <h3>AI in Healthcare</h3>
+                    <p>Exploring how AI is transforming the healthcare industry.</p>
+                    <a href="book.html" class="read-button">Read Me</a>
+                </div>
+                <!-- Add more cards as needed -->
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        &copy; 2024 E-Library. All rights reserved.
+    </footer>
+</body>
+</html>

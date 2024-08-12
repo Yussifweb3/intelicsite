@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholarship Opportunities</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #0056a6;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #0056a6;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar a i {
+            margin-right: 8px;
+        }
+
+        .navbar a:hover {
+            background-color: #ffd700;
+            color: #0056a6;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin: 0;
+        }
+
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            height: 300px;
+            background-color: #0056a6;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            position: absolute;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section {
+            padding: 50px 0;
+            background-color: #fff;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .highlight div {
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 30%;
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .highlight div.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .highlight div:hover {
+            transform: translateY(-10px);
+        }
+
+        .highlight i {
+            font-size: 40px;
+            margin-bottom: 10px;
+            color: #0056a6;
+        }
+
+        .footer {
+            background-color: #0056a6;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .navbar ul {
+                flex-direction: column;
+                display: none;
+                width: 100%;
+                background-color: #0056a6;
+            }
+
+            .navbar ul.active {
+                display: flex;
+            }
+
+            .highlight div {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Scholarship Opportunities</h1>
+    </header>
+
+    <nav class="navbar">
+        <span class="hamburger"><i class="fas fa-bars"></i></span>
+        <ul>
+            <li><a href="#"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="#"><i class="fas fa-user"></i>About Us</a></li>
+            <li><a href="#"><i class="fas fa-book"></i>Academics</a></li>
+            <li><a href="#"><i class="fas fa-graduation-cap"></i>Scholarships</a></li>
+            <li><a href="#"><i class="fas fa-university"></i>Admissions</a></li>
+            <li><a href="#"><i class="fas fa-building"></i>Campus Life</a></li>
+            <li><a href="#"><i class="fas fa-flask"></i>Research</a></li>
+            <li><a href="#"><i class="fas fa-envelope"></i>Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section class="section">
+            <h2>Our Scholarship Programs</h2>
+            <p>Our university offers a range of scholarships to help talented students achieve their academic goals. These scholarships are designed to support students financially and recognize their academic and extracurricular achievements.</p>
+            <div class="highlight">
+                <div>
+                    <i class="fas fa-star"></i>
+                    <h3>Merit-Based Scholarships</h3>
+                    <p>Aimed at students who demonstrate exceptional academic performance and potential. Awards are based on academic records and standardized test scores.</p>
+                </div>
+                <div>
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Need-Based Scholarships</h3>
+                    <p>Designed for students who require financial assistance to pursue their studies. These scholarships are awarded based on the financial need of the applicants.</p>
+                </div>
+                <div>
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <h3>Community Service Scholarships</h3>
+                    <p>For students who have made significant contributions to their communities through volunteer work or social initiatives. Recognizes the impact of community involvement.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>How to Apply</h2>
+            <p>Applying for scholarships is straightforward. Interested students should complete an application form and submit it along with their academic records, letters of recommendation, and any other required documents. For specific details on each scholarship, please refer to the individual scholarship guidelines on our website.</p>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Your University Name. All Rights Reserved.</p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <script>
+        // Toggle Navbar
+        document.querySelector('.hamburger').addEventListener('click', function () {
+            document.querySelector('.navbar ul').classList.toggle('active');
+        });
+
+        // Scroll Effect
+        const sections = document.querySelectorAll('.section, .highlight div');
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+
+</html>

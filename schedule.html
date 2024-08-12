@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Live Class or Book a Call</title>
+    <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-firestore.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #f3f4f6, #e5e7eb);
+            color: #333;
+        }
+        header {
+            background-color: #1f2937;
+            color: #f3f4f6;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 4px solid #3b82f6;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 600;
+        }
+        nav {
+            background-color: #3b82f6;
+            padding: 10px 0;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #dbeafe;
+        }
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            margin-top: 0;
+            font-size: 2em;
+            color: #1f2937;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .form-group label {
+            font-weight: bold;
+            color: #1f2937;
+        }
+        .form-group input, .form-group textarea {
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            background-color: #f3f4f6;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+            background-color: #fff;
+        }
+        .form-group textarea {
+            resize: vertical;
+            height: 100px;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 1.1em;
+            color: #fff;
+            background-color: #3b82f6;
+            border: none;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #2563eb;
+            transform: scale(1.05);
+        }
+        footer {
+            background-color: #1f2937;
+            color: #f3f4f6;
+            text-align: center;
+            padding: 20px 0;
+            border-top: 4px solid #3b82f6;
+            margin-top: 20px;
+            position: relative;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Schedule a Live Class or Book a Call</h1>
+    </header>
+    
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="courses.html">Courses</a>
+        
+    </nav>
+
+    <div class="container">
+        <h2>Schedule a Live Class</h2>
+        <form id="liveClassForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="country">Country:</label>
+                <input type="text" id="country" name="country" required>
+            </div>
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="learn">What do you want to learn in the live class?</label>
+                <textarea id="learn" name="learn" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="time">Preferred Time:</label>
+                <input type="datetime-local" id="time" name="time" required>
+            </div>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+
+        <h2>Book a Call</h2>
+        <form id="bookCallForm">
+            <div class="form-group">
+                <label for="callName">Name:</label>
+                <input type="text" id="callName" name="callName" required>
+            </div>
+            <div class="form-group">
+                <label for="callEmail">Email:</label>
+                <input type="email" id="callEmail" name="callEmail" required>
+            </div>
+            <div class="form-group">
+                <label for="callPhone">Phone:</label>
+                <input type="tel" id="callPhone" name="callPhone" required>
+            </div>
+            <div class="form-group">
+                <label for="reason">Reason for the Call:</label>
+                <textarea id="reason" name="reason" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="callTime">Preferred Time:</label>
+                <input type="datetime-local" id="callTime" name="callTime" required>
+            </div>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 AI Course Tutorials. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDhQsqpvy6-cpGm_d1J8qdo9H4EkmQn9AI",
+            authDomain: "intelic.firebaseapp.com",
+            projectId: "intelic",
+            storageBucket: "intelic.appspot.com",
+            messagingSenderId: "812703180714",
+            appId: "1:812703180714:web:7c1a650afc57669fbc2dd3",
+            measurementId: "G-DXVV9XD45S"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        document.getElementById('liveClassForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const name = e.target.name.value;
+            const country = e.target.country.value;
+            const city = e.target.city.value;
+            const phone = e.target.phone.value;
+            const email = e.target.email.value;
+            const learn = e.target.learn.value;
+            const time = e.target.time.value;
+
+            try {
+                await db.collection('liveClasses').add({
+                    name,
+                    country,
+                    city,
+                    phone,
+                    email,
+                    learn,
+                    time
+                });
+                alert('Live class scheduled successfully!');
+                e.target.reset();
+            } catch (error) {
+                console.error('Error adding document: ', error);
+                alert('Failed to schedule live class.');
+            }
+        });
+
+        document.getElementById('bookCallForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const callName = e.target.callName.value;
+            const callEmail = e.target.callEmail.value;
+            const callPhone = e.target.callPhone.value;
+            const reason = e.target.reason.value;
+            const callTime = e.target.callTime.value;
+
+            try {
+                await db.collection('bookCalls').add({
+                    callName,
+                    callEmail,
+                    callPhone,
+                    reason,
+                    callTime
+                });
+                alert('Call booked successfully!');
+                e.target.reset();
+            } catch (error) {
+                console.error('Error adding document: ', error);
+                alert('Failed to book call.');
+            }
+        });
+    </script>
+</body>
+</html>

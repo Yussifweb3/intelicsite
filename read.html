@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Library Shelves</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #2979FF;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+            margin-top: 1rem;
+        }
+
+        .sidebar {
+            width: 220px;
+            background-color:#2979FF;
+            color: white;
+            padding: 1rem;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            overflow-y: auto;
+        }
+
+        .sidebar h2 {
+            font-size: 1.2rem;
+            margin-top: 0;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem 0;
+        }
+
+        .sidebar a:hover {
+            background-color: #2979FF;
+        }
+
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            margin-left: 220px; /* Space for sidebar */
+        }
+
+        .notes {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            background-color: #ECF0F1;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+        }
+
+        .shelves {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            background-color: #F4F4F4;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
+        }
+
+        .shelf {
+            margin-bottom: 2rem;
+        }
+
+        .shelf h2 {
+            font-size: 1.5rem;
+            color: #2C3E50;
+        }
+
+        .shelf-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .shelf-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            flex: 1 1 calc(33.333% - 1rem); /* 3 cards per row */
+            max-width: calc(33.333% - 1rem);
+        }
+
+        .shelf-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .shelf-card h3 {
+            margin: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .shelf-card p {
+            margin: 0.5rem;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .shelf-card .read-button {
+            display: block;
+            text-align: center;
+            background: #2979FF;
+            color: white;
+            padding: 0.5rem;
+            text-decoration: none;
+            border-radius: 0 0 10px 10px;
+            transition: background-color 0.3s;
+        }
+
+        .shelf-card .read-button:hover {
+            background-color:#2979FF;
+        }
+
+        .shelf-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .footer {
+            background-color: #2979FF;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>uNIRESEARCH</h1>
+    </header>
+    <div class="container">
+        <div class="sidebar">
+            <h2>uNIRESEARCH</h2>
+            <a href="research.html">Home</a>
+            <a href="library.html">E-Library</a>
+            <a href="courses.html">courses</a>
+            <!-- Add more shelf links as needed -->
+            <h2>Related Articles</h2>
+            <a href="#remaining-subjects">Article1</a>
+            <a href="#remaining-subjects">Article1</a>
+            <a href="#remaining-subjects">Article1</a>
+            <a href="#remaining-subjects">Article1</a>
+            <a href="#remaining-subjects">Article1</a>
+            <a href="#remaining-subjects">Article1</a>
+            <a href="#remaining-subjects">Article1</a>
+        </div>
+        <div class="content">
+            <!-- Notes Area -->
+            <div class="notes">
+                <h2>Notes</h2>
+                <p>This area can be used to display any additional information, updates, or notes related to the library. It can include details about new arrivals, announcements, or featured books.</p>
+                <p>Feel free to scroll this section up and down to view all notes and information.</p>
+                <h2>Notes</h2>
+                <p>This area can be used to display any additional information, updates, or notes related to the library. It can include details about new arrivals, announcements, or featured books.</p>
+                <p>Feel free to scroll this section up and down to view all notes and information.</p><h2>Notes</h2>
+                <p>This area can be used to display any additional information, updates, or notes related to the library. It can include details about new arrivals, announcements, or featured books.</p>
+                <p>Feel free to scroll this section up and down to view all notes and information.</p><h2>Notes</h2>
+                <p>This area can be used to display any additional information, updates, or notes related to the library. It can include details about new arrivals, announcements, or featured books.</p>
+                <p>Feel free to scroll this section up and down to view all notes and information.</p><h2>Notes</h2>
+                <p>This area can be used to display any additional information, updates, or notes related to the library. It can include details about new arrivals, announcements, or featured books.</p>
+                <p>Feel free to scroll this section up and down to view all notes and information.</p><h2>Notes</h2>
+                <p>This area can be used to display any additional information, updates, or notes related to the library. It can include details about new arrivals, announcements, or featured books.</p>
+                <p>Feel free to scroll this section up and down to view all notes and information.</p><h2>Notes</h2>
+                <p>This area can be used to display any additional information, updates, or notes related to the library. It can include details about new arrivals, announcements, or featured books.</p>
+                <p>Feel free to scroll this section up and down to view all notes and information.</p><h2>Notes</h2>
+                <p>This area can be used to display any additional information, updates, or notes related to the library. It can include details about new arrivals, announcements, or featured books.</p>
+                <p>Feel free to scroll this section up and down to view all notes and information.</p><h2>Notes</h2>
+                <p>This area can be used to display any additional information, updates, or notes related to the library. It can include details about new arrivals, announcements, or featured books.</p>
+                <p>Feel free to scroll this section up and down to view all notes and information.</p><h2>Notes</h2>
+                <p>This area can be used to display any additional information, updates, or notes related to the library. It can include details about new arrivals, announcements, or featured books.</p>
+                <p>Feel free to scroll this section up and down to view all notes and information.</p><h2>Notes</h2>
+                <p>This area can be used to display any additional information, updates, or notes related to the library. It can include details about new arrivals, announcements, or featured books.</p>
+                <p>Feel free to scroll this section up and down to view all notes and information.</p><h2>Notes</h2>
+                <p>This area can be used to display any additional information, updates, or notes related to the library. It can include details about new arrivals, announcements, or featured books.</p>
+                <p>Feel free to scroll this section up and down to view all notes and information.</p>
+                <!-- Add more notes as needed -->
+            </div>
+            <!-- Books Shelves -->
+            <div class="shelves">
+                <!-- Shelf 1 -->
+                <div class="shelf" id="shelf1">
+                    <h2>Technology</h2>
+                    <div class="shelf-container">
+                        <div class="shelf-card">
+                            <img src="IMAGES/tb.jpg" alt="Book 1">
+                            <h3>Tech Innovations</h3>
+                            <p>Explore the latest advancements in technology.</p>
+                            <a href="book.html" class="read-button">Read Me</a>
+                        </div>
+                        <div class="shelf-card">
+                            <img src="IMAGES/tb1.jpg" alt="Book 2">
+                            <h3>Future Tech</h3>
+                            <p>Predictions and emerging trends in technology.</p>
+                            <a href="book.html" class="read-button">Read Me</a>
+                        </div>
+                        <!-- Add more cards as needed -->
+                    </div>
+                </div>
+
+                <!-- Shelf 2 -->
+                <div class="shelf" id="shelf2">
+                    <h2>Science</h2>
+                    <div class="shelf-container">
+                        <div class="shelf-card">
+                            <img src="IMAGES/tb2.jpg" alt="Book 3">
+                            <h3>Physics Fundamentals</h3>
+                            <p>Understanding the basics of physics and its applications.</p>
+                            <a href="book.html" class="read-button">Read Me</a>
+                        </div>
+                        <div class="shelf-card">
+                            <img src="IMAGES/tb3.jpg" alt="Book 4">
+                            <h3>Chemistry Essentials</h3>
+                            <p>A guide to essential chemistry concepts and experiments.</p>
+                            <a href="book.html" class="read-button">Read Me</a>
+                        </div>
+                        <!-- Add more cards as needed -->
+                    </div>
+                </div>
+
+                <!-- Shelf 3 -->
+                <div class="shelf" id="shelf3">
+                    <h2>Economics</h2>
+                    <div class="shelf-container">
+                        <div class="shelf-card">
+                            <img src="IMAGES/ec.jpg" alt="Book 5">
+                            <h3>Market Dynamics</h3>
+                            <p>An in-depth analysis of market behaviors and trends.</p>
+                            <a href="book.html" class="read-button">Read Me</a>
+                        </div>
+                        <div class="shelf-card">
+                            <img src="IMAGES/ec1.jpg" alt="Book 6">
+                            <h3>Global Finance</h3>
+                            <p>A comprehensive guide to global financial systems and practices.</p>
+                            <a href="book.html" class="read-button">Read Me</a>
+                        </div>
+                        <!-- Add more cards as needed -->
+                    </div>
+                </div>
+
+                <!-- Remaining Subjects -->
+                <div class="shelf" id="remaining-subjects">
+                    <h2>Remaining Subjects</h2>
+                    <div class="shelf-container">
+                        <div class="shelf-card" onclick="displayBooks('subject1')">
+                            <img src="IMAGES/ec2.jpg" alt="Bookshelf 1">
+                            <h3>Subject 1</h3>
+                            <p>Description for subject 1.</p>
+                        </div>
+                        <div class="shelf-card" onclick="displayBooks('subject2')">
+                            <img src="IMAGES/ec3.jpg" alt="Bookshelf 2">
+                            <h3>Subject 2</h3>
+                            <p>Description for subject 2.</p>
+                        </div>
+                        <!-- Add more subject cards as needed -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2024 E-Library. All rights reserved.</p>
+    </footer>
+    <script>
+        function displayBooks(subject) {
+            alert('Displaying books for ' + subject);
+            // You can implement the actual display logic here
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Our Data Science Faculty</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #00796b;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #00796b;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+        }
+
+        .navbar a:hover {
+            background-color: #004d40;
+            color: white;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section {
+            padding: 50px 0;
+            background-color: #fff;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            color: #00796b;
+        }
+
+        .ds-cards {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .ds-card {
+            background-color: white;
+            border-radius: 10px;
+            width: 30%;
+            margin: 20px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+
+        .ds-card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transform: translateY(-10px);
+        }
+
+        .ds-card i {
+            font-size: 4em;
+            margin-bottom: 20px;
+            color: #00796b;
+        }
+
+        .ds-card h3 {
+            font-size: 1.5em;
+            color: #00796b;
+            margin-bottom: 15px;
+        }
+
+        .ds-card p {
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+
+        .ds-card a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #00796b;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .ds-card a:hover {
+            background-color: #004d40;
+        }
+
+        .footer {
+            background-color: #00796b;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Shaping the Future with Data Science</h1>
+    </header>
+
+    <nav class="navbar">
+        <a href="#"><i class="fas fa-home"></i> Home</a>
+        <a href="#"><i class="fas fa-book"></i> Library</a>
+        <a href="#"><i class="fas fa-laptop"></i> Labs</a>
+        <a href="#"><i class="fas fa-dumbbell"></i> Fitness</a>
+        <a href="#"><i class="fas fa-envelope"></i> Contact</a>
+    </nav>
+
+    <div class="container">
+        <section class="section">
+            <h2>Unlock the Power of Data</h2>
+            <div class="ds-cards">
+                <div class="ds-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Data Analytics</h3>
+                    <p>Our data analytics courses will teach you how to interpret data and make informed business decisions.</p>
+                    <a href="#">Explore Analytics</a>
+                </div>
+                <div class="ds-card">
+                    <i class="fas fa-database"></i>
+                    <h3>Big Data</h3>
+                    <p>Dive into the world of big data. Learn to manage and analyze large datasets with our comprehensive courses.</p>
+                    <a href="#">Discover Big Data</a>
+                </div>
+                <div class="ds-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>Machine Learning</h3>
+                    <p>Explore machine learning and its applications in predictive analytics, data mining, and more.</p>
+                    <a href="#">Master Machine Learning</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Our University. All rights reserved.</p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+</body>
+
+</html>

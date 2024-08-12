@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graduate Programs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #0056a6;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #0056a6;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+            position: relative;
+        }
+
+        .navbar a:hover {
+            background-color: #ffd700;
+            color: #0056a6;
+        }
+
+        .navbar a i {
+            margin-right: 8px;
+        }
+
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            height: 300px;
+            background-color: #0056a6;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            position: absolute;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section {
+            padding: 50px 0;
+            background-color: #fff;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .section .icon {
+            font-size: 24px;
+            color: #0056a6;
+            margin-right: 10px;
+        }
+
+        .section .point {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .section .point h3 {
+            font-size: 18px;
+            margin: 0;
+        }
+
+        .footer {
+            background-color: #0056a6;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+            }
+
+            .navbar a {
+                text-align: center;
+                padding: 10px;
+            }
+
+            .carousel img {
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Graduate Programs</h1>
+    </header>
+
+    <nav class="navbar">
+        <a href="#"><i class="fas fa-home"></i>Home</a>
+        <a href="#"><i class="fas fa-book"></i>Graduate Programs</a>
+        <a href="#"><i class="fas fa-graduation-cap"></i>Admissions</a>
+        <a href="#"><i class="fas fa-dollar-sign"></i>Financial Aid</a>
+        <a href="#"><i class="fas fa-file-alt"></i>Application Process</a>
+        <a href="#"><i class="fas fa-envelope"></i>Contact Us</a>
+    </nav>
+
+    <div class="carousel">
+        <img src="IMAGES/gr.jpg" alt="Graduate Programs Image 1" class="active">
+        <img src="IMAGES/gr2.jpg" alt="Graduate Programs Image 2">
+        <img src="IMAGES/gr1.jpg" alt="Graduate Programs Image 3">
+    </div>
+
+    <div class="container">
+        <section class="section">
+            <h2><i class="fas fa-graduation-cap icon"></i>Our Graduate Programs</h2>
+            <div class="point">
+                <i class="fas fa-laptop-code icon"></i>
+                <div>
+                    <h3>Computer Science</h3>
+                    <p>Our Computer Science program provides a deep understanding of both theoretical and practical aspects of computing. You'll gain expertise in programming, systems analysis, and software development, preparing you for a career in technology and innovation.</p>
+                </div>
+            </div>
+            <div class="point">
+                <i class="fas fa-database icon"></i>
+                <div>
+                    <h3>Data Science</h3>
+                    <p>The Data Science program focuses on the collection, analysis, and interpretation of complex data. You'll learn to use statistical methods and data visualization tools to make data-driven decisions in various fields, from business to healthcare.</p>
+                </div>
+            </div>
+            <div class="point">
+                <i class="fas fa-shield-alt icon"></i>
+                <div>
+                    <h3>Cyber Security</h3>
+                    <p>Our Cyber Security program equips you with the skills to protect systems and networks from cyber threats. You'll study topics such as ethical hacking, cryptography, and risk management, preparing you for a critical role in safeguarding digital information.</p>
+                </div>
+            </div>
+            <div class="point">
+                <i class="fas fa-robot icon"></i>
+                <div>
+                    <h3>Artificial Intelligence (AI)</h3>
+                    <p>The AI program delves into machine learning, natural language processing, and robotics. You'll develop advanced algorithms and models to create intelligent systems that can learn, adapt, and perform complex tasks autonomously.</p>
+                </div>
+            </div>
+            <div class="point">
+                <i class="fas fa-network-wired icon"></i>
+                <div>
+                    <h3>Information Technology (IT)</h3>
+                    <p>Our IT program covers a broad range of topics including network administration, database management, and system integration. You'll gain hands-on experience with various technologies and tools used in modern IT environments.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 University Name. All rights reserved.</p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const images = document.querySelectorAll('.carousel img');
+            let current = 0;
+
+            function showNextImage() {
+                images[current].style.opacity = 0;
+                current = (current + 1) % images.length;
+                images[current].style.opacity = 1;
+            }
+
+            setInterval(showNextImage, 3000);
+        });
+    </script>
+</body>
+</html>

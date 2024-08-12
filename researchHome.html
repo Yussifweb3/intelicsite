@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Hub - Home</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            overflow-x: hidden;
+            background-color: #f8f9fa;
+            scroll-behavior: smooth;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navbar Styles */
+        nav {
+            background-color: #1a1a1d;
+            color: #fff;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        nav .logo {
+            font-size: 30px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #f39c12;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: #fff;
+            font-weight: 600;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #f39c12;
+        }
+
+        /* Scroll effect for navbar */
+        nav.scrolled {
+            background-color: #111;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Header Section */
+        header {
+            position: relative;
+            background: url('https://via.placeholder.com/2000x1000/1a1a1d/ffffff') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 300px 20px;
+        }
+
+        header h1 {
+            font-size: 64px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: fadeInDown 1s ease-in-out;
+        }
+
+        header p {
+            font-size: 24px;
+            max-width: 900px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+
+        header a {
+            display: inline-block;
+            margin-top: 40px;
+            background-color: #f39c12;
+            color: #fff;
+            padding: 15px 40px;
+            font-size: 20px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            animation: bounceIn 2s ease-in-out;
+        }
+
+        header a:hover {
+            background-color: #d35400;
+            transform: scale(1.05);
+        }
+
+        /* Keyframes for header animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounceIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Sections */
+        section {
+            padding: 120px 20px;
+            text-align: center;
+            background-color: #fff;
+            color: #2c3e50;
+        }
+
+        section:nth-of-type(even) {
+            background-color: #f4f4f4;
+        }
+
+        section h2 {
+            font-size: 48px;
+            margin-bottom: 40px;
+            color: #3498db;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        section p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            animation: fadeIn 2.5s ease-in-out;
+        }
+
+        /* Parallax Section */
+        .parallax {
+            background-image: url('https://via.placeholder.com/2000x1000/2c3e50/ffffff');
+            min-height: 600px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .parallax h2 {
+            color: #fff;
+            font-size: 56px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            margin: 0;
+            animation: fadeInUp 2.5s ease-in-out;
+        }
+
+        /* Featured Research Section */
+        .research-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            justify-content: center;
+        }
+
+        .research-item {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+
+        .research-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .research-item img {
+            width: 100%;
+            border-radius: 15px 15px 0 0;
+            transition: transform 0.3s ease;
+        }
+
+        .research-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .research-item h3 {
+            font-size: 28px;
+            margin: 20px 0;
+            padding: 0 20px;
+            color: #2c3e50;
+        }
+
+        .research-item p {
+            font-size: 18px;
+            color: #666;
+            padding: 0 20px 20px;
+            line-height: 1.6;
+        }
+
+        .research-item .read-more {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: #f39c12;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .research-item .read-more:hover {
+            background-color: #d35400;
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1d;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        footer p a {
+            color: #f39c12;
+            transition: color 0.3s ease;
+        }
+
+        footer p a:hover {
+            color: #d35400;
+        }
+
+        /* Scroll Reveal Effects */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Advanced Keyframes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav id="navbar">
+        <div class="logo">Research Hub</div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Research</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Welcome to the Research Hub</h1>
+        <p>Discover cutting-edge research, explore innovative ideas, and join a community of passionate researchers
+            dedicated to advancing knowledge across various fields.</p>
+        <a href="#">Explore Our Work</a>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="reveal">
+        <h2>About Our Research</h2>
+        <p>We are dedicated to advancing knowledge and innovation in various fields of study. Our research is driven by
+            curiosity, creativity, and a commitment to making a positive impact on the world.</p>
+    </section>
+
+    <!-- Parallax Section -->
+    <div class="parallax">
+        <h2>Our Mission: Innovation & Impact</h2>
+    </div>
+
+    <!-- Featured Research Section -->
+    <section id="research" class="reveal">
+        <h2>Featured Research</h2>
+        <div class="research-grid">
+            <div class="research-item">
+                <img src="https://via.placeholder.com/400x250/3498db/ffffff" alt="Research 1">
+                <h3>Innovative Solutions for Renewable Energy</h3>
+                <p>Exploring cutting-edge technologies to harness renewable energy sources for a sustainable future.</p>
+                <a href="#" class="read-more">Read More</a>
+            </div>
+            <div class="research-item">
+                <img src="https://via.placeholder.com/400x250/2ecc71/ffffff" alt="Research 2">
+                <h3>AI in Healthcare</h3>
+                <p>Integrating artificial intelligence to improve patient care and streamline medical processes.</p>
+                <a href="#" class="read-more">Read More</a>
+            </div>
+            <div class="research-item">
+                <img src="https://via.placeholder.com/400x250/e74c3c/ffffff" alt="Research 3">
+                <h3>Climate Change Mitigation</h3>
+                <p>Developing strategies to combat climate change and reduce its impact on our planet.</p>
+                <a href="#" class="read-more">Read More</a>
+            </div>
+            <div class="research-item">
+                <img src="https://via.placeholder.com/400x250/9b59b6/ffffff" alt="Research 4">
+                <h3>Smart Cities & Urban Planning</h3>
+                <p>Designing sustainable urban environments that leverage technology for smarter living.</p>
+                <a href="#" class="read-more">Read More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Research Hub. All rights reserved. | <a href="#">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function () {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll Reveal Effect
+        window.addEventListener('scroll', function () {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(function (reveal) {
+                const windowHeight = window.innerHeight;
+                const revealTop = reveal.getBoundingClientRect().top;
+                const revealPoint = 150;
+
+                if (revealTop < windowHeight - revealPoint) {
+                    reveal.classList.add('revealed');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

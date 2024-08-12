@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Ghana Curriculum</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #eef2f5;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        header {
+            background-color: #2d3e50;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            background-color: #3e4e5e;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ffcc00;
+        }
+
+        .welcome-section {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(to right, #4b6cb7, #182848);
+            color: white;
+        }
+
+        .welcome-section h1 {
+            font-size: 3em;
+        }
+
+        .welcome-section h2 {
+            font-size: 1.5em;
+            margin-top: 10px;
+        }
+
+        .section {
+            padding: 40px 20px;
+            background-color: #fff;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            width: 300px;
+            margin: 15px;
+            padding: 20px;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: white;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
+            font-size: 1.25em;
+            color: #2d3e50;
+            margin-bottom: 10px;
+        }
+
+        .card .carousel {
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 12px;
+        }
+
+        .card .carousel .carousel-images {
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+
+        .card .carousel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-text {
+            margin-top: 15px;
+        }
+
+        .card-button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 25px;
+            background-color: #4b6cb7;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+        }
+
+        .card-button:hover {
+            background-color: #ffcc00;
+            color: #2d3e50;
+        }
+
+        footer {
+            background-color: #2d3e50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: auto;
+        }
+
+        .help-box {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4b6cb7;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .help-box:hover {
+            background-color: #ffcc00;
+            color: #2d3e50;
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="intely.html">Home</a></li>
+                <li><a href="academica.html">Academica</a></li>
+                <li><a href="library.html">E-Library</a></li>
+                <li><a href="research.html">Research</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="welcome-section">
+        <h1>WELCOME TO INTERNATIONAL BACCALAUREATE CURRICULUM</h1>
+        <h2>IB</h2>
+    </section>
+
+    <!-- Section 1 -->
+    <section class="section">
+        <div class="card">
+            <h3>Language and Literature</h3>
+            <div class="carousel">
+                <div class="carousel-images">
+                    <img src="IMAGES/math1.jpg" alt="Mathematics Image 1">
+                    <img src="IMAGES/math2.jpg" alt="Mathematics Image 2">
+                    <img src="IMAGES/math3.jpg" alt="Mathematics Image 3">
+                </div>
+            </div>
+            <div class="card-text">
+                <p>Explore the fundamentals of Mathematics including algebra, geometry, and statistics.</p>
+                <a href="dash.html" class="card-button">Study Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Language Acquisition</h3>
+            <div class="carousel">
+                <div class="carousel-images">
+                    <img src="IMAGES/science1.jpg" alt="Science Image 1">
+                    <img src="IMAGES/science2.jpg" alt="Science Image 2">
+                    <img src="IMAGES/science3.jpg" alt="Science Image 3">
+                </div>
+            </div>
+            <div class="card-text">
+                <p>Understand the principles of physics, chemistry, and biology through interactive experiments.</p>
+                <a href="dash.html" class="card-button">Study Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Individuals and Societies:</h3>
+            <div class="carousel">
+                <div class="carousel-images">
+                    <img src="IMAGES/english1.jpg" alt="English Language Image 1">
+                    <img src="IMAGES/english2.jpg" alt="English Language Image 2">
+                    <img src="IMAGES/english3.jpg" alt="English Language Image 3">
+                </div>
+            </div>
+            <div class="card-text">
+                <p>Enhance your reading, writing, and comprehension skills in English Language.</p>
+                <a href="dash.html" class="card-button">Study Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2 -->
+    <section class="section">
+        <div class="card">
+            <h3>Sciences:</h3>
+            <div class="carousel">
+                <div class="carousel-images">
+                    <img src="IMAGES/social1.jpg" alt="Social Studies Image 1">
+                    <img src="IMAGES/social2.jpg" alt="Social Studies Image 2">
+                    <img src="IMAGES/social3.jpg" alt="Social Studies Image 3">
+                </div>
+            </div>
+            <div class="card-text">
+                <p>Study the structure and function of societies, including government, economics, and culture.</p>
+                <a href="dash.html" class="card-button">Study Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Mathematics</h3>
+            <div class="carousel">
+                <div class="carousel-images">
+                    <img src="IMAGES/integrated1.jpg" alt="Integrated Science Image 1">
+                    <img src="IMAGES/integrated2.jpg" alt="Integrated Science Image 2">
+                    <img src="IMAGES/integrated3.jpg" alt="Integrated Science Image 3">
+                </div>
+            </div>
+            <div class="card-text">
+                <p>Learn about the interconnections between various scientific disciplines and their real-world applications.</p>
+                <a href="dash.html" class="card-button">Study Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Arts</h3>
+            <div class="carousel">
+                <div class="carousel-images">
+                    <img src="IMAGES/re1.jpg" alt="Religious Education Image 1">
+                    <img src="IMAGES/re2.jpg" alt="Religious Education Image 2">
+                    <img src="IMAGES/re3.jpg" alt="Religious Education Image 3">
+                </div>
+            </div>
+            <div class="card-text">
+                <p>Explore the moral and ethical values from different religious perspectives.</p>
+                <a href="dash.html" class="card-button">Study Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3 -->
+    <section class="section">
+        <div class="card">
+            <h3>Physical and Health Education</h3>
+            <div class="carousel">
+                <div class="carousel-images">
+                    <img src="IMAGES/french1.jpg" alt="French Language Image 1">
+                    <img src="IMAGES/french2.jpg" alt="French Language Image 2">
+                    <img src="IMAGES/french3.jpg" alt="French Language Image 3">
+                </div>
+            </div>
+            <div class="card-text">
+                <p>Learn to speak and write French, the language of love and diplomacy.</p>
+                <a href="dash.html" class="card-button">Study Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Design</h3>
+            <div class="carousel">
+                <div class="carousel-images">
+                    <img src="IMAGES/it1.jpg" alt="Information Technology Image 1">
+                    <img src="IMAGES/it2.jpg" alt="Information Technology Image 2">
+                    <img src="IMAGES/it3.jpg" alt="Information Technology Image 3">
+                </div>
+            </div>
+            <div class="card-text">
+                <p>Understand the basics of computing, software development, and digital literacy.</p>
+                <a href="dash.html" class="card-button">Study Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Creative Arts</h3>
+            <div class="carousel">
+                <div class="carousel-images">
+                    <img src="IMAGES/arts1.jpg" alt="Creative Arts Image 1">
+                    <img src="IMAGES/arts2.jpg" alt="Creative Arts Image 2">
+                    <img src="IMAGES/arts3.jpg" alt="Creative Arts Image 3">
+                </div>
+            </div>
+            <div class="card-text">
+                <p>Express yourself through various forms of art including drawing, painting, and sculpture.</p>
+                <a href="dash.html" class="card-button">Study Now</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Global curriculum. All Rights Reserved.</p>
+    </footer>
+
+    <div class="help-box">Help</div>
+
+    <script>
+        // JavaScript to handle carousel transitions
+        document.querySelectorAll('.carousel').forEach(carousel => {
+            const images = carousel.querySelector('.carousel-images');
+            let currentImage = 0;
+
+            setInterval(() => {
+                currentImage = (currentImage + 1) % images.children.length;
+                images.style.transform = `translateX(-${currentImage * 100}%)`;
+            }, 3000);
+        });
+    </script>
+</body>
+</html>

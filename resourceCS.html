@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Security Resources</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f9fc;
+            color: #333;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #1e293b;
+            color: #fff;
+            padding: 15px;
+            box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+        }
+
+        .sidebar .logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .sidebar .nav-links a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            margin-bottom: 10px;
+        }
+
+        .sidebar .nav-links a:hover {
+            background-color: #374151;
+        }
+
+        .sidebar .search-bar {
+            margin-bottom: 20px;
+        }
+
+        .sidebar .search-bar input {
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            border: none;
+            outline: none;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .header {
+            background-color: #1e293b;
+            color: #fff;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .header .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .header .nav-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .header .nav-buttons a {
+            color: white;
+            text-decoration: none;
+            background-color: #3b82f6;
+            padding: 10px 15px;
+            border-radius: 6px;
+            transition: background-color 0.3s, transform 0.3s;
+            font-size: 14px;
+        }
+
+        .header .nav-buttons a:hover {
+            background-color: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        .section {
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .section .section-header {
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+            background: #1e293b;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .section .section-header:hover {
+            background-color: #374151;
+        }
+
+        .section-content {
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px;
+        }
+
+        .resource-card {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .resource-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .resource-card h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #1e293b;
+        }
+
+        .resource-card p {
+            color: #555;
+        }
+
+        .resource-card a {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 8px;
+            color: #ffffff;
+            background-color: #1e40af;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+            font-size: 14px;
+        }
+
+        .resource-card a:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .expand-all-btn {
+            margin: 15px 0;
+            padding: 10px 20px;
+            background-color: #1e40af;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .expand-all-btn:hover {
+            background-color: #1d4ed8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .main-content {
+                padding: 15px;
+            }
+            .sidebar {
+                width: 100%;
+                box-shadow: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .resource-card {
+                margin-bottom: 10px;
+                padding: 10px;
+            }
+            .resource-card h3 {
+                font-size: 16px;
+            }
+            .resource-card a {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .resource-card {
+                margin-bottom: 8px;
+                padding: 8px;
+            }
+            .resource-card h3 {
+                font-size: 14px;
+            }
+            .resource-card a {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!--v class="sidebar">
+        <div class="logo">CyberSec Resources</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search resources...">
+        </div>
+        <!--iv class="nav-links">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="logout.html">Logout</a>
+        </div>
+    </div-->
+
+    <div class="main-content">
+        <header class="header">
+            <div class="logo">Cyber Security Resources</div>
+            <div class="nav-buttons">
+                <a href="dashboardCS.html">Dashboard</a>
+                <a href="courseSignin.html">Logout</a>
+            </div>
+        </header>
+
+        <button class="expand-all-btn" onclick="expandAllSections()">Expand All Sections</button>
+
+        <div class="section">
+            <div class="section-header" onclick="toggleSection(this)">Cyber Security Books</div>
+            <div class="section-content">
+                <div class="resource-card">
+                    <h3>The Art of Invisibility</h3>
+                    <p>A guide to protecting yourself from cyber threats and maintaining privacy.</p>
+                    <a href="#" class="resource-link">View Book</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Hacking: The Art of Exploitation</h3>
+                    <p>Understanding the techniques and tactics used by hackers.</p>
+                    <a href="#" class="resource-link">Download Book</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Network Security Essentials</h3>
+                    <p>Essential principles and practices for securing network infrastructures.</p>
+                    <a href="#" class="resource-link">Access Book</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header" onclick="toggleSection(this)">Cyber Security Notes</div>
+            <div class="section-content">
+                <div class="resource-card">
+                    <h3>Introduction to Cyber Security</h3>
+                    <p>Notes on fundamental concepts in cyber security.</p>
+                    <a href="note1.html" class="resource-link">View Notes</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Incident Response</h3>
+                    <p>Detailed notes on how to respond to cyber security incidents.</p>
+                    <a href="#" class="resource-link">View Notes</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Ethical Hacking</h3>
+                    <p>Understanding the techniques used in ethical hacking.</p>
+                    <a href="#" class="resource-link">Download Notes</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header" onclick="toggleSection(this)">Cyber Security Tutorials</div>
+            <div class="section-content">
+                <div class="resource-card">
+                    <h3>Basic Security Practices</h3>
+                    <p>Step-by-step tutorial on implementing basic security practices.</p>
+                    <a href="#" class="resource-link">Watch Tutorial</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Advanced Threat Detection</h3>
+                    <p>Tutorial on detecting and mitigating advanced threats.</p>
+                    <a href="#" class="resource-link">Watch Tutorial</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Secure Coding</h3>
+                    <p>Learn secure coding practices to prevent vulnerabilities.</p>
+                    <a href="#" class="resource-link">View Tutorial</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSection(header) {
+            const content = header.nextElementSibling;
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+            } else {
+                content.style.display = 'none';
+            }
+        }
+
+        function expandAllSections() {
+            const sections = document.querySelectorAll('.section-content');
+            sections.forEach(section => {
+                section.style.display = 'block';
+            });
+        }
+    </script>
+</body>
+</html>

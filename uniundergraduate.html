@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undergraduate Programs Overview</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #0056a6;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #0056a6;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+            font-size: 18px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #ffd700;
+            color: #0056a6;
+            border-radius: 5px;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin: 0;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section {
+            padding: 50px 20px;
+            background-color: #fff;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section h2 {
+            color: #0056a6;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        .section h3 {
+            color: #0056a6;
+            font-size: 24px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .section p {
+            padding: 0 15px;
+            line-height: 1.8;
+            font-size: 18px;
+        }
+
+        .highlight {
+            background-color: #e6f7ff;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+
+        .highlight:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .highlight h3 i {
+            margin-right: 10px;
+            color: #ffd700;
+        }
+
+        .video-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            max-width: 800px;
+            height: 450px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .footer {
+            background-color: #0056a6;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            position: relative;
+            font-size: 16px;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer img {
+            max-width: 100px;
+            margin: 10px 0;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .navbar ul {
+                flex-direction: column;
+                display: none;
+                width: 100%;
+                background-color: #0056a6;
+            }
+
+            .navbar ul.active {
+                display: flex;
+            }
+
+            .navbar ul li {
+                text-align: center;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        Undergraduate Programs Overview
+    </header>
+
+    <nav class="navbar">
+        <span class="hamburger"><i class="fas fa-bars"></i></span>
+        <ul>
+            <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#"><i class="fas fa-info-circle"></i> About Us</a></li>
+            <li><a href="#"><i class="fas fa-graduation-cap"></i> Programs</a></li>
+            <li><a href="#"><i class="fas fa-envelope"></i> Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section class="section">
+            <h2>Why Our Undergraduate Programs Are Effective</h2>
+            <p>Our undergraduate programs are designed to provide a thorough education, equipping students with the knowledge and skills needed to excel in their careers. Here’s what makes our programs stand out:</p>
+
+            <div class="highlight">
+                <h3><i class="fas fa-book"></i> Comprehensive Curriculum</h3>
+                <p>Our programs feature a robust curriculum tailored to industry needs:</p>
+                
+            </div>
+
+            <div class="highlight">
+                <h3><i class="fas fa-cogs"></i> Industry-Relevant Skills</h3>
+                <p>We ensure students gain practical experience through internships and projects that align with real-world scenarios.</p>
+            </div>
+
+            <div class="highlight">
+                <h3><i class="fas fa-laptop-code"></i> Cutting-Edge Technology</h3>
+                <p>Our programs integrate the latest technologies and tools to keep students updated with industry trends.</p>
+            </div>
+
+            <div class="highlight">
+                <h3><i class="fas fa-chalkboard-teacher"></i> Expert Faculty</h3>
+                <p>Learn from experienced professionals and experts who provide valuable insights and mentorship.</p>
+            </div>
+
+            <div class="highlight">
+                <h3><i class="fas fa-lightbulb"></i> Research and Innovation</h3>
+                <p>Engage in research projects and contribute to publications, enhancing your academic and professional growth.</p>
+            </div>
+
+            <div class="highlight">
+                <h3><i class="fas fa-user-friends"></i> Personalized Support</h3>
+                <p>Receive academic advising and career services tailored to your individual needs and goals.</p>
+            </div>
+
+            <div class="highlight">
+                <h3><i class="fas fa-handshake"></i> Strong Industry Connections</h3>
+                <p>Benefit from our strong ties with industry partners, offering valuable internship and job placement opportunities.</p>
+            </div>
+
+            <div class="highlight">
+                <h3><i class="fas fa-users"></i> Focus on Holistic Development</h3>
+                <p>Develop soft skills like communication and leadership through extracurricular activities and group projects.</p>
+            </div>
+
+            <div class="highlight">
+                <h3><i class="fas fa-award"></i> Commitment to Excellence</h3>
+                <p>We continuously enhance our programs based on curriculum reviews and industry feedback to ensure excellence.</p>
+            </div>
+        </section>
+
+        <section class="video-container">
+            <h2>Learn More About Our Programs</h2>
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <img src="https://via.placeholder.com/100" alt="University Logo">
+        <p>&copy; 2024 Intelic Name. All Rights Reserved.</p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <script>
+        // Toggle Navbar
+        document.querySelector('.hamburger').addEventListener('click', function () {
+            document.querySelector('.navbar ul').classList.toggle('active');
+        });
+
+        // Scroll Effect
+        const sections = document.querySelectorAll('.section, .highlight');
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+
+</html>

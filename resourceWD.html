@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Resources</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f9fc;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .header .nav-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .header .nav-buttons a {
+            color: white;
+            text-decoration: none;
+            background-color: #007bff;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: background-color 0.3s, transform 0.3s;
+            font-size: 14px;
+        }
+
+        .header .nav-buttons a:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        .header .search-bar {
+            position: relative;
+            width: 300px;
+        }
+
+        .header .search-bar input {
+            width: 100%;
+            padding: 10px 40px 10px 15px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .header .search-bar input::placeholder {
+            color: #888;
+        }
+
+        .header .search-bar button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .header .search-bar button svg {
+            width: 20px;
+            height: 20px;
+            fill: #007bff;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: row;
+            padding: 15px;
+            flex-grow: 1;
+            overflow: hidden;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .section {
+            flex: 1;
+            min-width: 280px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            overflow-y: auto;
+            transition: flex 0.3s ease;
+        }
+
+        .section.collapsed {
+            flex: 0 0 60px;
+            overflow: hidden;
+        }
+
+        .section.expanded {
+            flex: 1;
+        }
+
+        .section .section-header {
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+            background: #007bff;
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            font-size: 18px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .section .section-header:hover {
+            background-color: #0056b3;
+        }
+
+        .section-content {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .resource-card {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .resource-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .resource-card h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #007bff;
+        }
+
+        .resource-card p {
+            color: #555;
+        }
+
+        .resource-card .resource-link {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 8px;
+            color: #ffffff;
+            background-color: #007bff;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+            font-size: 14px;
+        }
+
+        .resource-card .resource-link:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        .expand-all-btn {
+            margin: 15px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .expand-all-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .main-content {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .resource-card {
+                margin: 5px;
+                padding: 10px;
+            }
+            .resource-card h3 {
+                font-size: 16px;
+            }
+            .resource-card .resource-link {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .resource-card {
+                margin: 3px;
+                padding: 8px;
+            }
+            .resource-card h3 {
+                font-size: 14px;
+            }
+            .resource-card .resource-link {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Web Dev Hub</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search Web Development Resources...">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm0 2c-5.5 0-10-4.5-10-10S5.5 1 11 1s10 4.5 10 10-4.5 10-10 10z"/></svg>
+            </button>
+        </div>
+        <div class="nav-buttons">
+            <a href="dashboardWD.html">Dashboard</a>
+            <a href="courseSignin.html">Logout</a>
+        </div>
+    </header>
+
+    <button class="expand-all-btn" onclick="expandAllSections()">Expand All Sections</button>
+
+    <div class="main-content">
+        <div class="section tutorials expanded">
+            <div class="section-header" onclick="toggleSection(this)">Tutorials</div>
+            <div class="section-content">
+                <div class="resource-card">
+                    <h3>HTML & CSS Basics</h3>
+                    <p>Learn the foundational languages of the web: HTML and CSS.</p>
+                    <a href="#" class="resource-link">View Tutorial</a>
+                </div>
+                <div class="resource-card">
+                    <h3>JavaScript Essentials</h3>
+                    <p>Understand the core concepts of JavaScript for interactive websites.</p>
+                    <a href="#" class="resource-link">Start Learning</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Responsive Web Design</h3>
+                    <p>Techniques for making websites look great on all devices.</p>
+                    <a href="#" class="resource-link">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section tools expanded">
+            <div class="section-header" onclick="toggleSection(this)">Development Tools</div>
+            <div class="section-content">
+                <div class="resource-card">
+                    <h3>VS Code Tips</h3>
+                    <p>Tips and extensions to enhance your productivity in VS Code.</p>
+                    <a href="#" class="resource-link">Explore Tools</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Chrome DevTools</h3>
+                    <p>Using Chrome's developer tools to debug and test your web pages.</p>
+                    <a href="#" class="resource-link">Learn More</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Version Control with Git</h3>
+                    <p>Learn how to manage your code with Git and GitHub.</p>
+                    <a href="#" class="resource-link">Get Started</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section references expanded">
+            <div class="section-header" onclick="toggleSection(this)">References</div>
+            <div class="section-content">
+                <div class="resource-card">
+                    <h3>MDN Web Docs</h3>
+                    <p>The Mozilla Developer Network's comprehensive documentation.</p>
+                    <a href="#" class="resource-link">Visit MDN</a>
+                </div>
+                <div class="resource-card">
+                    <h3>W3Schools</h3>
+                    <p>Learn web development with tutorials and references.</p>
+                    <a href="#" class="resource-link">Explore W3Schools</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Stack Overflow</h3>
+                    <p>Get answers to your programming questions from the community.</p>
+                    <a href="#" class="resource-link">Browse Stack Overflow</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSection(header) {
+            const section = header.parentElement;
+            const content = section.querySelector('.section-content');
+
+            if (section.classList.contains('expanded')) {
+                section.classList.remove('expanded');
+                section.classList.add('collapsed');
+                content.style.display = 'none';
+            } else {
+                section.classList.remove('collapsed');
+                section.classList.add('expanded');
+                content.style.display = 'flex';
+            }
+        }
+
+        function expandAllSections() {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.add('expanded');
+                section.classList.remove('collapsed');
+                const content = section.querySelector('.section-content');
+                content.style.display = 'flex';
+            });
+        }
+    </script>
+</body>
+</html>

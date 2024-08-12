@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>/* Basic reset and styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header h1 {
+            font-size: 24px;
+        }
+        
+        .nav ul {
+            list-style-type: none;
+            display: flex;
+        }
+        
+        .nav ul li {
+            margin-right: 20px;
+        }
+        
+        .nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav ul li a:hover {
+            background-color: #555;
+        }
+        
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        
+        .section {
+            flex: 1 1 300px; /* Adjust as needed for responsiveness */
+            background-color: #fff;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Social Media Hub</h1>
+        <nav class="nav">
+            <ul>
+                <li><a href="#youtube">YouTube</a></li>
+                <li><a href="#facebook">Facebook</a></li>
+                <li><a href="#whatsapp">WhatsApp</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section id="youtube" class="youtube-section section">
+            <nav class="navbar">
+                <div class="container">
+                    <h1 class="logo">YouTube Clone</h1>
+                    <ul class="nav-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Trending</a></li>
+                        <li><a href="#">Subscriptions</a></li>
+                        <li><a href="#">Library</a></li>
+                        <li class="upload-btn"><a href="upload.html">Upload</a></li>
+                    </ul>
+                </div>
+            </nav>
+        
+            <main class="main-content">
+                <section class="upload-section">
+                    <h2>Upload Video</h2>
+                    <form action="upload.php" method="post" enctype="multipart/form-data">
+                        <input type="file" name="fileToUpload" id="fileToUpload">
+                        <input type="submit" value="Upload Video" name="submit">
+                    </form>
+                </section>
+            <!-- YouTube content -->
+        </section>
+        
+        <section id="facebook" class="facebook-section section">
+            <!-- Facebook content -->
+        </section>
+        
+        <section id="whatsapp" class="whatsapp-section section">
+            <!-- WhatsApp content -->
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Social Media Hub. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

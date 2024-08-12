@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Development Resources</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .header {
+            background-color: #ff5722;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .header .nav-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .header .nav-buttons a {
+            color: white;
+            text-decoration: none;
+            background-color: #ff3d00;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: background-color 0.3s, transform 0.3s;
+            font-size: 14px;
+        }
+
+        .header .nav-buttons a:hover {
+            background-color: #e64a19;
+            transform: translateY(-2px);
+        }
+
+        .header .search-bar {
+            position: relative;
+            width: 300px;
+        }
+
+        .header .search-bar input {
+            width: 100%;
+            padding: 10px 40px 10px 15px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .header .search-bar input::placeholder {
+            color: #888;
+        }
+
+        .header .search-bar button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .header .search-bar button svg {
+            width: 20px;
+            height: 20px;
+            fill: #ff5722;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: row;
+            padding: 15px;
+            flex-grow: 1;
+            overflow: hidden;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .section {
+            flex: 1;
+            min-width: 280px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            overflow-y: auto;
+            transition: flex 0.3s ease;
+        }
+
+        .section.collapsed {
+            flex: 0 0 60px;
+            overflow: hidden;
+        }
+
+        .section.expanded {
+            flex: 1;
+        }
+
+        .section .section-header {
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+            background: #ff5722;
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            font-size: 18px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .section .section-header:hover {
+            background-color: #e64a19;
+        }
+
+        .section-content {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .resource-card, .note-card, .video-card {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .resource-card:hover, .note-card:hover, .video-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .resource-card h3, .note-card h3, .video-card h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #ff5722;
+        }
+
+        .resource-card p, .note-card p, .video-card p {
+            color: #555;
+        }
+
+        .resource-card .resource-link, .note-card .note-link, .video-card .video-link {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 8px;
+            color: #ffffff;
+            background-color: #ff5722;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+            font-size: 14px;
+        }
+
+        .resource-card .resource-link:hover, .note-card .note-link:hover, .video-card .video-link:hover {
+            background-color: #e64a19;
+            transform: translateY(-2px);
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .expand-all-btn {
+            margin: 15px;
+            padding: 10px 20px;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .expand-all-btn:hover {
+            background-color: #e64a19;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .main-content {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .resource-card, .note-card, .video-card {
+                margin: 5px;
+                padding: 10px;
+            }
+            .resource-card h3, .note-card h3, .video-card h3 {
+                font-size: 16px;
+            }
+            .resource-card .resource-link, .note-card .note-link, .video-card .video-link {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .resource-card, .note-card, .video-card {
+                margin: 3px;
+                padding: 8px;
+            }
+            .resource-card h3, .note-card h3, .video-card h3 {
+                font-size: 14px;
+            }
+            .resource-card .resource-link, .note-card .note-link, .video-card .video-link {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Game Dev Hub</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search Game Development Resources...">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm0 2c-5.5 0-10-4.5-10-10S5.5 1 11 1s10 4.5 10 10-4.5 10-10 10z"/></svg>
+            </button>
+        </div>
+        <div class="nav-buttons">
+            <a href="dashboardGD.html">Dashboard</a>
+            <a href="courseSignin.html">Logout</a>
+        </div>
+    </header>
+
+    <button class="expand-all-btn" onclick="expandAllSections()">Expand All Sections</button>
+
+    <div class="main-content">
+        <div class="section books expanded">
+            <div class="section-header" onclick="toggleSection(this)">Game Development Books</div>
+            <div class="section-content">
+                <div class="resource-card">
+                    <h3>Introduction to Game Design</h3>
+                    <p>A comprehensive guide to the principles of game design.</p>
+                    <a href="#" class="resource-link">View Book</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Advanced Game Programming</h3>
+                    <p>In-depth exploration of advanced game programming techniques.</p>
+                    <a href="#" class="resource-link">Download Book</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Game Development with Unity</h3>
+                    <p>Practical guide to developing games using Unity.</p>
+                    <a href="#" class="resource-link">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="section notes expanded">
+            <div class="section-header" onclick="toggleSection(this)">Development Notes</div>
+            <div class="section-content">
+                <div class="note-card">
+                    <h3>Building 2D Games</h3>
+                    <p>Notes on creating 2D games using various engines and tools.</p>
+                    <a href="#" class="note-link">View Note</a>
+                </div>
+                <div class="note-card">
+                    <h3>Physics in Game Engines</h3>
+                    <p>Exploration of physics principles in game engines.</p>
+                    <a href="#" class="note-link">Download Note</a>
+                </div>
+                <div class="note-card">
+                    <h3>AI in Game Development</h3>
+                    <p>Notes on implementing artificial intelligence in games.</p>
+                    <a href="#" class="note-link">Read Note</a>
+                </div>
+            </div>
+        </div>
+        <div class="section videos expanded">
+            <div class="section-header" onclick="toggleSection(this)">Tutorial Videos</div>
+            <div class="section-content">
+                <div class="video-card">
+                    <img src="https://via.placeholder.com/320x180" alt="Video Thumbnail" class="video-thumbnail">
+                    <h3>Intro to Game Development</h3>
+                    <p>Introduction to the fundamentals of game development.</p>
+                    <a href="#" class="video-link">Watch Video</a>
+                </div>
+                <div class="video-card">
+                    <img src="https://via.placeholder.com/320x180" alt="Video Thumbnail" class="video-thumbnail">
+                    <h3>Creating 3D Worlds</h3>
+                    <p>A guide to creating immersive 3D worlds in games.</p>
+                    <a href="#" class="video-link">Watch Video</a>
+                </div>
+                <div class="video-card">
+                    <img src="https://via.placeholder.com/320x180" alt="Video Thumbnail" class="video-thumbnail">
+                    <h3>Game Mechanics & Design</h3>
+                    <p>Understanding and implementing various game mechanics.</p>
+                    <a href="#" class="video-link">Watch Video</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSection(header) {
+            const section = header.parentElement;
+            section.classList.toggle('expanded');
+            section.classList.toggle('collapsed');
+        }
+
+        function expandAllSections() {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.add('expanded');
+                section.classList.remove('collapsed');
+            });
+        }
+    </script>
+</body>
+</html>

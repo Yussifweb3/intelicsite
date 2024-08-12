@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Highlights | Online University</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #0056a6;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #0056a6;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+        }
+
+        .navbar a:hover {
+            background-color: yellow;
+            color: white;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin: 0;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section {
+            padding: 50px 0;
+            background-color: #fff;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2em;
+            color: #0056a6;
+        }
+
+        .research-cards {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .research-card {
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 30%;
+            margin: 20px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .research-card i {
+            font-size: 4em;
+            color: #0056a6;
+            margin-top: 20px;
+        }
+
+        .research-card h3 {
+            margin: 15px 0;
+            font-size: 1.5em;
+            color: #0056a6;
+        }
+
+        .research-card p {
+            padding: 0 15px 15px;
+        }
+
+        .research-card a {
+            display: block;
+            margin: 15px;
+            padding: 10px 20px;
+            background-color: #0056a6;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .research-card a:hover {
+            background-color: #004494;
+        }
+
+        .footer {
+            background-color: #0056a6;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .research-card:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .navbar ul {
+                flex-direction: column;
+                display: none;
+                width: 100%;
+                background-color: #0056a6;
+            }
+
+            .navbar ul.active {
+                display: flex;
+            }
+
+            .navbar ul li {
+                text-align: center;
+                margin: 0;
+            }
+
+            .research-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .research-card {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Research Highlights</h1>
+    </header>
+
+    <nav class="navbar">
+        <span class="hamburger"><i class="fas fa-bars"></i></span>
+        <ul>
+            <a href="uni-index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="uniabout2.html"><i class="fas fa-info-circle"></i> About Us</a>
+            <a href="uniacademics.html"><i class="fas fa-book"></i> Academics</a>
+            <a href="uniadmission2.html"><i class="fas fa-pen"></i> Admissions</a>
+            <a href="unilife.html"><i class="fas fa-graduation-cap"></i> Campus Life</a>
+            <a href="uniresearch.html"><i class="fas fa-flask"></i> Research</a>
+            <a href="uni-news-events.html"><i class="fas fa-calendar-alt"></i> News & Events</a>
+            <a href="unicontact2.html"><i class="fas fa-envelope"></i> Contact Us</a>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section class="section">
+            <h2>Our Latest Research</h2>
+            <div class="research-cards">
+                <!-- Research Card 1 -->
+                <div class="research-card">
+                    <i class="fas fa-seedling"></i>
+                    <h3>Climate Change and Agriculture</h3>
+                    <p>Exploring the impact of climate change on global agricultural practices and food security.</p>
+                    <a href="#">Read More</a>
+                </div>
+                <!-- Research Card 2 -->
+                <div class="research-card">
+                    <i class="fas fa-dna"></i>
+                    <h3>CRISPR and Genetic Engineering</h3>
+                    <p>Advancements in CRISPR technology and its implications for gene editing and disease treatment.</p>
+                    <a href="#">Read More</a>
+                </div>
+                <!-- Research Card 3 -->
+                <div class="research-card">
+                    <i class="fas fa-microscope"></i>
+                    <h3>COVID-19 Vaccine Development</h3>
+                    <p>Insights into the rapid development of COVID-19 vaccines and their global impact.</p>
+                    <a href="#">Read More</a>
+                </div>
+                <!-- Research Card 4 -->
+                <div class="research-card">
+                    <i class="fas fa-globe"></i>
+                    <h3>Sustainable Energy Solutions</h3>
+                    <p>Innovations in renewable energy technologies and their role in mitigating climate change.</p>
+                    <a href="#">Read More</a>
+                </div>
+                <!-- Research Card 5 -->
+                <div class="research-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>Artificial Intelligence in Healthcare</h3>
+                    <p>How AI is transforming diagnostics, treatment, and patient care in modern medicine.</p>
+                    <a href="#">Read More</a>
+                </div>
+                <!-- Research Card 6 -->
+                <div class="research-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Urban Green Spaces and Mental Health</h3>
+                    <p>The relationship between urban green spaces and improved mental health outcomes.</p>
+                    <a href="#">Read More</a>
+                </div>
+                <!-- Research Card 7 -->
+                <div class="research-card">
+                    <i class="fas fa-wind"></i>
+                    <h3>Wind Energy Optimization</h3>
+                    <p>Advancements in optimizing wind energy production for sustainable power generation.</p>
+                    <a href="#">Read More</a>
+                </div>
+                <!-- Research Card 8 -->
+                <div class="research-card">
+                    <i class="fas fa-heartbeat"></i>
+                    <h3>Telemedicine and Remote Healthcare</h3>
+                    <p>Examining the growth of telemedicine and its impact on healthcare accessibility.</p>
+                    <a href="#">Read More</a>
+                </div>
+                <!-- Research Card 9 -->
+                <div class="research-card">
+                    <i class="fas fa-recycle"></i>
+                    <h3>Plastic Waste Management</h3>
+                    <p>Strategies for reducing plastic waste and promoting recycling in urban areas.</p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Intelic University. All rights reserved.</p>
+        <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+    </footer>
+
+    <script>
+        // Hamburger menu toggle
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            document.querySelector('.navbar ul').classList.toggle('active');
+        });
+
+        // Scroll animation for sections
+        const sections = document.querySelectorAll('.section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+
+</html>

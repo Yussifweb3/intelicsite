@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Process</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #0056a6;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #0056a6;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar a i {
+            margin-right: 8px;
+        }
+
+        .navbar a:hover {
+            background-color: #ffd700;
+            color: #0056a6;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin: 0;
+        }
+
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            height: 300px;
+            background-color: #0056a6;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            position: absolute;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section {
+            padding: 50px 0;
+            background-color: #fff;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .steps {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .step {
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 80%;
+            margin: 20px 0;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .step.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .step:hover {
+            transform: translateY(-10px);
+        }
+
+        .step i {
+            font-size: 40px;
+            margin-bottom: 10px;
+            color: #0056a6;
+        }
+
+        .footer {
+            background-color: #0056a6;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .navbar ul {
+                flex-direction: column;
+                display: none;
+                width: 100%;
+                background-color: #0056a6;
+            }
+
+            .navbar ul.active {
+                display: flex;
+            }
+
+            .step {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Application Process</h1>
+    </header>
+
+    <nav class="navbar">
+        <span class="hamburger"><i class="fas fa-bars"></i></span>
+        <ul>
+            <li><a href="#"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="#"><i class="fas fa-user"></i>About Us</a></li>
+            <li><a href="#"><i class="fas fa-book"></i>Academics</a></li>
+            <li><a href="#"><i class="fas fa-graduation-cap"></i>Scholarships</a></li>
+            <li><a href="#"><i class="fas fa-university"></i>Admissions</a></li>
+            <li><a href="#"><i class="fas fa-building"></i>Campus Life</a></li>
+            <li><a href="#"><i class="fas fa-flask"></i>Research</a></li>
+            <li><a href="#"><i class="fas fa-envelope"></i>Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section class="section">
+            <h2>Our Application Process</h2>
+            <p>Applying to our university is a simple and straightforward process. Follow the steps below to ensure a smooth application:</p>
+            <div class="steps">
+                <div class="step">
+                    <i class="fas fa-file-alt"></i>
+                    <h3>Submit Application Form</h3>
+                    <p>Complete and submit the online application form with your personal details, academic records, and any required documentation.</p>
+                </div>
+                <div class="step">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Provide Supporting Documents</h3>
+                    <p>Upload supporting documents such as transcripts, letters of recommendation, and proof of identity as specified in the application guidelines.</p>
+                </div>
+                <div class="step">
+                    <i class="fas fa-calendar-check"></i>
+                    <h3>Attend Interview (if applicable)</h3>
+                    <p>Some programs may require an interview as part of the admission process. If applicable, schedule and attend your interview as instructed.</p>
+                </div>
+                <div class="step">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Receive Admission Decision</h3>
+                    <p>After processing your application, you will receive an admission decision. Check your email or application portal for updates on your application status.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Helpful Tips</h2>
+            <p>To enhance your application, consider the following tips:</p>
+            <ul>
+                <li>Ensure all documents are submitted before the deadline.</li>
+                <li>Double-check your application form for accuracy and completeness.</li>
+                <li>Prepare thoroughly for any interviews or additional assessments.</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Your University Name. All Rights Reserved.</p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <script>
+        // Toggle Navbar
+        document.querySelector('.hamburger').addEventListener('click', function () {
+            document.querySelector('.navbar ul').classList.toggle('active');
+        });
+
+        // Scroll Effect
+        const sections = document.querySelectorAll('.section, .step');
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+
+</html>

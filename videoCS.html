@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Security Tutorials</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #ffebee, #f8bbd0);
+            color: #333;
+        }
+        header {
+            background: #d32f2f;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 4px solid #b71c1c;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 600;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+        .video-card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .video-card iframe {
+            width: 100%;
+            height: 220px;
+            border: 0;
+        }
+        .video-card .description {
+            padding: 15px;
+            background-color: #fbe9e7;
+        }
+        .video-card .description h3 {
+            margin-top: 0;
+            font-size: 1.5em;
+            color: #d32f2f;
+        }
+        .video-card .description p {
+            font-size: 0.9em;
+            color: #424242;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 1.2em;
+            color: #fff;
+            background-color: #d32f2f;
+            border: none;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin: 20px auto;
+            display: block;
+        }
+        .btn:hover {
+            background-color: #b71c1c;
+            transform: scale(1.05);
+        }
+        footer {
+            background-color: #d32f2f;
+            color: #fff;
+            text-align: center;
+            padding: px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            border-top: 4px solid #b71c1c;
+        }
+        @media (max-width: 768px) {
+            .video-card {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cyber Security Tutorials</h1>
+    </header>
+    <div class="container">
+        <div class="video-card">
+            <iframe src="https://www.youtube.com/embed/lI-TChRLmK0" allowfullscreen></iframe>
+            <div class="description">
+                <h3>Cyber Security Basics</h3>
+                <p>An introduction to cyber security principles, common threats, and best practices for protecting data.</p>
+            </div>
+        </div>
+        <div class="video-card">
+            <iframe src="https://www.youtube.com/embed/xO7WfTP26m4" allowfullscreen></iframe>
+            <div class="description">
+                <h3>Network Security Fundamentals</h3>
+                <p>Understanding network security essentials, including firewalls, intrusion detection systems, and secure network design.</p>
+            </div>
+        </div>
+        <div class="video-card">
+            <iframe src="https://www.youtube.com/embed/F_PODSPk1ek" allowfullscreen></iframe>
+            <div class="description">
+                <h3>Advanced Security Techniques</h3>
+                <p>Deep dive into advanced security measures like ethical hacking, threat hunting, and incident response.</p>
+            </div>
+        </div>
+        <a href="exploreCyber.html" class="btn">Explore More Cyber Security Courses</a>
+    </div>
+    <footer>
+        <p>&copy; 2024 Cyber Security Tutorials. All rights reserved.</p>
+    </footer>
+    <script>
+        console.log('Cyber Security page loaded');
+    </script>
+</body>
+</html>

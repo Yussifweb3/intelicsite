@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graduate Financial Aid</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background-color: #0056a6;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #0056a6;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+        }
+
+        .navbar a:hover {
+            background-color: #ffd700;
+            color: #0056a6;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin: 0;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section {
+            padding: 50px 0;
+            background-color: #fff;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s, opacity 0.5s;
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2em;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #ffd700;
+            margin: 10px auto;
+        }
+
+        .section p {
+            text-align: center;
+            font-size: 1.2em;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .points {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .point {
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 30%;
+            margin: 20px;
+            overflow: hidden;
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.5s, opacity 0.5s;
+        }
+
+        .point i {
+            font-size: 2em;
+            color: #0056a6;
+            margin-bottom: 10px;
+        }
+
+        .point h3 {
+            margin: 15px 0;
+            font-size: 1.5em;
+        }
+
+        .point p {
+            padding: 0 15px 15px;
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        .video-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            max-width: 800px;
+            height: 450px;
+            border-radius: 10px;
+            border: none;
+        }
+
+        .footer {
+            background-color: #0056a6;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .navbar ul {
+                flex-direction: column;
+                display: none;
+                width: 100%;
+                background-color: #0056a6;
+            }
+
+            .navbar ul.active {
+                display: flex;
+            }
+
+            .navbar ul li {
+                text-align: center;
+                margin: 0;
+            }
+
+            .points {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .point {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Graduate Financial Aid</h1>
+    </header>
+
+    <nav class="navbar">
+        <span class="hamburger"><i class="fas fa-bars"></i></span>
+        <ul>
+            <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#financial-aid"><i class="fas fa-money-check-alt"></i> Financial Aid</a></li>
+            <li><a href="#scholarships"><i class="fas fa-graduation-cap"></i> Scholarships</a></li>
+            <li><a href="#loans"><i class="fas fa-hand-holding-usd"></i> Loans</a></li>
+            <li><a href="#grants"><i class="fas fa-gift"></i> Grants</a></li>
+            <li><a href="#contact"><i class="fas fa-envelope"></i> Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="financial-aid" class="section">
+            <h2>Financial Aid for Graduate Students</h2>
+            <p>We offer a range of financial aid options to help make your graduate education affordable. Whether through scholarships, grants, loans, or assistantships, we are committed to supporting our students in achieving their academic goals.</p>
+            <div class="points">
+                <div class="point">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Scholarships</h3>
+                    <p>We offer merit-based and need-based scholarships to help cover tuition and fees for qualified students. Apply today to take advantage of these opportunities.</p>
+                </div>
+                <div class="point">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <h3>Loans</h3>
+                    <p>Our loan programs provide flexible repayment options and low-interest rates to help you finance your graduate studies. Explore your options and apply now.</p>
+                </div>
+                <div class="point">
+                    <i class="fas fa-gift"></i>
+                    <h3>Grants</h3>
+                    <p>Grants are available for students who demonstrate financial need. These funds do not need to be repaid, making them an excellent resource for your education.</p>
+                </div>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/example-video" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Graduate Financial Aid. All rights reserved.</p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <script>
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.navbar ul').classList.toggle('active');
+        });
+
+        const sections = document.querySelectorAll('.section');
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY + window.innerHeight / 1.2;
+            sections.forEach(section => {
+                if (section.offsetTop < scrollPosition) {
+                    section.style.transform = 'translateY(0)';
+                    section.style.opacity = '1';
+                } else {
+                    section.style.transform = 'translateY(50px)';
+                    section.style.opacity = '0';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

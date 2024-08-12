@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Science Faculty | Online University</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+css
+Copy code
+    header {
+        background: url('hero-image.jpg') no-repeat center center/cover;
+        color: white;
+        text-align: center;
+        padding: 100px 20px;
+        position: relative;
+    }
+
+    header h1 {
+        font-size: 3em;
+        margin: 0;
+    }
+
+    header p {
+        font-size: 1.5em;
+        margin: 10px 0;
+    }
+
+    .cta-buttons {
+        margin-top: 20px;
+    }
+
+    .cta-buttons a {
+        background-color: #6610f2;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        margin: 0 10px;
+        font-size: 1.2em;
+        transition: background-color 0.3s;
+    }
+
+    .cta-buttons a:hover {
+        background-color: #520dc2;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-around;
+        background-color: #6610f2;
+        padding: 10px;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        display: block;
+    }
+
+    .navbar a:hover {
+        background-color: #520dc2;
+        color: white;
+    }
+
+    .container {
+        padding: 20px;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .section {
+        padding: 50px 0;
+        background-color: #fff;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .section h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 2.5em;
+        color: #6610f2;
+    }
+
+    .faculty-profiles, .programs, .research, .success, .interactive, .media {
+        margin: 30px 0;
+    }
+
+    .faculty-profiles .profile, .programs .program, .research .research-item, .success .success-story {
+        margin: 20px;
+        padding: 20px;
+        background: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .faculty-profiles img, .programs img, .research img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .faculty-profiles h3, .programs h3, .research h3 {
+        font-size: 1.5em;
+        color: #6610f2;
+    }
+
+    .footer {
+        background-color: #6610f2;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        position: relative;
+    }
+
+    .footer a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .footer a:hover {
+        text-decoration: underline;
+    }
+
+    .testimonials, .endorsements {
+        margin: 30px 0;
+    }
+
+    .testimonials blockquote, .endorsements blockquote {
+        background: #f9f9f9;
+        padding: 20px;
+        border-left: 5px solid #6610f2;
+        border-radius: 5px;
+    }
+
+    .testimonials blockquote p, .endorsements blockquote p {
+        margin: 0;
+    }
+
+    @media (max-width: 768px) {
+        .navbar {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .navbar a {
+            padding: 10px;
+            text-align: center;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <h1>Empowering the Future of Technology</h1>
+        <p>Explore Our Leading Computer Science Faculty</p>
+        <div class="cta-buttons">
+            <a href="#">Learn More</a>
+            <a href="#">Request Info</a>
+            <a href="#">Apply Now</a>
+        </div>
+    </header>
+php
+Copy code
+<nav class="navbar">
+    <a href="#"><i class="fas fa-home"></i> Home</a>
+    <a href="#"><i class="fas fa-book"></i> Library</a>
+    <a href="#"><i class="fas fa-laptop"></i> Labs</a>
+    <a href="#"><i class="fas fa-dumbbell"></i> Fitness</a>
+    <a href="#"><i class="fas fa-envelope"></i> Contact</a>
+</nav>
+
+<div class="container">
+    <section class="section introduction">
+        <h2>Welcome to Our Computer Science Faculty</h2>
+        <p>Our mission is to drive innovation and technology advancement through high-quality education and research. We are committed to preparing students for impactful careers in the ever-evolving tech landscape.</p>
+        <p>Our faculty has earned recognition for its academic excellence and industry collaborations, placing us among the top institutions globally.</p>
+    </section>
+
+    <section class="section faculty-profiles">
+        <h2>Meet Our Experts</h2>
+        <div class="profile">
+            <img src="faculty1.jpg" alt="Professor Jane Doe">
+            <h3>Professor Jane Doe</h3>
+            <p>Specialization: Machine Learning, Artificial Intelligence</p>
+            <p>Notable Achievements: Lead researcher in AI advancements; published over 50 papers in top journals.</p>
+        </div>
+        <div class="profile">
+            <img src="faculty2.jpg" alt="Dr. John Smith">
+            <h3>Dr. John Smith</h3>
+            <p>Specialization: Cybersecurity, Network Security</p>
+            <p>Notable Achievements: Consultant for major tech firms; recognized for contributions to cybersecurity standards.</p>
+        </div>
+    </section>
+
+    <section class="section programs">
+        <h2>Our Programs and Courses</h2>
+        <div class="program">
+            <img src="program1.jpg" alt="Undergraduate Program">
+            <h3>Undergraduate Programs</h3>
+            <p>Explore our diverse range of undergraduate programs designed to provide foundational knowledge and practical skills in computer science.</p>
+            <a href="#">View Programs</a>
+        </div>
+        <div class="program">
+            <img src="program2.jpg" alt="Postgraduate Program">
+            <h3>Postgraduate Programs</h3>
+            <p>Advance your career with our specialized postgraduate programs that delve into advanced topics and research opportunities.</p>
+            <a href="#">Explore Postgraduate Options</a>
+        </div>
+    </section>
+
+    <section class="section research">
+        <h2>Research and Innovation</h2>
+        <div class="research-item">
+            <img src="research1.jpg" alt="AI Research">
+            <h3>Artificial Intelligence Research</h3>
+            <p>Our AI research focuses on developing cutting-edge technologies that have a significant impact on various industries.</p>
+        </div>
+        <div class="research-item">
+            <img src="research2.jpg" alt="Cybersecurity Innovations">
+            <h3>Cybersecurity Innovations</h3>
+            <p>We are at the forefront of cybersecurity research, addressing emerging threats and improving security protocols.</p>
+        </div>
+    </section>
+
+    <section class="section success">
+        <h2>Student and Alumni Success</h2>
+        <div class="success-story">
+            <blockquote>
+                <p>"The Computer Science faculty has provided me with the skills and opportunities to excel in my career. The support from faculty and peers has been invaluable."</p>
+                <footer>— Alex Johnson, Current Student</footer>
+            </blockquote>
+        </div>
+        <div class="success-story">
+            <blockquote>
+                <p>"Graduating from this program was a game-changer for me. I've landed a position at a leading tech firm, and I owe it all to the education and networking I gained here."</p>
+                <footer>— Emily Davis, Alumna</footer>
+            </blockquote>
+        </div>
+    </section>
+
+    <section class="section interactive">
+        <h2>Interactive Features</h2>
+        <p>Take a virtual tour of our state-of-the-art labs and facilities, participate in upcoming webinars and events, or connect with us via live chat to learn more about our programs.</p>
+        <a href="#">Virtual Tour</a>
+        <a href="#">Upcoming Webinars</a>
+        <a href="#">Live Chat</a>
+    </section>
+
+    <section class="section media">
+        <h2>Media and Content</h2>
+        <div class="media-item">
+            <h3>Latest Blog Posts</h3>
+            <p>Stay updated with the latest trends, research, and insights from our faculty through our blog posts and articles.</p>
+        </div>
+        <div class="media-item">
+            <h3>Videos</h3>
+            <p>Watch interviews with our faculty members, student projects, and virtual lab tours to get an inside look at our programs.</p>
+        </div>
+    </section>
+
+    <section class="section testimonials endorsements">
+        <h2>What They’re Saying</h2>
+        <div class="testimonials">
+            <h3>Student Testimonials</h3>
+            <blockquote>
+                <p>"The curriculum is rigorous and engaging, and the faculty members are incredibly supportive and knowledgeable."</p>
+                <footer>— Jordan Lee, Computer Science Student</footer>
+            </blockquote>
+        </div>
+        <div class="endorsements">
+            <h3>Industry Endorsements</h3>
+            <blockquote>
+                <p>"This faculty is known for producing top-notch graduates who are well-prepared for the tech industry's demands."</p>
+                <footer>— Sarah Nguyen, Tech Industry Leader</footer>
+            </blockquote>
+        </div>
+    </section>
+</div>
+
+<footer class="footer">
+    <p>&copy; 2024 Online University. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+</footer>
+</body>
+</html>

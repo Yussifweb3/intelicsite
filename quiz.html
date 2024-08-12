@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz Page</title>
+  <title>Online Quiz</title>
   <style>
+    /* Global Styles */
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
       background-color: #f0f8ff;
@@ -14,82 +15,158 @@
       flex-direction: column;
       min-height: 100vh;
     }
+
+    /* Navigation Bar */
     nav {
-      background-color: #008080;
+      background-color: #004d40;
       color: white;
-      padding: 10px;
+      padding: 15px 30px;
       text-align: center;
       font-size: 24px;
       font-weight: bold;
     }
+
+    /* Main Container */
     .container {
       flex: 1;
       padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
     }
+
+    /* Quiz Card */
     .quiz-card {
       background: white;
       border-radius: 15px;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      padding: 20px;
-      margin-bottom: 20px;
+      padding: 30px;
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
       display: none;
     }
+
     .quiz-title {
-      font-size: 2em;
-      color: #008080;
-      margin-bottom: 10px;
-    }
-    .quiz-description {
-      font-size: 1.2em;
+      font-size: 2.2em;
+      color: #004d40;
       margin-bottom: 15px;
     }
+
+    .quiz-description {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+      color: #455a64;
+    }
+
+    .timer {
+      font-size: 1.5em;
+      margin-bottom: 25px;
+      color: #ff5722;
+    }
+
     .question {
       margin-bottom: 20px;
+      text-align: left;
     }
+
+    .question p {
+      font-size: 1.1em;
+      color: #37474f;
+      margin-bottom: 10px;
+    }
+
     .options {
       list-style-type: none;
       padding: 0;
     }
+
     .options li {
-      background: #20b2aa;
-      margin: 10px 0;
-      padding: 10px;
-      border-radius: 10px;
+      background: #00796b;
+      margin: 8px 0;
+      padding: 12px;
+      border-radius: 8px;
       color: white;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: background 0.3s, transform 0.2s;
     }
+
     .options li:hover {
-      background: #008080;
+      background: #004d40;
+      transform: translateY(-2px);
     }
+
+    .options li.selected {
+      background: #004d40;
+      transform: scale(1.05);
+    }
+
     .submit-btn {
-      background: #008080;
+      background: #004d40;
       border: none;
       color: white;
-      padding: 10px 20px;
+      padding: 12px 25px;
       font-size: 1em;
-      border-radius: 5px;
+      border-radius: 8px;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: background 0.3s, transform 0.2s;
       display: none;
     }
+
     .submit-btn.active {
       display: inline-block;
     }
-    .timer {
-      font-size: 1.5em;
-      margin-bottom: 20px;
-      color: #ff4500;
+
+    .submit-btn:hover {
+      background: #00796b;
+      transform: translateY(-2px);
     }
+
     .result {
-      font-size: 1.2em;
-      margin-top: 20px;
+      font-size: 1.3em;
+      margin-top: 30px;
+      color: #37474f;
     }
+
+    /* Quiz Unavailable Message */
+    .quiz-unavailable {
+      font-size: 1.5em;
+      color: #37474f;
+      text-align: center;
+    }
+
+    /* Footer */
     footer {
-      background-color: #008080;
+      background-color: #004d40;
       color: white;
       text-align: center;
-      padding: 10px;
+      padding: 15px;
+      margin-top: auto;
+      font-size: 0.9em;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .quiz-card {
+        padding: 20px;
+      }
+      .quiz-title {
+        font-size: 1.8em;
+      }
+      .quiz-description {
+        font-size: 1em;
+      }
+      .timer {
+        font-size: 1.2em;
+      }
+      .options li {
+        padding: 10px;
+      }
+      .submit-btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+      }
     }
   </style>
 </head>
@@ -120,7 +197,7 @@
     const quizCard = document.getElementById('quizCard');
     const quizUnavailable = document.getElementById('quizUnavailable');
     const quizStatus = localStorage.getItem('quizStatus');
-    
+
     if (quizStatus === 'started') {
       quizCard.style.display = 'block';
       quizUnavailable.style.display = 'none';
@@ -135,19 +212,19 @@
   const loadQuestions = () => {
     const questionsContainer = document.getElementById('questionsContainer');
     const questions = JSON.parse(localStorage.getItem('questions')) || [];
-    
+
     questions.forEach((questionData, index) => {
       const questionDiv = document.createElement('div');
       questionDiv.classList.add('question');
       questionDiv.id = `question${index + 1}`;
-      
+
       const questionText = document.createElement('p');
       questionText.textContent = questionData.question;
       questionDiv.appendChild(questionText);
-      
+
       const optionsList = document.createElement('ul');
       optionsList.classList.add('options');
-      
+
       questionData.options.forEach((option, i) => {
         const optionItem = document.createElement('li');
         optionItem.textContent = option;
@@ -156,11 +233,11 @@
         optionItem.addEventListener('click', selectOption);
         optionsList.appendChild(optionItem);
       });
-      
+
       questionDiv.appendChild(optionsList);
       questionsContainer.appendChild(questionDiv);
     });
-    
+
     document.getElementById('submitBtn').classList.add('active');
   };
 
@@ -190,7 +267,7 @@
   const submitQuiz = () => {
     const questions = JSON.parse(localStorage.getItem('questions')) || [];
     let score = 0;
-    
+
     questions.forEach((questionData, index) => {
       const selectedOption = document.querySelector(`#question${index + 1} .selected`);
       if (selectedOption && selectedOption.dataset.optionIndex == questionData.correctOption) {

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transform Your Fitness Experience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #0056a6;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #0056a6;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+        }
+
+        .navbar a:hover {
+            background-color: #004494;
+            color: white;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin: 0;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section {
+            padding: 50px 0;
+            background-color: #fff;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            color: #0056a6;
+        }
+
+        .fitness-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .fitness-card {
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 30%;
+            margin: 20px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.2s;
+            padding: 20px;
+            cursor: pointer;
+        }
+
+        .fitness-card i {
+            font-size: 4em;
+            color: #0056a6;
+            margin-top: 20px;
+        }
+
+        .fitness-card h3 {
+            margin: 15px 0;
+            font-size: 1.5em;
+            color: #0056a6;
+        }
+
+        .fitness-card p {
+            padding: 0 15px 15px;
+        }
+
+        .fitness-card a {
+            display: block;
+            margin: 15px;
+            padding: 10px 20px;
+            background-color: #0056a6;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .fitness-card a:hover {
+            background-color: #004494;
+        }
+
+        .footer {
+            background-color: #0056a6;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+        }
+
+        .popup-content {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .popup-content button {
+            background-color: white;
+            color: #4CAF50;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .popup-content button:hover {
+            background-color: #45a049;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .navbar ul {
+                flex-direction: column;
+                display: none;
+                width: 100%;
+                background-color: #0056a6;
+            }
+
+            .navbar ul.active {
+                display: flex;
+            }
+
+            .navbar ul li {
+                text-align: center;
+                margin: 0;
+            }
+
+            .fitness-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .fitness-card {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Transform Your Fitness Experience</h1>
+    </header>
+
+    <nav class="navbar">
+        <span class="hamburger"><i class="fas fa-bars"></i></span>
+        <ul>
+            <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#"><i class="fas fa-book"></i> Library</a></li>
+            <li><a href="#"><i class="fas fa-laptop"></i> Labs</a></li>
+            <li><a href="#"><i class="fas fa-dumbbell"></i> Fitness</a></li>
+            <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section class="section">
+            <h2>Unlock Premium Fitness Features</h2>
+            <div class="fitness-cards">
+                <div class="fitness-card" onclick="showPopup('Advanced Equipment')">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <h3>Advanced Equipment</h3>
+                    <p>Our facility offers a wide range of cutting-edge fitness equipment designed to provide the best workout experience.</p>
+                    <a href="#">Explore Equipment</a>
+                </div>
+                <div class="fitness-card" onclick="showPopup('Variety of Classes')">
+                    <i class="fas fa-calendar-day"></i>
+                    <h3>Variety of Classes</h3>
+                    <p>Join our extensive selection of fitness classes tailored to meet all levels of experience and goals.</p>
+                    <a href="#">View Classes</a>
+                </div>
+                <div class="fitness-card" onclick="showPopup('Professional Trainers')">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Professional Trainers</h3>
+                    <p>Our certified trainers are here to guide you through your fitness journey with expert advice and support.</p>
+                    <a href="#">Meet Trainers</a>
+                </div>
+                <div class="fitness-card" onclick="showPopup('Holistic Wellness')">
+                    <i class="fas fa-spa"></i>
+                    <h3>Holistic Wellness</h3>
+                    <p>Experience comprehensive wellness programs that focus on both physical and mental health for a balanced lifestyle.</p>
+                    <a href="#">Discover Wellness</a>
+                </div>
+                <div class="fitness-card" onclick="showPopup('Online Workouts')">
+                    <i class="fas fa-desktop"></i>
+                    <h3>Online Workouts</h3>
+                    <p>Access our virtual workout sessions and stay fit from the comfort of your home with our online resources.</p>
+                    <a href="#">Join Online Workouts</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Fitness World. All rights reserved.</p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <!-- Popup -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <p id="popup-message">You can now access this feature.</p>
+            <button onclick="closePopup()">OK</button>
+        </div>
+    </div>
+
+    <script>
+        // Hamburger menu toggle
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            document.querySelector('.navbar ul').classList.toggle('active');
+        });
+
+        // Function to show popup
+        function showPopup(feature) {
+            document.getElementById('popup-message').innerText = `You can now access ${feature}.`;
+            document.getElementById('popup').style.display = 'flex';
+        }
+
+        // Function to close popup
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        // Fade-in effect for sections
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.section');
+            const options = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, options);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+
+</html>

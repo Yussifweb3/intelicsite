@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Our IT Faculty</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #2e7d32;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #2e7d32;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+        }
+
+        .navbar a:hover {
+            background-color: #1b5e20;
+            color: white;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section {
+            padding: 50px 0;
+            background-color: #fff;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            color: #2e7d32;
+        }
+
+        .it-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .it-card {
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            transition: box-shadow 0.3s;
+            width: 30%;
+            margin: 20px;
+            clip-path: polygon(0 10%, 100% 0, 100% 90%, 0% 100%);
+        }
+
+        .it-card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .it-card i {
+            font-size: 4em;
+            margin-top: 20px;
+            color: #2e7d32;
+        }
+
+        .it-card h3 {
+            margin: 15px 0;
+            font-size: 1.5em;
+            color: #2e7d32;
+        }
+
+        .it-card p {
+            padding: 0 15px 15px;
+        }
+
+        .it-card a {
+            display: block;
+            margin: 15px;
+            padding: 10px 20px;
+            background-color: #2e7d32;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .it-card a:hover {
+            background-color: #1b5e20;
+        }
+
+        .footer {
+            background-color: #2e7d32;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Empowering IT Leaders of Tomorrow</h1>
+    </header>
+
+    <nav class="navbar">
+        <a href="#"><i class="fas fa-home"></i> Home</a>
+        <a href="#"><i class="fas fa-book"></i> Library</a>
+        <a href="#"><i class="fas fa-laptop"></i> Labs</a>
+        <a href="#"><i class="fas fa-dumbbell"></i> Fitness</a>
+        <a href="#"><i class="fas fa-envelope"></i> Contact</a>
+    </nav>
+
+    <div class="container">
+        <section class="section">
+            <h2>Crafting Future Technology Experts</h2>
+            <div class="it-cards">
+                <div class="it-card">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>Networking</h3>
+                    <p>Our networking courses will guide you through the complexities of network design, implementation, and security.</p>
+                    <a href="#">Explore Networking</a>
+                </div>
+                <div class="it-card">
+                    <i class="fas fa-cloud"></i>
+                    <h3>Cloud Computing</h3>
+                    <p>Learn how to leverage cloud technology to solve business challenges and optimize IT infrastructure.</p>
+                    <a href="#">Learn About Cloud</a>
+                </div>
+                <div class="it-card">
+                    <i class="fas fa-lock"></i>
+                    <h3>Cybersecurity</h3>
+                    <p>Protect the digital world with our cybersecurity programs. Understand threats and how to mitigate them effectively.</p>
+                    <a href="#">Secure Your Future</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Our University. All rights reserved.</p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+</body>
+
+</html>

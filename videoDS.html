@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Science Tutorials</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #e8f5e9, #c8e6c9);
+        }
+        header {
+            background: #388e3c;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 4px solid #004d40;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+            max-width: 360px;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .card iframe {
+            width: 100%;
+            height: 200px;
+            border: 0;
+        }
+        .card .description {
+            padding: 15px;
+            background-color: #f5f5f5;
+        }
+        .card .description h2 {
+            margin-top: 0;
+            font-size: 1.4em;
+            color: #388e3c;
+        }
+        .card .description p {
+            font-size: 0.9em;
+            color: #333;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 1.2em;
+            color: #fff;
+            background-color: #388e3c;
+            border: none;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background-color: #004d40;
+            transform: scale(1.05);
+        }
+        footer {
+            background-color: #388e3c;
+            color: #fff;
+            text-align: center;
+            padding: 0px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            border-top: 4px solid #004d40;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Data Science Tutorials</h1>
+    </header>
+    <div class="container">
+        <div class="card">
+            <iframe src="https://www.youtube.com/embed/vM6tZTml0dM" allowfullscreen></iframe>
+            <div class="description">
+                <h2>Introduction to Data Science</h2>
+                <p>An overview of data science, its importance, and the key techniques used in the field.</p>
+            </div>
+        </div>
+        <div class="card">
+            <iframe src="https://www.youtube.com/embed/8bXkR0Zj00M" allowfullscreen></iframe>
+            <div class="description">
+                <h2>Data Visualization Techniques</h2>
+                <p>Learn how to effectively visualize data using various tools and methods.</p>
+            </div>
+        </div>
+        <div class="card">
+            <iframe src="https://www.youtube.com/embed/29I1xQF2M5I" allowfullscreen></iframe>
+            <div class="description">
+                <h2>Predictive Modeling with Python</h2>
+                <p>This tutorial covers the basics of building predictive models using Python and its libraries.</p>
+            </div>
+        </div>
+        <a href="moreDataScienceCourses.html" class="btn">Explore More Data Science Courses</a>
+    </div>
+    <footer>
+        <p>&copy; 2024 Data Science Tutorials. All rights reserved.</p>
+    </footer>
+</body>
+</html>
