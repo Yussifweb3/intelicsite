@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #0056a6;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0056a6;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            display: block;
+        }
+
+        .navbar a:hover {
+            background-color: #ffd700;
+            color: #0056a6;
+        }
+
+        .nav-links {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            padding: 10px;
+            color: white;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: white;
+            font-size: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                display: none;
+                width: 100%;
+                background-color: #0056a6;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
+
+        .carousel {
+            margin-top: 1%;
+            position: relative;
+            overflow: hidden;
+            height: 300px; /* Adjust as needed */
+            background-color: white; /* Background color for the carousel */
+        }
+
+        .carousel video {
+            margin-left: 15%;
+            margin-right: 10%;
+            width: 70%;
+            height: 120%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .carousel video.active {
+            opacity: 1;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section {
+            padding: 50px 0;
+            background-color: #fff;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 30%;
+            margin: 20px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            margin: 15px 0;
+        }
+
+        .card p {
+            padding: 0 15px 15px;
+        }
+
+        .card a {
+            display: block;
+            margin: 15px;
+            padding: 10px 20px;
+            background-color: #0056a6;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .card a:hover {
+            background-color: #ffd700;
+            color: #0056a6;
+        }
+
+        .footer {
+            background-color: #0056a6;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .form-section {
+            text-align: center;
+            padding: 20px;
+            background-color: #0056a6;
+            color: white;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .form-section form {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .form-section input[type="text"],
+        .form-section input[type="email"],
+        .form-section select,
+        .form-section textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .form-section button {
+            padding: 10px 20px;
+            background-color: #ffd700;
+            color: #0056a6;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-section button:hover {
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Admissions</h1>
+    </header>
+
+    <nav class="navbar">
+        <div class="hamburger"><i class="fas fa-bars"></i></div>
+        <ul class="nav-links">
+            <a href="uni-index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="uniabout2.html"><i class="fas fa-info-circle"></i> About Us</a>
+            <a href="uniacademics.html"><i class="fas fa-book"></i> Academics</a>
+            <a href="uniadmission2.html"><i class="fas fa-pen"></i> Admissions</a>
+            <a href="unilife.html"><i class="fas fa-graduation-cap"></i> Campus Life</a>
+            <a href="uniresearch.html"><i class="fas fa-flask"></i> Research</a>
+            <a href="uni-news-events.html"><i class="fas fa-calendar-alt"></i> News & Events</a>
+            <a href="unicontact2.html"><i class="fas fa-envelope"></i> Contact Us</a>
+        </ul>
+    </nav>
+    <div class="carousel">
+        <video src="VIDEOS/ad.mp4" alt="Carousel Video 1" class="active" autoplay muted loop></video>
+        <video src="VIDEOS/video2.mp4" alt="Carousel Video 2" autoplay muted loop></video>
+        <video src="VIDEOS/video3.mp4" alt="Carousel Video 3" autoplay muted loop></video>
+    </div>
+    
+
+    <div class="container">
+        <section class="section">
+            <h2>Admissions Overview</h2>
+            <p>Welcome to our university's admissions page. We are thrilled that you are considering joining our vibrant community. Our admissions process is designed to be as straightforward and transparent as possible, ensuring that prospective students and their families have all the information they need to make an informed decision.</p>
+        </section>
+
+        <section class="section">
+            <h2>Undergraduate Admissions</h2>
+            <div class="cards">
+                <div class="card">
+                    <img src="g.jpg" alt="Undergraduate Programs">
+                    <h3>Undergraduate Programs</h3>
+                    <p>Explore our diverse range of undergraduate programs designed to provide a strong foundation for your future career.</p>
+                    <a href="uniundergraduate.html">Learn More</a>
+                </div>
+                <div class="card">
+                    <img src="ss.jpg" alt="Scholarships">
+                    <h3>Scholarships</h3>
+                    <p>Discover the various scholarships and financial aid options available to help you achieve your academic goals.</p>
+                    <a href="unischolarship.html">Learn More</a>
+                </div>
+                <div class="card">
+                    <img src="ap.jpg" alt="Application Process">
+                    <h3>Application Process</h3>
+                    <p>Find out about our application process, key dates, and what you need to prepare for your application.</p>
+                    <a href="uniapplication.html">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Graduate Admissions</h2>
+            <div class="cards">
+                <div class="card">
+                    <img src="ga.jpg" alt="Graduate Programs">
+                    <h3>Graduate Programs</h3>
+                    <p>Pursue advanced studies and research opportunities across a wide range of graduate programs.</p>
+                    <a href="unigraduate.html">Learn More</a>
+                </div>
+                <div class="card">
+                    <img src="fa.jpg" alt="Graduate Financial Aid">
+                    <h3>Graduate Financial Aid</h3>
+                    <p>Explore funding options, assistantships, and fellowships available to graduate students.</p>
+                    <a href="unifinancial.html">Learn More</a>
+                </div>
+                <div class="card">
+                    <img src="app.jpg" alt="Graduate Application">
+                    <h3>Graduate Application</h3>
+                    <p>Learn about our graduate application process, important deadlines, and submission requirements.</p>
+                    <a href="unigapplication.html">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="form-section">
+            <h2>Contact Admissions</h2>
+            <form>
+                <input type="text" placeholder="Your Name">
+                <input type="email" placeholder="Your Email">
+                <input type="text" placeholder="Phone Number">
+                <select>
+                    <option value="undergraduate">Undergraduate Admissions</option>
+                    <option value="graduate">Graduate Admissions</option>
+                    <option value="scholarships">Scholarships</option>
+                    <option value="application">Application Process</option>
+                </select>
+                <textarea placeholder="Your Message"></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Intelic. All Rights Reserved.</p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Contact Us</a></p>
+    </footer>
+
+    <script>
+       document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        const videos = document.querySelectorAll('.carousel video');
+        let currentIndex = 0;
+
+        function showNextVideo() {
+            videos[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % videos.length;
+            videos[currentIndex].classList.add('active');
+        }
+ // Change video every 5 seconds
+
+    </script>
+</body>
+</html>

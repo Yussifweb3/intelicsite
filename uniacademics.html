@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academics</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #0056a6;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0056a6;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+        }
+
+        .navbar a:hover {
+            background-color: #ffd700;
+            color: #0056a6;
+        }
+
+        .navbar .menu {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .navbar .menu a {
+            padding: 10px;
+        }
+
+        .navbar .hamburger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .dropdown-menu {
+            display: none;
+            flex-direction: column;
+            background-color: #0056a6;
+            position: absolute;
+            top: 60px;
+            right: 10px;
+            width: 200px;
+            z-index: 1000;
+        }
+
+        .dropdown-menu a {
+            padding: 10px 20px;
+            color: white;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #ffd700;
+            color: #0056a6;
+        }
+
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            height: 300px;
+            background-color: #0056a6;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            position: absolute;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section {
+            padding: 50px 0;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(100px);
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+        }
+
+        .section.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section:nth-child(odd) {
+            background-color: #f4f4f4;
+        }
+
+        .section:nth-child(even) {
+            background-color: #e8eff1;
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #0056a6;
+        }
+
+        .programs, .departments, .courses, .faculty, .resources {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .card {
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 30%;
+            margin: 20px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            margin: 15px 0;
+            color: #0056a6;
+        }
+
+        .card p {
+            padding: 0 15px 15px;
+        }
+
+        .card a {
+            display: block;
+            margin: 15px;
+            padding: 10px 20px;
+            background-color: #0056a6;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .card a:hover {
+            background-color: #ffd700;
+            color: #0056a6;
+        }
+
+        footer {
+            background-color: #0056a6;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .navbar .menu {
+                display: none;
+            }
+
+            .navbar .hamburger {
+                display: block;
+            }
+
+            .dropdown-menu {
+                display: flex;
+            }
+
+            .programs, .departments, .courses, .faculty, .resources {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Academics</h1>
+    </header>
+
+    <div class="carousel">
+        <img src="aca.jpg" alt="Carousel 1" class="active">
+        <img src="aca1.jpg" alt="Carousel 2">
+        <img src="aca2.jpg" alt="Carousel 3">
+    </div>
+
+    <nav class="navbar">
+        <div class="hamburger" onclick="toggleDropdownMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="menu">
+            <a href="uni-index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="uniabout2.html"><i class="fas fa-info-circle"></i> About Us</a>
+            <a href="uniacademics.html"><i class="fas fa-book"></i> Academics</a>
+            <a href="uniadmission2.html"><i class="fas fa-pen"></i> Admissions</a>
+            <a href="unilife.html"><i class="fas fa-graduation-cap"></i> Campus Life</a>
+            <a href="uniresearch.html"><i class="fas fa-flask"></i> Research</a>
+            <a href="uni-news-events.html"><i class="fas fa-calendar-alt"></i> News & Events</a>
+            <a href="unicontact2.html"><i class="fas fa-envelope"></i> Contact Us</a>
+        </div>
+        <div class="dropdown-menu">
+            <a href="uni-index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="uniabout2.html"><i class="fas fa-info-circle"></i> About Us</a>
+            <a href="uniacademics.html"><i class="fas fa-book"></i> Academics</a>
+            <a href="uniadmission2.html"><i class="fas fa-pen"></i> Admissions</a>
+            <a href="unilife.html"><i class="fas fa-graduation-cap"></i> Campus Life</a>
+            <a href="uniresearch.html"><i class="fas fa-flask"></i> Research</a>
+            <a href="uni-news-events.html"><i class="fas fa-calendar-alt"></i> News & Events</a>
+            <a href="unicontact2.html"><i class="fas fa-envelope"></i> Contact Us</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="section">
+            <h2>Our Programs</h2>
+            <div class="programs">
+                <div class="card">
+                    <img src="und1.jpg" alt="Undergraduate Programs">
+                    <h3>Undergraduate Programs</h3>
+                    <p>Explore our diverse range of undergraduate programs designed to prepare you for a successful career.</p>
+                    <a href="uniundergraduate.html">Learn More</a>
+                </div>
+                <div class="card">
+                    <img src="gr11.jpg" alt="Graduate Programs">
+                    <h3>Graduate Programs</h3>
+                    <p>Advanced studies and research opportunities across various disciplines for graduate students.</p>
+                    <a href="unigraduate.html">Learn More</a>
+                </div>
+                <div class="card">
+                    <img src="proc.jpg" alt="Professional Courses">
+                    <h3>Professional Courses</h3>
+                    <p>Enhance your skills with our professional courses and certifications.</p>
+                    <a href="uniadvance.html">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Departments</h2>
+            <div class="departments">
+                <div class="card">
+                    <img src="ds.jpg" alt="Department of Computer Science">
+                    <h3>Department of Computer Science</h3>
+                    <p>Explore cutting-edge technologies in software development, artificial intelligence, and cybersecurity.</p>
+                    <a href="unideptcs.html">Learn More</a>
+                </div>
+                <div class="card">
+                    <img src="ds1.jpg" alt="Department of Information Technology">
+                    <h3>Department of Information Technology</h3>
+                    <p>Gain expertise in IT infrastructure, network management, and data analytics to meet industry demands.</p>
+                    <a href="unideptit.html">Learn More</a>
+                </div>
+                <div class="card">
+                    <img src="IT1.jpg" alt="Department of Data Science">
+                    <h3>Department of Data Science</h3>
+                    <p>Master data analysis, machine learning, and big data technologies to drive informed decision-making.</p>
+                    <a href="unideptds.html">Learn More</a>
+                </div>
+            </div>
+        </section>
+        
+
+        <section class="section">
+            <h2>Programs</h2>
+            <div class="departments">
+                <div class="card">
+                    <img src="PS.jpg" alt="Computer Science">
+                    <h3>Computer Science</h3>
+                    <p>Explore fundamental and advanced topics in software development, algorithms, and systems design.</p>
+                    <a href="">Learn More</a>
+                </div>
+                <div class="card">
+                    <img src="PSC.jpg" alt="Cyber Security">
+                    <h3>Cyber Security</h3>
+                    <p>Learn about protecting systems and networks from cyber threats, focusing on risk management and defense strategies.</p>
+                    <a href="#">Learn More</a>
+                </div>
+                <div class="card">
+                    <img src="AD.jpg" alt="AI & Data Science">
+                    <h3>AI & Data Science</h3>
+                    <p>Delve into artificial intelligence and data science, covering machine learning, data analytics, and predictive modeling.</p>
+                    <a href="#">Learn More</a>
+                </div>
+                <div class="card">
+                    <img src="PI.jpg" alt="Information Technology">
+                    <h3>Information Technology</h3>
+                    <p>Acquire skills in IT infrastructure, network management, and database systems to manage and support technology solutions.</p>
+                    <a href="#">Learn More</a>
+                </div>
+            </div>
+        </section>
+        
+
+        <section class="section">
+            <h2>Faculty</h2>
+            <div class="faculty">
+                <div class="card">
+                    <img src="f1.jpg" alt="Faculty of Computer Science">
+                    <h3>Faculty of Computer Science</h3>
+                    <p>Explore cutting-edge technologies in software development, artificial intelligence, and cybersecurity.</p>
+                    <a href="unifacultycs.html">Learn More</a>
+                </div>
+                <div class="card">
+                    <img src="f2.jpg" alt="Faculty of Information Technology">
+                    <h3>Faculty of Information Technology</h3>
+                    <p>Gain expertise in IT infrastructure, network management, and data analytics to meet industry demands.</p>
+                    <a href="unifacultyit.html">Learn More</a>
+                </div>
+                <div class="card">
+                    <img src="f3.jpg" alt="Faculty of Data Science">
+                    <h3>Faculty of Data Science</h3>
+                    <p>Master data analysis, machine learning, and big data technologies to drive informed decision-making.</p>
+                    <a href="unifacultyds.html">Learn More</a>
+                </div>
+            </div>
+        </section>
+        
+        </section>
+
+        <section class="section">
+            <h2>Resources</h2>
+            <div class="resources">
+                <div class="card">
+                    <img src="lib1.jpg" alt="Library Resources">
+                    <h3>Library Resources</h3>
+                    <p>Access a wide range of academic resources and research materials.</p>
+                    <a href="#">Learn More</a>
+                </div>
+                <div class="card">
+                    <img src="lt.jpg" alt="Online Tools">
+                    <h3>Online Tools</h3>
+                    <p>Utilize our online tools and platforms to enhance your learning experience.</p>
+                    <a href="#">Learn More</a>
+                </div>
+                <div class="card">
+                    <img src="os.jpg" alt="Academic Support">
+                    <h3>Academic Support</h3>
+                    <p>Get assistance and support for your academic and personal development.</p>
+                    <a href="#">Learn More</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Academics. All rights reserved.</p>
+        <p><a href="policy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+    </footer>
+
+    <script>
+        let isMenuOpen = false;
+
+        function toggleDropdownMenu() {
+            isMenuOpen = !isMenuOpen;
+            document.querySelector('.dropdown-menu').style.display = isMenuOpen ? 'flex' : 'none';
+        }
+
+        const sections = document.querySelectorAll('.section');
+
+        window.addEventListener('scroll', () => {
+            const triggerBottom = window.innerHeight / 5 * 4;
+
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+
+                if (sectionTop < triggerBottom) {
+                    section.classList.add('animate');
+                } else {
+                    section.classList.remove('animate');
+                }
+            });
+        });
+
+        // Initialize carousel
+        const carouselImages = document.querySelectorAll('.carousel img');
+        let currentIndex = 0;
+
+        function showNextImage() {
+            carouselImages[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % carouselImages.length;
+            carouselImages[currentIndex].classList.add('active');
+        }
+
+        setInterval(showNextImage, 3000);
+    </script>
+</body>
+</html>
